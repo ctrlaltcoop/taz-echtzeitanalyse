@@ -6,8 +6,8 @@ It is meant for internal usage by the taz website editorial team.
 ## Structure
 
 tazboard's backend is written in `django` and the frontend in `vue.js`.
-`frontend` contains the frontend of the project, while the backend app is
-located in the `tazboard` folder.
+`frontend` contains the frontend of the project
+`tazboard` contains the settings urls and other django boilerplate files.
 
 ## Project setup
 
@@ -22,6 +22,7 @@ Source the project's environment
 ```shell script
 $ poetry shell
 ```
+(or `poetry run`)
 
 Start the development server
 ```shell script
