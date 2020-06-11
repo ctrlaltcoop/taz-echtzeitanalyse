@@ -29,6 +29,11 @@ Start the development server
 $ python manage.py runserver
 ```
 
+### tmuxp
+
+If you like tmux you can use tmuxp to conveniently launch both development commands in one session using the [tmuxp.ini](tmuxp.ini).
+Just install tmuxp[^5] and type tmuxp load tmuxp.ini in this directory.
+
 ## Frontend
 
 The frontend is developed in a seperate toolchain in [frontend/static_src/](frontend/static_src) using `vue CLI`. For development instructions 
@@ -46,3 +51,4 @@ the python package.
 [^2]: https://github.com/python-poetry/poetry/issues/1856
 [^3]: https://github.com/python-poetry/poetry/issues/537
 [^4]: https://github.com/python-poetry/poetry/issues/1992
+[^5]: https://github.com/tmux-python/tmuxp
