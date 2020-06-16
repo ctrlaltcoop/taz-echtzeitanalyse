@@ -28,7 +28,7 @@
 <script lang="ts">
 import Ticker from '../components/Ticker.vue'
 import Vue from 'vue'
-import { subDays, subMinutes, subMonths } from 'date-fns'
+import { subMinutes, subMonths } from 'date-fns'
 
 enum TimeframeId {
   FIVE_MINUTES, TODAY, THREE_MONTHS
@@ -109,8 +109,8 @@ export default Vue.extend({
 
 .timeframe-select-area {
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
   .timeframe-select-container {
 
   }
