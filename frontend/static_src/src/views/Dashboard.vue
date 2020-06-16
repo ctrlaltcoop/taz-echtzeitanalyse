@@ -2,13 +2,13 @@
   <div class="dashboard">
     <div class="container">
       <div class="banner row">
-        <div class="logo-container col-6 col-lg-2">
+        <div class="col-6 col-lg-2 logo-container pl-0 pr-0" >
           <img class="img-fluid" src="../assets/logo_taz.png" alt="logo">
         </div>
-        <div class="app-heading-container col-6 col-lg-5">
+        <div class="col-6 col-lg-5 pr-0 pl-0 app-heading-container">
           <h1 class="app-heading">die echtzeitanalyse</h1>
         </div>
-        <div class="timeframe-select-area col-12 col-lg-5">
+        <div class="col-12 col-lg-5 pr-0 timeframe-select-area">
           <div class="timeframe-select-container">
             <span class="timeframe-caption">{{ currentTimeframe.start().toLocaleString([], dateFormatOptions) }} - {{ currentTimeframe.end().toLocaleString([], dateFormatOptions) }}</span>
             <select class="timeframe-select" @change="timeframeSelect" :value="currentTimeframe.id">
@@ -93,10 +93,6 @@ export default Vue.extend({
 <style lang="scss">
 @import "../style/variables";
 
-.app-heading-container {
-  padding: 0 !important;
-}
-
 .app-heading {
   margin: 1.9rem 0 0 1rem;
   font-size: 3.5em;
@@ -105,7 +101,6 @@ export default Vue.extend({
 
 .logo-container {
   display: flex;
-  padding: 0 !important;
 }
 
 .ticker-area {
@@ -116,7 +111,6 @@ export default Vue.extend({
   display: flex;
   justify-content: end;
   align-items: end;
-  padding-right: 0 !important;
   .timeframe-select-container {
 
   }

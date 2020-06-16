@@ -31,8 +31,8 @@ $ python manage.py runserver
 
 ### tmuxp
 
-If you like tmux you can use tmuxp to conveniently launch both development commands in one session using the [tmuxp.ini](tmuxp.ini).
-Just install tmuxp[^5] and type tmuxp load tmuxp.ini in this directory.
+If you like tmux you can use tmuxp to conveniently launch both development commands in one session using the [tmuxp.yml](tmuxp.yml).
+Just install tmuxp[^5] and type `tmuxp load tmuxp.yml` in this directory.
 
 ## Frontend
 
