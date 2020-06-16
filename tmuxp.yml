@@ -1,0 +1,11 @@
+session_name: tazboard-dev
+start_directory: .
+windows:
+- window_name: dev window
+  layout: tiled
+  panes:
+    - shell_command:
+        - cd frontend/static_src
+        - npm run serve
+    - shell_command:
+        - poetry run python manage.py runserver

@@ -29,6 +29,16 @@ npm run build
 ⚠️ Note that this command not only builds frontend assets and copy them into the correct `../static` folder but also moves
 the index.html to the `../templates/frontend` folder. If you use `vue build` the latter step is skipped!
 
+### Run your unit tests
+```
+npm run test:unit
+```
+
+### Run your end-to-end tests
+```
+npm run test:e2e
+```
+
 ### Lints and fixes files
 ```
 npm run lint
