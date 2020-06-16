@@ -1,0 +1,41 @@
+stages:
+  - test
+
+
+frontend:lint:
+  stage: test
+  image: node:12
+  before_script:
+    - cd frontend/static_src
+    - npm i
+  script:
+    - npm run lint
+  cache:
+    paths:
+      - frontend/static_src/node_modules/
+
+frontend:unit:
+  stage: test
+  image: node:12
+  before_script:
+    - cd frontend/static_src
+    - npm i
+  script:
+    - npm run test:unit
+  cache:
+    paths:
+      - frontend/static_src/node_modules/
+
+frontend:e2e:
+  image: node:12-stretch
+  stage: test
+  before_script:
+    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - apt update && apt install -y ./google-chrome-stable_current_amd64.deb
+    - cd frontend/static_src
+    - npm i
+  script:
+    - npm run test:e2e
+  cache:
+    paths:
+      - frontend/static_src/node_modules/

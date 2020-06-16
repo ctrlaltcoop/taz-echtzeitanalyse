@@ -26,7 +26,7 @@
   </div>
 </template>
 <script lang="ts">
-import Ticker from '../components/Ticker.vue'
+import Ticker from '@/components/Ticker.vue'
 import Vue from 'vue'
 import { subMinutes, subMonths } from 'date-fns'
 
