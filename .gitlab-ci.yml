@@ -1,6 +1,32 @@
+variables:
+  ROLLOUT_RESOURCE_TYPE: deployment
+  AUTO_DEVOPS_DEPLOY_DEBUG: 'true'
+  POSTGRES_ENABLED: 'true'
+  POSTGRES_VERSION: 10
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: notasecret
+  POSTGRES_DB: 'tazboard'
+  AUTO_DEVOPS_POSTGRES_CHANNEL: 2
+  DB_MIGRATE: "python manage.py migrate"
+
+include:
+  - template: Jobs/Build.gitlab-ci.yml
+  - template: Jobs/Deploy.gitlab-ci.yml
+
 stages:
   - test
-
+  - prepare
+  - build
+  - review
+  - staging
+  - canary
+  - deploy
+  - incremental rollout 10%
+  - incremental rollout 25%
+  - incremental rollout 50%
+  - incremental rollout 100%
+  - production
+  - cleanup
 
 frontend:lint:
   stage: test
@@ -39,3 +65,16 @@ frontend:e2e:
   cache:
     paths:
       - frontend/static_src/node_modules/
+
+app:build:
+  image: node:12
+  stage: prepare
+  before_script:
+    - cd frontend/static_src
+    - npm i
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - frontend/templates
+      - frontend/static/app
