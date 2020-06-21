@@ -57,7 +57,7 @@ frontend:e2e:
   stage: test
   before_script:
     - cd tazboard/frontend/static_src
-    - npm ci --no-optional
+    - npm ci
   script:
     - CHROMEDRIVER_BIN=`which chromedriver` GECKODRIVER_BIN=`which geckodriver` npm run test:e2e -- -e firefox,chrome
   cache:
