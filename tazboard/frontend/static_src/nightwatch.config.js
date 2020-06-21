@@ -1,30 +1,31 @@
+/* eslint-disable */
 module.exports = {
-  "test_settings": {
-    "chrome": {
-      "webdriver": {
-        "server_path": process.env.CHROMEDRIVER_BIN || require('chromedriver').path
+  test_settings: {
+    chrome: {
+      webdriver: {
+        server_path: process.env.CHROMEDRIVER_BIN || require('chromedriver').path
       },
-      "desiredCapabilities": {
-        "browserName": "chrome",
-        "chromeOptions": {
-          "args": [
-            "--headless",
-            "--no-sandbox",
-            "--disable-gpu"
+      desiredCapabilities: {
+        browserName: 'chrome',
+        chromeOptions: {
+          args: [
+            '--headless',
+            '--no-sandbox',
+            '--disable-gpu'
           ]
         }
       }
     },
-    "firefox": {
-      "webdriver": {
-        "server_path": require('geckodriver').path
+    firefox: {
+      webdriver: {
+        server_path: process.env.GECKODRIVER_BIN || require('geckodriver').path
       },
-      "desiredCapabilities": {
-        "browserName": "firefox",
-        "alwaysMatch": {
-            "moz:firefoxOptions": {
-                "args": [ "-headless" ]
-            }
+      desiredCapabilities: {
+        browserName: 'firefox',
+        alwaysMatch: {
+          'moz:firefoxOptions': {
+            args: ['-headless']
+          }
         }
       }
     }

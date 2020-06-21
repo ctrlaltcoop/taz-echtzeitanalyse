@@ -33,7 +33,7 @@ frontend:lint:
   image: node:12
   before_script:
     - cd tazboard/frontend/static_src
-    - npm install
+    - npm ci --no-optional
   script:
     - npm run lint
   cache:
@@ -45,7 +45,7 @@ frontend:unit:
   image: node:12
   before_script:
     - cd tazboard/frontend/static_src
-    - npm install
+    - npm ci --no-optional
   script:
     - npm run test:unit
   cache:
@@ -53,14 +53,13 @@ frontend:unit:
       - tazboard/frontend/static_src/node_modules/
 
 frontend:e2e:
-  image: node:12
+  image: registry.gitlab.alt.coop/ctrlaltcoop/docker-browser-testing/master:latest
   stage: test
   before_script:
-    - apt update && apt install chromium firefox-esr
     - cd tazboard/frontend/static_src
-    - npm install
+    - npm ci --no-optional
   script:
-    - npm run test:e2e -- -e firefox,chrome
+    - CHROMEDRIVER_BIN=`which chromedriver` GECKODRIVER_BIN=`which geckodriver` npm run test:e2e -- -e firefox,chrome
   cache:
     paths:
       - tazboard/frontend/static_src/node_modules/
@@ -70,7 +69,7 @@ app:build:
   stage: prepare
   before_script:
     - cd tazboard/frontend/static_src
-    - npm install
+    - npm ci --no-optional
   script:
     - npm run build
   artifacts:
