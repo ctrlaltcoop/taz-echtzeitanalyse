@@ -47,7 +47,7 @@ frontend:unit:
     - cd tazboard/frontend/static_src
     - npm ci --no-optional
   script:
-    - npm run test:unit
+    - npm run test:unit -- --collectCoverage
   cache:
     paths:
       - tazboard/frontend/static_src/node_modules/
