@@ -2,11 +2,11 @@ variables:
   ROLLOUT_RESOURCE_TYPE: deployment
   AUTO_DEVOPS_DEPLOY_DEBUG: 'true'
   POSTGRES_ENABLED: 'true'
-  POSTGRES_VERSION: 10
+  POSTGRES_VERSION: '10'
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: notasecret
   POSTGRES_DB: 'tazboard'
-  AUTO_DEVOPS_POSTGRES_CHANNEL: 2
+  AUTO_DEVOPS_POSTGRES_CHANNEL: '2'
   DB_MIGRATE: "python manage.py migrate"
 
 include:
@@ -53,15 +53,14 @@ frontend:unit:
       - tazboard/frontend/static_src/node_modules/
 
 frontend:e2e:
-  image: node:12-stretch
+  image: node:12
   stage: test
   before_script:
-    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - apt update && apt install -y ./google-chrome-stable_current_amd64.deb
+    - apt update && apt install chromium firefox-esr
     - cd tazboard/frontend/static_src
     - npm install
   script:
-    - npm run test:e2e
+    - npm run test:e2e -- -e firefox,chrome
   cache:
     paths:
       - tazboard/frontend/static_src/node_modules/
