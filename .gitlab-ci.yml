@@ -51,6 +51,9 @@ frontend:unit:
   cache:
     paths:
       - tazboard/frontend/static_src/node_modules/
+  artifacts:
+    reports:
+      cobertura: tazboard/frontend/static_src/coverage/cobertura-coverage.xml
 
 frontend:e2e:
   image: registry.gitlab.alt.coop/ctrlaltcoop/docker-browser-testing/master:latest
