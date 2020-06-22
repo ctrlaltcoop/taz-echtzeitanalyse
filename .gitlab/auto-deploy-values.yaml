@@ -1,0 +1,9 @@
+deploymentApiVersion: apps/v1
+livenessProbe: 
+  path: /app
+readinessProbe: 
+  path: /app
+service: 
+  externalPort: 8000
+  internalPort: 8000
+
