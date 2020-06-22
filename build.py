@@ -2,13 +2,13 @@ import subprocess
 import os
 
 BASE_PATH = os.path.dirname(os.path.realpath(__file__))
-
+PROJECT_PATH = os.path.join(BASE_PATH, 'tazboard')
 
 def build():
-    os.chdir(os.path.join(BASE_PATH, 'frontend', 'static_src'))
+    os.chdir(os.path.join(PROJECT_PATH, 'frontend', 'static_src'))
     subprocess.run(["npm", "install"])
     subprocess.run(["npm", "run", "build"])
-    os.chdir(BASE_PATH)
+    os.chdir(PROJECT_PATH)
     subprocess.run(["poetry", "build"])
 
 

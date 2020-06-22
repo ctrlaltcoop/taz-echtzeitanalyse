@@ -2,11 +2,11 @@ variables:
   ROLLOUT_RESOURCE_TYPE: deployment
   AUTO_DEVOPS_DEPLOY_DEBUG: 'true'
   POSTGRES_ENABLED: 'true'
-  POSTGRES_VERSION: 10
+  POSTGRES_VERSION: '10'
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: notasecret
   POSTGRES_DB: 'tazboard'
-  AUTO_DEVOPS_POSTGRES_CHANNEL: 2
+  AUTO_DEVOPS_POSTGRES_CHANNEL: '2'
   DB_MIGRATE: "python manage.py migrate"
 
 include:
@@ -32,49 +32,50 @@ frontend:lint:
   stage: test
   image: node:12
   before_script:
-    - cd frontend/static_src
-    - npm install
+    - cd tazboard/frontend/static_src
+    - npm ci --no-optional
   script:
     - npm run lint
   cache:
     paths:
-      - frontend/static_src/node_modules/
+      - tazboard/frontend/static_src/node_modules/
 
 frontend:unit:
   stage: test
   image: node:12
   before_script:
-    - cd frontend/static_src
-    - npm install
+    - cd tazboard/frontend/static_src
+    - npm ci --no-optional
   script:
-    - npm run test:unit
+    - npm run test:unit -- --collectCoverage
   cache:
     paths:
-      - frontend/static_src/node_modules/
+      - tazboard/frontend/static_src/node_modules/
+  artifacts:
+    reports:
+      cobertura: tazboard/frontend/static_src/coverage/cobertura-coverage.xml
 
 frontend:e2e:
-  image: node:12-stretch
+  image: registry.gitlab.alt.coop/ctrlaltcoop/docker-browser-testing/master:latest
   stage: test
   before_script:
-    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - apt update && apt install -y ./google-chrome-stable_current_amd64.deb
-    - cd frontend/static_src
-    - npm install
+    - cd tazboard/frontend/static_src
+    - npm ci
   script:
-    - npm run test:e2e
+    - CHROMEDRIVER_BIN=`which chromedriver` GECKODRIVER_BIN=`which geckodriver` npm run test:e2e -- -e firefox,chrome
   cache:
     paths:
-      - frontend/static_src/node_modules/
+      - tazboard/frontend/static_src/node_modules/
 
 app:build:
   image: node:12
   stage: prepare
   before_script:
-    - cd frontend/static_src
-    - npm install
+    - cd tazboard/frontend/static_src
+    - npm ci --no-optional
   script:
     - npm run build
   artifacts:
     paths:
-      - frontend/templates
-      - frontend/static/app
+      - tazboard/frontend/templates
+      - tazboard/frontend/static/app

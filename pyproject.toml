@@ -5,10 +5,9 @@ description = "An internal application for monitoring and management of the taz 
 authors = ["Lyudmila Vaseva <lyudmila@ctrl.alt.coop>",
            "Jonatan Zint <jonatan@ctrl.alt.coop>" ]
 license = "MIT"
-include = [
-    "frontend/*",
-    "frontend/static/**/*",
-    "frontend/migrations/*"
+
+exclude = [
+    "tazboard/frontend/static_src/**/"
 ]
 
 [tool.poetry.dependencies]
