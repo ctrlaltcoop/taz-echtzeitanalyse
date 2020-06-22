@@ -33,7 +33,7 @@ frontend:lint:
   image: node:12
   before_script:
     - cd frontend/static_src
-    - npm i
+    - npm install
   script:
     - npm run lint
   cache:
@@ -45,7 +45,7 @@ frontend:unit:
   image: node:12
   before_script:
     - cd frontend/static_src
-    - npm i
+    - npm install
   script:
     - npm run test:unit
   cache:
@@ -59,7 +59,7 @@ frontend:e2e:
     - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - apt update && apt install -y ./google-chrome-stable_current_amd64.deb
     - cd frontend/static_src
-    - npm i
+    - npm install
   script:
     - npm run test:e2e
   cache:
@@ -71,7 +71,7 @@ app:build:
   stage: prepare
   before_script:
     - cd frontend/static_src
-    - npm i
+    - npm install
   script:
     - npm run build
   artifacts:
