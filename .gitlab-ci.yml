@@ -7,7 +7,7 @@ variables:
   POSTGRES_PASSWORD: notasecret
   POSTGRES_DB: 'tazboard'
   AUTO_DEVOPS_POSTGRES_CHANNEL: '2'
-  DB_MIGRATE: "python manage.py migrate"
+  DB_MIGRATE: "django-admin migrate"
 
 include:
   - template: Jobs/Build.gitlab-ci.yml
