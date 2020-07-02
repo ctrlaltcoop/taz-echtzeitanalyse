@@ -1,6 +1,7 @@
 import dj_database_url
-from .base import *
-import os
+
+from .base import *  # noqa: F403, F401
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

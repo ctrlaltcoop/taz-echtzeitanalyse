@@ -2,90 +2,122 @@
   <div class="dashboard">
     <div class="container">
       <div class="banner row">
-        <div class="col-6 col-lg-2 logo-container pl-0 pr-0" >
+        <div class="col-6 col-lg-2 logo-container pr-0 pl-0">
           <img class="img-fluid" src="../assets/logo_taz.png" alt="logo">
         </div>
-        <div class="col-6 col-lg-5 pr-0 pl-0 app-heading-container">
+        <div class="col-6 col-lg-5 pr-0 app-heading-container">
           <h1 class="app-heading">die echtzeitanalyse</h1>
         </div>
         <div class="col-12 col-lg-5 pr-0 timeframe-select-area">
           <div class="timeframe-select-container">
-            <span class="timeframe-caption">{{ currentTimeframe.start().toLocaleString([], dateFormatOptions) }} - {{ currentTimeframe.end().toLocaleString([], dateFormatOptions) }}</span>
-            <select class="timeframe-select" @change="timeframeSelect" :value="currentTimeframe.id">
-              <option v-for="timeframe in timeframeSelection" :value="timeframe.id" :key="timeframe.id">{{ timeframe.label }}</option>
+            <span class="timeframe-caption">{{
+                currentTimeframe.start().toLocaleString([], dateFormatOptions)
+              }} - {{ currentTimeframe.end().toLocaleString([], dateFormatOptions) }}</span>
+            <select class="timeframe-select" @change="timeframeSelect($event.target.value)"
+                    :value="currentTimeframe.minDate">
+              <option v-for="timeframe in timeframeSelection" :value="timeframe.minDate" :key="timeframe.minDate">
+                {{ timeframe.label }}
+              </option>
             </select>
           </div>
         </div>
       </div>
-
-      <div class="ticker-area row">
-        <Ticker/>
-      </div>
+      <Statistics/>
       <router-view/>
     </div>
   </div>
 </template>
 <script lang="ts">
-import Ticker from '@/components/Ticker.vue'
 import Vue from 'vue'
 import { subMinutes, subMonths } from 'date-fns'
-
-enum TimeframeId {
-  FIVE_MINUTES, TODAY, THREE_MONTHS
-}
+import Statistics from '@/components/Statistics.vue'
+import { ActionTypes } from '@/store/dataset/types'
+import store from '@/store'
 
 interface Timeframe {
-  id: TimeframeId;
   label: string;
   start: () => Date;
   end: () => Date;
+  minDate: string;
+}
+
+async function updateTimeframeHistogram (minDate: string) {
+  await store.dispatch(ActionTypes.SET_TIMEFRAME, {
+    min: minDate,
+    max: 'now'
+  })
 }
 
 export default Vue.extend({
   name: 'Dashboard',
   data () {
     return {
-      dateFormatOptions: { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }
+      dateFormatOptions: {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }
     }
   },
   computed: {
     timeframeSelection (): Array<Timeframe> {
       return [{
-        id: TimeframeId.FIVE_MINUTES,
-        label: '5 minuten',
+        label: '10 minuten',
         start: () => subMinutes(new Date(), 5),
-        end: () => new Date()
+        end: () => new Date(),
+        minDate: 'now-10m'
       }, {
-        id: TimeframeId.TODAY,
         label: 'Heute',
         start: () => new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()),
-        end: () => new Date()
+        end: () => new Date(),
+        minDate: 'now-24h'
       }, {
-        id: TimeframeId.THREE_MONTHS,
         label: '3 Monate',
         start: () => subMonths(new Date(), 3),
-        end: () => new Date()
+        end: () => new Date(),
+        minDate: 'now-3M'
       }]
     },
     currentTimeframe (): Timeframe {
-      const currentId = parseInt(this.$route.query.timeframe as string) || TimeframeId.FIVE_MINUTES
-      return this.timeframeSelection.find(({ id }) => id === currentId as TimeframeId) as Timeframe
+      const currentQuery = this.$route.query.minDate
+      const currentTimeframe = this.timeframeSelection.find(({ minDate }) => minDate === currentQuery)
+      if (!currentTimeframe) {
+        this.timeframeSelect(this.timeframeSelection[0].minDate)
+        return this.timeframeSelection[0]
+      } else {
+        return currentTimeframe
+      }
     }
   },
   components: {
-    Ticker
+    Statistics
   },
   methods: {
-    timeframeSelect (event: Event) {
-      const selectedTimeframeId = parseInt((event.target as HTMLInputElement)?.value) as TimeframeId
+    timeframeSelect (minDate: string) {
+      if (minDate === this.$route.query.minDate) {
+        return
+      }
       this.$router.push({
         path: this.$route.path,
         params: this.$route.params,
         query: {
           ...this.$route.query,
-          timeframe: selectedTimeframeId.toString()
+          minDate: minDate
         }
       })
+    }
+  },
+  watch: {
+    '$route.query': {
+      handler: (query) => {
+        if (query.minDate) {
+          updateTimeframeHistogram(query.minDate as string)
+        }
+      },
+      immediate: true,
+      deep: true
     }
   }
 })
@@ -103,14 +135,11 @@ export default Vue.extend({
   display: flex;
 }
 
-.ticker-area {
-  background: $gray-200;
-}
-
 .timeframe-select-area {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+
   .timeframe-select-container {
 
   }
@@ -118,9 +147,9 @@ export default Vue.extend({
   .timeframe-select {
     /* reset */
     border: none;
-    -moz-appearance:none;
-    -webkit-appearance:none;
-    appearance:none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
     background-color: transparent;
 
     margin-left: 0.4rem;

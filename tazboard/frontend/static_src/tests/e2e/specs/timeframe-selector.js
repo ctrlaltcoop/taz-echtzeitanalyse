@@ -14,9 +14,9 @@ module.exports = {
     const app = dashboard.section.app
     dashboard.waitForElementVisible('@appContainer')
     app.click('@timeframeSelect', () => {
-      app.click("option[value='1']")
+      app.click("option[value='now-10m']")
     })
-    browser.assert.urlContains('timeframe=1')
+    browser.assert.urlContains('minDate=now-10m')
     browser.end()
   }
 }

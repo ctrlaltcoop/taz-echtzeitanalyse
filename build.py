@@ -4,6 +4,7 @@ import os
 BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 PROJECT_PATH = os.path.join(BASE_PATH, 'tazboard')
 
+
 def build():
     os.chdir(os.path.join(PROJECT_PATH, 'frontend', 'static_src'))
     subprocess.run(["npm", "install"])
