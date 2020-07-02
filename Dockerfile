@@ -1,15 +1,25 @@
-FROM python:3
+FROM python:3-alpine
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /app
-RUN pip install poetry gunicorn
-COPY pyproject.toml /app/
-COPY poetry.lock /app/
-RUN poetry export -f requirements.txt -o requirements.txt
-RUN pip install -r requirements.txt
-COPY tazboard/ /app/
+WORKDIR /tmp
+COPY dist/*.whl /tmp/
+RUN apk add --no-cache \
+        libressl-dev \
+        postgresql-dev \
+        gcc \
+	libpq \
+        python3-dev \
+        musl-dev \
+        libffi-dev && \
+    pip install --no-cache-dir gunicorn *.whl  && \
+    apk del \
+        libressl-dev \
+        musl-dev \
+        libffi-dev \
+        postgresql-dev \
+        gcc
 
-ENV DJANGO_SETTINGS_MODULE core.settings.docker
 
-RUN python manage.py collectstatic --noinput
-CMD gunicorn core.wsgi:application --bind 0.0.0.0:8000
+ENV DJANGO_SETTINGS_MODULE tazboard.core.settings.docker
+
+CMD gunicorn tazboard.core.wsgi:application --bind 0.0.0.0:8000

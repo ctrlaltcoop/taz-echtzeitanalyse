@@ -7,7 +7,8 @@ variables:
   POSTGRES_PASSWORD: notasecret
   POSTGRES_DB: 'tazboard'
   AUTO_DEVOPS_POSTGRES_CHANNEL: '2'
-  DB_MIGRATE: "python manage.py migrate"
+  DB_MIGRATE: "django-admin migrate"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 include:
   - template: Jobs/Build.gitlab-ci.yml
@@ -15,7 +16,8 @@ include:
 
 stages:
   - test
-  - prepare
+  - assets
+  - wheel
   - build
   - review
   - staging
@@ -67,15 +69,60 @@ frontend:e2e:
     paths:
       - tazboard/frontend/static_src/node_modules/
 
-app:build:
+backend:lint:
+  image: python:3
+  stage: test
+  before_script:
+    - pip install poetry
+    - poetry install
+  script:
+    - poetry run flake8
+  cache:
+    paths:
+      - .venv
+
+
+backend:test:
+  image: python:3
+  stage: test
+  before_script:
+    - pip install poetry
+    - poetry install
+  script:
+    - poetry run coverage run --source 'tazboard' tazboard/manage.py test
+    - poetry run coverage xml
+  cache:
+    paths:
+      - .venv
+  artifacts:
+    reports:
+      cobertura: coverage.xml
+
+
+frontend:build:
   image: node:12
-  stage: prepare
+  stage: assets
   before_script:
     - cd tazboard/frontend/static_src
     - npm ci --no-optional
   script:
-    - npm run build
+    - VUE_APP_MOCK_ENABLED=true npm run build
   artifacts:
     paths:
       - tazboard/frontend/templates
       - tazboard/frontend/static/app
+
+backend:build:
+  image: python:3
+  stage: wheel
+  before_script:
+    - pip install poetry
+    - poetry install
+  script:
+    - poetry build
+  cache:
+    paths:
+      - .venv
+  artifacts:
+    paths:
+      - dist/
