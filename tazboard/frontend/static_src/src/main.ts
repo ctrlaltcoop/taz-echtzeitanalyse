@@ -7,9 +7,6 @@ import 'chartjs-adapter-date-fns'
 
 import '@/style/main.scss'
 
-if (process.env.VUE_APP_MOCK_ENABLED) {
-  require('../tests/mocks/install')
-}
 
 new Vue({
   store,

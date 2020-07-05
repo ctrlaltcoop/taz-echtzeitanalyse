@@ -1,8 +1,14 @@
 import logging
+import traceback
+
 from django.conf import settings
-from elasticsearch import Elasticsearch, RequestsHttpConnection
+from elasticsearch import Elasticsearch, RequestsHttpConnection, RequestError, ConnectionError
 
 # Get an instance of a logger
+from rest_framework.utils import json
+
+from tazboard.api.errors import BadElasticQueryException, ElasticUnavailableException
+
 logger = logging.getLogger(__name__)
 
 
@@ -12,3 +18,21 @@ es = Elasticsearch(
     verify_certs=settings.TAZBOARD_ELASTIC_VERIFY_CERT,
     connection_class=RequestsHttpConnection
 )
+
+
+def search_or_raise_api_exception(query, local_logger=logger):
+    try:
+        return es.search(body=query)
+    except RequestError as e:
+        local_logger.error(
+            'Bad request sent to elastic {}\n'
+            'Dumping error info: {}\n'
+            'Dumping executed query: {}\n'.format(
+                e.error,
+                json.dumps(e.info, indent=4),
+                query
+            ))
+        raise BadElasticQueryException()
+    except ConnectionError:
+        local_logger.error('Elasticsearch server not reachable', exc_info=True)
+        raise ElasticUnavailableException()

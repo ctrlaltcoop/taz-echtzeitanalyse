@@ -1,0 +1,89 @@
+{
+    "took": 72,
+    "timed_out": false,
+    "_shards": {
+        "total": 134,
+        "successful": 134,
+        "skipped": 118,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 10000,
+            "relation": "gte"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "4": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "missing",
+                    "doc_count": 2359247,
+                    "2": {
+                        "value": 590619
+                    }
+                },
+                {
+                    "key": "self",
+                    "doc_count": 1052506,
+                    "2": {
+                        "value": 385721
+                    }
+                },
+                {
+                    "key": "readlater",
+                    "doc_count": 862638,
+                    "2": {
+                        "value": 718824
+                    }
+                },
+                {
+                    "key": "searchengine",
+                    "doc_count": 631950,
+                    "2": {
+                        "value": 411646
+                    }
+                },
+                {
+                    "key": "social",
+                    "doc_count": 274802,
+                    "2": {
+                        "value": 215077
+                    }
+                },
+                {
+                    "key": "mobileapp",
+                    "doc_count": 163887,
+                    "2": {
+                        "value": 155432
+                    }
+                },
+                {
+                    "key": "undefined",
+                    "doc_count": 70554,
+                    "2": {
+                        "value": 53729
+                    }
+                },
+                {
+                    "key": "newsaggregator",
+                    "doc_count": 10077,
+                    "2": {
+                        "value": 8252
+                    }
+                },
+                {
+                    "key": "archiv",
+                    "doc_count": 6868,
+                    "2": {
+                        "value": 6046
+                    }
+                }
+            ]
+        }
+    }
+}

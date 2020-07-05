@@ -1,0 +1,89 @@
+{
+    "took": 9,
+    "timed_out": false,
+    "_shards": {
+        "total": 134,
+        "successful": 134,
+        "skipped": 132,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 5602,
+            "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "4": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "missing",
+                    "doc_count": 2000,
+                    "2": {
+                        "value": 1205
+                    }
+                },
+                {
+                    "key": "self",
+                    "doc_count": 1236,
+                    "2": {
+                        "value": 667
+                    }
+                },
+                {
+                    "key": "readlater",
+                    "doc_count": 875,
+                    "2": {
+                        "value": 847
+                    }
+                },
+                {
+                    "key": "searchengine",
+                    "doc_count": 754,
+                    "2": {
+                        "value": 601
+                    }
+                },
+                {
+                    "key": "social",
+                    "doc_count": 380,
+                    "2": {
+                        "value": 353
+                    }
+                },
+                {
+                    "key": "mobileapp",
+                    "doc_count": 265,
+                    "2": {
+                        "value": 255
+                    }
+                },
+                {
+                    "key": "undefined",
+                    "doc_count": 74,
+                    "2": {
+                        "value": 72
+                    }
+                },
+                {
+                    "key": "archiv",
+                    "doc_count": 14,
+                    "2": {
+                        "value": 14
+                    }
+                },
+                {
+                    "key": "newsaggregator",
+                    "doc_count": 4,
+                    "2": {
+                        "value": 4
+                    }
+                }
+            ]
+        }
+    }
+}

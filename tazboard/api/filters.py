@@ -14,3 +14,9 @@ class ReferrerFilterSet(FilterSet):
     min = filters.CharFilter(default='now-24h')
     max = filters.CharFilter(default='now')
     msid = filters.NumberFilter(required=False)
+
+
+class ToplistFilterSet(FilterSet):
+    min = filters.CharFilter(default='now-24h')
+    max = filters.CharFilter(default='now')
+    limit = filters.NumberFilter(required=False, default=10)

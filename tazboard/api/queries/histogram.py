@@ -1,5 +1,3 @@
-import json
-
 from tazboard.api.queries.common import maybe_add_msid_filter
 from tazboard.api.queries.constants import INTERVAL_10MINUTES, KEY_FINGERPRINT_AGGREGATION, KEY_TIMESTAMP_AGGREGATION
 
@@ -65,4 +63,4 @@ def get_histogram_query(min_date, max_date='now', msid=None, interval=INTERVAL_1
         }
     }
     query = maybe_add_msid_filter(msid, query)
-    return json.dumps(query)
+    return query

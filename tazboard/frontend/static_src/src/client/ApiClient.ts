@@ -1,6 +1,7 @@
 import { HistogramDto } from '@/dto/HistogramDto'
 import { QueryParams, queryString } from '@/utils/urls'
 import { ReferrerDto } from '@/dto/ReferrerDto'
+import { ToplistDto } from '@/dto/ToplistDto'
 
 export class HttpError extends Error {
   constructor (public response: Response) {
@@ -33,6 +34,14 @@ export class ApiClient {
       msgId,
       min: minDate,
       max: maxDate
+    })
+  }
+
+  async toplist (minDate: string, maxDate: string, limit = 10): Promise<ToplistDto> {
+    return await this.request<ToplistDto>('toplist', 'GET', {
+      min: minDate,
+      max: maxDate,
+      limit: limit
     })
   }
 

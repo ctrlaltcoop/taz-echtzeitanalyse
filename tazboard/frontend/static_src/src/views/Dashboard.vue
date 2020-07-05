@@ -29,7 +29,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { subMinutes, subMonths } from 'date-fns'
+import { subDays, subMinutes, subMonths } from 'date-fns'
 import Statistics from '@/components/Statistics.vue'
 import { ActionTypes } from '@/store/dataset/types'
 import store from '@/store'
@@ -70,14 +70,15 @@ export default Vue.extend({
         minDate: 'now-10m'
       }, {
         label: 'Heute',
-        start: () => new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()),
+        start: () => subDays(new Date(), 1
+        ),
         end: () => new Date(),
         minDate: 'now-24h'
       }, {
-        label: '3 Monate',
-        start: () => subMonths(new Date(), 3),
+        label: '1 Monat',
+        start: () => subMonths(new Date(), 1),
         end: () => new Date(),
-        minDate: 'now-3M'
+        minDate: 'now-1M'
       }]
     },
     currentTimeframe (): Timeframe {

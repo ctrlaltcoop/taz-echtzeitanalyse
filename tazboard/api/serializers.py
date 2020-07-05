@@ -19,3 +19,12 @@ class ReferrerDataSerializer(serializers.Serializer):
 class ReferrerSerializer(serializers.Serializer):
     total = serializers.IntegerField()
     data = ReferrerDataSerializer(many=True)
+
+
+class ToplistDataSerializer(serializers.Serializer):
+    name = serializers.CharField()
+    value = serializers.IntegerField()
+
+
+class ToplistSerializer(serializers.Serializer):
+    data = ToplistDataSerializer(many=True)
