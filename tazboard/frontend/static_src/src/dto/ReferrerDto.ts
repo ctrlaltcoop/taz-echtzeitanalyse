@@ -1,6 +1,7 @@
 import { ChartData } from 'chart.js'
 
 export class ReferrerData {
+  referrerclass!: string
   referrertag!: string
   hits!: number
   hits_previous!: number
@@ -15,14 +16,9 @@ export class ReferrerDto {
 
   static toChartdata (graph: ReferrerDto): ChartData {
     return {
-      labels: graph.data.map((item) => new Date(item.referrertag).toLocaleTimeString(
-        [], {
-          hour: '2-digit',
-          minute: '2-digit'
-        }
-      )),
+      labels: graph.data.map((item) => item.referrerclass),
       datasets: [{
-        label: 'Number of Clicks',
+        label: 'Referrers',
         data: graph.data.map((item) => item.hits)
       }]
     }

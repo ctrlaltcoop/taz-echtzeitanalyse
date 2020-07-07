@@ -12,6 +12,7 @@ class HistogramSerializer(serializers.Serializer):
 
 
 class ReferrerDataSerializer(serializers.Serializer):
+    referrerclass = serializers.CharField()
     referrertag = serializers.CharField()
     hits = serializers.IntegerField()
     hits_previous = serializers.IntegerField()

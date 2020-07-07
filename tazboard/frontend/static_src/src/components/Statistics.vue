@@ -10,18 +10,23 @@
         </div>
       </div>
     </div>
+    <div class="col-4 pt-5 pb-5 statistics-devs">
+      <ReferrerDevices class="card-shadow" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Ticker from '@/components/Ticker.vue'
 import ClickCounter from '@/components/ClickCounter.vue'
+import ReferrerDevices from '@/components/ReferrerDevices.vue'
 
 export default {
   name: 'Statistics',
   components: {
     ClickCounter,
-    Ticker
+    Ticker,
+    ReferrerDevices
   }
 }
 </script>
