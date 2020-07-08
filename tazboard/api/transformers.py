@@ -3,7 +3,7 @@ from functools import reduce
 from tazboard.api.queries.common import get_dict_path_safe
 from tazboard.api.queries.constants import KEY_TIMESTAMP_AGGREGATION, KEY_FINGERPRINT_AGGREGATION, \
     KEY_REFERRER_AGGREGATION, KEY_TOPLIST_AGGREGTAION, KEY_RANGES_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
-    KEY_TREND_AGGREGATION, KEY_EXTRA_FIELDS_AGGREGATION
+    KEY_TREND_AGGREGATION, KEY_EXTRA_FIELDS_AGGREGATION, KEY_DEVICES_AGGREGATION
 
 
 def _transform_ranges(buckets):
@@ -81,5 +81,20 @@ def elastic_toplist_response_to_toplist(es_response):
     return {
         'total': total,
         'total_previous': total_previous,
+        'data': data
+    }
+
+
+def elastic_devices_response_to_devices_graph(es_response):
+    data = [
+        {
+            'deviceclass': bucket['key'],
+            'value': bucket[KEY_FINGERPRINT_AGGREGATION]['value']
+        }
+        for bucket in es_response['aggregations'][KEY_DEVICES_AGGREGATION]['buckets']
+    ]
+    total = reduce(lambda acc, x: acc + x['value'], data, 0)
+    return {
+        'total': total,
         'data': data
     }

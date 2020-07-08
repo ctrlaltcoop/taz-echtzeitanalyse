@@ -3,14 +3,12 @@
     <div class="col-4 pt-5 pb-5  statistics-ticker">
       <Ticker class="card-shadow" />
     </div>
-    <div class="col-8 pt-5 pb-5 statistics-stats">
-      <div class="row h-100">
+    <div class="col-4 pt-5 pb-5 statistics-stats">
         <div class="col-6 p-0 click-counter-area">
           <ClickCounter class="card-shadow" />
         </div>
-      </div>
     </div>
-    <div class="col-4 pt-5 pb-5 statistics-devs">
+    <div class="col-4 pt-5 pb-5 statistics-referrer">
       <ReferrerDevices class="card-shadow" />
     </div>
   </div>
@@ -42,9 +40,18 @@ export default {
   display: flex;
 }
 
+.statistics-referrer {
+  height: 300px;
+  display: flex;
+}
+
+.statistics-stats {
+  height: 300px;
+  display: flex;
+}
+
 .click-counter-area {
   display: flex;
-  flex-direction: row;
 }
 
 </style>

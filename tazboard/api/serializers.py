@@ -26,6 +26,16 @@ class ReferrerSerializer(serializers.Serializer):
     data = ReferrerDataSerializer(many=True)
 
 
+class DevicesDataSerializer(serializers.Serializer):
+    deviceclass = serializers.CharField()
+    value = serializers.IntegerField()
+
+
+class DevicesSerializer(serializers.Serializer):
+    total = serializers.IntegerField()
+    data = DevicesDataSerializer(many=True)
+
+
 class ToplistDataSerializer(serializers.Serializer):
     headline = serializers.CharField()
     kicker = serializers.CharField(required=False, allow_null=True)

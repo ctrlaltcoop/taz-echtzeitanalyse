@@ -10,16 +10,19 @@ from rest_framework.response import Response
 
 from .elastic_client import search_or_raise_api_exception
 from .errors import BadElasticResponseException
+from .queries.histogram import get_histogram_query
 from .queries.constants import INTERVAL_10MINUTES
 from .queries.referrer import get_referrer_query
+from .queries.devices import get_devices_query
 from .queries.toplist import get_toplist_query
-from .query_params import HistogramQuerySerializer, ReferrerQuerySerializer, ToplistQuerySerializer
+from .query_params import HistogramQuerySerializer, ReferrerQuerySerializer, ToplistQuerySerializer, \
+    DevicesQuerySerializer
 from .schema import AutoSchemaWithQuery
 from .tests.common import activate_global_elastic_mocks
 from .transformers import elastic_histogram_response_to_histogram_graph, \
-    elastic_toplist_response_to_toplist, elastic_referrer_response_to_referrer_data
-from .queries.histogram import get_histogram_query
-from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer
+    elastic_toplist_response_to_toplist, elastic_referrer_response_to_referrer_data, \
+    elastic_devices_response_to_devices_graph
+from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer, DevicesSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -108,3 +111,23 @@ class ToplistView(APIView):
             logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
             raise BadElasticResponseException()
         return Response(serializer.data)
+
+
+class DevicesView(GenericAPIView):
+    serializer_class = DevicesSerializer
+    query_serializer = DevicesQuerySerializer
+
+    def get(self, request, *args, **kwargs):
+        min_date = request.query_params.get('min_date', timezone.now() - timedelta(days=1))
+        max_date = request.query_params.get('max_date', timezone.now())
+        msid = request.query_params.get('msid', None)
+        query = get_devices_query(min_date, max_date, msid=msid)
+        response = search_or_raise_api_exception(query)
+        serializer = self.serializer_class(
+            data=elastic_devices_response_to_devices_graph(response)
+        )
+        if not serializer.is_valid():
+            logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
+            raise BadElasticResponseException()
+        return Response(serializer.data)
+

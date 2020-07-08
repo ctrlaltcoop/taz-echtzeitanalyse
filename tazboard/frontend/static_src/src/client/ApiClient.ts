@@ -3,6 +3,7 @@ import { HistogramDto } from '@/dto/HistogramDto'
 import { QueryParams, queryString } from '@/utils/urls'
 import { ReferrerDto } from '@/dto/ReferrerDto'
 import { ToplistDto } from '@/dto/ToplistDto'
+import { DevicesDto } from '@/dto/DevicesDto'
 
 export class HttpError extends Error {
   constructor (public response: Response) {
@@ -43,6 +44,14 @@ export class ApiClient {
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString(),
       limit: limit
+    })
+  }
+
+  async devices (minDate: string, maxDate: string, msgId: number | null = null): Promise<DevicesDto> {
+    return await this.request<DevicesDto>('devices', 'GET', {
+      msgId,
+      min: minDate,
+      max: maxDate
     })
   }
 
