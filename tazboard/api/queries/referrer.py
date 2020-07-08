@@ -1,29 +1,15 @@
 from django.utils import timezone
 
-from tazboard.api.queries.common import maybe_add_msid_filter
-from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_REFERRER_AGGREGATION
+from tazboard.api.queries.common import maybe_add_msid_filter, REFERRER_AGGREGATION_WITH_RANGES, \
+    QUERY_FILTER_EXCLUDE_BOTS_IN_INTERVAL
+from tazboard.api.queries.constants import KEY_REFERRER_AGGREGATION
 
 
 def get_referrer_query(min_date, max_date=timezone.now(), msid=None):
     min_date_previous_interval = min_date - (max_date - min_date)
     query = {
         "aggs": {
-            KEY_REFERRER_AGGREGATION: {
-                "terms": {
-                    "field": "referrerclass",
-                    "order": {
-                        "_count": "desc"
-                    },
-                    "size": 10
-                },
-                "aggs": {
-                    KEY_FINGERPRINT_AGGREGATION: {
-                        "cardinality": {
-                            "field": "fingerprint"
-                        }
-                    }
-                }
-            }
+            KEY_REFERRER_AGGREGATION: REFERRER_AGGREGATION_WITH_RANGES(min_date_previous_interval, min_date, max_date)
         },
         "size": 0,
         "docvalue_fields": [
@@ -32,39 +18,7 @@ def get_referrer_query(min_date, max_date=timezone.now(), msid=None):
                 "format": "date_time"
             }
         ],
-        "query": {
-            "bool": {
-                "filter": [
-                    {
-                        "range": {
-                            "@timestamp": {
-                                "gte": min_date_previous_interval.isoformat(),
-                                "lte": max_date.isoformat()
-                            }
-                        }
-                    }
-                ],
-                "must_not": [
-                    {
-                        "match_phrase": {
-                            "reloaded": "true"
-                        }
-                    },
-                    {
-                        "match_phrase": {
-                            "tazlocal": "true"
-                        }
-                    },
-                    {
-                        "match_phrase": {
-                            "device": {
-                                "query": "Spider"
-                            }
-                        }
-                    }
-                ]
-            }
-        }
+        "query": QUERY_FILTER_EXCLUDE_BOTS_IN_INTERVAL(min_date_previous_interval, max_date)
     }
     query = maybe_add_msid_filter(msid, query)
     return query

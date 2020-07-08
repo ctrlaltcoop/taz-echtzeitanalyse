@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 class HistogramDataSerializer(serializers.Serializer):
     datetime = serializers.DateTimeField()
-    value = serializers.IntegerField()
+    hits = serializers.IntegerField()
 
 
 class HistogramSerializer(serializers.Serializer):
@@ -13,17 +13,22 @@ class HistogramSerializer(serializers.Serializer):
 
 class ReferrerDataSerializer(serializers.Serializer):
     referrerclass = serializers.DateTimeField()
-    value = serializers.IntegerField()
+    hits = serializers.IntegerField()
+    hits_previous = serializers.IntegerField()
 
 
 class ReferrerSerializer(serializers.Serializer):
     total = serializers.IntegerField()
+    total_previous = serializers.IntegerField()
     data = ReferrerDataSerializer(many=True)
 
 
 class ToplistDataSerializer(serializers.Serializer):
-    name = serializers.CharField()
-    value = serializers.IntegerField()
+    headline = serializers.CharField()
+    kicker = serializers.CharField()
+    hits = serializers.IntegerField()
+    hits_previous = serializers.IntegerField()
+    referrers = ReferrerDataSerializer(many=True)
 
 
 class ToplistSerializer(serializers.Serializer):

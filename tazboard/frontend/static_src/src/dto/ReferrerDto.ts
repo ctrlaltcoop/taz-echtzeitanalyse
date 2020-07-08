@@ -2,7 +2,8 @@ import { ChartData } from 'chart.js'
 
 export class ReferrerData {
   referrerclass!: string
-  value!: number
+  hits!: number
+  hits_previous!: number
 }
 
 export class ReferrerDto {
@@ -19,7 +20,7 @@ export class ReferrerDto {
       )),
       datasets: [{
         label: 'Number of Clicks',
-        data: graph.data.map((item) => item.value)
+        data: graph.data.map((item) => item.hits)
       }]
     }
   }

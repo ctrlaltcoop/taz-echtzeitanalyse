@@ -1,4 +1,4 @@
-import { subDays, subHours, subMinutes, subMonths } from 'date-fns'
+import { subDays, subHours, subMinutes } from 'date-fns'
 
 export enum TimeframeId {
   KEY_15_MINUTES = '15_MINUTES',

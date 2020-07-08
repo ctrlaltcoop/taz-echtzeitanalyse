@@ -1,6 +1,11 @@
+import { ReferrerData } from '@/dto/ReferrerDto'
+
 export class ArticleData {
-  name!: string
-  value!: number
+  headline!: string
+  kicker!: string
+  hits!: number
+  hits_previous!: number
+  referrers!: Array<ReferrerData>
 }
 
 export class ToplistDto {

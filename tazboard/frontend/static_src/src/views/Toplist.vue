@@ -35,7 +35,7 @@ export default Vue.extend<ToplistData, ToplistMethods, {}>({
     return {
       fields: [
         {
-          key: 'value',
+          key: 'hits',
           label: 'Klicks',
           class: 'text-right',
           thClass: 'white-caption',
@@ -43,7 +43,7 @@ export default Vue.extend<ToplistData, ToplistMethods, {}>({
           sortable: true
         },
         {
-          key: 'name',
+          key: 'headline',
           label: 'Titel',
           class: 'text-left',
           thClass: 'white-caption'
