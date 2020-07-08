@@ -1,4 +1,3 @@
-
 def maybe_add_msid_filter(msid, query):
     if msid:
         msid_filter = {

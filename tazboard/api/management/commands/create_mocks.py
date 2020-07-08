@@ -29,18 +29,24 @@ class Command(BaseCommand):
         {
             'get_query': get_referrer_query,
             'arguments': [
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=10)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=15)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=30)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=1)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=6)), MOCK_FAKE_NOW),
                 (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(weeks=1)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW),
                 (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW),
             ]
         },
         {
             'get_query': get_toplist_query,
             'arguments': get_argument_matrix((
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=10)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=15)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=30)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=1)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=6)), MOCK_FAKE_NOW),
                 (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(weeks=1)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW),
                 (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW),
             ), ((10,), (25,)))
         }

@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.utils.timezone import make_aware
 
+
 KEY_FINGERPRINT_AGGREGATION = "2"
 KEY_TIMESTAMP_AGGREGATION = "3"
 KEY_REFERRER_AGGREGATION = "4"

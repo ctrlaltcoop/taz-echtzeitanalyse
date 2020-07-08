@@ -1,5 +1,5 @@
 {
-    "took": 71,
+    "took": 53,
     "timed_out": false,
     "_shards": {
         "total": 134,
@@ -9,22 +9,22 @@
     },
     "hits": {
         "total": {
-            "value": 4976,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
     },
     "aggregations": {
         "5": {
-            "doc_count_error_upper_bound": 41,
-            "sum_other_doc_count": 3769,
+            "doc_count_error_upper_bound": 83,
+            "sum_other_doc_count": 8385,
             "buckets": [
                 {
                     "key": "\u201eBei uns wird Wasser knapp\u201c",
-                    "doc_count": 197,
+                    "doc_count": 454,
                     "2": {
-                        "value": 178
+                        "value": 403
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -32,44 +32,44 @@
                         "buckets": [
                             {
                                 "key": "mobileapp",
-                                "doc_count": 112,
+                                "doc_count": 244,
                                 "2": {
-                                    "value": 110
+                                    "value": 240
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 48,
+                                "doc_count": 113,
                                 "2": {
-                                    "value": 33
+                                    "value": 76
                                 }
                             },
                             {
                                 "key": "self",
-                                "doc_count": 20,
+                                "doc_count": 57,
                                 "2": {
-                                    "value": 20
+                                    "value": 54
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 7,
+                                "doc_count": 24,
                                 "2": {
-                                    "value": 7
+                                    "value": 21
                                 }
                             },
                             {
                                 "key": "undefined",
-                                "doc_count": 6,
+                                "doc_count": 9,
                                 "2": {
-                                    "value": 5
+                                    "value": 8
                                 }
                             },
                             {
                                 "key": "social",
-                                "doc_count": 4,
+                                "doc_count": 7,
                                 "2": {
-                                    "value": 4
+                                    "value": 7
                                 }
                             }
                         ]
@@ -77,7 +77,7 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 197,
+                                "value": 454,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -97,9 +97,9 @@
                 },
                 {
                     "key": "Lauschig nett",
-                    "doc_count": 158,
+                    "doc_count": 342,
                     "2": {
-                        "value": 137
+                        "value": 292
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -107,37 +107,44 @@
                         "buckets": [
                             {
                                 "key": "social",
-                                "doc_count": 64,
+                                "doc_count": 125,
+                                "2": {
+                                    "value": 113
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 91,
                                 "2": {
                                     "value": 61
                                 }
                             },
                             {
-                                "key": "missing",
-                                "doc_count": 41,
-                                "2": {
-                                    "value": 25
-                                }
-                            },
-                            {
                                 "key": "searchengine",
-                                "doc_count": 28,
+                                "doc_count": 60,
                                 "2": {
-                                    "value": 27
+                                    "value": 55
                                 }
                             },
                             {
                                 "key": "self",
-                                "doc_count": 17,
+                                "doc_count": 41,
                                 "2": {
-                                    "value": 17
+                                    "value": 40
                                 }
                             },
                             {
                                 "key": "mobileapp",
-                                "doc_count": 8,
+                                "doc_count": 24,
                                 "2": {
-                                    "value": 8
+                                    "value": 23
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 1,
+                                "2": {
+                                    "value": 1
                                 }
                             }
                         ]
@@ -145,7 +152,7 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 158,
+                                "value": 342,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -164,10 +171,10 @@
                     }
                 },
                 {
-                    "key": "__missing__",
-                    "doc_count": 150,
+                    "key": "Einer der letzten NS-Prozesse",
+                    "doc_count": 333,
                     "2": {
-                        "value": 38
+                        "value": 282
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -175,82 +182,44 @@
                         "buckets": [
                             {
                                 "key": "self",
-                                "doc_count": 107,
+                                "doc_count": 181,
                                 "2": {
-                                    "value": 24
+                                    "value": 165
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 40,
+                                "doc_count": 79,
                                 "2": {
-                                    "value": 26
+                                    "value": 53
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 44,
+                                "2": {
+                                    "value": 40
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 3,
-                                "2": {
-                                    "value": 3
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 150,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.06",
-                                    "_type": "_doc",
-                                    "_id": "hYwhJnMBp6nT3r4SE0lE",
-                                    "_score": 0.0,
-                                    "_source": {}
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Einer der letzten NS-Prozesse",
-                    "doc_count": 146,
-                    "2": {
-                        "value": 125
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "self",
-                                "doc_count": 92,
-                                "2": {
-                                    "value": 85
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 31,
+                                "doc_count": 21,
                                 "2": {
                                     "value": 18
                                 }
                             },
                             {
-                                "key": "searchengine",
-                                "doc_count": 9,
+                                "key": "undefined",
+                                "doc_count": 4,
                                 "2": {
-                                    "value": 9
+                                    "value": 3
                                 }
                             },
                             {
-                                "key": "social",
-                                "doc_count": 9,
+                                "key": "newsaggregator",
+                                "doc_count": 2,
                                 "2": {
-                                    "value": 9
+                                    "value": 2
                                 }
                             },
                             {
@@ -259,27 +228,13 @@
                                 "2": {
                                     "value": 2
                                 }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 2,
-                                "2": {
-                                    "value": 2
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 1,
-                                "2": {
-                                    "value": 1
-                                }
                             }
                         ]
                     },
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 146,
+                                "value": 333,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -298,10 +253,10 @@
                     }
                 },
                 {
-                    "key": "Die W\u00fcste bebt",
-                    "doc_count": 123,
+                    "key": "__missing__",
+                    "doc_count": 270,
                     "2": {
-                        "value": 109
+                        "value": 64
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -309,34 +264,107 @@
                         "buckets": [
                             {
                                 "key": "self",
-                                "doc_count": 54,
-                                "2": {
-                                    "value": 53
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 37,
+                                "doc_count": 186,
                                 "2": {
                                     "value": 24
                                 }
                             },
                             {
-                                "key": "searchengine",
-                                "doc_count": 23,
+                                "key": "missing",
+                                "doc_count": 71,
                                 "2": {
-                                    "value": 23
+                                    "value": 45
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 12,
+                                "2": {
+                                    "value": 12
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 1,
+                                "2": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 270,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.07.06",
+                                    "_type": "_doc",
+                                    "_id": "hYwhJnMBp6nT3r4SE0lE",
+                                    "_score": 0.0,
+                                    "_source": {}
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Die W\u00fcste bebt",
+                    "doc_count": 256,
+                    "2": {
+                        "value": 220
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "self",
+                                "doc_count": 113,
+                                "2": {
+                                    "value": 109
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 76,
+                                "2": {
+                                    "value": 48
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 48,
+                                "2": {
+                                    "value": 44
                                 }
                             },
                             {
                                 "key": "social",
+                                "doc_count": 9,
+                                "2": {
+                                    "value": 9
+                                }
+                            },
+                            {
+                                "key": "readlater",
                                 "doc_count": 5,
                                 "2": {
                                     "value": 5
                                 }
                             },
                             {
-                                "key": "readlater",
+                                "key": "newsaggregator",
+                                "doc_count": 2,
+                                "2": {
+                                    "value": 2
+                                }
+                            },
+                            {
+                                "key": "undefined",
                                 "doc_count": 2,
                                 "2": {
                                     "value": 2
@@ -348,20 +376,13 @@
                                 "2": {
                                     "value": 1
                                 }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 1,
-                                "2": {
-                                    "value": 1
-                                }
                             }
                         ]
                     },
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 123,
+                                "value": 256,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -381,9 +402,9 @@
                 },
                 {
                     "key": "Akt der R\u00fccksichtnahme",
-                    "doc_count": 112,
+                    "doc_count": 231,
                     "2": {
-                        "value": 90
+                        "value": 179
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -391,37 +412,37 @@
                         "buckets": [
                             {
                                 "key": "self",
-                                "doc_count": 64,
+                                "doc_count": 134,
                                 "2": {
-                                    "value": 55
+                                    "value": 117
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 26,
+                                "doc_count": 60,
+                                "2": {
+                                    "value": 30
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 17,
                                 "2": {
                                     "value": 14
                                 }
                             },
                             {
-                                "key": "searchengine",
-                                "doc_count": 10,
-                                "2": {
-                                    "value": 10
-                                }
-                            },
-                            {
                                 "key": "social",
-                                "doc_count": 9,
+                                "doc_count": 16,
                                 "2": {
-                                    "value": 8
+                                    "value": 14
                                 }
                             },
                             {
                                 "key": "undefined",
-                                "doc_count": 3,
+                                "doc_count": 4,
                                 "2": {
-                                    "value": 3
+                                    "value": 4
                                 }
                             }
                         ]
@@ -429,7 +450,7 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 112,
+                                "value": 231,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -449,9 +470,9 @@
                 },
                 {
                     "key": "Das C-Wort \u2013 ein Bekenntnis",
-                    "doc_count": 102,
+                    "doc_count": 208,
                     "2": {
-                        "value": 85
+                        "value": 172
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -459,44 +480,44 @@
                         "buckets": [
                             {
                                 "key": "missing",
-                                "doc_count": 43,
+                                "doc_count": 86,
                                 "2": {
-                                    "value": 31
+                                    "value": 60
                                 }
                             },
                             {
                                 "key": "social",
-                                "doc_count": 24,
+                                "doc_count": 54,
                                 "2": {
-                                    "value": 21
+                                    "value": 48
                                 }
                             },
                             {
                                 "key": "undefined",
-                                "doc_count": 15,
+                                "doc_count": 29,
                                 "2": {
-                                    "value": 14
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 8,
-                                "2": {
-                                    "value": 8
+                                    "value": 28
                                 }
                             },
                             {
                                 "key": "mobileapp",
-                                "doc_count": 6,
+                                "doc_count": 13,
                                 "2": {
-                                    "value": 6
+                                    "value": 13
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 6,
+                                "doc_count": 13,
                                 "2": {
-                                    "value": 6
+                                    "value": 11
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 13,
+                                "2": {
+                                    "value": 13
                                 }
                             }
                         ]
@@ -504,7 +525,7 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 102,
+                                "value": 208,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -524,9 +545,9 @@
                 },
                 {
                     "key": "H\u00e4ndler gegen \u201eKonsumkiller\u201c Maske",
-                    "doc_count": 81,
+                    "doc_count": 166,
                     "2": {
-                        "value": 62
+                        "value": 128
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -534,30 +555,37 @@
                         "buckets": [
                             {
                                 "key": "social",
-                                "doc_count": 29,
+                                "doc_count": 55,
                                 "2": {
-                                    "value": 27
+                                    "value": 53
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 26,
+                                "doc_count": 54,
                                 "2": {
-                                    "value": 11
+                                    "value": 24
                                 }
                             },
                             {
                                 "key": "self",
-                                "doc_count": 23,
+                                "doc_count": 48,
                                 "2": {
-                                    "value": 21
+                                    "value": 45
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 3,
+                                "doc_count": 8,
                                 "2": {
-                                    "value": 3
+                                    "value": 5
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 1,
+                                "2": {
+                                    "value": 1
                                 }
                             }
                         ]
@@ -565,7 +593,7 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 81,
+                                "value": 166,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -584,10 +612,10 @@
                     }
                 },
                 {
-                    "key": "Polizeigewalt gegen Polizeigewalt",
-                    "doc_count": 75,
+                    "key": "Unterst\u00fctzer*in werden!",
+                    "doc_count": 145,
                     "2": {
-                        "value": 60
+                        "value": 139
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -595,34 +623,81 @@
                         "buckets": [
                             {
                                 "key": "self",
-                                "doc_count": 44,
+                                "doc_count": 141,
                                 "2": {
-                                    "value": 42
+                                    "value": 135
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 25,
+                                "doc_count": 4,
                                 "2": {
-                                    "value": 13
+                                    "value": 4
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 145,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.07.06",
+                                    "_type": "_doc",
+                                    "_id": "kIwhJnMBp6nT3r4SF0kD",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Freiwilliges Soziales Ja"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Polizeigewalt gegen Polizeigewalt",
+                    "doc_count": 139,
+                    "2": {
+                        "value": 99
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "self",
+                                "doc_count": 78,
+                                "2": {
+                                    "value": 73
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 49,
+                                "2": {
+                                    "value": 19
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 4,
+                                "doc_count": 9,
                                 "2": {
-                                    "value": 3
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 1,
-                                "2": {
-                                    "value": 1
+                                    "value": 5
                                 }
                             },
                             {
                                 "key": "social",
+                                "doc_count": 2,
+                                "2": {
+                                    "value": 2
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
                                 "doc_count": 1,
                                 "2": {
                                     "value": 1
@@ -633,7 +708,7 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 75,
+                                "value": 139,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -645,67 +720,6 @@
                                     "_score": 0.0,
                                     "_source": {
                                         "kicker": "G20-Prozess gegen Polizisten"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Seehofer kriegt Kontra",
-                    "doc_count": 63,
-                    "2": {
-                        "value": 51
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "self",
-                                "doc_count": 28,
-                                "2": {
-                                    "value": 28
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 22,
-                                "2": {
-                                    "value": 10
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 8,
-                                "2": {
-                                    "value": 8
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 5,
-                                "2": {
-                                    "value": 5
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 63,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.06",
-                                    "_type": "_doc",
-                                    "_id": "u4whJnMBp6nT3r4S5Eyt",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Nach abgesagter Racial-Profiling-Studie"
                                     }
                                 }
                             ]
