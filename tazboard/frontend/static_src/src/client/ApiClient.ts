@@ -1,6 +1,8 @@
+/* eslint @typescript-eslint/camelcase: 0 */
 import { HistogramDto } from '@/dto/HistogramDto'
 import { QueryParams, queryString } from '@/utils/urls'
 import { ReferrerDto } from '@/dto/ReferrerDto'
+import { ToplistDto } from '@/dto/ToplistDto'
 
 export class HttpError extends Error {
   constructor (public response: Response) {
@@ -20,19 +22,27 @@ export class InternalServerError extends HttpError {
 export class ApiClient {
   baseURL = '/api/v1/'
 
-  async histogram (minDate: string, maxDate: string, msgId: number | null = null): Promise<HistogramDto> {
+  async histogram (minDate: Date, maxDate: Date, msgId: number | null = null): Promise<HistogramDto> {
     return await this.request<HistogramDto>('histogram', 'GET', {
       msgId,
-      min: minDate,
-      max: maxDate
+      min_date: minDate.toISOString(),
+      max_date: maxDate.toISOString()
     })
   }
 
-  async referrer (minDate: string, maxDate: string, msgId: number | null = null): Promise<ReferrerDto> {
+  async referrer (minDate: Date, maxDate: Date, msgId: number | null = null): Promise<ReferrerDto> {
     return await this.request<ReferrerDto>('referrer', 'GET', {
       msgId,
-      min: minDate,
-      max: maxDate
+      min_date: minDate.toISOString(),
+      max_date: maxDate.toISOString()
+    })
+  }
+
+  async toplist (minDate: Date, maxDate: Date, limit = 10): Promise<ToplistDto> {
+    return await this.request<ToplistDto>('toplist', 'GET', {
+      min_date: minDate.toISOString(),
+      max_date: maxDate.toISOString(),
+      limit: limit
     })
   }
 

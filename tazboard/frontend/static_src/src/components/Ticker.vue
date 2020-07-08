@@ -9,6 +9,7 @@ import Vue from 'vue'
 import DailyLineGraph from '@/components/DailyLineGraph.vue'
 import { ApiClient } from '@/client/ApiClient'
 import { HistogramDto } from '@/dto/HistogramDto'
+import { subDays } from 'date-fns'
 
 export interface DailyLineGraphData {
   graph: HistogramDto | null;
@@ -49,7 +50,7 @@ export default Vue.extend<DailyLineGraphData, TickerMethods, {}, {}>({
     this.resizeGraph()
     window.addEventListener('resize', () => this.resizeGraph())
     const client = new ApiClient()
-    this.graph = await client.histogram('now-24h', 'now')
+    this.graph = await client.histogram(subDays(new Date(), 1), new Date())
   },
   destroyed () {
     window.removeEventListener('resize', () => this.resizeGraph())

@@ -9,6 +9,7 @@ variables:
   AUTO_DEVOPS_POSTGRES_CHANNEL: '2'
   DB_MIGRATE: "django-admin migrate"
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  K8S_SECRET_DJANGO_SETTINGS_MODULE: "tazboard.core.settings.docker_mocked"
 
 include:
   - template: Jobs/Build.gitlab-ci.yml

@@ -2,11 +2,12 @@ from django.urls import path
 from rest_framework.permissions import AllowAny
 from rest_framework.schemas import get_schema_view
 
-from .views import HistogramView, RedocView, ReferrerView
+from .views import HistogramView, RedocView, ReferrerView, ToplistView
 
 api_patterns = [
     path('histogram', HistogramView.as_view(), name='histogram'),
-    path('referrer', ReferrerView.as_view(), name='referrer')
+    path('referrer', ReferrerView.as_view(), name='referrer'),
+    path('toplist', ToplistView.as_view(), name='toplist')
 ]
 
 urlpatterns = [

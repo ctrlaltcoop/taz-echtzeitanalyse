@@ -1,8 +1,11 @@
+from django.utils import timezone
+
 from tazboard.api.queries.common import maybe_add_msid_filter
 from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_REFERRER_AGGREGATION
 
 
-def get_referrer_query(min_date, max_date='now', msid=None):
+def get_referrer_query(min_date, max_date=timezone.now(), msid=None):
+    min_date_previous_interval = min_date - (max_date - min_date)
     query = {
         "aggs": {
             KEY_REFERRER_AGGREGATION: {
@@ -35,8 +38,8 @@ def get_referrer_query(min_date, max_date='now', msid=None):
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": min_date,
-                                "lte": max_date
+                                "gte": min_date_previous_interval.isoformat(),
+                                "lte": max_date.isoformat()
                             }
                         }
                     }
