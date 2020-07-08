@@ -1,10 +1,10 @@
 {
-    "took": 642,
+    "took": 2339,
     "timed_out": false,
     "_shards": {
         "total": 134,
         "successful": 134,
-        "skipped": 130,
+        "skipped": 71,
         "failed": 0
     },
     "hits": {
@@ -17,14 +17,110 @@
     },
     "aggregations": {
         "5": {
-            "doc_count_error_upper_bound": 2503,
-            "sum_other_doc_count": 382225,
+            "doc_count_error_upper_bound": 77301,
+            "sum_other_doc_count": 16333348,
             "buckets": [
                 {
-                    "key": "Nazis kriegen Sprengk\u00f6rper zur\u00fcck",
-                    "doc_count": 170177,
+                    "key": "All cops are berufsunf\u00e4hig",
+                    "doc_count": 1106026,
                     "2": {
-                        "value": 138044
+                        "value": 835454
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "missing",
+                                "doc_count": 275547,
+                                "2": {
+                                    "value": 202573
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 267463,
+                                "2": {
+                                    "value": 212474
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 256325,
+                                "2": {
+                                    "value": 214550
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 199317,
+                                "2": {
+                                    "value": 167879
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 101637,
+                                "2": {
+                                    "value": 87282
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 3258,
+                                "2": {
+                                    "value": 3037
+                                }
+                            },
+                            {
+                                "key": "archiv",
+                                "doc_count": 1436,
+                                "2": {
+                                    "value": 1276
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 884,
+                                "2": {
+                                    "value": 761
+                                }
+                            },
+                            {
+                                "key": "readlater",
+                                "doc_count": 159,
+                                "2": {
+                                    "value": 124
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 1106026,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.15",
+                                    "_type": "_doc",
+                                    "_id": "_rr2uXIBTpuPxqRrb5hS",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Abschaffung der Polizei"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Provinz am Limit",
+                    "doc_count": 581782,
+                    "2": {
+                        "value": 444999
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -32,49 +128,56 @@
                         "buckets": [
                             {
                                 "key": "readlater",
-                                "doc_count": 97184,
+                                "doc_count": 352377,
                                 "2": {
-                                    "value": 92012
+                                    "value": 310084
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 71182,
+                                "doc_count": 219344,
                                 "2": {
-                                    "value": 47432
+                                    "value": 139544
                                 }
                             },
                             {
                                 "key": "self",
-                                "doc_count": 849,
+                                "doc_count": 5637,
                                 "2": {
-                                    "value": 783
+                                    "value": 4893
                                 }
                             },
                             {
                                 "key": "social",
-                                "doc_count": 714,
+                                "doc_count": 3306,
                                 "2": {
-                                    "value": 684
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 129,
-                                "2": {
-                                    "value": 121
+                                    "value": 3120
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 118,
+                                "doc_count": 955,
                                 "2": {
-                                    "value": 107
+                                    "value": 323
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 109,
+                                "2": {
+                                    "value": 94
                                 }
                             },
                             {
                                 "key": "mobileapp",
-                                "doc_count": 1,
+                                "doc_count": 52,
+                                "2": {
+                                    "value": 51
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 2,
                                 "2": {
                                     "value": 1
                                 }
@@ -84,107 +187,18 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 170177,
+                                "value": 581782,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.05",
+                                    "_index": "article-2020.06.23",
                                     "_type": "_doc",
-                                    "_id": "rGZ3HnMBp6nT3r4Sbf4b",
+                                    "_id": "LSEI4nIBp6nT3r4SyQDa",
                                     "_score": 0.0,
                                     "_source": {
-                                        "kicker": "Nach Beschlagnahme durch die Polizei"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "\u201eSOKO Wien\u201c als Lichtblick",
-                    "doc_count": 17200,
-                    "2": {
-                        "value": 14392
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 10474,
-                                "2": {
-                                    "value": 10305
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 4252,
-                                "2": {
-                                    "value": 2450
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 1530,
-                                "2": {
-                                    "value": 1211
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 756,
-                                "2": {
-                                    "value": 684
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 130,
-                                "2": {
-                                    "value": 117
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 40,
-                                "2": {
-                                    "value": 39
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 11,
-                                "2": {
-                                    "value": 9
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 7,
-                                "2": {
-                                    "value": 5
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 17200,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.04",
-                                    "_type": "_doc",
-                                    "_id": "D1vRG3MBp6nT3r4SYPXk",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "In der \u201eTatort\u201c-Sommerpause"
+                                        "kicker": "Anstieg der Corona-Infektionen"
                                     }
                                 }
                             ]
@@ -193,9 +207,9 @@
                 },
                 {
                     "key": "__missing__",
-                    "doc_count": 12735,
+                    "doc_count": 344560,
                     "2": {
-                        "value": 1254
+                        "value": 25238
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -203,51 +217,65 @@
                         "buckets": [
                             {
                                 "key": "self",
-                                "doc_count": 7616,
+                                "doc_count": 200985,
                                 "2": {
-                                    "value": 96
+                                    "value": 2794
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 4694,
+                                "doc_count": 125087,
                                 "2": {
-                                    "value": 825
+                                    "value": 7701
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 401,
+                                "doc_count": 16837,
                                 "2": {
-                                    "value": 352
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 11,
-                                "2": {
-                                    "value": 9
+                                    "value": 14404
                                 }
                             },
                             {
                                 "key": "undefined",
-                                "doc_count": 8,
+                                "doc_count": 813,
                                 "2": {
-                                    "value": 8
+                                    "value": 538
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 438,
+                                "2": {
+                                    "value": 403
+                                }
+                            },
+                            {
+                                "key": "readlater",
+                                "doc_count": 183,
+                                "2": {
+                                    "value": 182
                                 }
                             },
                             {
                                 "key": "archiv",
-                                "doc_count": 4,
+                                "doc_count": 113,
                                 "2": {
-                                    "value": 4
+                                    "value": 101
                                 }
                             },
                             {
                                 "key": "mobileapp",
-                                "doc_count": 1,
+                                "doc_count": 97,
                                 "2": {
-                                    "value": 1
+                                    "value": 89
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 5,
+                                "2": {
+                                    "value": 3
                                 }
                             }
                         ]
@@ -255,15 +283,15 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 12735,
+                                "value": 344560,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.04",
+                                    "_index": ".kibana-event-log-7.8.0-000001",
                                     "_type": "_doc",
-                                    "_id": "gVvRG3MBp6nT3r4SffUG",
+                                    "_id": "bEWj4XIBef5iujqoIE4l",
                                     "_score": 0.0,
                                     "_source": {}
                                 }
@@ -272,62 +300,69 @@
                     }
                 },
                 {
-                    "key": "Unterst\u00fctzer*in werden!",
-                    "doc_count": 10674,
+                    "key": "Armut macht krank",
+                    "doc_count": 341081,
                     "2": {
-                        "value": 9640
+                        "value": 265569
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
-                                "key": "self",
-                                "doc_count": 10089,
+                                "key": "readlater",
+                                "doc_count": 179383,
                                 "2": {
-                                    "value": 9354
+                                    "value": 161959
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 524,
+                                "doc_count": 139331,
                                 "2": {
-                                    "value": 372
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 46,
-                                "2": {
-                                    "value": 44
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 9,
-                                "2": {
-                                    "value": 9
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 4,
-                                "2": {
-                                    "value": 4
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 1,
-                                "2": {
-                                    "value": 1
+                                    "value": 88012
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 1,
+                                "doc_count": 8384,
                                 "2": {
-                                    "value": 1
+                                    "value": 7224
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 6977,
+                                "2": {
+                                    "value": 6167
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 5486,
+                                "2": {
+                                    "value": 5223
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 1082,
+                                "2": {
+                                    "value": 1024
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 385,
+                                "2": {
+                                    "value": 338
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 53,
+                                "2": {
+                                    "value": 49
                                 }
                             }
                         ]
@@ -335,15 +370,104 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 10674,
+                                "value": 341081,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.04",
+                                    "_index": "article-2020.06.26",
                                     "_type": "_doc",
-                                    "_id": "VVvRG3MBp6nT3r4Stvbq",
+                                    "_id": "Y2-O8XIBp6nT3r4STIHm",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Neue Coronawelle"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Unterst\u00fctzer*in werden!",
+                    "doc_count": 317670,
+                    "2": {
+                        "value": 274896
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "self",
+                                "doc_count": 301463,
+                                "2": {
+                                    "value": 268578
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 14878,
+                                "2": {
+                                    "value": 9283
+                                }
+                            },
+                            {
+                                "key": "readlater",
+                                "doc_count": 733,
+                                "2": {
+                                    "value": 687
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 205,
+                                "2": {
+                                    "value": 192
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 186,
+                                "2": {
+                                    "value": 164
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 167,
+                                "2": {
+                                    "value": 164
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 33,
+                                "2": {
+                                    "value": 27
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 5,
+                                "2": {
+                                    "value": 3
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 317670,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.06",
+                                    "_type": "_doc",
+                                    "_id": "8vKoi3IBNfFwOCFXJlMe",
                                     "_score": 0.0,
                                     "_source": {
                                         "kicker": "Freiwilliges Soziales Ja"
@@ -354,10 +478,10 @@
                     }
                 },
                 {
-                    "key": "Was immer ihn gl\u00fccklich macht",
-                    "doc_count": 9480,
+                    "key": "Coronamythen mit Demeter-Siegel",
+                    "doc_count": 236355,
                     "2": {
-                        "value": 8418
+                        "value": 197941
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -365,390 +489,55 @@
                         "buckets": [
                             {
                                 "key": "readlater",
-                                "doc_count": 6087,
+                                "doc_count": 143028,
                                 "2": {
-                                    "value": 5875
+                                    "value": 132451
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 3038,
+                                "doc_count": 84539,
                                 "2": {
-                                    "value": 2340
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 292,
-                                "2": {
-                                    "value": 244
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 37,
-                                "2": {
-                                    "value": 31
+                                    "value": 59492
                                 }
                             },
                             {
                                 "key": "social",
-                                "doc_count": 14,
+                                "doc_count": 4228,
                                 "2": {
-                                    "value": 13
+                                    "value": 3878
                                 }
                             },
                             {
                                 "key": "undefined",
-                                "doc_count": 12,
+                                "doc_count": 2290,
                                 "2": {
-                                    "value": 8
+                                    "value": 2142
                                 }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 9480,
-                                "relation": "eq"
                             },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.04",
-                                    "_type": "_doc",
-                                    "_id": "AVkuG3MBp6nT3r4SOjBb",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Migration und Fachkr\u00e4ftemangel"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "F\u00fcr eine Handvoll Cent",
-                    "doc_count": 9120,
-                    "2": {
-                        "value": 6379
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
                             {
                                 "key": "self",
-                                "doc_count": 3064,
+                                "doc_count": 1290,
                                 "2": {
-                                    "value": 2585
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 2612,
-                                "2": {
-                                    "value": 2503
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 2575,
-                                "2": {
-                                    "value": 1129
+                                    "value": 1095
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 645,
+                                "doc_count": 967,
                                 "2": {
-                                    "value": 67
+                                    "value": 831
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 10,
+                                "2": {
+                                    "value": 10
                                 }
                             },
                             {
                                 "key": "mobileapp",
-                                "doc_count": 135,
-                                "2": {
-                                    "value": 133
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 78,
-                                "2": {
-                                    "value": 66
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 9,
-                                "2": {
-                                    "value": 6
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 2,
-                                "2": {
-                                    "value": 2
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 9120,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.04",
-                                    "_type": "_doc",
-                                    "_id": "OlvRG3MBp6nT3r4Sa_X3",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Arbeit in der Fleischindustrie"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Gebetsteppiche sollen wieder rollen",
-                    "doc_count": 8176,
-                    "2": {
-                        "value": 5432
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "self",
-                                "doc_count": 3072,
-                                "2": {
-                                    "value": 2772
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 2722,
-                                "2": {
-                                    "value": 1128
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 1194,
-                                "2": {
-                                    "value": 491
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 774,
-                                "2": {
-                                    "value": 746
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 153,
-                                "2": {
-                                    "value": 137
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 146,
-                                "2": {
-                                    "value": 136
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 113,
-                                "2": {
-                                    "value": 104
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 2,
-                                "2": {
-                                    "value": 1
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 8176,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.04",
-                                    "_type": "_doc",
-                                    "_id": "N1vRG3MBp6nT3r4Sa_Vh",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Hagia Sophia als Moschee"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Rassismus ist keine Einbahnstra\u00dfe!",
-                    "doc_count": 6814,
-                    "2": {
-                        "value": 5352
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "self",
-                                "doc_count": 2921,
-                                "2": {
-                                    "value": 2539
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 1985,
-                                "2": {
-                                    "value": 1345
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 1266,
-                                "2": {
-                                    "value": 1104
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 266,
-                                "2": {
-                                    "value": 116
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 169,
-                                "2": {
-                                    "value": 154
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 149,
-                                "2": {
-                                    "value": 139
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 55,
-                                "2": {
-                                    "value": 53
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 3,
-                                "2": {
-                                    "value": 3
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 6814,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.05",
-                                    "_type": "_doc",
-                                    "_id": "TGd4HnMBp6nT3r4SpgV8",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": null
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "\u201eWir nehmen keine Hautfarbe fest\u201c",
-                    "doc_count": 5720,
-                    "2": {
-                        "value": 3736
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "missing",
-                                "doc_count": 2352,
-                                "2": {
-                                    "value": 960
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 2318,
-                                "2": {
-                                    "value": 2035
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 726,
-                                "2": {
-                                    "value": 622
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 224,
-                                "2": {
-                                    "value": 86
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 91,
-                                "2": {
-                                    "value": 83
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 5,
-                                "2": {
-                                    "value": 3
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
                                 "doc_count": 2,
                                 "2": {
                                     "value": 2
@@ -760,6 +549,88 @@
                                 "2": {
                                     "value": 1
                                 }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 236355,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.08",
+                                    "_type": "_doc",
+                                    "_id": "CgtokXIBNfFwOCFXL82P",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Biol\u00e4den und Verschw\u00f6rungstheorien"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Nazis kriegen Sprengk\u00f6rper zur\u00fcck",
+                    "doc_count": 224186,
+                    "2": {
+                        "value": 182867
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "readlater",
+                                "doc_count": 113742,
+                                "2": {
+                                    "value": 107883
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 91741,
+                                "2": {
+                                    "value": 60693
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 11426,
+                                "2": {
+                                    "value": 10646
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 5144,
+                                "2": {
+                                    "value": 4735
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 1426,
+                                "2": {
+                                    "value": 1314
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 701,
+                                "2": {
+                                    "value": 401
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 5,
+                                "2": {
+                                    "value": 5
+                                }
                             },
                             {
                                 "key": "mobileapp",
@@ -773,18 +644,18 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 5720,
+                                "value": 224186,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.04",
+                                    "_index": "article-2020.06.30",
                                     "_type": "_doc",
-                                    "_id": "jFktG3MBp6nT3r4S8y7O",
+                                    "_id": "JdOLAnMBp6nT3r4SeZb2",
                                     "_score": 0.0,
                                     "_source": {
-                                        "kicker": "Berlins Polizeisprecher \u00fcber Rassimus"
+                                        "kicker": "Nach Beschlagnahme durch die Polizei"
                                     }
                                 }
                             ]
@@ -792,69 +663,69 @@
                     }
                 },
                 {
-                    "key": "Schmei\u00dft das Ego an die Wand",
-                    "doc_count": 5455,
+                    "key": "Was immer ihn gl\u00fccklich macht",
+                    "doc_count": 223818,
                     "2": {
-                        "value": 3263
+                        "value": 190111
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
-                                "key": "self",
-                                "doc_count": 2250,
+                                "key": "readlater",
+                                "doc_count": 129146,
                                 "2": {
-                                    "value": 1987
+                                    "value": 123022
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 1948,
+                                "doc_count": 71094,
                                 "2": {
-                                    "value": 583
+                                    "value": 48839
                                 }
                             },
                             {
-                                "key": "searchengine",
-                                "doc_count": 580,
+                                "key": "self",
+                                "doc_count": 16429,
                                 "2": {
-                                    "value": 106
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 327,
-                                "2": {
-                                    "value": 308
+                                    "value": 14519
                                 }
                             },
                             {
                                 "key": "social",
-                                "doc_count": 181,
+                                "doc_count": 4954,
                                 "2": {
-                                    "value": 162
+                                    "value": 4578
                                 }
                             },
                             {
-                                "key": "readlater",
-                                "doc_count": 99,
+                                "key": "mobileapp",
+                                "doc_count": 1133,
                                 "2": {
-                                    "value": 96
+                                    "value": 1048
                                 }
                             },
                             {
-                                "key": "newsaggregator",
-                                "doc_count": 45,
+                                "key": "searchengine",
+                                "doc_count": 813,
                                 "2": {
-                                    "value": 28
+                                    "value": 373
                                 }
                             },
                             {
                                 "key": "undefined",
-                                "doc_count": 25,
+                                "doc_count": 146,
                                 "2": {
-                                    "value": 14
+                                    "value": 133
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 103,
+                                "2": {
+                                    "value": 73
                                 }
                             }
                         ]
@@ -862,18 +733,18 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 5455,
+                                "value": 223818,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.04",
+                                    "_index": "article-2020.06.28",
                                     "_type": "_doc",
-                                    "_id": "vFvRG3MBp6nT3r4SkPVV",
+                                    "_id": "iqKB-nIBp6nT3r4S0PAq",
                                     "_score": 0.0,
                                     "_source": {
-                                        "kicker": "Debattenkultur der Besserwisser"
+                                        "kicker": "Migration und Fachkr\u00e4ftemangel"
                                     }
                                 }
                             ]
@@ -881,10 +752,99 @@
                     }
                 },
                 {
-                    "key": "Vollspeed zur\u00fcck?",
-                    "doc_count": 5351,
+                    "key": "Kein Ende in Sicht",
+                    "doc_count": 217996,
                     "2": {
-                        "value": 3990
+                        "value": 174594
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "readlater",
+                                "doc_count": 116185,
+                                "2": {
+                                    "value": 109684
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 87368,
+                                "2": {
+                                    "value": 54399
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 6144,
+                                "2": {
+                                    "value": 5225
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 5421,
+                                "2": {
+                                    "value": 5037
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 2548,
+                                "2": {
+                                    "value": 1455
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 278,
+                                "2": {
+                                    "value": 236
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 48,
+                                "2": {
+                                    "value": 48
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 4,
+                                "2": {
+                                    "value": 4
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 217996,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.12",
+                                    "_type": "_doc",
+                                    "_id": "3GtqqXIBTpuPxqRrNjR4",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Corona-Lage weltweit"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Wieso soll das verboten sein?",
+                    "doc_count": 151067,
+                    "2": {
+                        "value": 125884
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -892,49 +852,892 @@
                         "buckets": [
                             {
                                 "key": "self",
-                                "doc_count": 2455,
+                                "doc_count": 95154,
                                 "2": {
-                                    "value": 2219
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 1952,
-                                "2": {
-                                    "value": 1177
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 427,
-                                "2": {
-                                    "value": 377
+                                    "value": 83512
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 370,
+                                "doc_count": 19751,
                                 "2": {
-                                    "value": 141
+                                    "value": 17560
                                 }
                             },
                             {
-                                "key": "undefined",
-                                "doc_count": 75,
+                                "key": "missing",
+                                "doc_count": 18762,
                                 "2": {
-                                    "value": 71
+                                    "value": 14200
                                 }
                             },
                             {
-                                "key": "newsaggregator",
-                                "doc_count": 43,
+                                "key": "social",
+                                "doc_count": 10900,
                                 "2": {
-                                    "value": 39
+                                    "value": 9821
                                 }
                             },
                             {
                                 "key": "mobileapp",
-                                "doc_count": 29,
+                                "doc_count": 3366,
+                                "2": {
+                                    "value": 3223
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 2611,
+                                "2": {
+                                    "value": 2381
+                                }
+                            },
+                            {
+                                "key": "readlater",
+                                "doc_count": 275,
+                                "2": {
+                                    "value": 253
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 239,
+                                "2": {
+                                    "value": 225
+                                }
+                            },
+                            {
+                                "key": "archiv",
+                                "doc_count": 9,
+                                "2": {
+                                    "value": 8
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 151067,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.22",
+                                    "_type": "_doc",
+                                    "_id": "K_MS3nIBXXPHq16YDiFB",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Verteidigung taz-Kolumne"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Polizei v\u00f6llig verdutzt",
+                    "doc_count": 138883,
+                    "2": {
+                        "value": 120894
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 46188,
+                                "2": {
+                                    "value": 44308
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 31584,
+                                "2": {
+                                    "value": 26810
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 25709,
+                                "2": {
+                                    "value": 19401
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 23333,
+                                "2": {
+                                    "value": 21209
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 10866,
+                                "2": {
+                                    "value": 9532
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 720,
+                                "2": {
+                                    "value": 618
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 279,
+                                "2": {
+                                    "value": 252
+                                }
+                            },
+                            {
+                                "key": "readlater",
+                                "doc_count": 204,
+                                "2": {
+                                    "value": 192
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 138883,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.21",
+                                    "_type": "_doc",
+                                    "_id": "6rZ-1nIBXXPHq16Ykyau",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Randale in Stuttgart"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Menschen und M\u00fcll",
+                    "doc_count": 126623,
+                    "2": {
+                        "value": 98134
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "social",
+                                "doc_count": 34467,
+                                "2": {
+                                    "value": 28881
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 28795,
+                                "2": {
+                                    "value": 15964
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 27883,
+                                "2": {
+                                    "value": 26468
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 19967,
+                                "2": {
+                                    "value": 17575
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 12234,
+                                "2": {
+                                    "value": 10106
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 2484,
+                                "2": {
+                                    "value": 2033
+                                }
+                            },
+                            {
+                                "key": "archiv",
+                                "doc_count": 507,
+                                "2": {
+                                    "value": 474
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 273,
+                                "2": {
+                                    "value": 248
+                                }
+                            },
+                            {
+                                "key": "readlater",
+                                "doc_count": 13,
+                                "2": {
+                                    "value": 10
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 126623,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.19",
+                                    "_type": "_doc",
+                                    "_id": "8Ye2znIBXXPHq16YPrb7",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "kolumne macht"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Nur noch montags ins B\u00fcro",
+                    "doc_count": 115040,
+                    "2": {
+                        "value": 97869
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "readlater",
+                                "doc_count": 71480,
+                                "2": {
+                                    "value": 63857
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 30313,
+                                "2": {
+                                    "value": 24556
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 7280,
+                                "2": {
+                                    "value": 7218
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 3476,
+                                "2": {
+                                    "value": 3033
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 2168,
+                                "2": {
+                                    "value": 1484
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 177,
+                                "2": {
+                                    "value": 160
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 136,
+                                "2": {
+                                    "value": 108
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 10,
+                                "2": {
+                                    "value": 10
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 115040,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.25",
+                                    "_type": "_doc",
+                                    "_id": "rFV67HIBp6nT3r4SkkTT",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Bilanz zum Homeoffice in Coronazeiten"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Wir m\u00fcssen reden",
+                    "doc_count": 112559,
+                    "2": {
+                        "value": 86958
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "searchengine",
+                                "doc_count": 37195,
+                                "2": {
+                                    "value": 31779
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 30033,
+                                "2": {
+                                    "value": 23108
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 23682,
+                                "2": {
+                                    "value": 20246
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 17338,
+                                "2": {
+                                    "value": 11247
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 3501,
+                                "2": {
+                                    "value": 2876
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 469,
+                                "2": {
+                                    "value": 436
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 249,
+                                "2": {
+                                    "value": 227
+                                }
+                            },
+                            {
+                                "key": "archiv",
+                                "doc_count": 66,
+                                "2": {
+                                    "value": 58
+                                }
+                            },
+                            {
+                                "key": "readlater",
+                                "doc_count": 26,
+                                "2": {
+                                    "value": 22
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 112559,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.19",
+                                    "_type": "_doc",
+                                    "_id": "Voe2znIBXXPHq16YWrdF",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "debatte"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Milliarden f\u00fcr Diesel- und Benziner",
+                    "doc_count": 109821,
+                    "2": {
+                        "value": 101352
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 69265,
+                                "2": {
+                                    "value": 67741
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 16603,
+                                "2": {
+                                    "value": 12425
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 14579,
+                                "2": {
+                                    "value": 12360
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 6862,
+                                "2": {
+                                    "value": 6135
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 1879,
+                                "2": {
+                                    "value": 1650
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 510,
+                                "2": {
+                                    "value": 489
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 122,
+                                "2": {
+                                    "value": 111
+                                }
+                            },
+                            {
+                                "key": "readlater",
+                                "doc_count": 1,
+                                "2": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 109821,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.21",
+                                    "_type": "_doc",
+                                    "_id": "2Lsd13IBXXPHq16Yg1PG",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Abwrackpr\u00e4mie in Spanien"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Einsprachigkeit kann t\u00f6ten",
+                    "doc_count": 106554,
+                    "2": {
+                        "value": 90428
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "social",
+                                "doc_count": 62713,
+                                "2": {
+                                    "value": 56223
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 19699,
+                                "2": {
+                                    "value": 15375
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 18348,
+                                "2": {
+                                    "value": 15634
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 4370,
+                                "2": {
+                                    "value": 3277
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 995,
+                                "2": {
+                                    "value": 880
+                                }
+                            },
+                            {
+                                "key": "readlater",
+                                "doc_count": 317,
+                                "2": {
+                                    "value": 300
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 88,
+                                "2": {
+                                    "value": 82
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 24,
+                                "2": {
+                                    "value": 23
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 106554,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.20",
+                                    "_type": "_doc",
+                                    "_id": "ApMk0XIBXXPHq16Ymo7U",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "T\u00f6dlicher Polizei-Schuss in Bremen"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Beh\u00f6rdenversagen mit Todesfolge",
+                    "doc_count": 106144,
+                    "2": {
+                        "value": 90311
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "readlater",
+                                "doc_count": 62913,
+                                "2": {
+                                    "value": 57309
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 24884,
+                                "2": {
+                                    "value": 19238
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 9498,
+                                "2": {
+                                    "value": 8297
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 5017,
+                                "2": {
+                                    "value": 4761
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 2284,
+                                "2": {
+                                    "value": 2111
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 1280,
+                                "2": {
+                                    "value": 754
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 243,
+                                "2": {
+                                    "value": 204
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 23,
+                                "2": {
+                                    "value": 6
+                                }
+                            },
+                            {
+                                "key": "archiv",
+                                "doc_count": 2,
+                                "2": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 106144,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.21",
+                                    "_type": "_doc",
+                                    "_id": "xsLq13IBXXPHq16YMQ5P",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Der Tod von Amad A. in der JVA Kleve"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Welche Folgen die App haben k\u00f6nnte",
+                    "doc_count": 105985,
+                    "2": {
+                        "value": 91875
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "readlater",
+                                "doc_count": 81027,
+                                "2": {
+                                    "value": 72946
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 22238,
+                                "2": {
+                                    "value": 19448
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 2138,
+                                "2": {
+                                    "value": 1873
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 346,
+                                "2": {
+                                    "value": 161
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 138,
+                                "2": {
+                                    "value": 130
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 49,
+                                "2": {
+                                    "value": 47
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 43,
+                                "2": {
+                                    "value": 42
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 5,
+                                "2": {
+                                    "value": 5
+                                }
+                            },
+                            {
+                                "key": "archiv",
+                                "doc_count": 1,
+                                "2": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 105985,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.18",
+                                    "_type": "_doc",
+                                    "_id": "DmOzx3IBXXPHq16YvhYH",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Mit Smartphones gegen Corona"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Mit Bus und Bahn in die Zukunft",
+                    "doc_count": 102953,
+                    "2": {
+                        "value": 90469
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "readlater",
+                                "doc_count": 45886,
+                                "2": {
+                                    "value": 42240
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 28601,
+                                "2": {
+                                    "value": 23937
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 9227,
+                                "2": {
+                                    "value": 8921
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 8951,
+                                "2": {
+                                    "value": 8092
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 4126,
+                                "2": {
+                                    "value": 3690
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 3919,
+                                "2": {
+                                    "value": 3359
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 2210,
+                                "2": {
+                                    "value": 1628
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 33,
                                 "2": {
                                     "value": 29
                                 }
@@ -944,18 +1747,18 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 5351,
+                                "value": 102953,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.05",
+                                    "_index": "article-2020.06.09",
                                     "_type": "_doc",
-                                    "_id": "AGZ3HnMBp6nT3r4Sfv9m",
+                                    "_id": "oT4omnIBNfFwOCFXiRPz",
                                     "_score": 0.0,
                                     "_source": {
-                                        "kicker": "Scheuers Formfehler in der StVO"
+                                        "kicker": "\u00d6sterreich f\u00fchrt Pauschal-Ticket ein"
                                     }
                                 }
                             ]
@@ -963,67 +1766,245 @@
                     }
                 },
                 {
-                    "key": "Soja? So nein!",
-                    "doc_count": 5325,
+                    "key": "Anschlag auf Aktivistin",
+                    "doc_count": 86047,
                     "2": {
-                        "value": 3430
+                        "value": 75763
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
-                                "key": "missing",
-                                "doc_count": 2001,
+                                "key": "readlater",
+                                "doc_count": 43566,
                                 "2": {
-                                    "value": 658
+                                    "value": 41909
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 24534,
+                                "2": {
+                                    "value": 18754
                                 }
                             },
                             {
                                 "key": "self",
-                                "doc_count": 1937,
+                                "doc_count": 8503,
                                 "2": {
-                                    "value": 1687
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 1109,
-                                "2": {
-                                    "value": 1044
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 217,
-                                "2": {
-                                    "value": 89
+                                    "value": 7667
                                 }
                             },
                             {
                                 "key": "social",
-                                "doc_count": 39,
+                                "doc_count": 8013,
                                 "2": {
-                                    "value": 37
+                                    "value": 7254
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 1068,
+                                "2": {
+                                    "value": 456
                                 }
                             },
                             {
                                 "key": "undefined",
-                                "doc_count": 15,
+                                "doc_count": 273,
                                 "2": {
-                                    "value": 9
+                                    "value": 247
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 68,
+                                "2": {
+                                    "value": 64
                                 }
                             },
                             {
                                 "key": "newsaggregator",
-                                "doc_count": 5,
+                                "doc_count": 22,
                                 "2": {
-                                    "value": 5
+                                    "value": 19
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 86047,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.11",
+                                    "_type": "_doc",
+                                    "_id": "QHr7pHIBNfFwOCFXjT3o",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "Rechter Terror in Niedersachsen"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Wer spricht? Wer schweigt?",
+                    "doc_count": 79513,
+                    "2": {
+                        "value": 58995
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "self",
+                                "doc_count": 37198,
+                                "2": {
+                                    "value": 29254
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 16869,
+                                "2": {
+                                    "value": 14377
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 13088,
+                                "2": {
+                                    "value": 7766
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 9853,
+                                "2": {
+                                    "value": 8151
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 2080,
+                                "2": {
+                                    "value": 1758
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 228,
+                                "2": {
+                                    "value": 212
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 175,
+                                "2": {
+                                    "value": 161
                                 }
                             },
                             {
                                 "key": "readlater",
-                                "doc_count": 2,
+                                "doc_count": 12,
+                                "2": {
+                                    "value": 11
+                                }
+                            },
+                            {
+                                "key": "archiv",
+                                "doc_count": 10,
+                                "2": {
+                                    "value": 5
+                                }
+                            }
+                        ]
+                    },
+                    "6": {
+                        "hits": {
+                            "total": {
+                                "value": 79513,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.21",
+                                    "_type": "_doc",
+                                    "_id": "osLp13IBXXPHq16Y0AvM",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "kicker": "taz-Debatte \u00fcber M\u00fcll-Kolumne"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "key": "Der \u00d6lboom ist vorbei",
+                    "doc_count": 70027,
+                    "2": {
+                        "value": 65005
+                    },
+                    "4": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "readlater",
+                                "doc_count": 53762,
+                                "2": {
+                                    "value": 51074
+                                }
+                            },
+                            {
+                                "key": "missing",
+                                "doc_count": 15507,
+                                "2": {
+                                    "value": 14275
+                                }
+                            },
+                            {
+                                "key": "self",
+                                "doc_count": 361,
+                                "2": {
+                                    "value": 260
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 156,
+                                "2": {
+                                    "value": 142
+                                }
+                            },
+                            {
+                                "key": "searchengine",
+                                "doc_count": 121,
+                                "2": {
+                                    "value": 105
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 119,
+                                "2": {
+                                    "value": 84
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 1,
                                 "2": {
                                     "value": 1
                                 }
@@ -1033,18 +2014,18 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 5325,
+                                "value": 70027,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.04",
+                                    "_index": "article-2020.06.10",
                                     "_type": "_doc",
-                                    "_id": "U1vRG3MBp6nT3r4ScfUE",
+                                    "_id": "717hn3IBNfFwOCFX86UH",
                                     "_score": 0.0,
                                     "_source": {
-                                        "kicker": "Landkonflikt in Brasilien"
+                                        "kicker": "Studie zum Ende fossiler Energie"
                                     }
                                 }
                             ]
@@ -1052,10 +2033,10 @@
                     }
                 },
                 {
-                    "key": "Antirassisten als \u201ew\u00fctender Mob\u201c",
-                    "doc_count": 5320,
+                    "key": "Debatte \u00fcber taz-Kolumne",
+                    "doc_count": 69313,
                     "2": {
-                        "value": 2900
+                        "value": 59635
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
@@ -1063,515 +2044,84 @@
                         "buckets": [
                             {
                                 "key": "self",
-                                "doc_count": 2577,
+                                "doc_count": 59758,
                                 "2": {
-                                    "value": 2058
+                                    "value": 52719
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 1882,
+                                "doc_count": 5111,
                                 "2": {
-                                    "value": 439
+                                    "value": 4071
                                 }
                             },
                             {
                                 "key": "searchengine",
-                                "doc_count": 638,
+                                "doc_count": 2641,
                                 "2": {
-                                    "value": 225
+                                    "value": 2360
                                 }
                             },
                             {
                                 "key": "social",
-                                "doc_count": 189,
+                                "doc_count": 1248,
                                 "2": {
-                                    "value": 173
+                                    "value": 1123
+                                }
+                            },
+                            {
+                                "key": "undefined",
+                                "doc_count": 417,
+                                "2": {
+                                    "value": 391
                                 }
                             },
                             {
                                 "key": "newsaggregator",
-                                "doc_count": 17,
+                                "doc_count": 92,
+                                "2": {
+                                    "value": 80
+                                }
+                            },
+                            {
+                                "key": "mobileapp",
+                                "doc_count": 23,
+                                "2": {
+                                    "value": 21
+                                }
+                            },
+                            {
+                                "key": "archiv",
+                                "doc_count": 16,
                                 "2": {
                                     "value": 16
                                 }
                             },
                             {
                                 "key": "readlater",
-                                "doc_count": 10,
-                                "2": {
-                                    "value": 10
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 4,
-                                "2": {
-                                    "value": 2
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 3,
-                                "2": {
-                                    "value": 2
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 5320,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.04",
-                                    "_type": "_doc",
-                                    "_id": "e1vRG3MBp6nT3r4Se_VM",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Rede von Trump zum Unabh\u00e4ngigkeitstag"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Arbeit, Familie, WLAN",
-                    "doc_count": 4735,
-                    "2": {
-                        "value": 2335
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "missing",
-                                "doc_count": 2201,
-                                "2": {
-                                    "value": 671
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 1645,
-                                "2": {
-                                    "value": 1434
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 681,
-                                "2": {
-                                    "value": 74
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 69,
-                                "2": {
-                                    "value": 62
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 59,
-                                "2": {
-                                    "value": 55
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 58,
-                                "2": {
-                                    "value": 51
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 14,
-                                "2": {
-                                    "value": 4
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 8,
-                                "2": {
-                                    "value": 8
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 4735,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.04",
-                                    "_type": "_doc",
-                                    "_id": "r1ktG3MBp6nT3r4S-y4T",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Aus Le Monde diplomatique"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Weiter so, Mr President!",
-                    "doc_count": 4610,
-                    "2": {
-                        "value": 3901
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "missing",
-                                "doc_count": 1712,
-                                "2": {
-                                    "value": 1324
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 1607,
-                                "2": {
-                                    "value": 1470
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 531,
-                                "2": {
-                                    "value": 502
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 224,
-                                "2": {
-                                    "value": 127
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 223,
-                                "2": {
-                                    "value": 211
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 205,
-                                "2": {
-                                    "value": 188
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 105,
-                                "2": {
-                                    "value": 100
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 3,
-                                "2": {
-                                    "value": 2
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 4610,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.05",
-                                    "_type": "_doc",
-                                    "_id": "d22WH3MBp6nT3r4S1Sde",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Trumps Rede zum 4. Juli"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Updates f\u00fcr alle",
-                    "doc_count": 4472,
-                    "2": {
-                        "value": 4096
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 2440,
-                                "2": {
-                                    "value": 2377
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 911,
-                                "2": {
-                                    "value": 821
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 890,
-                                "2": {
-                                    "value": 725
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 109,
-                                "2": {
-                                    "value": 88
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 91,
-                                "2": {
-                                    "value": 83
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 14,
-                                "2": {
-                                    "value": 14
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 14,
-                                "2": {
-                                    "value": 14
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 3,
-                                "2": {
-                                    "value": 3
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 4472,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.04",
-                                    "_type": "_doc",
-                                    "_id": "7lvRG3MBp6nT3r4SWfTm",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Alte Smartphones ohne Corona-App"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Die Neretva bleibt wild",
-                    "doc_count": 4444,
-                    "2": {
-                        "value": 3206
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 2291,
-                                "2": {
-                                    "value": 2231
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 1709,
-                                "2": {
-                                    "value": 737
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 278,
-                                "2": {
-                                    "value": 144
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 87,
-                                "2": {
-                                    "value": 59
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 63,
-                                "2": {
-                                    "value": 60
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 14,
-                                "2": {
-                                    "value": 13
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 2,
-                                "2": {
-                                    "value": 2
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 4444,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.04",
-                                    "_type": "_doc",
-                                    "_id": "S1ktG3MBp6nT3r4S6S7Z",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Natur in Bosnien und Herzegowina"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Kurzer Weg zum Geld",
-                    "doc_count": 4385,
-                    "2": {
-                        "value": 2605
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "missing",
-                                "doc_count": 1879,
-                                "2": {
-                                    "value": 539
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 1566,
-                                "2": {
-                                    "value": 1513
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 442,
-                                "2": {
-                                    "value": 147
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 418,
-                                "2": {
-                                    "value": 355
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 43,
-                                "2": {
-                                    "value": 41
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 28,
-                                "2": {
-                                    "value": 20
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 8,
+                                "doc_count": 7,
                                 "2": {
                                     "value": 7
                                 }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 1,
-                                "2": {
-                                    "value": 1
-                                }
                             }
                         ]
                     },
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 4385,
+                                "value": 69313,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.04",
+                                    "_index": "article-2020.06.19",
                                     "_type": "_doc",
-                                    "_id": "51kvG3MBp6nT3r4SRTQl",
+                                    "_id": "Xoe2znIBXXPHq16YXLd5",
                                     "_score": 0.0,
                                     "_source": {
-                                        "kicker": "Wettb\u00fcro in Hamburg verst\u00f6\u00dft gegen Gesetz"
+                                        "kicker": "taz sachen"
                                     }
                                 }
                             ]
@@ -1579,507 +2129,62 @@
                     }
                 },
                 {
-                    "key": "Leben unter dem ewigen Putin",
-                    "doc_count": 4319,
+                    "key": "Vorbereitung auf den \u201eRassenkrieg\u201c",
+                    "doc_count": 66042,
                     "2": {
-                        "value": 2264
+                        "value": 59467
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
-                            {
-                                "key": "missing",
-                                "doc_count": 1888,
-                                "2": {
-                                    "value": 470
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 1409,
-                                "2": {
-                                    "value": 1278
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 879,
-                                "2": {
-                                    "value": 417
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 54,
-                                "2": {
-                                    "value": 52
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 46,
-                                "2": {
-                                    "value": 43
-                                }
-                            },
                             {
                                 "key": "readlater",
-                                "doc_count": 25,
+                                "doc_count": 43830,
                                 "2": {
-                                    "value": 22
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 10,
-                                "2": {
-                                    "value": 9
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 8,
-                                "2": {
-                                    "value": 8
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 4319,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.04",
-                                    "_type": "_doc",
-                                    "_id": "ZVvRG3MBp6nT3r4SdfWr",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Verfassungs\u00e4nderung in Russland"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Tag der Umbenennung",
-                    "doc_count": 4260,
-                    "2": {
-                        "value": 3409
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "social",
-                                "doc_count": 1751,
-                                "2": {
-                                    "value": 1669
+                                    "value": 41126
                                 }
                             },
                             {
                                 "key": "missing",
-                                "doc_count": 1230,
+                                "doc_count": 17051,
                                 "2": {
-                                    "value": 729
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 691,
-                                "2": {
-                                    "value": 562
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 404,
-                                "2": {
-                                    "value": 394
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 134,
-                                "2": {
-                                    "value": 43
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 24,
-                                "2": {
-                                    "value": 21
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 20,
-                                "2": {
-                                    "value": 18
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 6,
-                                "2": {
-                                    "value": 6
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 4260,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.05",
-                                    "_type": "_doc",
-                                    "_id": "X2nYHnMBp6nT3r4SKzXA",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "US-Football-Team pr\u00fcft neuen Namen"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "\u201eSauberes Gef\u00fchl\u201c",
-                    "doc_count": 4193,
-                    "2": {
-                        "value": 3090
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "self",
-                                "doc_count": 1586,
-                                "2": {
-                                    "value": 1378
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 1402,
-                                "2": {
-                                    "value": 848
+                                    "value": 14738
                                 }
                             },
                             {
                                 "key": "social",
-                                "doc_count": 789,
+                                "doc_count": 2949,
                                 "2": {
-                                    "value": 689
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 236,
-                                "2": {
-                                    "value": 68
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 109,
-                                "2": {
-                                    "value": 106
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 55,
-                                "2": {
-                                    "value": 48
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 15,
-                                "2": {
-                                    "value": 6
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 1,
-                                "2": {
-                                    "value": 1
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 4193,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.05",
-                                    "_type": "_doc",
-                                    "_id": "hmZ3HnMBp6nT3r4Slv9R",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Gr\u00fcnderinnen \u00fcber ihr Putz-Start-up"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Salvini im Auftrieb",
-                    "doc_count": 4136,
-                    "2": {
-                        "value": 3058
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "missing",
-                                "doc_count": 1624,
-                                "2": {
-                                    "value": 983
+                                    "value": 2662
                                 }
                             },
                             {
                                 "key": "self",
-                                "doc_count": 1245,
-                                "2": {
-                                    "value": 1107
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 647,
+                                "doc_count": 916,
                                 "2": {
                                     "value": 603
                                 }
                             },
                             {
-                                "key": "searchengine",
-                                "doc_count": 396,
-                                "2": {
-                                    "value": 184
-                                }
-                            },
-                            {
                                 "key": "undefined",
-                                "doc_count": 88,
+                                "doc_count": 724,
                                 "2": {
-                                    "value": 80
+                                    "value": 651
                                 }
                             },
                             {
-                                "key": "readlater",
-                                "doc_count": 85,
+                                "key": "searchengine",
+                                "doc_count": 562,
                                 "2": {
-                                    "value": 83
+                                    "value": 435
                                 }
                             },
                             {
                                 "key": "mobileapp",
-                                "doc_count": 42,
-                                "2": {
-                                    "value": 41
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 9,
+                                "doc_count": 7,
                                 "2": {
                                     "value": 7
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 4136,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.05",
-                                    "_type": "_doc",
-                                    "_id": "nWZ3HnMBp6nT3r4Sm_-E",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Rechte in Italien"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Im Grunde gut",
-                    "doc_count": 3983,
-                    "2": {
-                        "value": 3633
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 1935,
-                                "2": {
-                                    "value": 1844
-                                }
-                            },
-                            {
-                                "key": "missing",
-                                "doc_count": 683,
-                                "2": {
-                                    "value": 560
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 554,
-                                "2": {
-                                    "value": 509
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 443,
-                                "2": {
-                                    "value": 406
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 231,
-                                "2": {
-                                    "value": 214
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 91,
-                                "2": {
-                                    "value": 87
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 34,
-                                "2": {
-                                    "value": 28
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 12,
-                                "2": {
-                                    "value": 10
-                                }
-                            }
-                        ]
-                    },
-                    "6": {
-                        "hits": {
-                            "total": {
-                                "value": 3983,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.05",
-                                    "_type": "_doc",
-                                    "_id": "B2d4HnMBp6nT3r4SAwKt",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "kicker": "Bedingungsloses Grundeinkommen"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "key": "Baut neue Denkm\u00e4ler!",
-                    "doc_count": 3780,
-                    "2": {
-                        "value": 2645
-                    },
-                    "4": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "missing",
-                                "doc_count": 1532,
-                                "2": {
-                                    "value": 833
-                                }
-                            },
-                            {
-                                "key": "self",
-                                "doc_count": 1375,
-                                "2": {
-                                    "value": 1193
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 494,
-                                "2": {
-                                    "value": 457
-                                }
-                            },
-                            {
-                                "key": "searchengine",
-                                "doc_count": 216,
-                                "2": {
-                                    "value": 36
-                                }
-                            },
-                            {
-                                "key": "mobileapp",
-                                "doc_count": 74,
-                                "2": {
-                                    "value": 72
-                                }
-                            },
-                            {
-                                "key": "undefined",
-                                "doc_count": 47,
-                                "2": {
-                                    "value": 44
-                                }
-                            },
-                            {
-                                "key": "readlater",
-                                "doc_count": 39,
-                                "2": {
-                                    "value": 38
                                 }
                             },
                             {
@@ -2094,18 +2199,18 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 3780,
+                                "value": 66042,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.05",
+                                    "_index": "article-2020.06.06",
                                     "_type": "_doc",
-                                    "_id": "xWd6HnMBp6nT3r4SehDU",
+                                    "_id": "D_Kmi3IBNfFwOCFX1E59",
                                     "_score": 0.0,
                                     "_source": {
-                                        "kicker": "Die steile These"
+                                        "kicker": "taz-Recherche zu rechtsextremen Preppern"
                                     }
                                 }
                             ]
@@ -2113,62 +2218,62 @@
                     }
                 },
                 {
-                    "key": "Aussetzung zum \u201eRiesenfehler\u201c erkl\u00e4rt",
-                    "doc_count": 3584,
+                    "key": "Chronologie einer Debatte",
+                    "doc_count": 58023,
                     "2": {
-                        "value": 1675
+                        "value": 49345
                     },
                     "4": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
-                                "key": "missing",
-                                "doc_count": 1826,
+                                "key": "searchengine",
+                                "doc_count": 33532,
                                 "2": {
-                                    "value": 420
+                                    "value": 30439
                                 }
                             },
                             {
                                 "key": "self",
-                                "doc_count": 1115,
+                                "doc_count": 17731,
                                 "2": {
-                                    "value": 973
+                                    "value": 14838
                                 }
                             },
                             {
-                                "key": "searchengine",
-                                "doc_count": 374,
+                                "key": "missing",
+                                "doc_count": 6043,
                                 "2": {
-                                    "value": 41
-                                }
-                            },
-                            {
-                                "key": "social",
-                                "doc_count": 229,
-                                "2": {
-                                    "value": 220
+                                    "value": 4463
                                 }
                             },
                             {
                                 "key": "mobileapp",
-                                "doc_count": 27,
+                                "doc_count": 264,
                                 "2": {
-                                    "value": 26
-                                }
-                            },
-                            {
-                                "key": "newsaggregator",
-                                "doc_count": 6,
-                                "2": {
-                                    "value": 5
+                                    "value": 256
                                 }
                             },
                             {
                                 "key": "undefined",
-                                "doc_count": 5,
+                                "doc_count": 210,
                                 "2": {
-                                    "value": 5
+                                    "value": 185
+                                }
+                            },
+                            {
+                                "key": "newsaggregator",
+                                "doc_count": 130,
+                                "2": {
+                                    "value": 127
+                                }
+                            },
+                            {
+                                "key": "social",
+                                "doc_count": 111,
+                                "2": {
+                                    "value": 105
                                 }
                             },
                             {
@@ -2183,18 +2288,18 @@
                     "6": {
                         "hits": {
                             "total": {
-                                "value": 3584,
+                                "value": 58023,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
                             "hits": [
                                 {
-                                    "_index": "article-2020.07.04",
+                                    "_index": "article-2020.06.22",
                                     "_type": "_doc",
-                                    "_id": "81kvG3MBp6nT3r4SjjWs",
+                                    "_id": "jPMS3nIBXXPHq16YHiEv",
                                     "_score": 0.0,
                                     "_source": {
-                                        "kicker": "Wehrbeauftragte H\u00f6gl \u00fcber Wehrpflicht"
+                                        "kicker": "taz-Kolumne zur Polizei"
                                     }
                                 }
                             ]

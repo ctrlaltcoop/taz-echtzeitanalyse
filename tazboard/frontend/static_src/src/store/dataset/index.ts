@@ -15,7 +15,7 @@ export const dataset: Module<DatasetState, {}> = {
   },
   actions: {
     async [ActionTypes.SET_TIMEFRAME] ({ state, commit }: ActionContext<DatasetState, {}>, parameters: UpdateTimeframeParams) {
-      const referrers = await apiClient.referrer(parameters.min, parameters.max)
+      const referrers = await apiClient.referrer(parameters.minDate, parameters.maxDate)
       commit(MutationTypes.UPDATE_DATASET, {
         ...state.current,
         referrers

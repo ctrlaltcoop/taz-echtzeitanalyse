@@ -1,16 +1,16 @@
 {
-    "took": 9,
+    "took": 56,
     "timed_out": false,
     "_shards": {
         "total": 134,
         "successful": 134,
-        "skipped": 132,
+        "skipped": 103,
         "failed": 0
     },
     "hits": {
         "total": {
-            "value": 5602,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -22,65 +22,65 @@
             "buckets": [
                 {
                     "key": "missing",
-                    "doc_count": 2000,
+                    "doc_count": 4180684,
                     "2": {
-                        "value": 1205
+                        "value": 978622
                     }
                 },
                 {
                     "key": "self",
-                    "doc_count": 1236,
+                    "doc_count": 2392822,
                     "2": {
-                        "value": 667
-                    }
-                },
-                {
-                    "key": "readlater",
-                    "doc_count": 875,
-                    "2": {
-                        "value": 847
+                        "value": 832595
                     }
                 },
                 {
                     "key": "searchengine",
-                    "doc_count": 754,
+                    "doc_count": 1447898,
                     "2": {
-                        "value": 601
+                        "value": 927165
+                    }
+                },
+                {
+                    "key": "readlater",
+                    "doc_count": 1118489,
+                    "2": {
+                        "value": 908771
                     }
                 },
                 {
                     "key": "social",
-                    "doc_count": 380,
+                    "doc_count": 590708,
                     "2": {
-                        "value": 353
+                        "value": 447621
                     }
                 },
                 {
                     "key": "mobileapp",
-                    "doc_count": 265,
+                    "doc_count": 347497,
                     "2": {
-                        "value": 255
+                        "value": 325756
                     }
                 },
                 {
                     "key": "undefined",
-                    "doc_count": 74,
+                    "doc_count": 174097,
                     "2": {
-                        "value": 72
-                    }
-                },
-                {
-                    "key": "archiv",
-                    "doc_count": 14,
-                    "2": {
-                        "value": 14
+                        "value": 129632
                     }
                 },
                 {
                     "key": "newsaggregator",
-                    "doc_count": 4,
+                    "doc_count": 30829,
                     "2": {
-                        "value": 4
+                        "value": 25264
+                    }
+                },
+                {
+                    "key": "archiv",
+                    "doc_count": 14133,
+                    "2": {
+                        "value": 11897
                     }
                 }
             ]

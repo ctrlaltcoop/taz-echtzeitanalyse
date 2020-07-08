@@ -1,8 +1,10 @@
+from django.utils import timezone
+
 from tazboard.api.queries.common import maybe_add_msid_filter
 from tazboard.api.queries.constants import INTERVAL_10MINUTES, KEY_FINGERPRINT_AGGREGATION, KEY_TIMESTAMP_AGGREGATION
 
 
-def get_histogram_query(min_date, max_date='now', msid=None, interval=INTERVAL_10MINUTES):
+def get_histogram_query(min_date, max_date=timezone.now(), msid=None, interval=INTERVAL_10MINUTES):
     query = {
         "aggs": {
             KEY_TIMESTAMP_AGGREGATION: {
@@ -11,7 +13,7 @@ def get_histogram_query(min_date, max_date='now', msid=None, interval=INTERVAL_1
                     "fixed_interval": interval,
                     "time_zone": "Europe/Berlin",
                     "min_doc_count": 0,
-                    "extended_bounds": {"min": min_date, "max": max_date}
+                    "extended_bounds": {"min": min_date.isoformat(), "max": max_date.isoformat()}
                 },
                 "aggs": {
                     KEY_FINGERPRINT_AGGREGATION: {
@@ -35,7 +37,7 @@ def get_histogram_query(min_date, max_date='now', msid=None, interval=INTERVAL_1
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": min_date
+                                "gte": min_date.isoformat()
                             }
                         }
                     }

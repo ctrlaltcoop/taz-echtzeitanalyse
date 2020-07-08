@@ -9,6 +9,7 @@ import Vue from 'vue'
 import { BTable } from 'bootstrap-vue'
 import { ApiClient } from '@/client/ApiClient'
 import { ArticleData } from '@/dto/ToplistDto'
+import { getTimeframeById, Timeframe } from '@/common/timeframe'
 
 const apiClient = new ApiClient()
 
@@ -17,7 +18,7 @@ interface ToplistData {
 }
 
 interface ToplistMethods {
-  update (minDate: string): void;
+  update (timeframe: Timeframe): void;
 }
 
 export default Vue.extend<ToplistData, ToplistMethods, {}>({
@@ -26,8 +27,8 @@ export default Vue.extend<ToplistData, ToplistMethods, {}>({
     BTable
   },
   methods: {
-    async update (minDate: string) {
-      this.items = ((await apiClient.toplist(minDate, 'now', 25)).data)
+    async update (timeframe: Timeframe) {
+      this.items = ((await apiClient.toplist(timeframe.minDate, timeframe.maxDate, 25)).data)
     }
   },
   data: () => {
@@ -38,7 +39,7 @@ export default Vue.extend<ToplistData, ToplistMethods, {}>({
           label: 'Klicks',
           class: 'text-right',
           thClass: 'white-caption',
-          formatter: (value) => value.toLocaleString(),
+          formatter: (value: number) => value.toLocaleString(),
           sortable: true
         },
         {
@@ -54,8 +55,9 @@ export default Vue.extend<ToplistData, ToplistMethods, {}>({
   watch: {
     '$route.query': {
       handler (query: any) {
-        if (query.minDate) {
-          this.update(query.minDate as string)
+        if (query.timeframeId) {
+          const timeframe = getTimeframeById(query.timeframeId)
+          this.update(timeframe!!)
         }
       },
       immediate: true,

@@ -7,7 +7,6 @@ import 'chartjs-adapter-date-fns'
 
 import '@/style/main.scss'
 
-
 new Vue({
   store,
   router,

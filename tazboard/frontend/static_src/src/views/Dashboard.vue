@@ -11,11 +11,11 @@
         <div class="col-12 col-lg-5 pr-0 timeframe-select-area">
           <div class="timeframe-select-container">
             <span class="timeframe-caption">{{
-                currentTimeframe.start().toLocaleString([], dateFormatOptions)
-              }} - {{ currentTimeframe.end().toLocaleString([], dateFormatOptions) }}</span>
+                currentTimeframe.minDate.toLocaleString([], dateFormatOptions)
+              }} - {{ currentTimeframe.maxDate.toLocaleString([], dateFormatOptions) }}</span>
             <select class="timeframe-select" @change="timeframeSelect($event.target.value)"
-                    :value="currentTimeframe.minDate">
-              <option v-for="timeframe in timeframeSelection" :value="timeframe.minDate" :key="timeframe.minDate">
+                    :value="currentTimeframe.id">
+              <option v-for="timeframe in timeframeSelection" :value="timeframe.id" :key="timeframe.id">
                 {{ timeframe.label }}
               </option>
             </select>
@@ -29,22 +29,15 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { subDays, subMinutes, subMonths } from 'date-fns'
 import Statistics from '@/components/Statistics.vue'
 import { ActionTypes } from '@/store/dataset/types'
 import store from '@/store'
+import { DEFAULT_TIMEFRAME, getTimeframeById, Timeframe, TimeframeId, TIMEFRAMES } from '@/common/timeframe'
 
-interface Timeframe {
-  label: string;
-  start: () => Date;
-  end: () => Date;
-  minDate: string;
-}
-
-async function updateTimeframeHistogram (minDate: string) {
+async function updateTimeframeHistogram (timeframe: Timeframe) {
   await store.dispatch(ActionTypes.SET_TIMEFRAME, {
-    min: minDate,
-    max: 'now'
+    minDate: timeframe.minDate,
+    maxDate: timeframe.maxDate
   })
 }
 
@@ -52,6 +45,7 @@ export default Vue.extend({
   name: 'Dashboard',
   data () {
     return {
+      timeframeSelection: TIMEFRAMES,
       dateFormatOptions: {
         day: '2-digit',
         month: '2-digit',
@@ -62,31 +56,12 @@ export default Vue.extend({
     }
   },
   computed: {
-    timeframeSelection (): Array<Timeframe> {
-      return [{
-        label: '10 minuten',
-        start: () => subMinutes(new Date(), 5),
-        end: () => new Date(),
-        minDate: 'now-10m'
-      }, {
-        label: 'Heute',
-        start: () => subDays(new Date(), 1
-        ),
-        end: () => new Date(),
-        minDate: 'now-24h'
-      }, {
-        label: '1 Monat',
-        start: () => subMonths(new Date(), 1),
-        end: () => new Date(),
-        minDate: 'now-1M'
-      }]
-    },
     currentTimeframe (): Timeframe {
-      const currentQuery = this.$route.query.minDate
-      const currentTimeframe = this.timeframeSelection.find(({ minDate }) => minDate === currentQuery)
+      const currentTimeframeId = this.$route.query.timeframeId as TimeframeId
+      const currentTimeframe = getTimeframeById(currentTimeframeId)
       if (!currentTimeframe) {
-        this.timeframeSelect(this.timeframeSelection[0].minDate)
-        return this.timeframeSelection[0]
+        this.timeframeSelect(DEFAULT_TIMEFRAME.id)
+        return DEFAULT_TIMEFRAME
       } else {
         return currentTimeframe
       }
@@ -96,8 +71,8 @@ export default Vue.extend({
     Statistics
   },
   methods: {
-    timeframeSelect (minDate: string) {
-      if (minDate === this.$route.query.minDate) {
+    timeframeSelect (timeframeId: TimeframeId) {
+      if (timeframeId === this.$route.query.timeframeId as TimeframeId) {
         return
       }
       this.$router.push({
@@ -105,16 +80,16 @@ export default Vue.extend({
         params: this.$route.params,
         query: {
           ...this.$route.query,
-          minDate: minDate
+          timeframeId
         }
       })
     }
   },
   watch: {
     '$route.query': {
-      handler: (query) => {
-        if (query.minDate) {
-          updateTimeframeHistogram(query.minDate as string)
+      handler (query) {
+        if (query.timeframeId) {
+          updateTimeframeHistogram(getTimeframeById(query.timeframeId as TimeframeId)!!)
         }
       },
       immediate: true,

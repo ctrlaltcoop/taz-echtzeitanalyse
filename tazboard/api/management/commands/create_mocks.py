@@ -1,12 +1,15 @@
 import json
+from datetime import timedelta
 
 from django.core.management import BaseCommand
 
 from tazboard.api.elastic_client import es
+from tazboard.api.queries.constants import MOCK_FAKE_NOW
 from tazboard.api.queries.histogram import get_histogram_query
 from tazboard.api.queries.referrer import get_referrer_query
 from tazboard.api.queries.toplist import get_toplist_query
-from tazboard.api.tests.common import get_mock_filepath_for_query
+from tazboard.api.tests.common import get_mock_filepath_for_query, get_mock_test_sample_path_for_query_function
+from tazboard.api.utils.datetime import round_to_seconds
 
 
 def get_argument_matrix(list_a, list_b):
@@ -20,35 +23,39 @@ class Command(BaseCommand):
         {
             'get_query': get_histogram_query,
             'arguments': [
-                ('now-24h', 'now'),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
             ]
         },
         {
             'get_query': get_referrer_query,
             'arguments': [
-                ('now-10m', 'now'),
-                ('now-24h', 'now'),
-                ('now-1w', 'now'),
-                ('now-1M', 'now')
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=10)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(weeks=1)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW),
             ]
         },
         {
             'get_query': get_toplist_query,
             'arguments': get_argument_matrix((
-                ('now-10m', 'now'),
-                ('now-24h', 'now'),
-                ('now-1w', 'now'),
-                ('now-1M', 'now'),
-            ), (('10',), ('25',)))
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=10)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(weeks=1)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW),
+            ), ((10,), (25,)))
         }
     ]
 
     def handle(self, *args, **options):
         for config in self.query_configs:
-            for arguments in config['arguments']:
+            for index, arguments in enumerate(config['arguments']):
+
                 query_fn = config['get_query']
                 query = query_fn(*arguments)
+                response = es.search(body=query)
                 with open(get_mock_filepath_for_query(query), 'w') as outfile:
-                    response = es.search(body=query)
                     outfile.write(json.dumps(response, indent=4))
-
+                # put aside one sample for e2e tests
+                if index == 0:
+                    with open(get_mock_test_sample_path_for_query_function(query_fn), 'w') as outfile:
+                        outfile.write(json.dumps(response, indent=4))

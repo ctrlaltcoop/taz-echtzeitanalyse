@@ -9,8 +9,8 @@ export interface DatasetState {
 }
 
 export interface UpdateTimeframeParams {
-  min: string;
-  max: string;
+  minDate: Date;
+  maxDate: Date;
 }
 
 export enum MutationTypes {

@@ -1,8 +1,10 @@
+from django.utils import timezone
+
 from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_TOPLIST_AGGREGTAION, \
     KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION
 
 
-def get_toplist_query(min_date, max_date='now', limit='10'):
+def get_toplist_query(min_date, max_date=timezone.now(), limit=10):
     query = {
         "aggs": {
             KEY_TOPLIST_AGGREGTAION: {
@@ -12,7 +14,7 @@ def get_toplist_query(min_date, max_date='now', limit='10'):
                         "_count": "desc"
                     },
                     "missing": "__missing__",
-                    "size": limit
+                    "size": str(limit)
                 },
                 "aggs": {
                     KEY_EXTRA_FIELDS_AGGREGATION: {
@@ -54,8 +56,8 @@ def get_toplist_query(min_date, max_date='now', limit='10'):
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": min_date,
-                                "lte": max_date
+                                "gte": min_date.isoformat(),
+                                "lte": max_date.isoformat()
                             }
                         }
                     }

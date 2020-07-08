@@ -1,10 +1,15 @@
-import os
 import json
+import os
+from datetime import timedelta
 
-from unittest.mock import MagicMock, patch, Mock
+from unittest.mock import patch, Mock, MagicMock
 
 from django.test import LiveServerTestCase
 from elasticsearch import RequestError, ConnectionError
+
+from tazboard.api.queries.constants import MOCK_FAKE_NOW
+from tazboard.api.queries.referrer import get_referrer_query
+from tazboard.api.tests.common import get_mock_test_sample_path_for_query_function
 
 TEST_PATH = os.path.dirname(os.path.abspath(__file__))
 
@@ -14,14 +19,19 @@ class ReferrerTestCase(LiveServerTestCase):
     def setUp(self):
         self.patcher = patch('tazboard.api.elastic_client.es')
         self.es_client = self.patcher.start()
-        with open(os.path.join(TEST_PATH, 'mocks/referrer.json')) as mock_response:
-            self.es_client.search = MagicMock(return_value=json.load(mock_response))
+        with open(get_mock_test_sample_path_for_query_function(get_referrer_query), 'r') as mock_response_file:
+            self.es_client.search = MagicMock(return_value=json.load(mock_response_file))
 
     def tearDown(self):
         self.patcher.stop()
 
-    def test_unfiltered_histogram_response(self):
-        response = self.client.get('/api/v1/referrer')
+    def test_referrer_query_correct_response(self):
+        min_date = MOCK_FAKE_NOW - timedelta(minutes=10)
+        max_date = MOCK_FAKE_NOW
+        response = self.client.get('/api/v1/referrer', {
+            'min_date': min_date.isoformat(),
+            'max_date': max_date.isoformat(),
+        })
         data = response.json()
         self.assertIn('data', data)
         self.assertIn('total', data)
@@ -29,32 +39,48 @@ class ReferrerTestCase(LiveServerTestCase):
         self.assertEqual(response.status_code, 200)
 
     @patch('tazboard.api.views.get_referrer_query')
-    def test_unfiltered_histogram_query_only_timeframe(self, get_referrer_query):
-        self.client.get('/api/v1/referrer?min=now-24h&max=now')
+    def test_referrer_query_only_timeframe(self, get_referrer_query_spy):
+        min_date = MOCK_FAKE_NOW - timedelta(minutes=15)
+        max_date = MOCK_FAKE_NOW
+        response = self.client.get('/api/v1/referrer', {
+            'min_date': min_date.isoformat(),
+            'max_date': max_date.isoformat(),
+        })
+        self.assertEquals(response.status_code, 200)
         self.es_client.search.assert_called_once()
-        get_referrer_query.assert_called_once()
-        get_referrer_query.assert_called_with('now-24h', 'now', msid=None)
+        get_referrer_query_spy.assert_called_once()
+        get_referrer_query_spy.assert_called_with(min_date, max_date, msid=None)
 
     @patch('tazboard.api.views.get_referrer_query')
-    def test_unfiltered_histogram_query_specify_msid(self, get_referrer_query):
-        self.client.get('/api/v1/referrer?min=now-24h&max=now&msid=5555')
+    def test_unfiltered_referrer_query_specify_msid(self, get_referrer_query_spy):
+        min_date = MOCK_FAKE_NOW - timedelta(hours=24)
+        max_date = MOCK_FAKE_NOW
+        response = self.client.get('/api/v1/referrer', {
+            'min_date': min_date.isoformat(),
+            'max_date': max_date.isoformat(),
+            'msid': '5555'
+        })
+        self.assertEquals(response.status_code, 200)
         self.es_client.search.assert_called_once()
-        get_referrer_query.assert_called_once()
-        get_referrer_query.assert_called_with('now-24h', 'now', msid='5555')
-
-    @patch('tazboard.api.views.get_referrer_query')
-    def test_unfiltered_histogram_query_specify_interval(self, get_referrer_query):
-        self.client.get('/api/v1/referrer?min=now-12h&max=now&interval=25m')
-        self.es_client.search.assert_called_once()
-        get_referrer_query.assert_called_once()
-        get_referrer_query.assert_called_with('now-12h', 'now', msid=None)
+        get_referrer_query_spy.assert_called_once()
+        get_referrer_query_spy.assert_called_with(min_date, max_date, msid=5555)
 
     def test_expect_503_if_elastic_is_unavailable(self):
+        min_date = MOCK_FAKE_NOW - timedelta(days=1)
+        max_date = MOCK_FAKE_NOW
         self.es_client.search = Mock(side_effect=ConnectionError())
-        response = self.client.get('/api/v1/referrer')
+        response = self.client.get('/api/v1/referrer', {
+            "min_date": min_date.isoformat(),
+            "max_date": max_date.isoformat()
+        })
         self.assertEquals(response.status_code, 503)
 
     def test_expect_500_if_bad_elastic_query(self):
+        min_date = MOCK_FAKE_NOW - timedelta(days=1)
+        max_date = MOCK_FAKE_NOW
         self.es_client.search = Mock(side_effect=RequestError('kaboom', 'error', {}))
-        response = self.client.get('/api/v1/referrer')
+        response = self.client.get('/api/v1/referrer', {
+            'min_date': min_date.isoformat(),
+            'max_date': max_date.isoformat()
+        })
         self.assertEquals(response.status_code, 500)

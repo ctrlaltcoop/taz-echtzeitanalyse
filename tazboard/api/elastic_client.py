@@ -1,5 +1,4 @@
 import logging
-import traceback
 
 from django.conf import settings
 from elasticsearch import Elasticsearch, RequestsHttpConnection, RequestError, ConnectionError
