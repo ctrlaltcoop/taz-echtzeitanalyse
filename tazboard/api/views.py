@@ -5,7 +5,6 @@ from django.conf import settings
 from django.shortcuts import render
 from django.utils import timezone
 from django.views.generic import TemplateView
-from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 
@@ -53,7 +52,6 @@ class APIView(GenericAPIView):
 
 class HistogramView(APIView):
     serializer_class = HistogramSerializer
-    filter_backends = [DjangoFilterBackend]
     query_serializer = HistogramQuerySerializer
 
     def get(self, request, *args, **kwargs):
@@ -72,7 +70,6 @@ class HistogramView(APIView):
 
 class ReferrerView(APIView):
     serializer_class = ReferrerSerializer
-    filter_backends = [DjangoFilterBackend]
     query_serializer = ReferrerQuerySerializer
 
     def get(self, request, *args, **kwargs):
@@ -89,7 +86,6 @@ class ReferrerView(APIView):
 
 class ToplistView(APIView):
     serializer_class = ToplistSerializer
-    filter_backends = [DjangoFilterBackend]
     query_serializer = ToplistQuerySerializer
 
     def get(self, request, *args, **kwargs):
