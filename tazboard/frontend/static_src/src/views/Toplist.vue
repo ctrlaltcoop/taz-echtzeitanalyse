@@ -67,7 +67,7 @@ export default Vue.extend<Data, Methods, Computed>({
       return [...new Set(allReferrers)]
     }
   },
-  data () {
+  data: () => {
     return {
       selectedReferrer: null,
       fields: [
@@ -102,8 +102,8 @@ export default Vue.extend<Data, Methods, Computed>({
             if (value === null) return
             const now = new Date()
             const pubDate = new Date(value)
-            const thisWeek = getISOWeek(now, { weekStartsOn: 1 })
-            const pubWeek = getISOWeek(pubDate, { weekStartsOn: 1 })
+            const thisWeek = getISOWeek(now)
+            const pubWeek = getISOWeek(pubDate)
             if (isToday(pubDate)) {
               return CAPTION_TODAY
             } else if (isYesterday(pubDate)) {
@@ -122,6 +122,7 @@ export default Vue.extend<Data, Methods, Computed>({
           label: 'Kicks über',
           class: 'text-right',
           thClass: 'white-caption',
+          // @ts-ignore type inference of this doesn't work here
           formatter: (value: null, key: string, item: ArticleData) => { return this.formatSelectReferrer(value, key, item) }
         }, {
           key: 'topReferrer',
