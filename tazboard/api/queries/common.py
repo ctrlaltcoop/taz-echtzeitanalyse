@@ -55,7 +55,7 @@ def FINGERPRINT_AGGREGATION_WITH_RANGES(interval_start, interval_mid, interval_e
 def REFERRER_AGGREGATION_WITH_RANGES(interval_start, interval_mid, interval_end):
     return {
         "terms": {
-            "field": "referrerclass",
+            "field": "referrertags",
             "order": {
                 "_count": "desc"
             },

@@ -1,5 +1,5 @@
 {
-    "took": 1476,
+    "took": 84,
     "timed_out": false,
     "_shards": {
         "total": 134,
@@ -18,7 +18,7 @@
     "aggregations": {
         "KEY_REFERRER_AGGREGATION": {
             "doc_count_error_upper_bound": 0,
-            "sum_other_doc_count": 0,
+            "sum_other_doc_count": 68399,
             "buckets": [
                 {
                     "key": "missing",
@@ -51,8 +51,8 @@
                     }
                 },
                 {
-                    "key": "self",
-                    "doc_count": 2392822,
+                    "key": "isgoogle",
+                    "doc_count": 1742930,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
@@ -61,9 +61,9 @@
                                 "from_as_string": "2020-06-22T22:00:00.000Z",
                                 "to": 1593468000000.0,
                                 "to_as_string": "2020-06-29T22:00:00.000Z",
-                                "doc_count": 1350010,
+                                "doc_count": 1011003,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 487767
+                                    "value": 711631
                                 }
                             },
                             {
@@ -72,17 +72,17 @@
                                 "from_as_string": "2020-06-29T22:00:00.000Z",
                                 "to": 1594072800000.0,
                                 "to_as_string": "2020-07-06T22:00:00.000Z",
-                                "doc_count": 1042811,
+                                "doc_count": 731927,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 373856
+                                    "value": 514780
                                 }
                             }
                         ]
                     }
                 },
                 {
-                    "key": "searchengine",
-                    "doc_count": 1447898,
+                    "key": "istaz",
+                    "doc_count": 1277974,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
@@ -91,9 +91,9 @@
                                 "from_as_string": "2020-06-22T22:00:00.000Z",
                                 "to": 1593468000000.0,
                                 "to_as_string": "2020-06-29T22:00:00.000Z",
-                                "doc_count": 858947,
+                                "doc_count": 756863,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 567958
+                                    "value": 283898
                                 }
                             },
                             {
@@ -102,17 +102,17 @@
                                 "from_as_string": "2020-06-29T22:00:00.000Z",
                                 "to": 1594072800000.0,
                                 "to_as_string": "2020-07-06T22:00:00.000Z",
-                                "doc_count": 588951,
+                                "doc_count": 521110,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 377219
+                                    "value": 185559
                                 }
                             }
                         ]
                     }
                 },
                 {
-                    "key": "readlater",
-                    "doc_count": 1118489,
+                    "key": "isstartpage",
+                    "doc_count": 1114848,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
@@ -121,9 +121,9 @@
                                 "from_as_string": "2020-06-22T22:00:00.000Z",
                                 "to": 1593468000000.0,
                                 "to_as_string": "2020-06-29T22:00:00.000Z",
-                                "doc_count": 239765,
+                                "doc_count": 593147,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 206362
+                                    "value": 259174
                                 }
                             },
                             {
@@ -132,17 +132,17 @@
                                 "from_as_string": "2020-06-29T22:00:00.000Z",
                                 "to": 1594072800000.0,
                                 "to_as_string": "2020-07-06T22:00:00.000Z",
-                                "doc_count": 878724,
+                                "doc_count": 521701,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 730186
+                                    "value": 221623
                                 }
                             }
                         ]
                     }
                 },
                 {
-                    "key": "social",
-                    "doc_count": 590708,
+                    "key": "isgetpocket",
+                    "doc_count": 1070344,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
@@ -151,9 +151,9 @@
                                 "from_as_string": "2020-06-22T22:00:00.000Z",
                                 "to": 1593468000000.0,
                                 "to_as_string": "2020-06-29T22:00:00.000Z",
-                                "doc_count": 312822,
+                                "doc_count": 212066,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 237845
+                                    "value": 182383
                                 }
                             },
                             {
@@ -162,17 +162,17 @@
                                 "from_as_string": "2020-06-29T22:00:00.000Z",
                                 "to": 1594072800000.0,
                                 "to_as_string": "2020-07-06T22:00:00.000Z",
-                                "doc_count": 277886,
+                                "doc_count": 858278,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 216656
+                                    "value": 715524
                                 }
                             }
                         ]
                     }
                 },
                 {
-                    "key": "mobileapp",
-                    "doc_count": 347497,
+                    "key": "isfacebook",
+                    "doc_count": 383101,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
@@ -181,9 +181,9 @@
                                 "from_as_string": "2020-06-22T22:00:00.000Z",
                                 "to": 1593468000000.0,
                                 "to_as_string": "2020-06-29T22:00:00.000Z",
-                                "doc_count": 177660,
+                                "doc_count": 199405,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 168251
+                                    "value": 163044
                                 }
                             },
                             {
@@ -192,16 +192,46 @@
                                 "from_as_string": "2020-06-29T22:00:00.000Z",
                                 "to": 1594072800000.0,
                                 "to_as_string": "2020-07-06T22:00:00.000Z",
-                                "doc_count": 169837,
+                                "doc_count": 183696,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 161281
+                                    "value": 152167
                                 }
                             }
                         ]
                     }
                 },
                 {
-                    "key": "undefined",
+                    "key": "istwitter",
+                    "doc_count": 211891,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592863200000.0,
+                                "from_as_string": "2020-06-22T22:00:00.000Z",
+                                "to": 1593468000000.0,
+                                "to_as_string": "2020-06-29T22:00:00.000Z",
+                                "doc_count": 114961,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 79939
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1593468000000.0,
+                                "from_as_string": "2020-06-29T22:00:00.000Z",
+                                "to": 1594072800000.0,
+                                "to_as_string": "2020-07-06T22:00:00.000Z",
+                                "doc_count": 96930,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 67313
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "ignored",
                     "doc_count": 174097,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
@@ -231,8 +261,8 @@
                     }
                 },
                 {
-                    "key": "newsaggregator",
-                    "doc_count": 30829,
+                    "key": "isflipboard",
+                    "doc_count": 48145,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
@@ -241,9 +271,9 @@
                                 "from_as_string": "2020-06-22T22:00:00.000Z",
                                 "to": 1593468000000.0,
                                 "to_as_string": "2020-06-29T22:00:00.000Z",
-                                "doc_count": 21118,
+                                "doc_count": 27699,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 17914
+                                    "value": 23954
                                 }
                             },
                             {
@@ -252,17 +282,17 @@
                                 "from_as_string": "2020-06-29T22:00:00.000Z",
                                 "to": 1594072800000.0,
                                 "to_as_string": "2020-07-06T22:00:00.000Z",
-                                "doc_count": 9711,
+                                "doc_count": 20446,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 7852
+                                    "value": 16846
                                 }
                             }
                         ]
                     }
                 },
                 {
-                    "key": "archiv",
-                    "doc_count": 14133,
+                    "key": "isbing",
+                    "doc_count": 24744,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
@@ -271,9 +301,9 @@
                                 "from_as_string": "2020-06-22T22:00:00.000Z",
                                 "to": 1593468000000.0,
                                 "to_as_string": "2020-06-29T22:00:00.000Z",
-                                "doc_count": 7484,
+                                "doc_count": 13811,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 6468
+                                    "value": 10654
                                 }
                             },
                             {
@@ -282,9 +312,9 @@
                                 "from_as_string": "2020-06-29T22:00:00.000Z",
                                 "to": 1594072800000.0,
                                 "to_as_string": "2020-07-06T22:00:00.000Z",
-                                "doc_count": 6649,
+                                "doc_count": 10933,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 5886
+                                    "value": 8729
                                 }
                             }
                         ]

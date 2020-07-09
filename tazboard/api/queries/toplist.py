@@ -24,7 +24,7 @@ def get_toplist_query(min_date, max_date=timezone.now(), limit=10):
                         "top_hits": {
                             "size": 1,
                             "_source": {
-                                "include": ['kicker']
+                                "include": ['kicker', 'pubtime']
                             }
                         }
                     },

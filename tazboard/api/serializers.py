@@ -12,9 +12,11 @@ class HistogramSerializer(serializers.Serializer):
 
 
 class ReferrerDataSerializer(serializers.Serializer):
-    referrerclass = serializers.DateTimeField()
+    referrertag = serializers.CharField()
     hits = serializers.IntegerField()
     hits_previous = serializers.IntegerField()
+    percentage = serializers.FloatField()
+    percentage_previous = serializers.FloatField()
 
 
 class ReferrerSerializer(serializers.Serializer):
@@ -25,10 +27,11 @@ class ReferrerSerializer(serializers.Serializer):
 
 class ToplistDataSerializer(serializers.Serializer):
     headline = serializers.CharField()
-    kicker = serializers.CharField()
+    kicker = serializers.CharField(required=False, allow_null=True)
+    pubdate = serializers.DateTimeField(required=False, allow_null=True)
     hits = serializers.IntegerField()
     hits_previous = serializers.IntegerField()
-    referrers = ReferrerDataSerializer(many=True)
+    referrers = ReferrerSerializer()
 
 
 class ToplistSerializer(serializers.Serializer):

@@ -9,14 +9,15 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 
 from .elastic_client import search_or_raise_api_exception
+from .errors import BadElasticResponseException
 from .queries.constants import INTERVAL_10MINUTES
 from .queries.referrer import get_referrer_query
 from .queries.toplist import get_toplist_query
 from .query_params import HistogramQuerySerializer, ReferrerQuerySerializer, ToplistQuerySerializer
 from .schema import AutoSchemaWithQuery
 from .tests.common import activate_global_elastic_mocks
-from .transformers import elastic_histogram_response_to_histogram_graph, elastic_referrer_response_to_referrer_graph, \
-    elastic_toplist_response_to_toplist
+from .transformers import elastic_histogram_response_to_histogram_graph, \
+    elastic_toplist_response_to_toplist, elastic_referrer_response_to_referrer_data
 from .queries.histogram import get_histogram_query
 from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer
 
@@ -63,8 +64,11 @@ class HistogramView(APIView):
 
         response = search_or_raise_api_exception(es_query)
         serializer = self.serializer_class(
-            elastic_histogram_response_to_histogram_graph(response)
+            data=elastic_histogram_response_to_histogram_graph(response)
         )
+        if not serializer.is_valid():
+            logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
+            raise BadElasticResponseException()
         return Response(serializer.data)
 
 
@@ -79,8 +83,11 @@ class ReferrerView(APIView):
         query = get_referrer_query(min_date, max_date, msid=msid)
         response = search_or_raise_api_exception(query)
         serializer = self.serializer_class(
-            elastic_referrer_response_to_referrer_graph(response)
+            data=elastic_referrer_response_to_referrer_data(response)
         )
+        if not serializer.is_valid():
+            logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
+            raise BadElasticResponseException()
         return Response(serializer.data)
 
 
@@ -95,6 +102,9 @@ class ToplistView(APIView):
         query = get_toplist_query(min_date, max_date, limit)
         response = search_or_raise_api_exception(query)
         serializer = self.serializer_class(
-            elastic_toplist_response_to_toplist(response)
+            data=elastic_toplist_response_to_toplist(response)
         )
+        if not serializer.is_valid():
+            logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
+            raise BadElasticResponseException()
         return Response(serializer.data)
