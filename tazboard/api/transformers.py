@@ -40,6 +40,7 @@ def _transform_referrer_buckets(referrer_buckets):
         'data': data
     }
 
+
 def elastic_histogram_response_to_histogram_graph(es_response):
     data = [
         {
