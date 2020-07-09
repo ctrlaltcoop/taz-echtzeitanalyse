@@ -67,7 +67,7 @@ export default Vue.extend<Data, Methods, Computed>({
       return [...new Set(allReferrers)]
     }
   },
-  data: () => {
+  data () {
     return {
       selectedReferrer: null,
       fields: [
