@@ -119,14 +119,14 @@ export default Vue.extend<Data, Methods, Computed>({
           sortable: true
         }, {
           key: 'referrerSelect',
-          label: 'Kicks über',
+          label: 'Klicks über',
           class: 'text-right',
           thClass: 'white-caption',
           // @ts-ignore type inference of this doesn't work here
           formatter: (value: null, key: string, item: ArticleData) => { return this.formatSelectReferrer(value, key, item) }
         }, {
           key: 'topReferrer',
-          label: 'Top referrer',
+          label: 'Top Referrer',
           class: 'text-right',
           thClass: 'white-caption',
           formatter: (value: null, key: string, item: ArticleData) => {

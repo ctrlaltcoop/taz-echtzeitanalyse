@@ -25,7 +25,7 @@ def get_dict_path_safe(obj: dict, *path_segments):
     return head
 
 
-def FINGERPRINT_AGGREGATION_WITH_RANGES(interval_start, interval_mid, interval_end):
+def get_fingerprint_aggregation_with_ranges(interval_start, interval_mid, interval_end):
     return {
         "range": {
             "field": "@timestamp",
@@ -52,7 +52,7 @@ def FINGERPRINT_AGGREGATION_WITH_RANGES(interval_start, interval_mid, interval_e
     }
 
 
-def REFERRER_AGGREGATION_WITH_RANGES(interval_start, interval_mid, interval_end):
+def get_referrer_aggregation_with_ranges(interval_start, interval_mid, interval_end):
     return {
         "terms": {
             "field": "referrertags",
@@ -91,7 +91,7 @@ def REFERRER_AGGREGATION_WITH_RANGES(interval_start, interval_mid, interval_end)
     }
 
 
-def QUERY_FILTER_EXCLUDE_BOTS_IN_INTERVAL(interval_start, interval_end):
+def get_interval_filter_exclude_bots(interval_start, interval_end):
     return {
         "bool": {
             "filter": [
