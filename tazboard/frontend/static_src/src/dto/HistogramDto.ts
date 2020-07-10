@@ -2,7 +2,7 @@ import { ChartData } from 'chart.js'
 
 export class HistogramData {
   datetime!: string
-  value!: number
+  hits!: number
 }
 
 export class HistogramDto {
@@ -19,7 +19,7 @@ export class HistogramDto {
       )),
       datasets: [{
         label: 'Number of Clicks',
-        data: graph.data.map((item) => item.value)
+        data: graph.data.map((item) => item.hits)
       }]
     }
   }
