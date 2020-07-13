@@ -56,8 +56,8 @@ export default Vue.extend<ReferrerDevicesGraphData, ReferrerDevicesMethods, {}, 
     this.resizeGraph()
     window.addEventListener('resize', () => this.resizeGraph())
     const client = new ApiClient()
-    this.referrerGraph = await client.referrer('now-24h', 'now')
-    this.devicesGraph = await client.devices('now-24h', 'now')
+    this.referrerGraph = await client.referrer(subDays(new Date(), 1), new Date())
+    this.devicesGraph = await client.devices(subDays(new Date(), 1), new Date())
   },
   destroyed () {
     window.removeEventListener('resize', () => this.resizeGraph())

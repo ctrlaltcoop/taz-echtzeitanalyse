@@ -47,11 +47,11 @@ export class ApiClient {
     })
   }
 
-  async devices (minDate: string, maxDate: string, msgId: number | null = null): Promise<DevicesDto> {
+  async devices (minDate: Date, maxDate: Date, msgId: number | null = null): Promise<DevicesDto> {
     return await this.request<DevicesDto>('devices', 'GET', {
       msgId,
-      min: minDate,
-      max: maxDate
+      min_date: minDate.toISOString(),
+      max_date: maxDate.toISOString()
     })
   }
 
