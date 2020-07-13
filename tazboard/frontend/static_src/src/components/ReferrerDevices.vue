@@ -1,7 +1,7 @@
 <template>
   <div ref="container">
-    <DevicesGraph ref="container" :styles="graphStyles" :graph="devicesGraph"/>
-    <!--<ReferrerGraph ref="container" :styles="graphStyles" :graph="referrerGraph"/> -->
+    <!--<DevicesGraph ref="container" :styles="graphStyles" :graph="devicesGraph"/> -->
+    <ReferrerGraph ref="container" :styles="graphStyles" :graph="referrerGraph"/>
   </div>
 </template>
 
@@ -10,8 +10,9 @@ import Vue from 'vue'
 import { ReferrerDto } from '@/dto/ReferrerDto'
 import { ApiClient } from '@/client/ApiClient'
 import { DevicesDto } from '@/dto/DevicesDto'
-// import ReferrerGraph from '@/components/ReferrerGraph.vue'
-import DevicesGraph from '@/components/DevicesGraph.vue'
+import ReferrerGraph from '@/components/ReferrerGraph.vue'
+// import DevicesGraph from '@/components/DevicesGraph.vue'
+import { subDays } from 'date-fns'
 
 export interface ReferrerDevicesGraphData {
   referrerGraph: ReferrerDto | null;
@@ -26,8 +27,8 @@ export interface ReferrerDevicesMethods {
 export default Vue.extend<ReferrerDevicesGraphData, ReferrerDevicesMethods, {}, {}>({
   name: 'ReferrerDevices',
   components: {
-    // ReferrerGraph,
-    DevicesGraph
+    ReferrerGraph
+    // DevicesGraph
   },
   data: () => {
     return {
