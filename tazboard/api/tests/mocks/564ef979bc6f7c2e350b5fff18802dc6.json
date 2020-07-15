@@ -1,5 +1,5 @@
 {
-    "took": 15,
+    "took": 46,
     "timed_out": false,
     "_shards": {
         "total": 134,
@@ -9,8 +9,8 @@
     },
     "hits": {
         "total": {
-            "value": 4976,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -22,252 +22,252 @@
             "buckets": [
                 {
                     "key": "missing",
-                    "doc_count": 2012,
+                    "doc_count": 7927,
                     "KEY_REFERRERTAGS_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "missing",
-                                "doc_count": 2012,
+                                "doc_count": 7927,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 785
+                                    "value": 3045
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 785
+                        "value": 3045
                     }
                 },
                 {
                     "key": "self",
-                    "doc_count": 1269,
+                    "doc_count": 6271,
                     "KEY_REFERRERTAGS_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
-                                "key": "isstartpage",
-                                "doc_count": 656,
+                                "key": "istaz",
+                                "doc_count": 3317,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 456
+                                    "value": 1057
                                 }
                             },
                             {
-                                "key": "istaz",
-                                "doc_count": 613,
+                                "key": "isstartpage",
+                                "doc_count": 2954,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 252
+                                    "value": 1821
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 640
+                        "value": 2595
                     }
                 },
                 {
                     "key": "searchengine",
-                    "doc_count": 891,
+                    "doc_count": 4223,
                     "KEY_REFERRERTAGS_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "isgoogle",
-                                "doc_count": 860,
+                                "doc_count": 4065,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 570
-                                }
-                            },
-                            {
-                                "key": "isecosia",
-                                "doc_count": 13,
-                                "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 13
+                                    "value": 2776
                                 }
                             },
                             {
                                 "key": "isduckduckgo",
-                                "doc_count": 12,
+                                "doc_count": 59,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 11
+                                    "value": 51
                                 }
                             },
                             {
-                                "key": "iswebde",
-                                "doc_count": 3,
+                                "key": "isecosia",
+                                "doc_count": 45,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
+                                    "value": 38
                                 }
                             },
                             {
                                 "key": "isbing",
-                                "doc_count": 2,
+                                "doc_count": 44,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
+                                    "value": 36
+                                }
+                            },
+                            {
+                                "key": "iswebde",
+                                "doc_count": 8,
+                                "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
+                                    "value": 7
                                 }
                             },
                             {
                                 "key": "istonline",
-                                "doc_count": 1,
+                                "doc_count": 2,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
+                                    "value": 2
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 599
+                        "value": 2910
                     }
                 },
                 {
                     "key": "social",
-                    "doc_count": 377,
+                    "doc_count": 1898,
                     "KEY_REFERRERTAGS_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "isfacebook",
-                                "doc_count": 251,
+                                "doc_count": 1236,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 233
+                                    "value": 1116
                                 }
                             },
                             {
                                 "key": "istwitter",
-                                "doc_count": 126,
+                                "doc_count": 662,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 116
+                                    "value": 567
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 349
+                        "value": 1683
                     }
                 },
                 {
                     "key": "mobileapp",
-                    "doc_count": 209,
+                    "doc_count": 1087,
                     "KEY_REFERRERTAGS_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "isgoogle",
-                                "doc_count": 185,
+                                "doc_count": 982,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 176
+                                    "value": 945
                                 }
                             },
                             {
                                 "key": "springer",
-                                "doc_count": 14,
+                                "doc_count": 60,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 14
+                                    "value": 57
                                 }
                             },
                             {
                                 "key": "istwitter",
-                                "doc_count": 10,
+                                "doc_count": 45,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 10
+                                    "value": 43
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 200
+                        "value": 1045
                     }
                 },
                 {
                     "key": "readlater",
-                    "doc_count": 92,
+                    "doc_count": 447,
                     "KEY_REFERRERTAGS_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "isgetpocket",
-                                "doc_count": 77,
+                                "doc_count": 365,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 75
+                                    "value": 352
                                 }
                             },
                             {
                                 "key": "isflipboard",
-                                "doc_count": 15,
+                                "doc_count": 82,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 14
+                                    "value": 75
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 89
+                        "value": 427
                     }
                 },
                 {
                     "key": "undefined",
-                    "doc_count": 87,
+                    "doc_count": 419,
                     "KEY_REFERRERTAGS_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "ignored",
-                                "doc_count": 87,
+                                "doc_count": 419,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 77
+                                    "value": 361
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 77
-                    }
-                },
-                {
-                    "key": "newsaggregator",
-                    "doc_count": 20,
-                    "KEY_REFERRERTAGS_AGGREGATION": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "isgoogle",
-                                "doc_count": 20,
-                                "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 17
-                                }
-                            }
-                        ]
-                    },
-                    "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 17
+                        "value": 361
                     }
                 },
                 {
                     "key": "archiv",
-                    "doc_count": 19,
+                    "doc_count": 54,
                     "KEY_REFERRERTAGS_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "iswikipedia",
-                                "doc_count": 19,
+                                "doc_count": 54,
                                 "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
-                                    "value": 18
+                                    "value": 49
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 18
+                        "value": 49
+                    }
+                },
+                {
+                    "key": "newsaggregator",
+                    "doc_count": 51,
+                    "KEY_REFERRERTAGS_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "isgoogle",
+                                "doc_count": 51,
+                                "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION": {
+                                    "value": 39
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 39
                     }
                 }
             ]
