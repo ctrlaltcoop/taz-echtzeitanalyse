@@ -1,6 +1,6 @@
 from django.utils import timezone
 
-from tazboard.api.queries.common import maybe_add_msid_filter, get_referrer_aggregation_with_ranges, \
+from tazboard.api.queries.common import maybe_add_msid_filter, \
     get_interval_filter_exclude_bots, get_referrer_class_tags_aggregation
 from tazboard.api.queries.constants import KEY_REFERRER_AGGREGATION
 

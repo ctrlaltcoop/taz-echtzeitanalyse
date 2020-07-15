@@ -28,5 +28,3 @@ class DevicesQuerySerializer(Serializer):
     min_date = DateTimeField(required=True)
     max_date = DateTimeField(default=timezone.now())
     msid = IntegerField(required=False)
-
-

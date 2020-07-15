@@ -130,4 +130,3 @@ class DevicesView(GenericAPIView):
             logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
             raise BadElasticResponseException()
         return Response(serializer.data)
-
