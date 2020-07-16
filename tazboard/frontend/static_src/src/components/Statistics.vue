@@ -1,14 +1,14 @@
 <template>
   <div class="row statistics-area">
-    <div class="col-4 pt-5 pb-5  statistics-ticker">
+    <div class="col-4 pt-5 pb-5  statistics-box">
       <Ticker class="card-shadow" />
     </div>
-    <div class="col-4 pt-5 pb-5 statistics-stats">
+    <div class="col-4 pt-5 pb-5 statistics-box">
       <div class="col-6 p-0 click-counter-area">
         <ClickCounter class="card-shadow" />
       </div>
     </div>
-    <div class="col-4 pt-5 pb-5 statistics-referrer">
+    <div class="col-4 pt-5 pb-5 statistics-box">
       <div class="row no-gutters card-shadow flex-fill">
         <div class="col-6">
           <DevicesContainer/>
@@ -44,21 +44,10 @@ export default {
   background: $gray-200;
 }
 
-.statistics-ticker {
+.statistics-box {
   height: 300px;
   display: flex;
 }
-
-.statistics-referrer {
-  height: 300px;
-  display: flex;
-}
-
-.statistics-stats {
-  height: 300px;
-  display: flex;
-}
-
 .click-counter-area {
   display: flex;
 }
