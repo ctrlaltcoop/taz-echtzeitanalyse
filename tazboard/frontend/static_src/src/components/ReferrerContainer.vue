@@ -11,19 +11,30 @@ import Vue from 'vue'
 import { ReferrerDto } from '@/dto/ReferrerDto'
 import { ApiClient } from '@/client/ApiClient'
 import ReferrerGraph from '@/components/ReferrerGraph.vue'
-import { subDays } from 'date-fns'
 import GraphContainer from '@/components/GraphContainer.vue'
+import { getTimeframeById, Timeframe } from '@/common/timeframe'
+
+const client = new ApiClient()
 
 export interface ReferrerGraphData {
   referrerGraph: ReferrerDto | null;
   graphStyles: object;
 }
 
-export default Vue.extend<ReferrerGraphData, {}, {}, {}>({
+interface Methods {
+  update(timeframe: Timeframe): void;
+}
+
+export default Vue.extend<ReferrerGraphData, Methods, {}, {}>({
   name: 'ReferrerContainer',
   components: {
     ReferrerGraph,
     GraphContainer
+  },
+  methods: {
+    async update (timeframe: Timeframe) {
+      this.referrerGraph = await client.referrer(timeframe.minDate, timeframe.maxDate)
+    }
   },
   data: () => {
     return {
@@ -31,9 +42,17 @@ export default Vue.extend<ReferrerGraphData, {}, {}, {}>({
       graphStyles: {}
     }
   },
-  async mounted () {
-    const client = new ApiClient()
-    this.referrerGraph = await client.referrer(subDays(new Date(), 1), new Date())
+  watch: {
+    '$route.query': {
+      handler (query: any) {
+        if (query.timeframeId) {
+          const timeframe = getTimeframeById(query.timeframeId)
+          this.update(timeframe!!)
+        }
+      },
+      immediate: true,
+      deep: true
+    }
   }
 })
 </script>

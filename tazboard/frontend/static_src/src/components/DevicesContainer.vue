@@ -11,19 +11,30 @@ import Vue from 'vue'
 import { ApiClient } from '@/client/ApiClient'
 import { DevicesDto } from '@/dto/DevicesDto'
 import DevicesGraph from '@/components/DevicesGraph.vue'
-import { subDays } from 'date-fns'
 import GraphContainer from '@/components/GraphContainer.vue'
+import { getTimeframeById, Timeframe } from '@/common/timeframe'
+
+const client = new ApiClient()
 
 export interface DevicesGraphData {
   devicesGraph: DevicesDto | null;
   graphStyles: object;
 }
 
-export default Vue.extend<DevicesGraphData, {}, {}, {}>({
+interface Methods {
+  update(timeframe: Timeframe): void;
+}
+
+export default Vue.extend<DevicesGraphData, Methods, {}, {}>({
   name: 'DevicesContainer',
   components: {
     DevicesGraph,
     GraphContainer
+  },
+  methods: {
+    async update (timeframe: Timeframe) {
+      this.devicesGraph = await client.devices(timeframe.minDate, timeframe.maxDate)
+    }
   },
   data: () => {
     return {
@@ -31,9 +42,17 @@ export default Vue.extend<DevicesGraphData, {}, {}, {}>({
       graphStyles: {}
     }
   },
-  async mounted () {
-    const client = new ApiClient()
-    this.devicesGraph = await client.devices(subDays(new Date(), 1), new Date())
+  watch: {
+    '$route.query': {
+      handler (query: any) {
+        if (query.timeframeId) {
+          const timeframe = getTimeframeById(query.timeframeId)
+          this.update(timeframe!!)
+        }
+      },
+      immediate: true,
+      deep: true
+    }
   }
 })
 </script>
