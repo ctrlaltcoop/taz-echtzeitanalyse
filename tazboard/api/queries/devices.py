@@ -1,4 +1,4 @@
-from tazboard.api.queries.common import maybe_add_msid_filter
+from tazboard.api.queries.common import maybe_add_msid_filter, get_interval_filter_exclude_bots
 from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_DEVICES_AGGREGATION
 
 
@@ -29,39 +29,7 @@ def get_devices_query(min_date, max_date='now', msid=None):
                 "format": "date_time"
             }
         ],
-        "query": {
-            "bool": {
-                "filter": [
-                    {
-                        "range": {
-                            "@timestamp": {
-                                "gte": min_date,
-                                "lte": max_date
-                            }
-                        }
-                    }
-                ],
-                "must_not": [
-                    {
-                        "match_phrase": {
-                            "reloaded": "true"
-                        }
-                    },
-                    {
-                        "match_phrase": {
-                            "tazlocal": "true"
-                        }
-                    },
-                    {
-                        "match_phrase": {
-                            "device": {
-                                "query": "Spider"
-                            }
-                        }
-                    }
-                ]
-            }
-        }
+        "query": get_interval_filter_exclude_bots(min_date, max_date)
     }
     query = maybe_add_msid_filter(msid, query)
     return query
