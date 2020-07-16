@@ -113,14 +113,14 @@ class ToplistView(APIView):
         return Response(serializer.data)
 
 
-class DevicesView(GenericAPIView):
+class DevicesView(APIView):
     serializer_class = DevicesSerializer
     query_serializer = DevicesQuerySerializer
 
     def get(self, request, *args, **kwargs):
-        min_date = request.query_params.get('min_date', timezone.now() - timedelta(days=1))
-        max_date = request.query_params.get('max_date', timezone.now())
-        msid = request.query_params.get('msid', None)
+        min_date = self.query_params.get('min_date', timezone.now() - timedelta(days=1))
+        max_date = self.query_params.get('max_date', timezone.now())
+        msid = self.query_params.get('msid', None)
         query = get_devices_query(min_date, max_date, msid=msid)
         response = search_or_raise_api_exception(query)
         serializer = self.serializer_class(
