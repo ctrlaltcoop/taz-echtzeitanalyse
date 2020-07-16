@@ -34,6 +34,19 @@ $ python manage.py runserver
 If you like tmux you can use tmuxp to conveniently launch both development commands in one session using the [tmuxp.yml](tmuxp.yml).
 Just install tmuxp[^5] and type `tmuxp load tmuxp.yml` in this directory.
 
+## Tests
+
+For the backend tests to run everywhere, we mock up Elastic responses via
+following command (you need to have a connection to the elastic host for that):
+```
+$ poetry run python manage.py create_mocks
+```
+
+Run the tests:
+```
+poetry run coverage run --source 'tazboard' manage.py test
+```
+
 ## Frontend
 
 The frontend is developed in a seperate toolchain in [frontend/static_src/](frontend/static_src) using `vue CLI`. For development instructions 

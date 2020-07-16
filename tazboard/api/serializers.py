@@ -11,7 +11,7 @@ class HistogramSerializer(serializers.Serializer):
     data = HistogramDataSerializer(many=True)
 
 
-class ReferrerDataSerializer(serializers.Serializer):
+class ToplistReferrerDataSerializer(serializers.Serializer):
     referrertag = serializers.CharField()
     hits = serializers.IntegerField()
     hits_previous = serializers.IntegerField()
@@ -19,10 +19,30 @@ class ReferrerDataSerializer(serializers.Serializer):
     percentage_previous = serializers.FloatField()
 
 
-class ReferrerSerializer(serializers.Serializer):
+class ToplistReferrerSerializer(serializers.Serializer):
     total = serializers.IntegerField()
     total_previous = serializers.IntegerField()
+    data = ToplistReferrerDataSerializer(many=True)
+
+
+class ReferrerDataSerializer(serializers.Serializer):
+    referrer = serializers.CharField()
+    hits = serializers.IntegerField()
+
+
+class ReferrerSerializer(serializers.Serializer):
+    total = serializers.IntegerField()
     data = ReferrerDataSerializer(many=True)
+
+
+class DevicesDataSerializer(serializers.Serializer):
+    deviceclass = serializers.CharField()
+    value = serializers.IntegerField()
+
+
+class DevicesSerializer(serializers.Serializer):
+    total = serializers.IntegerField()
+    data = DevicesDataSerializer(many=True)
 
 
 class ToplistDataSerializer(serializers.Serializer):
@@ -31,7 +51,7 @@ class ToplistDataSerializer(serializers.Serializer):
     pubdate = serializers.DateTimeField(required=False, allow_null=True)
     hits = serializers.IntegerField()
     hits_previous = serializers.IntegerField()
-    referrers = ReferrerSerializer()
+    referrers = ToplistReferrerSerializer()
 
 
 class ToplistSerializer(serializers.Serializer):

@@ -1,4 +1,4 @@
-import { ReferrerData, ReferrerDto } from '@/dto/ReferrerDto'
+import { ToplistReferrerDto } from '@/dto/ToplistReferrerDto'
 
 export class ArticleData {
   headline!: string
@@ -6,7 +6,7 @@ export class ArticleData {
   pubdate!: string
   hits!: number
   hits_previous!: number
-  referrers!: ReferrerDto
+  referrers!: ToplistReferrerDto
 }
 
 export class ToplistDto {

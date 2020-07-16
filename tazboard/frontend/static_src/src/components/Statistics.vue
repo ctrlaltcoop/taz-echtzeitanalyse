@@ -1,12 +1,20 @@
 <template>
   <div class="row statistics-area">
-    <div class="col-4 pt-5 pb-5  statistics-ticker">
+    <div class="col-4 pt-5 pb-5  statistics-box">
       <Ticker class="card-shadow" />
     </div>
-    <div class="col-8 pt-5 pb-5 statistics-stats">
-      <div class="row h-100">
-        <div class="col-6 p-0 click-counter-area">
-          <ClickCounter class="card-shadow" />
+    <div class="col-4 pt-5 pb-5 statistics-box">
+      <div class="col-6 p-0 click-counter-area">
+        <ClickCounter class="card-shadow" />
+      </div>
+    </div>
+    <div class="col-4 pt-5 pb-5 statistics-box">
+      <div class="row no-gutters card-shadow flex-fill">
+        <div class="col-6">
+          <DevicesContainer/>
+        </div>
+        <div class="col-6">
+          <ReferrerContainer/>
         </div>
       </div>
     </div>
@@ -16,12 +24,16 @@
 <script lang="ts">
 import Ticker from '@/components/Ticker.vue'
 import ClickCounter from '@/components/ClickCounter.vue'
+import DevicesContainer from '@/components/DevicesContainer.vue'
+import ReferrerContainer from '@/components/ReferrerContainer.vue'
 
 export default {
   name: 'Statistics',
   components: {
     ClickCounter,
-    Ticker
+    Ticker,
+    ReferrerContainer,
+    DevicesContainer
   }
 }
 </script>
@@ -32,14 +44,12 @@ export default {
   background: $gray-200;
 }
 
-.statistics-ticker {
+.statistics-box {
   height: 300px;
   display: flex;
 }
-
 .click-counter-area {
   display: flex;
-  flex-direction: row;
 }
 
 </style>

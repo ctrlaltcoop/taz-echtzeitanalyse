@@ -34,7 +34,7 @@ export const TIMEFRAMES: Array<Timeframe> = [{
   maxDate: new Date()
 }, {
   id: TimeframeId.KEY_6_HOURS,
-  label: '30 Minuten',
+  label: '6 Stunden',
   minDate: subHours(new Date(), 6),
   maxDate: new Date()
 }, {

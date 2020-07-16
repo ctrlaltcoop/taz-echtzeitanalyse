@@ -1,28 +1,21 @@
 import { ChartData } from 'chart.js'
 
 export class ReferrerData {
-  referrertag!: string
+  referrer!: string
   hits!: number
-  hits_previous!: number
-  percentage!: number
-  percentage_previous!: number
 }
 
 export class ReferrerDto {
   total!: number
-  total_previous!: number
   data!: Array<ReferrerData>
 
   static toChartdata (graph: ReferrerDto): ChartData {
+    // sort data descending
+    graph.data.sort((a, b) => b.hits - a.hits)
     return {
-      labels: graph.data.map((item) => new Date(item.referrertag).toLocaleTimeString(
-        [], {
-          hour: '2-digit',
-          minute: '2-digit'
-        }
-      )),
+      labels: graph.data.map((item) => item.referrer),
       datasets: [{
-        label: 'Number of Clicks',
+        label: 'Referrers',
         data: graph.data.map((item) => item.hits)
       }]
     }

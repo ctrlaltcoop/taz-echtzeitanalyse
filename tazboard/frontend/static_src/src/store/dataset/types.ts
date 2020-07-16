@@ -1,7 +1,9 @@
 import { ReferrerDto } from '@/dto/ReferrerDto'
+import { DevicesDto } from '@/dto/DevicesDto'
 
 export interface Dataset {
   referrers: ReferrerDto;
+  devices: DevicesDto;
 }
 
 export interface DatasetState {

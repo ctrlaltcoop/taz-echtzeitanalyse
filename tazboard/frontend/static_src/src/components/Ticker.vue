@@ -1,29 +1,28 @@
 <template>
-  <div ref="container">
-    <DailyLineGraph ref="container" :styles="graphStyles" :graph="graph"/>
-  </div>
+  <GraphContainer>
+    <template slot-scope="{graphStyles}">
+      <DailyLineGraph ref="container" :graph="graph" :style="graphStyles"/>
+    </template>
+  </GraphContainer>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import DailyLineGraph from '@/components/DailyLineGraph.vue'
+import GraphContainer from '@/components/GraphContainer.vue'
 import { ApiClient } from '@/client/ApiClient'
 import { HistogramDto } from '@/dto/HistogramDto'
 import { subDays } from 'date-fns'
 
 export interface DailyLineGraphData {
   graph: HistogramDto | null;
-  graphStyles: object;
 }
 
-export interface TickerMethods {
-  resizeGraph(): void;
-}
-
-export default Vue.extend<DailyLineGraphData, TickerMethods, {}, {}>({
+export default Vue.extend<DailyLineGraphData, {}, {}, {}>({
   name: 'Ticker',
   components: {
-    DailyLineGraph
+    DailyLineGraph,
+    GraphContainer
   },
   data: () => {
     return {
@@ -31,29 +30,9 @@ export default Vue.extend<DailyLineGraphData, TickerMethods, {}, {}>({
       graphStyles: {}
     }
   },
-  methods: {
-    resizeGraph () {
-      if (this.$refs.container) {
-        const height = (this.$refs.container as Element).clientHeight
-        const width = (this.$refs.container as Element).clientWidth
-        this.graphStyles = {
-          width: `${width}px`,
-          height: `${height}px`,
-          position: 'relative'
-        }
-      } else {
-        this.graphStyles = {}
-      }
-    }
-  },
   async mounted () {
-    this.resizeGraph()
-    window.addEventListener('resize', () => this.resizeGraph())
     const client = new ApiClient()
     this.graph = await client.histogram(subDays(new Date(), 1), new Date())
-  },
-  destroyed () {
-    window.removeEventListener('resize', () => this.resizeGraph())
   }
 })
 </script>
