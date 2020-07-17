@@ -60,6 +60,8 @@ def elastic_toplist_response_to_toplist(es_response):
     data = []
 
     for toplist_bucket in es_response['aggregations'][KEY_TOPLIST_AGGREGTAION]['buckets']:
+        if toplist_bucket['key'] == '__missing__':
+            continue
         toplist_data = {
             'headline': toplist_bucket['key'],
             'kicker': get_dict_path_safe(
@@ -67,6 +69,9 @@ def elastic_toplist_response_to_toplist(es_response):
             ),
             'pubdate': get_dict_path_safe(
                 toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'pubtime'
+            ),
+            'msid': get_dict_path_safe(
+                toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'msid'
             ),
             'referrers': _transform_referrer_buckets(toplist_bucket[KEY_REFERRER_AGGREGATION]['buckets']),
             **_transform_ranges(toplist_bucket[KEY_RANGES_AGGREGATION]['buckets'])

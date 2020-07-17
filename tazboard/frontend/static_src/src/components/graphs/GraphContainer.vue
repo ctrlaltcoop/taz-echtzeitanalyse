@@ -1,25 +1,38 @@
 <template>
   <div ref="container">
-    <slot :graphStyles="graphStyles"></slot>
+    <component :is="chartComponent" :options="options" :graph="graphData" :styles="graphStyles" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { BaseChart } from 'vue-chartjs/types/components'
+import { ChartData, ChartOptions } from 'chart.js'
 
 interface GraphContainerData {
   graphStyles: object;
 }
 
-export interface GraphContainerMethods {
+interface GraphContainerProps {
+  chartComponent: BaseChart;
+  options: ChartOptions;
+  graphData: ChartData;
+}
+
+interface GraphContainerMethods {
   resizeGraph(): void;
 }
 
-export default Vue.extend<GraphContainerData, GraphContainerMethods, {}, {}>({
+export default Vue.extend<GraphContainerData, GraphContainerMethods, {}, GraphContainerProps>({
   data: () => {
     return {
       graphStyles: {}
     }
+  },
+  props: {
+    chartComponent: Function,
+    options: Object,
+    graphData: Object
   },
   methods: {
     resizeGraph () {

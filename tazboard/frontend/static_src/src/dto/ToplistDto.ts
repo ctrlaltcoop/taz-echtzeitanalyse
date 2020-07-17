@@ -1,6 +1,7 @@
 import { ToplistReferrerDto } from '@/dto/ToplistReferrerDto'
 
 export class ArticleData {
+  msid!: number
   headline!: string
   kicker!: string
   pubdate!: string

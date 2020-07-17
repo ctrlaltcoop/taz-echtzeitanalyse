@@ -1,5 +1,3 @@
-import { ChartData } from 'chart.js'
-
 export class ToplistReferrerData {
   referrertag!: string
   hits!: number

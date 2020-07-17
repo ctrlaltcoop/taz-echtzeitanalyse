@@ -1,6 +1,12 @@
 <template>
   <div class="row">
-    <BTable class="w-100" :fields="fields" :items="items" thead-class="table-head">
+    <BTable
+      striped
+      class="w-100"
+      :fields="fields"
+      :items="items"
+      :tbody-transition-props="{ name: 'statistics-table' }"
+      thead-class="table-head">
       <template v-slot:head(referrerSelect)="data">
         <div class="stacked-th-with-selection">
           <div>{{ data.label }}</div>
@@ -11,18 +17,33 @@
           </select>
         </div>
       </template>
+
+      <template v-slot:cell(headline)="row">
+        <span class="row-headline-kicker">
+          {{ row.item.kicker }}
+        </span>
+        <span class="row-headline-headline" @click="row.toggleDetails">
+          {{ row.item.headline }}
+        </span>
+      </template>
+
+      <template v-slot:row-details="row" >
+        <ArticleRowDetail :article="row.item" />
+      </template>
     </BTable>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { getISOWeek, isToday, isYesterday } from 'date-fns'
 import { BTable } from 'bootstrap-vue'
+
 import { ApiClient } from '@/client/ApiClient'
 import { ArticleData } from '@/dto/ToplistDto'
 import { getTimeframeById, Timeframe } from '@/common/timeframe'
-import { getISOWeek, isToday, isYesterday } from 'date-fns'
 import { CAPTION_TODAY, CAPTION_YESTERDAY, TOP_REFERRER_THRESHOLD } from '@/common/constants'
+import ArticleRowDetail from '@/components/ArticleRowDetail.vue'
 
 const apiClient = new ApiClient()
 
@@ -33,7 +54,8 @@ interface Data {
 
 interface Methods {
   update (timeframe: Timeframe): void;
-  formatSelectReferrer(value: null, key: string, item: ArticleData): string | undefined;
+
+  formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
 }
 
 interface Computed {
@@ -43,7 +65,8 @@ interface Computed {
 export default Vue.extend<Data, Methods, Computed>({
   name: 'Toplist',
   components: {
-    BTable
+    BTable,
+    ArticleRowDetail
   },
   methods: {
     async update (timeframe: Timeframe) {
@@ -91,7 +114,10 @@ export default Vue.extend<Data, Methods, Computed>({
           key: 'headline',
           label: 'Titel',
           class: 'text-left',
-          thClass: 'white-caption'
+          thClass: 'white-caption',
+          formatter: (value: null, key: string, item: ArticleData) => {
+            return (item.hits / item.hits_previous - 1).toLocaleString([], { style: 'percent' })
+          }
         },
         {
           key: 'pubdate',
@@ -122,8 +148,10 @@ export default Vue.extend<Data, Methods, Computed>({
           label: 'Klicks über',
           class: 'text-right',
           thClass: 'white-caption',
-          // @ts-ignore type inference of this doesn't work here
-          formatter: (value: null, key: string, item: ArticleData) => { return this.formatSelectReferrer(value, key, item) }
+          formatter: (value: null, key: string, item: ArticleData) => {
+            // @ts-ignore type inference of this doesn't work here
+            return this.formatSelectReferrer(value, key, item)
+          }
         }, {
           key: 'topReferrer',
           label: 'Top Referrer',
@@ -156,6 +184,18 @@ export default Vue.extend<Data, Methods, Computed>({
 </script>
 <style lang="scss">
 @import 'src/style/variables';
+
+.row-headline-headline {
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: block;
+}
+
+.row-headline-kicker {
+  font-size: 1rem;
+  display: block;
+  color: $gray-700;
+}
 
 .table-head {
   background-color: $taz-red;

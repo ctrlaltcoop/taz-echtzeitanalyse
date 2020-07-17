@@ -2,8 +2,8 @@
 import Vue from 'vue'
 import { HorizontalBar } from 'vue-chartjs'
 import { ChartOptions } from 'chart.js'
-import { ReferrerDto } from '../dto/ReferrerDto'
-import { VueChartMethods } from '../types/chartjs'
+import { ReferrerDto } from '@/dto/ReferrerDto'
+import { VueChartMethods } from '@/types/chartjs'
 
 export interface ReferrerGraphProps {
   graph: ReferrerDto | null;

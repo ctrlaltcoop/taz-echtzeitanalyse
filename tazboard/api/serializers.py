@@ -52,6 +52,7 @@ class ToplistDataSerializer(serializers.Serializer):
     hits = serializers.IntegerField()
     hits_previous = serializers.IntegerField()
     referrers = ToplistReferrerSerializer()
+    msid = serializers.IntegerField()
 
 
 class ToplistSerializer(serializers.Serializer):
