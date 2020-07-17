@@ -1,5 +1,5 @@
 {
-    "took": 16,
+    "took": 21,
     "timed_out": false,
     "_shards": {
         "total": 134,
@@ -9,8 +9,8 @@
     },
     "hits": {
         "total": {
-            "value": 4976,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -18,76 +18,76 @@
     "aggregations": {
         "KEY_REFERRER_AGGREGATION": {
             "doc_count_error_upper_bound": 0,
-            "sum_other_doc_count": 45,
+            "sum_other_doc_count": 94,
             "buckets": [
                 {
                     "key": "missing",
-                    "doc_count": 2012,
+                    "doc_count": 4182,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 785
+                        "value": 1649
                     }
                 },
                 {
                     "key": "isgoogle",
-                    "doc_count": 1065,
+                    "doc_count": 2393,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 763
-                    }
-                },
-                {
-                    "key": "isstartpage",
-                    "doc_count": 656,
-                    "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 456
+                        "value": 1654
                     }
                 },
                 {
                     "key": "istaz",
-                    "doc_count": 613,
+                    "doc_count": 1645,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 252
+                        "value": 501
+                    }
+                },
+                {
+                    "key": "isstartpage",
+                    "doc_count": 1382,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 858
                     }
                 },
                 {
                     "key": "isfacebook",
-                    "doc_count": 251,
+                    "doc_count": 517,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 233
+                        "value": 475
                     }
                 },
                 {
                     "key": "istwitter",
-                    "doc_count": 136,
+                    "doc_count": 308,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 126
+                        "value": 275
                     }
                 },
                 {
                     "key": "ignored",
-                    "doc_count": 87,
+                    "doc_count": 188,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 77
+                        "value": 164
                     }
                 },
                 {
                     "key": "isgetpocket",
-                    "doc_count": 77,
+                    "doc_count": 155,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 75
+                        "value": 150
                     }
                 },
                 {
-                    "key": "iswikipedia",
-                    "doc_count": 19,
+                    "key": "isduckduckgo",
+                    "doc_count": 33,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 18
+                        "value": 30
                     }
                 },
                 {
                     "key": "isflipboard",
-                    "doc_count": 15,
+                    "doc_count": 32,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 14
+                        "value": 30
                     }
                 }
             ]
