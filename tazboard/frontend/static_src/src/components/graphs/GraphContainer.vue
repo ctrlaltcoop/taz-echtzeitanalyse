@@ -14,7 +14,7 @@ interface GraphContainerData {
 }
 
 interface GraphContainerProps {
-  chartComponent: BaseChart;
+  chartComponent: typeof BaseChart;
   options: ChartOptions;
   graphData: ChartData;
 }

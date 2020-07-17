@@ -2,16 +2,16 @@
 import Vue from 'vue'
 import { Line } from 'vue-chartjs'
 import { HistogramData } from '@/dto/HistogramDto'
-import { VueChartMethods } from '@/types/chartjs'
+import { ChartMethods } from '@/types/chartjs'
 import { ChartOptions } from 'chart.js'
 import { mergeDeep } from '@/utils/objects'
 
-export interface DailyLineGraphProps {
+interface HistogramLineProps {
   graph: Array<HistogramData> | null;
   options: ChartOptions;
 }
 
-export interface DailyLineGraphComputed {
+interface HistogramLineComputed {
   graphOptions: ChartOptions;
 }
 
@@ -50,7 +50,7 @@ const DEFAULT_OPTIONS = {
   }
 } as ChartOptions
 
-export default Vue.extend<{}, VueChartMethods, DailyLineGraphComputed, DailyLineGraphProps>({
+export default Vue.extend<{}, ChartMethods<HistogramData>, HistogramLineComputed, HistogramLineProps>({
   name: 'HistogramLine',
   extends: Line,
   props: {
@@ -68,9 +68,9 @@ export default Vue.extend<{}, VueChartMethods, DailyLineGraphComputed, DailyLine
       return mergeDeep(DEFAULT_OPTIONS, this.options)
     }
   },
-  watch: {
-    graph (newVal: Array<HistogramData>) {
-      const chartData = HistogramData.toChartdata(newVal.slice())
+  methods: {
+    updateChart (histogramData: Array<HistogramData>) {
+      const chartData = HistogramData.toChartdata(histogramData!!.slice())
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {
@@ -79,18 +79,23 @@ export default Vue.extend<{}, VueChartMethods, DailyLineGraphComputed, DailyLine
           borderColor: GRAPH_LINE_COLOR
         }
       })
-      if (newVal !== null) {
-        this.renderChart(chartData, this.graphOptions)
-      } else {
-        this.renderChart({})
+      // @ts-ignore i failed to make the parent functions visible to typescript
+      this.renderChart(chartData, this.graphOptions)
+    }
+  },
+  watch: {
+    graph: {
+      handler (newVal: Array<HistogramData> | null) {
+        if (newVal !== null) {
+          this.updateChart(newVal)
+        }
       }
+    }
+  },
+  mounted () {
+    if (this.graph !== null) {
+      this.updateChart(this.graph)
     }
   }
 })
 </script>
-
-<style scoped>
-.chartjs-render-monitor {
-  background: #D9D9D9;
-}
-</style>

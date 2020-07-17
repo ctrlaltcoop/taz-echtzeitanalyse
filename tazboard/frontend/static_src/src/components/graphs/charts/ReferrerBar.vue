@@ -3,7 +3,7 @@ import Vue from 'vue'
 import { HorizontalBar } from 'vue-chartjs'
 import { ChartOptions } from 'chart.js'
 import { ReferrerData } from '@/dto/ReferrerDto'
-import { VueChartMethods } from '@/types/chartjs'
+import { ChartMethods } from '@/types/chartjs'
 
 export interface ReferrerGraphProps {
   graph: Array<ReferrerData> | null;
@@ -13,7 +13,7 @@ export interface ReferrerGraphData {
   options: ChartOptions;
 }
 
-export default Vue.extend<ReferrerGraphData, VueChartMethods, {}, ReferrerGraphProps>({
+export default Vue.extend<ReferrerGraphData, ChartMethods<ReferrerData>, {}, ReferrerGraphProps>({
   name: 'ReferrerBar',
   extends: HorizontalBar,
   props: {
@@ -45,21 +45,33 @@ export default Vue.extend<ReferrerGraphData, VueChartMethods, {}, ReferrerGraphP
       }
     }
   },
-  watch: {
-    graph (newVal) {
-      const chartData = ReferrerData.toChartdata(newVal.slice())
+  methods: {
+    updateChart (histogramData: Array<ReferrerData>) {
+      const chartData = ReferrerData.toChartdata(histogramData!!.slice())
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {
           ...dataset
         }
       })
-      if (newVal !== null) {
-        this.renderChart(chartData, this.options)
-      } else {
-        this.renderChart({})
+      // @ts-ignore i failed to make the parent functions visible to typescript
+      this.renderChart(chartData, this.options)
+    }
+  },
+  watch: {
+    graph: {
+      handler (newVal: Array<ReferrerData> | null) {
+        if (newVal !== null) {
+          this.updateChart(newVal)
+        }
       }
+    }
+  },
+  mounted () {
+    if (this.graph !== null) {
+      this.updateChart(this.graph)
     }
   }
 })
+
 </script>

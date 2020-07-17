@@ -1,7 +1,7 @@
 <template>
   <div class="article-row-detail mr-5 ml-5 pb-3 row">
     <div class="histogram col-4 h-100 d-flex">
-      <GraphContainer :chart-component="histogramChartComponent" :graph-data="histogram" />
+      <GraphContainer class="card-shadow" :chart-component="histogramChartComponent" :graph-data="histogram" :options="histogramGraphOptions" />
     </div>
     <div class="devices col-4">
       <GraphContainer :chart-component="devicesChartComponent" :graph-data="article.devices" />
@@ -14,7 +14,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { subDays } from 'date-fns'
 
 import GraphContainer from './graphs/GraphContainer.vue'
 import HistogramLine from './graphs/charts/HistogramLine.vue'
@@ -43,7 +42,7 @@ export default Vue.extend<ArticleRowDetailData, {}, {}, ArticleRowDetailProps>({
       referrerChartComponent: ReferrerBar,
       devicesChartComponent: DevicesBar,
       histogram: [],
-      graphOptions: {
+      histogramGraphOptions: {
         scales: {
           yAxes: [{
             ticks: {
@@ -60,7 +59,7 @@ export default Vue.extend<ArticleRowDetailData, {}, {}, ArticleRowDetailProps>({
   },
   async mounted () {
     const apiClient = new ApiClient()
-    this.histogram = (await apiClient.histogram(subDays(new Date(), 1), new Date(), this.article.msid)).data
+    this.histogram = (await apiClient.histogram(new Date(this.article.pubdate), new Date(), this.article.msid)).data
   }
 })
 </script>
