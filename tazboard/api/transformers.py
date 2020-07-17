@@ -17,7 +17,7 @@ def _transform_ranges(buckets):
     return data
 
 
-def _transform_referrer_buckets(referrer_buckets):
+def _transform_referrer_with_ranges_buckets(referrer_buckets):
     data = []
     total = 0
     total_previous = 0
@@ -39,6 +39,28 @@ def _transform_referrer_buckets(referrer_buckets):
         'total_previous': total_previous,
         'data': data
     }
+
+
+def _transform_referrer_buckets(referrer_buckets):
+    total = reduce(lambda acc, x: acc + x[KEY_FINGERPRINT_AGGREGATION]['value'], referrer_buckets, 0)
+    return [
+        {
+            'referrer': bucket['key'],
+            'hits': bucket[KEY_FINGERPRINT_AGGREGATION]['value'],
+            'percentage': bucket[KEY_FINGERPRINT_AGGREGATION]['value'] / total
+        }
+        for bucket in referrer_buckets
+    ]
+
+
+def _transform_device_buckets(device_buckets):
+    return [
+        {
+            'deviceclass': bucket['key'],
+            'hits': bucket[KEY_FINGERPRINT_AGGREGATION]['value']
+        }
+        for bucket in device_buckets
+    ]
 
 
 def elastic_histogram_response_to_histogram_graph(es_response):
@@ -74,6 +96,7 @@ def elastic_toplist_response_to_toplist(es_response):
                 toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'msid'
             ),
             'referrers': _transform_referrer_buckets(toplist_bucket[KEY_REFERRER_AGGREGATION]['buckets']),
+            'devices': _transform_device_buckets(toplist_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
             **_transform_ranges(toplist_bucket[KEY_RANGES_AGGREGATION]['buckets'])
         }
         data.append(toplist_data)
@@ -87,14 +110,7 @@ def elastic_toplist_response_to_toplist(es_response):
 
 
 def elastic_referrer_response_to_referrer_data(es_response):
-    data = []
-    for bucket in es_response['aggregations'][KEY_REFERRER_AGGREGATION]['buckets']:
-        new_data_entry = {
-            'referrer': bucket['key'],
-            'hits': bucket[KEY_FINGERPRINT_AGGREGATION]['value']
-        }
-        data.append(new_data_entry)
-
+    data = _transform_referrer_buckets(es_response['aggregations'][KEY_REFERRER_AGGREGATION]['buckets'])
     total = reduce(lambda acc, x: acc + x['hits'], data, 0)
     return {
         'total': total,
@@ -103,14 +119,8 @@ def elastic_referrer_response_to_referrer_data(es_response):
 
 
 def elastic_devices_response_to_devices_graph(es_response):
-    data = [
-        {
-            'deviceclass': bucket['key'],
-            'value': bucket[KEY_FINGERPRINT_AGGREGATION]['value']
-        }
-        for bucket in es_response['aggregations'][KEY_DEVICES_AGGREGATION]['buckets']
-    ]
-    total = reduce(lambda acc, x: acc + x['value'], data, 0)
+    data = _transform_device_buckets(es_response['aggregations'][KEY_DEVICES_AGGREGATION]['buckets'])
+    total = reduce(lambda acc, x: acc + x['hits'], data, 0)
     return {
         'total': total,
         'data': data

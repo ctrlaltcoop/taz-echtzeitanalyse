@@ -32,7 +32,7 @@ export default Vue.extend<GraphContainerData, GraphContainerMethods, {}, GraphCo
   props: {
     chartComponent: Function,
     options: Object,
-    graphData: Object
+    graphData: Array
   },
   methods: {
     resizeGraph () {

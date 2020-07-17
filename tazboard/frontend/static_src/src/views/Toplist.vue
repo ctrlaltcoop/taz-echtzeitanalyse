@@ -74,18 +74,18 @@ export default Vue.extend<Data, Methods, Computed>({
     },
     formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined {
       if (this.selectedReferrer === null) {
-        this.selectedReferrer = item.referrers.data[0].referrertag
+        this.selectedReferrer = item.referrers[0].referrer
       }
       const selectedReferrer = this.selectedReferrer
-      return item.referrers.data.find(({ referrertag }) => {
-        return selectedReferrer === referrertag
+      return item.referrers.find(({ referrer }) => {
+        return selectedReferrer === referrer
       })?.percentage.toLocaleString([], { style: 'percent' })
     }
   },
   computed: {
     availableReferrers () {
       const allReferrers = this.items.map((item) => {
-        return item.referrers.data.map((referrer) => referrer.referrertag)
+        return item.referrers.map((referrer) => referrer.referrer)
       }).flat()
       return [...new Set(allReferrers)]
     }
@@ -158,9 +158,9 @@ export default Vue.extend<Data, Methods, Computed>({
           class: 'text-right',
           thClass: 'white-caption',
           formatter: (value: null, key: string, item: ArticleData) => {
-            return item.referrers.data
+            return item.referrers
               .filter(({ percentage }) => percentage > TOP_REFERRER_THRESHOLD)
-              .map(({ referrertag }) => referrertag)
+              .map(({ referrer }) => referrer)
               .join(',')
           }
         }

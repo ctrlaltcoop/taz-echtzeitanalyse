@@ -1,7 +1,7 @@
 <template>
   <div class="row statistics-area">
     <div class="col-4 pt-5 pb-5  statistics-box">
-      <GraphContainer :chart-component="histogramLineComponent" :graph-data="histogramGraph" />
+      <GraphContainer :chart-component="histogramLineComponent" :graph-data="histogramGraph"/>
     </div>
     <div class="col-4 pt-5 pb-5 statistics-box">
       <ClickCounter class="card-shadow flex-fill"/>
@@ -9,10 +9,10 @@
     <div class="col-4 pt-5 pb-5 statistics-box">
       <div class="row no-gutters card-shadow flex-fill">
         <div class="col-6">
-          <GraphContainer :chart-component="deviceBarComponent" :graph-data="devicesGraph" />
+          <GraphContainer :chart-component="deviceBarComponent" :graph-data="devicesGraph"/>
         </div>
         <div class="col-6">
-          <GraphContainer :chart-component="referrerBarComponent" :graph-data="referrerGraph" />
+          <GraphContainer :chart-component="referrerBarComponent" :graph-data="referrerGraph"/>
         </div>
       </div>
     </div>
@@ -30,10 +30,26 @@ import DevicesBar from '@/components/graphs/charts/DevicesBar.vue'
 import { getTimeframeById, Timeframe } from '@/common/timeframe'
 import { ApiClient } from '@/client/ApiClient'
 import { subDays } from 'date-fns'
+import { ReferrerData } from '@/dto/ReferrerDto'
+import { HistogramData } from '@/dto/HistogramDto'
+import { DevicesData } from '@/dto/DevicesDto'
 
 const apiClient = new ApiClient()
 
-export default Vue.extend({
+interface StatisticsData {
+  referrerBarComponent: typeof ReferrerBar;
+  deviceBarComponent: typeof DevicesBar;
+  histogramLineComponent: typeof HistogramLine;
+  referrerGraph: Array<ReferrerData>;
+  histogramGraph: Array<HistogramData>;
+  devicesGraph: Array<DevicesData>;
+}
+
+interface StatisticsMethods {
+  update(timeframe: Timeframe): void;
+}
+
+export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
   name: 'Statistics',
   components: {
     ClickCounter,
@@ -44,15 +60,15 @@ export default Vue.extend({
       referrerBarComponent: ReferrerBar,
       deviceBarComponent: DevicesBar,
       histogramLineComponent: HistogramLine,
-      referrerGraph: {},
-      histogramGraph: {},
-      devicesGraph: {}
+      referrerGraph: [],
+      histogramGraph: [],
+      devicesGraph: []
     }
   },
   methods: {
     async update (timeframe: Timeframe) {
-      this.referrerGraph = await apiClient.referrer(timeframe.minDate, timeframe.maxDate)
-      this.devicesGraph = await apiClient.devices(timeframe.minDate, timeframe.maxDate)
+      this.referrerGraph = (await apiClient.referrer(timeframe.minDate, timeframe.maxDate)).data
+      this.devicesGraph = (await apiClient.devices(timeframe.minDate, timeframe.maxDate)).data
     }
   },
   watch: {
@@ -68,7 +84,7 @@ export default Vue.extend({
     }
   },
   async mounted () {
-    this.histogramGraph = await apiClient.histogram(subDays(new Date(), 1), new Date())
+    this.histogramGraph = (await apiClient.histogram(subDays(new Date(), 1), new Date())).data
   }
 })
 </script>

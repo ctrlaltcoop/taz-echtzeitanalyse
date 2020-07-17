@@ -1,13 +1,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Line } from 'vue-chartjs'
-import { HistogramDto } from '@/dto/HistogramDto'
+import { HistogramData } from '@/dto/HistogramDto'
 import { VueChartMethods } from '@/types/chartjs'
 import { ChartOptions } from 'chart.js'
 import { mergeDeep } from '@/utils/objects'
 
 export interface DailyLineGraphProps {
-  graph: HistogramDto | null;
+  graph: Array<HistogramData> | null;
   options: ChartOptions;
 }
 
@@ -51,7 +51,7 @@ const DEFAULT_OPTIONS = {
 } as ChartOptions
 
 export default Vue.extend<{}, VueChartMethods, DailyLineGraphComputed, DailyLineGraphProps>({
-  name: 'DailyLineGraph',
+  name: 'HistogramLine',
   extends: Line,
   props: {
     options: {
@@ -59,7 +59,7 @@ export default Vue.extend<{}, VueChartMethods, DailyLineGraphComputed, DailyLine
       default: null
     },
     graph: {
-      type: Object,
+      type: Array,
       default: null
     }
   },
@@ -69,8 +69,8 @@ export default Vue.extend<{}, VueChartMethods, DailyLineGraphComputed, DailyLine
     }
   },
   watch: {
-    graph (newVal) {
-      const chartData = HistogramDto.toChartdata(newVal)
+    graph (newVal: Array<HistogramData>) {
+      const chartData = HistogramData.toChartdata(newVal.slice())
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {
