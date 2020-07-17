@@ -1,6 +1,5 @@
 from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
-    KEY_TREND_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_REFERRERTAGS_AGGREGATION, \
-    KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION
+    KEY_TREND_AGGREGATION, KEY_RANGES_AGGREGATION
 
 
 def maybe_add_msid_filter(msid, query):
@@ -53,6 +52,25 @@ def get_fingerprint_aggregation_with_ranges(interval_start, interval_mid, interv
     }
 
 
+def get_referrer_aggregation():
+    return {
+        "terms": {
+            "field": "referrertags",
+            "order": {
+                "_count": "desc"
+            },
+            "size": 10
+        },
+        "aggs": {
+            KEY_FINGERPRINT_AGGREGATION: {
+                "cardinality": {
+                    "field": "fingerprint",
+                }
+            }
+        }
+    }
+
+
 def get_referrer_aggregation_with_ranges(interval_start, interval_mid, interval_end):
     return {
         "terms": {
@@ -92,41 +110,6 @@ def get_referrer_aggregation_with_ranges(interval_start, interval_mid, interval_
     }
 
 
-def get_referrer_class_tags_aggregation():
-    return {
-        "terms": {
-            "field": "referrerclass",
-            "order": {
-                "_count": "desc"
-            },
-            "size": 10
-        },
-        "aggs": {
-            KEY_FINGERPRINT_AGGREGATION: {
-                "cardinality": {
-                    "field": "fingerprint",
-                }
-            },
-            KEY_REFERRERTAGS_AGGREGATION: {
-                "terms": {
-                    "field": "referrertags",
-                    "order": {
-                        "_count": "desc"
-                    },
-                    "size": 10
-                },
-                "aggs": {
-                    KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION: {
-                        "cardinality": {
-                            "field": "fingerprint"
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
 def get_interval_filter_exclude_bots(interval_start, interval_end):
     return {
         "bool": {
@@ -159,5 +142,24 @@ def get_interval_filter_exclude_bots(interval_start, interval_end):
                     }
                 }
             ]
+        }
+    }
+
+
+def get_devices_aggregation():
+    return {
+        "terms": {
+            "field": "deviceclass",
+            "order": {
+                "_count": "desc"
+            },
+            "size": 10
+        },
+        "aggs": {
+            KEY_FINGERPRINT_AGGREGATION: {
+                "cardinality": {
+                    "field": "fingerprint"
+                }
+            }
         }
     }

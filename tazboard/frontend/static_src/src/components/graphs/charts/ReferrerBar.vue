@@ -2,11 +2,11 @@
 import Vue from 'vue'
 import { HorizontalBar } from 'vue-chartjs'
 import { ChartOptions } from 'chart.js'
-import { ReferrerDto } from '../dto/ReferrerDto'
-import { VueChartMethods } from '../types/chartjs'
+import { ReferrerData } from '@/dto/ReferrerDto'
+import { VueChartMethods } from '@/types/chartjs'
 
 export interface ReferrerGraphProps {
-  graph: ReferrerDto | null;
+  graph: Array<ReferrerData> | null;
 }
 
 export interface ReferrerGraphData {
@@ -14,11 +14,11 @@ export interface ReferrerGraphData {
 }
 
 export default Vue.extend<ReferrerGraphData, VueChartMethods, {}, ReferrerGraphProps>({
-  name: 'ReferrerGraph',
+  name: 'ReferrerBar',
   extends: HorizontalBar,
   props: {
     graph: {
-      type: Object,
+      type: Array,
       default: null
     }
   },
@@ -47,7 +47,7 @@ export default Vue.extend<ReferrerGraphData, VueChartMethods, {}, ReferrerGraphP
   },
   watch: {
     graph (newVal) {
-      const chartData = ReferrerDto.toChartdata(newVal)
+      const chartData = ReferrerData.toChartdata(newVal.slice())
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {

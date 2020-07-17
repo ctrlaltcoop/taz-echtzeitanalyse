@@ -23,17 +23,17 @@ export class InternalServerError extends HttpError {
 export class ApiClient {
   baseURL = '/api/v1/'
 
-  async histogram (minDate: Date, maxDate: Date, msgId: number | null = null): Promise<HistogramDto> {
+  async histogram (minDate: Date, maxDate: Date, msid: number | null = null): Promise<HistogramDto> {
     return await this.request<HistogramDto>('histogram', 'GET', {
-      msgId,
+      msid,
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString()
     })
   }
 
-  async referrer (minDate: Date, maxDate: Date, msgId: number | null = null): Promise<ReferrerDto> {
+  async referrer (minDate: Date, maxDate: Date, msid: number | null = null): Promise<ReferrerDto> {
     return await this.request<ReferrerDto>('referrer', 'GET', {
-      msgId,
+      msid,
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString()
     })

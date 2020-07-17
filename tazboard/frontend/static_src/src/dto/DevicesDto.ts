@@ -2,21 +2,21 @@ import { ChartData } from 'chart.js'
 
 export class DevicesData {
   deviceclass!: string
-  value!: number
+  hits!: number
+
+  static toChartdata (devicesData: Array<DevicesData>): ChartData {
+    // sort data descending
+    devicesData.sort((a, b) => b.hits - a.hits)
+    return {
+      labels: devicesData.map((item) => item.deviceclass),
+      datasets: [{
+        label: 'Devices',
+        data: devicesData.map((item) => item.hits)
+      }]
+    }
+  }
 }
 
 export class DevicesDto {
   data!: Array<DevicesData>
-
-  static toChartData (graph: DevicesDto): ChartData {
-    // sort data descending
-    graph.data.sort((a, b) => b.value - a.value)
-    return {
-      labels: graph.data.map((item) => item.deviceclass),
-      datasets: [{
-        label: 'Devices',
-        data: graph.data.map((item) => item.value)
-      }]
-    }
-  }
 }

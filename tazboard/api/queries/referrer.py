@@ -1,14 +1,14 @@
 from django.utils import timezone
 
 from tazboard.api.queries.common import maybe_add_msid_filter, \
-    get_interval_filter_exclude_bots, get_referrer_class_tags_aggregation
+    get_interval_filter_exclude_bots, get_referrer_aggregation
 from tazboard.api.queries.constants import KEY_REFERRER_AGGREGATION
 
 
 def get_referrer_query(min_date, max_date=timezone.now(), msid=None):
     query = {
         "aggs": {
-            KEY_REFERRER_AGGREGATION: get_referrer_class_tags_aggregation()
+            KEY_REFERRER_AGGREGATION: get_referrer_aggregation()
         },
         "size": 0,
         "docvalue_fields": [

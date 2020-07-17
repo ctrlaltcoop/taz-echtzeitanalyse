@@ -1,9 +1,9 @@
 from django.utils import timezone
 
-from tazboard.api.queries.common import get_fingerprint_aggregation_with_ranges, get_referrer_aggregation_with_ranges, \
-    get_interval_filter_exclude_bots
+from tazboard.api.queries.common import get_fingerprint_aggregation_with_ranges, \
+    get_interval_filter_exclude_bots, get_devices_aggregation, get_referrer_aggregation
 from tazboard.api.queries.constants import KEY_TOPLIST_AGGREGTAION, \
-    KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION, KEY_RANGES_AGGREGATION
+    KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_DEVICES_AGGREGATION
 
 
 def get_toplist_query(min_date, max_date=timezone.now(), limit=10):
@@ -24,16 +24,15 @@ def get_toplist_query(min_date, max_date=timezone.now(), limit=10):
                         "top_hits": {
                             "size": 1,
                             "_source": {
-                                "include": ['kicker', 'pubtime']
+                                "include": ['kicker', 'pubtime', 'msid']
                             }
                         }
                     },
                     KEY_RANGES_AGGREGATION: get_fingerprint_aggregation_with_ranges(
                         min_date_previous_interval, min_date, max_date
                     ),
-                    KEY_REFERRER_AGGREGATION: get_referrer_aggregation_with_ranges(
-                        min_date_previous_interval, min_date, max_date
-                    )
+                    KEY_DEVICES_AGGREGATION: get_devices_aggregation(),
+                    KEY_REFERRER_AGGREGATION: get_referrer_aggregation()
                 }
             }
         },

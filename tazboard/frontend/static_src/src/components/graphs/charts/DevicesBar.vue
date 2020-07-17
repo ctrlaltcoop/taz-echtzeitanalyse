@@ -3,10 +3,10 @@ import Vue from 'vue'
 import { HorizontalBar } from 'vue-chartjs'
 import { ChartOptions } from 'chart.js'
 import { VueChartMethods } from '@/types/chartjs'
-import { DevicesDto } from '@/dto/DevicesDto'
+import { DevicesData } from '@/dto/DevicesDto'
 
 export interface DevicesGraphProps {
-  graph: DevicesDto | null;
+  graph: Array<DevicesData> | null;
 }
 
 export interface DevicesGraphData {
@@ -14,11 +14,11 @@ export interface DevicesGraphData {
 }
 
 export default Vue.extend<DevicesGraphData, VueChartMethods, {}, DevicesGraphProps>({
-  name: 'DevicesGraph',
+  name: 'DebvicesBar',
   extends: HorizontalBar,
   props: {
     graph: {
-      type: Object,
+      type: Array,
       default: null
     }
   },
@@ -47,7 +47,7 @@ export default Vue.extend<DevicesGraphData, VueChartMethods, {}, DevicesGraphPro
   },
   watch: {
     graph (newVal) {
-      const chartData = DevicesDto.toChartData(newVal)
+      const chartData = DevicesData.toChartdata(newVal.slice())
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {
