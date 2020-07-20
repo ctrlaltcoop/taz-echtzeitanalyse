@@ -12,7 +12,7 @@ class HistogramSerializer(serializers.Serializer):
 
 
 class ReferrerDataSerializer(serializers.Serializer):
-    referrer = serializers.CharField()
+    referrer = serializers.CharField(allow_blank=True)
     hits = serializers.IntegerField()
     percentage = serializers.FloatField()
 

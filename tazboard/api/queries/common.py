@@ -55,7 +55,7 @@ def get_fingerprint_aggregation_with_ranges(interval_start, interval_mid, interv
 def get_referrer_aggregation():
     return {
         "terms": {
-            "field": "referrertags",
+            "field": "referrerlabel",
             "order": {
                 "_count": "desc"
             },
@@ -74,7 +74,7 @@ def get_referrer_aggregation():
 def get_referrer_aggregation_with_ranges(interval_start, interval_mid, interval_end):
     return {
         "terms": {
-            "field": "referrertags",
+            "field": "referrerlabel",
             "order": {
                 "_count": "desc"
             },
