@@ -1,0 +1,28 @@
+@import "variables";
+
+.shimmer-wrapper {
+  width: 0;
+  animation: fullView 0.5s forwards linear;
+}
+
+@keyframes fullView {
+  100% {
+    width: 100%;
+  }
+}
+
+.shimmer-animate {
+  animation: shimmer 3s infinite;
+  background: linear-gradient(to right, $gray-100 0%, $white 25%, $gray-100 36%);
+  background-size: 2000px 100%;
+  flex: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}

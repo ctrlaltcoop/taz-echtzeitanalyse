@@ -45,3 +45,8 @@ class ToplistDataSerializer(serializers.Serializer):
 
 class ToplistSerializer(serializers.Serializer):
     data = ToplistDataSerializer(many=True)
+
+
+class TotalSerializer(serializers.Serializer):
+    total = serializers.IntegerField()
+    total_previous = serializers.IntegerField()

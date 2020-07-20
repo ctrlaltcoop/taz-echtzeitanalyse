@@ -15,14 +15,15 @@ from .queries.constants import INTERVAL_10MINUTES
 from .queries.referrer import get_referrer_query
 from .queries.devices import get_devices_query
 from .queries.toplist import get_toplist_query
+from .queries.total import get_total_query
 from .query_params import HistogramQuerySerializer, ReferrerQuerySerializer, ToplistQuerySerializer, \
-    DevicesQuerySerializer
+    DevicesQuerySerializer, TotalQuerySerializer
 from .schema import AutoSchemaWithQuery
 from .tests.common import activate_global_elastic_mocks
 from .transformers import elastic_histogram_response_to_histogram_graph, \
     elastic_toplist_response_to_toplist, elastic_referrer_response_to_referrer_data, \
-    elastic_devices_response_to_devices_graph
-from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer, DevicesSerializer
+    elastic_devices_response_to_devices_graph, elastic_total_response_total
+from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer, DevicesSerializer, TotalSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -125,6 +126,24 @@ class DevicesView(APIView):
         response = search_or_raise_api_exception(query)
         serializer = self.serializer_class(
             data=elastic_devices_response_to_devices_graph(response)
+        )
+        if not serializer.is_valid():
+            logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
+            raise BadElasticResponseException()
+        return Response(serializer.data)
+
+
+class TotalView(APIView):
+    serializer_class = TotalSerializer
+    query_serializer = TotalQuerySerializer
+
+    def get(self, request, *args, **kwargs):
+        min_date = self.query_params.get('min_date', timezone.now() - timedelta(days=1))
+        max_date = self.query_params.get('max_date', timezone.now())
+        query = get_total_query(min_date, max_date)
+        response = search_or_raise_api_exception(query)
+        serializer = self.serializer_class(
+            data=elastic_total_response_total(response)
         )
         if not serializer.is_valid():
             logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))

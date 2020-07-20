@@ -1,38 +1,40 @@
 <template>
   <div class="row">
-    <BTable
-      striped
-      class="w-100"
-      :fields="fields"
-      :items="items"
-      :tbody-transition-props="{ name: 'statistics-table' }"
-      v-model="rowItems"
-      primary-key="msid"
-      thead-class="table-head">
-      <template v-slot:head(referrerSelect)="data">
-        <div class="stacked-th-with-selection">
-          <div>{{ data.label }}</div>
-          <select class="referrer-select" v-model="selectedReferrer">
-            <option v-for="referrer in availableReferrers" :value="referrer" :key="referrer">
-              {{ referrer }}
-            </option>
-          </select>
-        </div>
-      </template>
+    <LoadingControl class="loading-control" :loading-state="loadingState">
+      <BTable
+        striped
+        class="w-100"
+        :fields="fields"
+        :items="items"
+        :tbody-transition-props="{ name: 'statistics-table' }"
+        v-model="rowItems"
+        primary-key="msid"
+        thead-class="table-head">
+        <template v-slot:head(referrerSelect)="data">
+          <div class="stacked-th-with-selection">
+            <div>{{ data.label }}</div>
+            <select class="referrer-select" v-model="selectedReferrer">
+              <option v-for="referrer in availableReferrers" :value="referrer" :key="referrer">
+                {{ referrer }}
+              </option>
+            </select>
+          </div>
+        </template>
 
-      <template v-slot:cell(headline)="row">
+        <template v-slot:cell(headline)="row">
         <span class="row-headline-kicker">
           {{ row.item.kicker }}
         </span>
-        <span class="row-headline-headline" @click="toggleDetails(row)">
+          <span class="row-headline-headline" @click="toggleDetails(row)">
           {{ row.item.headline }}
         </span>
-      </template>
+        </template>
 
-      <template v-slot:row-details="row">
-        <ArticleRowDetail :article="row.item"/>
-      </template>
-    </BTable>
+        <template v-slot:row-details="row">
+          <ArticleRowDetail :article="row.item"/>
+        </template>
+      </BTable>
+    </LoadingControl>
   </div>
 </template>
 
@@ -46,6 +48,8 @@ import { ArticleData } from '@/dto/ToplistDto'
 import { getTimeframeById, Timeframe } from '@/common/timeframe'
 import { CAPTION_TODAY, CAPTION_YESTERDAY, TOP_REFERRER_THRESHOLD } from '@/common/constants'
 import ArticleRowDetail from '@/components/ArticleRowDetail.vue'
+import LoadingControl from '@/components/LoadingControl.vue'
+import { LoadingState } from '@/common/LoadingState'
 
 const apiClient = new ApiClient()
 
@@ -53,6 +57,7 @@ interface Data {
   items: ArticleData[];
   selectedReferrer: string | null;
   rowItems: Array<any>;
+  loadingState: LoadingState;
 }
 
 interface Methods {
@@ -70,10 +75,13 @@ interface Computed {
   openedMsids: Array<number>;
 }
 
+let currentRequestController: AbortController | null = null
+
 export default Vue.extend<Data, Methods, Computed, {}>({
   name: 'Toplist',
   components: {
     BTable,
+    LoadingControl,
     ArticleRowDetail
   },
   methods: {
@@ -104,7 +112,23 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       }
     },
     async update (timeframe: Timeframe) {
-      this.items = ((await apiClient.toplist(timeframe.minDate, timeframe.maxDate, 25)).data)
+      this.loadingState = LoadingState.LOADING
+      try {
+        if (currentRequestController !== null) {
+          currentRequestController.abort()
+        }
+        currentRequestController = new AbortController()
+        const { signal } = currentRequestController!!
+        this.items = (await apiClient.toplist(timeframe.minDate, timeframe.maxDate, 25, {
+          signal
+        })).data
+        currentRequestController = null
+        this.loadingState = LoadingState.SUCCESS
+      } catch (e) {
+        if (!(e instanceof DOMException)) {
+          this.loadingState = LoadingState.ERROR
+        }
+      }
     },
     formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined {
       if (this.selectedReferrer === null) {
@@ -131,6 +155,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     return {
       rowItems: [],
       selectedReferrer: null,
+      loadingStateTimeframe: LoadingState.FRESH,
       fields: [
         {
           key: 'hits',
@@ -203,7 +228,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           }
         }
       ],
-      items: []
+      items: [],
+      loadingState: LoadingState.FRESH
     }
   },
   watch: {
@@ -224,6 +250,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   }
 })
 </script>
+
+<!-- styles for vue table won't take effect unless unscoped -->
 <style lang="scss">
 @import 'src/style/variables';
 
@@ -246,6 +274,13 @@ export default Vue.extend<Data, Methods, Computed, {}>({
 .white-caption {
   color: $white;
   font-size: 2rem;
+}
+</style>
+
+<style lang="scss" scoped>
+.loading-control {
+  min-height: 450px;
+  flex-direction: column;
 }
 
 </style>
