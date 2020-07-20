@@ -2,19 +2,19 @@
 import Vue from 'vue'
 import { HorizontalBar } from 'vue-chartjs'
 import { ChartOptions } from 'chart.js'
-import { VueChartMethods } from '@/types/chartjs'
+import { ChartMethods } from '@/types/chartjs'
 import { DevicesData } from '@/dto/DevicesDto'
 
-export interface DevicesGraphProps {
+export interface DevicesBarProps {
   graph: Array<DevicesData> | null;
 }
 
-export interface DevicesGraphData {
+export interface DeviceBarData {
   options: ChartOptions;
 }
 
-export default Vue.extend<DevicesGraphData, VueChartMethods, {}, DevicesGraphProps>({
-  name: 'DebvicesBar',
+export default Vue.extend<DeviceBarData, ChartMethods<DevicesData>, {}, DevicesBarProps>({
+  name: 'DevicesBar',
   extends: HorizontalBar,
   props: {
     graph: {
@@ -45,20 +45,31 @@ export default Vue.extend<DevicesGraphData, VueChartMethods, {}, DevicesGraphPro
       }
     }
   },
-  watch: {
-    graph (newVal) {
-      const chartData = DevicesData.toChartdata(newVal.slice())
+  methods: {
+    updateChart (data: Array<DevicesData>) {
+      const chartData = DevicesData.toChartdata(data!!.slice())
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {
           ...dataset
         }
       })
-      if (newVal !== null) {
-        this.renderChart(chartData, this.options)
-      } else {
-        this.renderChart({})
+      // @ts-ignore i failed to make the parent functions visible to typescript
+      this.renderChart(chartData, this.options)
+    }
+  },
+  watch: {
+    graph: {
+      handler (newVal: Array<DevicesData> | null) {
+        if (newVal !== null) {
+          this.updateChart(newVal)
+        }
       }
+    }
+  },
+  mounted () {
+    if (this.graph !== null) {
+      this.updateChart(this.graph)
     }
   }
 })

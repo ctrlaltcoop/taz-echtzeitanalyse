@@ -1,5 +1,5 @@
 {
-    "took": 16,
+    "took": 101,
     "timed_out": false,
     "_shards": {
         "total": 134,
@@ -9,8 +9,8 @@
     },
     "hits": {
         "total": {
-            "value": 4976,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -18,76 +18,76 @@
     "aggregations": {
         "KEY_REFERRER_AGGREGATION": {
             "doc_count_error_upper_bound": 0,
-            "sum_other_doc_count": 45,
+            "sum_other_doc_count": 1590,
             "buckets": [
                 {
                     "key": "missing",
-                    "doc_count": 2012,
+                    "doc_count": 68335,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 785
+                        "value": 20721
                     }
                 },
                 {
                     "key": "isgoogle",
-                    "doc_count": 1065,
+                    "doc_count": 33840,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 763
+                        "value": 25769
                     }
                 },
                 {
                     "key": "isstartpage",
-                    "doc_count": 656,
+                    "doc_count": 22362,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 456
+                        "value": 12102
                     }
                 },
                 {
                     "key": "istaz",
-                    "doc_count": 613,
+                    "doc_count": 21464,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 252
+                        "value": 7475
                     }
                 },
                 {
                     "key": "isfacebook",
-                    "doc_count": 251,
+                    "doc_count": 9683,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 233
+                        "value": 8475
                     }
                 },
                 {
                     "key": "istwitter",
-                    "doc_count": 136,
+                    "doc_count": 5285,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 126
-                    }
-                },
-                {
-                    "key": "ignored",
-                    "doc_count": 87,
-                    "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 77
+                        "value": 4282
                     }
                 },
                 {
                     "key": "isgetpocket",
-                    "doc_count": 77,
+                    "doc_count": 4328,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 75
+                        "value": 4150
                     }
                 },
                 {
-                    "key": "iswikipedia",
-                    "doc_count": 19,
+                    "key": "ignored",
+                    "doc_count": 3390,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 18
+                        "value": 2875
                     }
                 },
                 {
                     "key": "isflipboard",
-                    "doc_count": 15,
+                    "doc_count": 641,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 14
+                        "value": 569
+                    }
+                },
+                {
+                    "key": "springer",
+                    "doc_count": 621,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 580
                     }
                 }
             ]

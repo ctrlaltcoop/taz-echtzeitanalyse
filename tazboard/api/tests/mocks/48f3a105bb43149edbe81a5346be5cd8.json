@@ -1,16 +1,16 @@
 {
-    "took": 16,
+    "took": 249,
     "timed_out": false,
     "_shards": {
         "total": 134,
         "successful": 134,
-        "skipped": 132,
+        "skipped": 130,
         "failed": 0
     },
     "hits": {
         "total": {
-            "value": 4976,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -18,76 +18,76 @@
     "aggregations": {
         "KEY_REFERRER_AGGREGATION": {
             "doc_count_error_upper_bound": 0,
-            "sum_other_doc_count": 45,
+            "sum_other_doc_count": 4877,
             "buckets": [
                 {
                     "key": "missing",
-                    "doc_count": 2012,
+                    "doc_count": 265120,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 785
+                        "value": 69479
                     }
                 },
                 {
                     "key": "isgoogle",
-                    "doc_count": 1065,
+                    "doc_count": 104167,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 763
+                        "value": 74572
                     }
                 },
                 {
                     "key": "isstartpage",
-                    "doc_count": 656,
+                    "doc_count": 86273,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 456
+                        "value": 40224
                     }
                 },
                 {
                     "key": "istaz",
-                    "doc_count": 613,
+                    "doc_count": 80726,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 252
-                    }
-                },
-                {
-                    "key": "isfacebook",
-                    "doc_count": 251,
-                    "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 233
-                    }
-                },
-                {
-                    "key": "istwitter",
-                    "doc_count": 136,
-                    "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 126
-                    }
-                },
-                {
-                    "key": "ignored",
-                    "doc_count": 87,
-                    "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 77
+                        "value": 24170
                     }
                 },
                 {
                     "key": "isgetpocket",
-                    "doc_count": 77,
+                    "doc_count": 38660,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 75
+                        "value": 35510
                     }
                 },
                 {
-                    "key": "iswikipedia",
-                    "doc_count": 19,
+                    "key": "isfacebook",
+                    "doc_count": 28175,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 18
+                        "value": 24262
+                    }
+                },
+                {
+                    "key": "istwitter",
+                    "doc_count": 17556,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 13882
+                    }
+                },
+                {
+                    "key": "ignored",
+                    "doc_count": 11164,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 9007
+                    }
+                },
+                {
+                    "key": "springer",
+                    "doc_count": 2909,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 2672
                     }
                 },
                 {
                     "key": "isflipboard",
-                    "doc_count": 15,
+                    "doc_count": 1839,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 14
+                        "value": 1565
                     }
                 }
             ]

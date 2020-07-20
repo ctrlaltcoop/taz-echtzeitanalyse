@@ -1,5 +1,3 @@
-import { ChartData, ChartOptions } from 'chart.js'
-
-export interface VueChartMethods {
-  renderChart(data: ChartData, options?: ChartOptions): void;
+export interface ChartMethods<T> {
+  updateChart (data: Array<T>): void
 }

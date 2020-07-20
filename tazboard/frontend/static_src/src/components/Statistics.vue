@@ -73,8 +73,8 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
   },
   watch: {
     '$route.query': {
-      handler (query: any) {
-        if (query.timeframeId) {
+      handler (query: any, oldQuery: any) {
+        if (query.timeframeId !== oldQuery?.timeframeId) {
           const timeframe = getTimeframeById(query.timeframeId)
           this.update(timeframe!!)
         }

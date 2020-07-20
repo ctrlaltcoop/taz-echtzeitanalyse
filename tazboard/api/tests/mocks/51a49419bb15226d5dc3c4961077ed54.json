@@ -1,5 +1,5 @@
 {
-    "took": 16,
+    "took": 26,
     "timed_out": false,
     "_shards": {
         "total": 134,
@@ -9,8 +9,8 @@
     },
     "hits": {
         "total": {
-            "value": 4976,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -18,76 +18,76 @@
     "aggregations": {
         "KEY_REFERRER_AGGREGATION": {
             "doc_count_error_upper_bound": 0,
-            "sum_other_doc_count": 45,
+            "sum_other_doc_count": 212,
             "buckets": [
                 {
                     "key": "missing",
-                    "doc_count": 2012,
+                    "doc_count": 7927,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 785
+                        "value": 3045
                     }
                 },
                 {
                     "key": "isgoogle",
-                    "doc_count": 1065,
+                    "doc_count": 5098,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 763
-                    }
-                },
-                {
-                    "key": "isstartpage",
-                    "doc_count": 656,
-                    "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 456
+                        "value": 3782
                     }
                 },
                 {
                     "key": "istaz",
-                    "doc_count": 613,
+                    "doc_count": 3317,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 252
+                        "value": 1057
+                    }
+                },
+                {
+                    "key": "isstartpage",
+                    "doc_count": 2954,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 1821
                     }
                 },
                 {
                     "key": "isfacebook",
-                    "doc_count": 251,
+                    "doc_count": 1236,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 233
+                        "value": 1116
                     }
                 },
                 {
                     "key": "istwitter",
-                    "doc_count": 136,
+                    "doc_count": 707,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 126
+                        "value": 610
                     }
                 },
                 {
                     "key": "ignored",
-                    "doc_count": 87,
+                    "doc_count": 419,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 77
+                        "value": 361
                     }
                 },
                 {
                     "key": "isgetpocket",
-                    "doc_count": 77,
+                    "doc_count": 365,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 352
+                    }
+                },
+                {
+                    "key": "isflipboard",
+                    "doc_count": 82,
                     "KEY_FINGERPRINT_AGGREGATION": {
                         "value": 75
                     }
                 },
                 {
-                    "key": "iswikipedia",
-                    "doc_count": 19,
+                    "key": "springer",
+                    "doc_count": 60,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 18
-                    }
-                },
-                {
-                    "key": "isflipboard",
-                    "doc_count": 15,
-                    "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 14
+                        "value": 57
                     }
                 }
             ]

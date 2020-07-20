@@ -6,6 +6,8 @@
       :fields="fields"
       :items="items"
       :tbody-transition-props="{ name: 'statistics-table' }"
+      v-model="rowItems"
+      primary-key="msid"
       thead-class="table-head">
       <template v-slot:head(referrerSelect)="data">
         <div class="stacked-th-with-selection">
@@ -22,13 +24,13 @@
         <span class="row-headline-kicker">
           {{ row.item.kicker }}
         </span>
-        <span class="row-headline-headline" @click="row.toggleDetails">
+        <span class="row-headline-headline" @click="toggleDetails(row)">
           {{ row.item.headline }}
         </span>
       </template>
 
-      <template v-slot:row-details="row" >
-        <ArticleRowDetail :article="row.item" />
+      <template v-slot:row-details="row">
+        <ArticleRowDetail :article="row.item"/>
       </template>
     </BTable>
   </div>
@@ -50,25 +52,57 @@ const apiClient = new ApiClient()
 interface Data {
   items: ArticleData[];
   selectedReferrer: string | null;
+  rowItems: Array<any>;
 }
 
 interface Methods {
   update (timeframe: Timeframe): void;
+
+  toggleDetails (row: any): void;
+
+  syncOpenedDetailsStateWithRoute (): void;
 
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
 }
 
 interface Computed {
   availableReferrers: Array<string>;
+  openedMsids: Array<number>;
 }
 
-export default Vue.extend<Data, Methods, Computed>({
+export default Vue.extend<Data, Methods, Computed, {}>({
   name: 'Toplist',
   components: {
     BTable,
     ArticleRowDetail
   },
   methods: {
+    toggleDetails (row: any) {
+      const query = this.$route.query.openMsids as string || '[]'
+      let currentlyOpenMsids = JSON.parse(query)
+      if (currentlyOpenMsids.includes(row.item.msid)) {
+        currentlyOpenMsids = currentlyOpenMsids.filter((msid: number) => msid !== row.item.msid)
+      } else {
+        currentlyOpenMsids.push(row.item.msid)
+      }
+      this.$router.push({
+        path: this.$route.path,
+        params: this.$route.params,
+        query: {
+          ...this.$route.query,
+          openMsids: JSON.stringify(currentlyOpenMsids)
+        }
+      })
+    },
+    syncOpenedDetailsStateWithRoute () {
+      for (const row of this.rowItems) {
+        if (this.openedMsids.includes(row.msid)) {
+          this.$set(row, '_showDetails', true)
+        } else {
+          this.$set(row, '_showDetails', false)
+        }
+      }
+    },
     async update (timeframe: Timeframe) {
       this.items = ((await apiClient.toplist(timeframe.minDate, timeframe.maxDate, 25)).data)
     },
@@ -88,10 +122,14 @@ export default Vue.extend<Data, Methods, Computed>({
         return item.referrers.map((referrer) => referrer.referrer)
       }).flat()
       return [...new Set(allReferrers)]
+    },
+    openedMsids () {
+      return JSON.parse(this.$route.query.openMsids as string || '[]')
     }
   },
   data () {
     return {
+      rowItems: [],
       selectedReferrer: null,
       fields: [
         {
@@ -169,12 +207,16 @@ export default Vue.extend<Data, Methods, Computed>({
     }
   },
   watch: {
+    rowItems () {
+      this.syncOpenedDetailsStateWithRoute()
+    },
     '$route.query': {
-      handler (query: any) {
-        if (query.timeframeId) {
+      handler (query: any, oldQuery: any) {
+        if (query.timeframeId !== oldQuery?.timeframeId) {
           const timeframe = getTimeframeById(query.timeframeId)
           this.update(timeframe!!)
         }
+        this.syncOpenedDetailsStateWithRoute()
       },
       immediate: true,
       deep: true
