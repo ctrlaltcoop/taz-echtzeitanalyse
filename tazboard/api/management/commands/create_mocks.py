@@ -8,6 +8,7 @@ from tazboard.api.queries.constants import MOCK_FAKE_NOW
 from tazboard.api.queries.histogram import get_histogram_query
 from tazboard.api.queries.referrer import get_referrer_query
 from tazboard.api.queries.toplist import get_toplist_query
+from tazboard.api.queries.total import get_total_query
 from tazboard.api.tests.common import get_mock_filepath_for_query, get_mock_test_sample_path_for_query_function
 from tazboard.api.utils.datetime import round_to_seconds
 
@@ -49,6 +50,18 @@ class Command(BaseCommand):
                 (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW),
                 (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW),
             ), ((10,), (25,)))
+        },
+        {
+            'get_query': get_total_query,
+            'arguments': (
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=15)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=30)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=1)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=6)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW),
+                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW),
+            )
         }
     ]
 
