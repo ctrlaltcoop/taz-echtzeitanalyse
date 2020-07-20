@@ -1,10 +1,8 @@
 from django.utils import timezone
 
 from tazboard.api.queries.common import get_fingerprint_aggregation_with_ranges, \
-    get_interval_filter_exclude_bots, get_devices_aggregation, get_referrer_aggregation
-from tazboard.api.queries.constants import KEY_TOPLIST_AGGREGTAION, \
-    KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_DEVICES_AGGREGATION, \
-    KEY_FINGERPRINT_AGGREGATION
+    get_interval_filter_exclude_bots
+from tazboard.api.queries.constants import KEY_RANGES_AGGREGATION
 
 
 def get_total_query(min_date, max_date=timezone.now()):
