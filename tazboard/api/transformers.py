@@ -109,6 +109,14 @@ def elastic_toplist_response_to_toplist(es_response):
     }
 
 
+def elastic_total_response_total(es_response):
+    data = _transform_ranges(es_response['aggregations'][KEY_RANGES_AGGREGATION]['buckets'])
+    return {
+        'total': data['hits'],
+        'total_previous': data['hits_previous'],
+    }
+
+
 def elastic_referrer_response_to_referrer_data(es_response):
     data = _transform_referrer_buckets(es_response['aggregations'][KEY_REFERRER_AGGREGATION]['buckets'])
     total = reduce(lambda acc, x: acc + x['hits'], data, 0)

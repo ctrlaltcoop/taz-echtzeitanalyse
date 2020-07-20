@@ -4,6 +4,7 @@ import { QueryParams, queryString } from '@/utils/urls'
 import { ReferrerDto } from '@/dto/ReferrerDto'
 import { ToplistDto } from '@/dto/ToplistDto'
 import { DevicesDto } from '@/dto/DevicesDto'
+import { TotalDto } from '@/dto/TotalDto'
 
 export class HttpError extends Error {
   constructor (public response: Response) {
@@ -20,43 +21,55 @@ export class NotFound extends HttpError {
 export class InternalServerError extends HttpError {
 }
 
+interface RequestArgs {
+  signal?: AbortSignal;
+}
+
 export class ApiClient {
   baseURL = '/api/v1/'
 
-  async histogram (minDate: Date, maxDate: Date, msid: number | null = null): Promise<HistogramDto> {
+  async total (minDate: Date, maxDate: Date, msid: number | null = null, requestArgs: RequestArgs = {}): Promise<TotalDto> {
+    return await this.request<TotalDto>('total', 'GET', {
+      msid,
+      min_date: minDate.toISOString(),
+      max_date: maxDate.toISOString()
+    }, requestArgs.signal)
+  }
+
+  async histogram (minDate: Date, maxDate: Date, msid: number | null = null, requestArgs: RequestArgs = {}): Promise<HistogramDto> {
     return await this.request<HistogramDto>('histogram', 'GET', {
       msid,
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString()
-    })
+    }, requestArgs.signal)
   }
 
-  async referrer (minDate: Date, maxDate: Date, msid: number | null = null): Promise<ReferrerDto> {
+  async referrer (minDate: Date, maxDate: Date, msid: number | null = null, requestArgs: RequestArgs = {}): Promise<ReferrerDto> {
     return await this.request<ReferrerDto>('referrer', 'GET', {
       msid,
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString()
-    })
+    }, requestArgs.signal)
   }
 
-  async toplist (minDate: Date, maxDate: Date, limit = 10): Promise<ToplistDto> {
+  async toplist (minDate: Date, maxDate: Date, limit = 10, requestArgs: RequestArgs = {}): Promise<ToplistDto> {
     return await this.request<ToplistDto>('toplist', 'GET', {
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString(),
       limit: limit
-    })
+    }, requestArgs.signal)
   }
 
-  async devices (minDate: Date, maxDate: Date, msgId: number | null = null): Promise<DevicesDto> {
+  async devices (minDate: Date, maxDate: Date, msgId: number | null = null, requestArgs: RequestArgs = {}): Promise<DevicesDto> {
     return await this.request<DevicesDto>('devices', 'GET', {
       msgId,
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString()
-    })
+    }, requestArgs.signal)
   }
 
-  async request<T> (path: string, method: string, queryParams: QueryParams = {}): Promise<T> {
-    const response = await this.requestRaw(path, method, queryParams)
+  async request<T> (path: string, method: string, queryParams: QueryParams = {}, signal: AbortSignal | null = null): Promise<T> {
+    const response = await this.requestRaw(path, method, queryParams, signal)
 
     if (!response.ok) {
       switch (response.status) {
@@ -74,9 +87,10 @@ export class ApiClient {
     return (await response.json()) as T
   }
 
-  async requestRaw (path: string, method: string, queryParams: QueryParams = {}): Promise<Response> {
+  async requestRaw (path: string, method: string, queryParams: QueryParams = {}, signal: AbortSignal | null = null): Promise<Response> {
     return fetch(this.baseURL + path + queryString(queryParams), {
-      method
+      method,
+      signal
     })
   }
 }
