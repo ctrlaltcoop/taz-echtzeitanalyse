@@ -46,8 +46,8 @@ export default Vue.extend<DeviceBarData, ChartMethods<DevicesData>, {}, DevicesB
     }
   },
   methods: {
-    updateChart (histogramData: Array<DevicesData>) {
-      const chartData = DevicesData.toChartdata(histogramData!!.slice())
+    updateChart (data: Array<DevicesData>) {
+      const chartData = DevicesData.toChartdata(data!!.slice())
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {

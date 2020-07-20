@@ -46,8 +46,8 @@ export default Vue.extend<ReferrerGraphData, ChartMethods<ReferrerData>, {}, Ref
     }
   },
   methods: {
-    updateChart (histogramData: Array<ReferrerData>) {
-      const chartData = ReferrerData.toChartdata(histogramData!!.slice())
+    updateChart (data: Array<ReferrerData>) {
+      const chartData = ReferrerData.toChartdata(data!!.slice())
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {
