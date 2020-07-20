@@ -17,4 +17,4 @@ KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION = "KEY_REFERRERTAGS_FINGERPRINT_AGGREGA
 INTERVAL_10MINUTES = '10m'
 
 
-MOCK_FAKE_NOW = make_aware(datetime(year=2020, month=7, day=7))
+MOCK_FAKE_NOW = make_aware(datetime(year=2020, month=7, day=20))

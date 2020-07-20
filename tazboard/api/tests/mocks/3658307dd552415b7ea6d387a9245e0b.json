@@ -1,0 +1,116 @@
+{
+    "took": 22,
+    "timed_out": false,
+    "_shards": {
+        "total": 134,
+        "successful": 130,
+        "skipped": 71,
+        "failed": 4,
+        "failures": [
+            {
+                "shard": 0,
+                "index": "article-2020.07.16",
+                "node": "OPlhizulSRWNpuWdqRCNNg",
+                "reason": {
+                    "type": "illegal_argument_exception",
+                    "reason": "Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [referrerlabel] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+                }
+            },
+            {
+                "shard": 0,
+                "index": "article-2020.07.17",
+                "node": "OPlhizulSRWNpuWdqRCNNg",
+                "reason": {
+                    "type": "illegal_argument_exception",
+                    "reason": "Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [referrerlabel] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+                }
+            }
+        ]
+    },
+    "hits": {
+        "total": {
+            "value": 10000,
+            "relation": "gte"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "KEY_REFERRER_AGGREGATION": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 6529,
+            "buckets": [
+                {
+                    "key": "",
+                    "doc_count": 534212,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 127346
+                    }
+                },
+                {
+                    "key": "taz",
+                    "doc_count": 287630,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 93824
+                    }
+                },
+                {
+                    "key": "Google",
+                    "doc_count": 266268,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 210054
+                    }
+                },
+                {
+                    "key": "Facebook",
+                    "doc_count": 54439,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 46324
+                    }
+                },
+                {
+                    "key": "Pocket",
+                    "doc_count": 39766,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 37488
+                    }
+                },
+                {
+                    "key": "Twitter",
+                    "doc_count": 28520,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 21238
+                    }
+                },
+                {
+                    "key": "Upday",
+                    "doc_count": 12930,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 11801
+                    }
+                },
+                {
+                    "key": "uninterressant",
+                    "doc_count": 10305,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 7803
+                    }
+                },
+                {
+                    "key": "Flipboard",
+                    "doc_count": 7531,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 6393
+                    }
+                },
+                {
+                    "key": "Bing",
+                    "doc_count": 2026,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 1620
+                    }
+                }
+            ]
+        }
+    }
+}
