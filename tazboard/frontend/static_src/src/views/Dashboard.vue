@@ -23,12 +23,28 @@
         </div>
       </div>
       <Statistics/>
+      <div>
+          <BTabs card>
+            <template v-slot:tabs-end>
+              <li class="nav-item">
+                <router-link class="nav-link" active-class="active" to="/toplist">Artikel Top X</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/fireplace">Kamin</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/focusTopics">Schwerpunkte Top 10</router-link>
+              </li>
+            </template>
+          </BTabs>
+      </div>
       <router-view/>
     </div>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import { BTabs } from 'bootstrap-vue'
 import Statistics from '@/components/Statistics.vue'
 import { ActionTypes } from '@/store/dataset/types'
 import store from '@/store'
@@ -36,6 +52,10 @@ import { DEFAULT_TIMEFRAME, getTimeframeById, Timeframe, TimeframeId, TIMEFRAMES
 
 export default Vue.extend({
   name: 'Dashboard',
+  components: {
+    Statistics,
+    BTabs
+  },
   data () {
     return {
       timeframeSelection: TIMEFRAMES,
@@ -59,9 +79,6 @@ export default Vue.extend({
         return currentTimeframe
       }
     }
-  },
-  components: {
-    Statistics
   },
   methods: {
     timeframeSelect (timeframeId: TimeframeId) {
