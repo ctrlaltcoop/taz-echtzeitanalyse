@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Dashboard from '@/views/Dashboard.vue'
 import Toplist from '@/views/Toplist.vue'
+import Fireplace from '@/views/Fireplace.vue'
+import FocusTopics from '@/views/FocusTopics.vue'
 
 Vue.use(VueRouter)
 
@@ -18,6 +20,16 @@ const routes: Array<RouteConfig> = [
         path: '/toplist',
         name: 'toplist',
         component: Toplist
+      },
+      {
+        path: '/fireplace',
+        name: 'fireplace',
+        component: Fireplace
+      },
+      {
+        path: '/focusTopics',
+        name: 'focus',
+        component: FocusTopics
       }
     ]
   }
