@@ -26,7 +26,7 @@ def _transform_referrer_with_ranges_buckets(referrer_buckets):
         total += hits_data['hits']
         total_previous += hits_data['hits_previous']
         referrer_data = {
-            'referrertag': referrer_bucket['key'],
+            'referrerlabel': referrer_bucket['key'],
             **hits_data
         }
         data.append(referrer_data)

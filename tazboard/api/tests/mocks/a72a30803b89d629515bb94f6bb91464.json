@@ -1,5 +1,5 @@
 {
-    "took": 37,
+    "took": 46,
     "timed_out": false,
     "_shards": {
         "total": 134,
@@ -17,34 +17,34 @@
     },
     "aggregations": {
         "KEY_TOPLIST_AGGREGTAION": {
-            "doc_count_error_upper_bound": 79,
-            "sum_other_doc_count": 8074,
+            "doc_count_error_upper_bound": 168,
+            "sum_other_doc_count": 16348,
             "buckets": [
                 {
                     "key": "Attila kocht braune So\u00dfe",
-                    "doc_count": 3754,
+                    "doc_count": 8538,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
                                 "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 2070,
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 4784,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1897
+                                    "value": 4376
                                 }
                             },
                             {
                                 "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
                                 "to": 1595196000000.0,
                                 "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 1681,
+                                "doc_count": 3751,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1517
+                                    "value": 3407
                                 }
                             }
                         ]
@@ -55,23 +55,23 @@
                         "buckets": [
                             {
                                 "key": "mobile",
-                                "doc_count": 3470,
+                                "doc_count": 7934,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3183
+                                    "value": 7257
                                 }
                             },
                             {
                                 "key": "desktop",
-                                "doc_count": 282,
+                                "doc_count": 596,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 233
+                                    "value": 487
                                 }
                             },
                             {
                                 "key": "unclassified",
-                                "doc_count": 2,
+                                "doc_count": 8,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
+                                    "value": 8
                                 }
                             }
                         ]
@@ -79,7 +79,7 @@
                     "KEY_EXTRA_FIELDS_AGGREGATION": {
                         "hits": {
                             "total": {
-                                "value": 3754,
+                                "value": 8538,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -100,76 +100,76 @@
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 2,
+                        "sum_other_doc_count": 5,
                         "buckets": [
                             {
                                 "key": "Google",
-                                "doc_count": 2548,
+                                "doc_count": 5869,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2447
+                                    "value": 5673
                                 }
                             },
                             {
                                 "key": "",
-                                "doc_count": 664,
+                                "doc_count": 1492,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 510
+                                    "value": 1141
                                 }
                             },
                             {
                                 "key": "taz",
-                                "doc_count": 296,
+                                "doc_count": 617,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 280
+                                    "value": 578
                                 }
                             },
                             {
                                 "key": "Facebook",
-                                "doc_count": 118,
+                                "doc_count": 275,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 111
+                                    "value": 260
                                 }
                             },
                             {
                                 "key": "Twitter",
-                                "doc_count": 92,
+                                "doc_count": 191,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 86
+                                    "value": 179
                                 }
                             },
                             {
                                 "key": "uninterressant",
-                                "doc_count": 24,
+                                "doc_count": 57,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 22
+                                    "value": 53
                                 }
                             },
                             {
                                 "key": "Flipboard",
-                                "doc_count": 5,
+                                "doc_count": 16,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 5
+                                    "value": 16
                                 }
                             },
                             {
                                 "key": "Ecosia",
-                                "doc_count": 3,
+                                "doc_count": 6,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
+                                    "value": 6
                                 }
                             },
                             {
-                                "key": "Bing",
-                                "doc_count": 1,
+                                "key": "Upday",
+                                "doc_count": 6,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
+                                    "value": 6
                                 }
                             },
                             {
-                                "key": "DuckDuckGo",
-                                "doc_count": 1,
+                                "key": "Telegram",
+                                "doc_count": 4,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
+                                    "value": 4
                                 }
                             }
                         ]
@@ -177,29 +177,29 @@
                 },
                 {
                     "key": "__missing__",
-                    "doc_count": 305,
+                    "doc_count": 647,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
                                 "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 132,
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 342,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 34
+                                    "value": 42
                                 }
                             },
                             {
                                 "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
                                 "to": 1595196000000.0,
                                 "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 173,
+                                "doc_count": 305,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 26
+                                    "value": 40
                                 }
                             }
                         ]
@@ -210,16 +210,16 @@
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 291,
+                                "doc_count": 620,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 27
+                                    "value": 33
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 11,
+                                "doc_count": 24,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 11
+                                    "value": 24
                                 }
                             },
                             {
@@ -234,7 +234,7 @@
                     "KEY_EXTRA_FIELDS_AGGREGATION": {
                         "hits": {
                             "total": {
-                                "value": 305,
+                                "value": 647,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -257,122 +257,30 @@
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 243,
+                                "doc_count": 487,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 22
+                                    "value": 24
                                 }
                             },
                             {
                                 "key": "",
-                                "doc_count": 52,
+                                "doc_count": 109,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 29
-                                }
-                            },
-                            {
-                                "key": "Google",
-                                "doc_count": 9,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 7
+                                    "value": 44
                                 }
                             },
                             {
                                 "key": "uninterressant",
-                                "doc_count": 1,
+                                "doc_count": 39,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "key": "Unterst\u00fctzer*in werden!",
-                    "doc_count": 229,
-                    "KEY_RANGES_AGGREGATION": {
-                        "buckets": [
-                            {
-                                "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 131,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 127
+                                    "value": 2
                                 }
                             },
                             {
-                                "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
-                                "to": 1595196000000.0,
-                                "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 98,
+                                "key": "Google",
+                                "doc_count": 12,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 94
-                                }
-                            }
-                        ]
-                    },
-                    "KEY_DEVICES_AGGREGATION": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "mobile",
-                                "doc_count": 168,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 164
-                                }
-                            },
-                            {
-                                "key": "desktop",
-                                "doc_count": 61,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 57
-                                }
-                            }
-                        ]
-                    },
-                    "KEY_EXTRA_FIELDS_AGGREGATION": {
-                        "hits": {
-                            "total": {
-                                "value": 229,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.19",
-                                    "_type": "_doc",
-                                    "_id": "N779aHMBp6nT3r4Sx6XC",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "msid": "115932",
-                                        "pubtime": "2013-05-08 09:55:24+02:00",
-                                        "kicker": "Freiwilliges Soziales Ja"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "KEY_REFERRER_AGGREGATION": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "taz",
-                                "doc_count": 220,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 214
-                                }
-                            },
-                            {
-                                "key": "",
-                                "doc_count": 9,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 9
+                                    "value": 10
                                 }
                             }
                         ]
@@ -380,29 +288,29 @@
                 },
                 {
                     "key": "100.000 Mal den Schuss nicht geh\u00f6rt",
-                    "doc_count": 225,
+                    "doc_count": 536,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
                                 "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 109,
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 311,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 95
+                                    "value": 260
                                 }
                             },
                             {
                                 "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
                                 "to": 1595196000000.0,
                                 "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 116,
+                                "doc_count": 225,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 95
+                                    "value": 181
                                 }
                             }
                         ]
@@ -412,24 +320,24 @@
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
-                                "key": "desktop",
-                                "doc_count": 111,
+                                "key": "mobile",
+                                "doc_count": 263,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 76
+                                    "value": 242
                                 }
                             },
                             {
-                                "key": "mobile",
-                                "doc_count": 109,
+                                "key": "desktop",
+                                "doc_count": 257,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 102
+                                    "value": 176
                                 }
                             },
                             {
                                 "key": "unclassified",
-                                "doc_count": 5,
+                                "doc_count": 16,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
+                                    "value": 10
                                 }
                             }
                         ]
@@ -437,7 +345,7 @@
                     "KEY_EXTRA_FIELDS_AGGREGATION": {
                         "hits": {
                             "total": {
-                                "value": 225,
+                                "value": 536,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -462,67 +370,81 @@
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 138,
+                                "doc_count": 320,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 129
+                                    "value": 301
                                 }
                             },
                             {
                                 "key": "",
-                                "doc_count": 54,
+                                "doc_count": 136,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 23
+                                    "value": 69
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 28,
+                                "doc_count": 50,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 25
+                                    "value": 36
                                 }
                             },
                             {
                                 "key": "Flipboard",
-                                "doc_count": 3,
+                                "doc_count": 19,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
+                                    "value": 16
                                 }
                             },
                             {
                                 "key": "Twitter",
+                                "doc_count": 8,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 7
+                                }
+                            },
+                            {
+                                "key": "DuckDuckGo",
                                 "doc_count": 2,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "Facebook",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
                                 }
                             }
                         ]
                     }
                 },
                 {
-                    "key": "Besch\u00e4mend f\u00fcr die USA",
-                    "doc_count": 189,
+                    "key": "Unterst\u00fctzer*in werden!",
+                    "doc_count": 478,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
                                 "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 95,
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 249,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 81
+                                    "value": 228
                                 }
                             },
                             {
                                 "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
                                 "to": 1595196000000.0,
                                 "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 94,
+                                "doc_count": 229,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 78
+                                    "value": 221
                                 }
                             }
                         ]
@@ -533,23 +455,16 @@
                         "buckets": [
                             {
                                 "key": "mobile",
-                                "doc_count": 100,
+                                "doc_count": 371,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 93
+                                    "value": 346
                                 }
                             },
                             {
                                 "key": "desktop",
-                                "doc_count": 83,
+                                "doc_count": 107,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 52
-                                }
-                            },
-                            {
-                                "key": "unclassified",
-                                "doc_count": 6,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 4
+                                    "value": 100
                                 }
                             }
                         ]
@@ -557,7 +472,113 @@
                     "KEY_EXTRA_FIELDS_AGGREGATION": {
                         "hits": {
                             "total": {
-                                "value": 189,
+                                "value": 478,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.07.19",
+                                    "_type": "_doc",
+                                    "_id": "N779aHMBp6nT3r4Sx6XC",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "115932",
+                                        "pubtime": "2013-05-08 09:55:24+02:00",
+                                        "kicker": "Freiwilliges Soziales Ja"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "taz",
+                                "doc_count": 447,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 430
+                                }
+                            },
+                            {
+                                "key": "",
+                                "doc_count": 30,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 27
+                                }
+                            },
+                            {
+                                "key": "Flipboard",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "Besch\u00e4mend f\u00fcr die USA",
+                    "doc_count": 413,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 224,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 176
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
+                                "to": 1595196000000.0,
+                                "to_as_string": "2020-07-19T22:00:00.000Z",
+                                "doc_count": 189,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 149
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 213,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 192
+                                }
+                            },
+                            {
+                                "key": "desktop",
+                                "doc_count": 185,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 108
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 15,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 10
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 413,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -582,37 +603,37 @@
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 104,
+                                "doc_count": 238,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 100
+                                    "value": 218
                                 }
                             },
                             {
                                 "key": "",
-                                "doc_count": 64,
+                                "doc_count": 133,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 33
+                                    "value": 66
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 17,
+                                "doc_count": 30,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 13
+                                    "value": 17
                                 }
                             },
                             {
                                 "key": "Twitter",
-                                "doc_count": 3,
+                                "doc_count": 10,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
+                                    "value": 9
                                 }
                             },
                             {
                                 "key": "Flipboard",
-                                "doc_count": 1,
+                                "doc_count": 2,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
+                                    "value": 2
                                 }
                             }
                         ]
@@ -620,29 +641,29 @@
                 },
                 {
                     "key": "EU-Gipfel wird zur H\u00e4ngepartie",
-                    "doc_count": 172,
+                    "doc_count": 378,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
                                 "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 95,
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 206,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 78
+                                    "value": 160
                                 }
                             },
                             {
                                 "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
                                 "to": 1595196000000.0,
                                 "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 77,
+                                "doc_count": 172,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 61
+                                    "value": 131
                                 }
                             }
                         ]
@@ -653,23 +674,23 @@
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 89,
+                                "doc_count": 189,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 58
+                                    "value": 108
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 80,
+                                "doc_count": 178,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 72
+                                    "value": 165
                                 }
                             },
                             {
                                 "key": "unclassified",
-                                "doc_count": 3,
+                                "doc_count": 11,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
+                                    "value": 6
                                 }
                             }
                         ]
@@ -677,7 +698,7 @@
                     "KEY_EXTRA_FIELDS_AGGREGATION": {
                         "hits": {
                             "total": {
-                                "value": 172,
+                                "value": 378,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -702,422 +723,41 @@
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 104,
+                                "doc_count": 221,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 97
+                                    "value": 209
                                 }
                             },
                             {
                                 "key": "",
-                                "doc_count": 42,
+                                "doc_count": 105,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 14
+                                    "value": 39
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 19,
+                                "doc_count": 36,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 15
+                                    "value": 19
                                 }
                             },
                             {
                                 "key": "Twitter",
-                                "doc_count": 6,
+                                "doc_count": 13,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 5
-                                }
-                            },
-                            {
-                                "key": "Newstral",
-                                "doc_count": 1,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "key": "Wut, die sich mit Wucht entl\u00e4dt",
-                    "doc_count": 158,
-                    "KEY_RANGES_AGGREGATION": {
-                        "buckets": [
-                            {
-                                "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 83,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 67
-                                }
-                            },
-                            {
-                                "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
-                                "to": 1595196000000.0,
-                                "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 75,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 58
-                                }
-                            }
-                        ]
-                    },
-                    "KEY_DEVICES_AGGREGATION": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "desktop",
-                                "doc_count": 79,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 48
-                                }
-                            },
-                            {
-                                "key": "mobile",
-                                "doc_count": 75,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 67
-                                }
-                            },
-                            {
-                                "key": "unclassified",
-                                "doc_count": 4,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
-                                }
-                            }
-                        ]
-                    },
-                    "KEY_EXTRA_FIELDS_AGGREGATION": {
-                        "hits": {
-                            "total": {
-                                "value": 158,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.19",
-                                    "_type": "_doc",
-                                    "_id": "n779aHMBp6nT3r4S2aVP",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "msid": "5701316",
-                                        "pubtime": "2020-07-19 18:02:00+02:00",
-                                        "kicker": "S\u00fcdosteuropa im Krisenmodus"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "KEY_REFERRER_AGGREGATION": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "taz",
-                                "doc_count": 67,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 64
-                                }
-                            },
-                            {
-                                "key": "",
-                                "doc_count": 57,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 27
-                                }
-                            },
-                            {
-                                "key": "Google",
-                                "doc_count": 22,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 17
-                                }
-                            },
-                            {
-                                "key": "Newstral",
-                                "doc_count": 5,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 4
-                                }
-                            },
-                            {
-                                "key": "Twitter",
-                                "doc_count": 3,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
-                                }
-                            },
-                            {
-                                "key": "Upday",
-                                "doc_count": 3,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
+                                    "value": 11
                                 }
                             },
                             {
                                 "key": "Flipboard",
-                                "doc_count": 1,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "key": "Schwarz-wei\u00df-roter Protest",
-                    "doc_count": 148,
-                    "KEY_RANGES_AGGREGATION": {
-                        "buckets": [
-                            {
-                                "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 83,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 69
-                                }
-                            },
-                            {
-                                "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
-                                "to": 1595196000000.0,
-                                "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 65,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 47
-                                }
-                            }
-                        ]
-                    },
-                    "KEY_DEVICES_AGGREGATION": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "mobile",
-                                "doc_count": 89,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 83
-                                }
-                            },
-                            {
-                                "key": "desktop",
-                                "doc_count": 55,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 25
-                                }
-                            },
-                            {
-                                "key": "unclassified",
-                                "doc_count": 4,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
-                                }
-                            }
-                        ]
-                    },
-                    "KEY_EXTRA_FIELDS_AGGREGATION": {
-                        "hits": {
-                            "total": {
-                                "value": 148,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.19",
-                                    "_type": "_doc",
-                                    "_id": "_77-aHMBp6nT3r4SJaZx",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "msid": "5695915",
-                                        "pubtime": "2020-07-19 16:32:00+02:00",
-                                        "kicker": "Rechte an der Landstra\u00dfe"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "KEY_REFERRER_AGGREGATION": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "taz",
-                                "doc_count": 81,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 77
-                                }
-                            },
-                            {
-                                "key": "",
-                                "doc_count": 47,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 18
-                                }
-                            },
-                            {
-                                "key": "Google",
-                                "doc_count": 11,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 8
-                                }
-                            },
-                            {
-                                "key": "Twitter",
-                                "doc_count": 4,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
-                                }
-                            },
-                            {
-                                "key": "Upday",
-                                "doc_count": 3,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
-                                }
-                            },
-                            {
-                                "key": "uninterressant",
-                                "doc_count": 2,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "key": "\u201eDie Zeit f\u00fcr Geduld ist vorbei\u201c",
-                    "doc_count": 147,
-                    "KEY_RANGES_AGGREGATION": {
-                        "buckets": [
-                            {
-                                "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 83,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 65
-                                }
-                            },
-                            {
-                                "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
-                                "to": 1595196000000.0,
-                                "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 64,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 49
-                                }
-                            }
-                        ]
-                    },
-                    "KEY_DEVICES_AGGREGATION": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "desktop",
-                                "doc_count": 80,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 47
-                                }
-                            },
-                            {
-                                "key": "mobile",
-                                "doc_count": 60,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 53
-                                }
-                            },
-                            {
-                                "key": "unclassified",
-                                "doc_count": 7,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 5
-                                }
-                            }
-                        ]
-                    },
-                    "KEY_EXTRA_FIELDS_AGGREGATION": {
-                        "hits": {
-                            "total": {
-                                "value": 147,
-                                "relation": "eq"
-                            },
-                            "max_score": 0.0,
-                            "hits": [
-                                {
-                                    "_index": "article-2020.07.19",
-                                    "_type": "_doc",
-                                    "_id": "_b79aHMBp6nT3r4SvaRz",
-                                    "_score": 0.0,
-                                    "_source": {
-                                        "msid": "5695949",
-                                        "pubtime": "2020-07-19 18:00:00+02:00",
-                                        "kicker": "Tod von US-B\u00fcrgerrechtler John Lewis"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "KEY_REFERRER_AGGREGATION": {
-                        "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
-                        "buckets": [
-                            {
-                                "key": "taz",
-                                "doc_count": 61,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 55
-                                }
-                            },
-                            {
-                                "key": "",
-                                "doc_count": 58,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 27
-                                }
-                            },
-                            {
-                                "key": "Google",
-                                "doc_count": 20,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 16
-                                }
-                            },
-                            {
-                                "key": "Newstral",
-                                "doc_count": 5,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 5
-                                }
-                            },
-                            {
-                                "key": "Twitter",
                                 "doc_count": 2,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 2
                                 }
                             },
                             {
-                                "key": "Flipboard",
+                                "key": "Newstral",
                                 "doc_count": 1,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 1
@@ -1128,29 +768,29 @@
                 },
                 {
                     "key": "Lasst den Touris ihren Ballermann!",
-                    "doc_count": 140,
+                    "doc_count": 362,
                     "KEY_RANGES_AGGREGATION": {
                         "buckets": [
                             {
                                 "key": "KEY_TREND_AGGREGATION",
-                                "from": 1595194200000.0,
-                                "from_as_string": "2020-07-19T21:30:00.000Z",
-                                "to": 1595195100000.0,
-                                "to_as_string": "2020-07-19T21:45:00.000Z",
-                                "doc_count": 85,
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 222,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 79
+                                    "value": 200
                                 }
                             },
                             {
                                 "key": "KEY_TIMEFRAME_AGGREGATION",
-                                "from": 1595195100000.0,
-                                "from_as_string": "2020-07-19T21:45:00.000Z",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
                                 "to": 1595196000000.0,
                                 "to_as_string": "2020-07-19T22:00:00.000Z",
-                                "doc_count": 55,
+                                "doc_count": 140,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 52
+                                    "value": 131
                                 }
                             }
                         ]
@@ -1161,16 +801,23 @@
                         "buckets": [
                             {
                                 "key": "mobile",
-                                "doc_count": 124,
+                                "doc_count": 326,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 116
+                                    "value": 298
                                 }
                             },
                             {
                                 "key": "desktop",
-                                "doc_count": 16,
+                                "doc_count": 35,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 15
+                                    "value": 31
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
                                 }
                             }
                         ]
@@ -1178,7 +825,7 @@
                     "KEY_EXTRA_FIELDS_AGGREGATION": {
                         "hits": {
                             "total": {
-                                "value": 140,
+                                "value": 362,
                                 "relation": "eq"
                             },
                             "max_score": 0.0,
@@ -1203,42 +850,444 @@
                         "buckets": [
                             {
                                 "key": "Google",
-                                "doc_count": 53,
+                                "doc_count": 133,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 51
+                                    "value": 125
                                 }
                             },
                             {
                                 "key": "",
-                                "doc_count": 39,
+                                "doc_count": 97,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 38
+                                    "value": 89
                                 }
                             },
                             {
                                 "key": "taz",
-                                "doc_count": 22,
+                                "doc_count": 61,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 21
+                                    "value": 55
                                 }
                             },
                             {
                                 "key": "Facebook",
-                                "doc_count": 18,
+                                "doc_count": 42,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 17
+                                    "value": 41
                                 }
                             },
                             {
                                 "key": "Upday",
-                                "doc_count": 6,
+                                "doc_count": 20,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 6
+                                    "value": 20
                                 }
                             },
                             {
                                 "key": "Twitter",
+                                "doc_count": 6,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 5
+                                }
+                            },
+                            {
+                                "key": "Flipboard",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "uninterressant",
                                 "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "Schwarz-wei\u00df-roter Protest",
+                    "doc_count": 356,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 208,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 165
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
+                                "to": 1595196000000.0,
+                                "to_as_string": "2020-07-19T22:00:00.000Z",
+                                "doc_count": 148,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 110
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 216,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 202
+                                }
+                            },
+                            {
+                                "key": "desktop",
+                                "doc_count": 129,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 58
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 11,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 6
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 356,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.07.19",
+                                    "_type": "_doc",
+                                    "_id": "_77-aHMBp6nT3r4SJaZx",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5695915",
+                                        "pubtime": "2020-07-19 16:32:00+02:00",
+                                        "kicker": "Rechte an der Landstra\u00dfe"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "taz",
+                                "doc_count": 195,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 183
+                                }
+                            },
+                            {
+                                "key": "",
+                                "doc_count": 116,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 53
+                                }
+                            },
+                            {
+                                "key": "Google",
+                                "doc_count": 21,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 11
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 14,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 11
+                                }
+                            },
+                            {
+                                "key": "Upday",
+                                "doc_count": 4,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
+                                }
+                            },
+                            {
+                                "key": "uninterressant",
+                                "doc_count": 4,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 3
+                                }
+                            },
+                            {
+                                "key": "Flipboard",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "Wut, die sich mit Wucht entl\u00e4dt",
+                    "doc_count": 355,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 197,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 155
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
+                                "to": 1595196000000.0,
+                                "to_as_string": "2020-07-19T22:00:00.000Z",
+                                "doc_count": 158,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 117
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 182,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 104
+                                }
+                            },
+                            {
+                                "key": "mobile",
+                                "doc_count": 162,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 144
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 11,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 6
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 355,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.07.19",
+                                    "_type": "_doc",
+                                    "_id": "n779aHMBp6nT3r4S2aVP",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5701316",
+                                        "pubtime": "2020-07-19 18:02:00+02:00",
+                                        "kicker": "S\u00fcdosteuropa im Krisenmodus"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "taz",
+                                "doc_count": 168,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 155
+                                }
+                            },
+                            {
+                                "key": "",
+                                "doc_count": 121,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 55
+                                }
+                            },
+                            {
+                                "key": "Google",
+                                "doc_count": 43,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 25
+                                }
+                            },
+                            {
+                                "key": "Newstral",
+                                "doc_count": 13,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 11
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 4,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
+                                }
+                            },
+                            {
+                                "key": "Flipboard",
+                                "doc_count": 3,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 3
+                                }
+                            },
+                            {
+                                "key": "Upday",
+                                "doc_count": 3,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "10 Millionen Euro Strafe",
+                    "doc_count": 326,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1595192400000.0,
+                                "from_as_string": "2020-07-19T21:00:00.000Z",
+                                "to": 1595194200000.0,
+                                "to_as_string": "2020-07-19T21:30:00.000Z",
+                                "doc_count": 187,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 142
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595194200000.0,
+                                "from_as_string": "2020-07-19T21:30:00.000Z",
+                                "to": 1595196000000.0,
+                                "to_as_string": "2020-07-19T22:00:00.000Z",
+                                "doc_count": 139,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 99
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 204,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 178
+                                }
+                            },
+                            {
+                                "key": "desktop",
+                                "doc_count": 111,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 46
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 11,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 6
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 326,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.07.19",
+                                    "_type": "_doc",
+                                    "_id": "I77_aHMBp6nT3r4SeK0w",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5695953",
+                                        "pubtime": "2020-07-19 16:18:00+02:00",
+                                        "kicker": "Umwelt-Pr\u00e4zedenzfall in Kenia"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "",
+                                "doc_count": 128,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 59
+                                }
+                            },
+                            {
+                                "key": "Google",
+                                "doc_count": 127,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 103
+                                }
+                            },
+                            {
+                                "key": "taz",
+                                "doc_count": 56,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 55
+                                }
+                            },
+                            {
+                                "key": "Facebook",
+                                "doc_count": 12,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 12
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 2,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 1
                                 }
