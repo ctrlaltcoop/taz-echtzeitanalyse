@@ -8,7 +8,6 @@
         :items="items"
         :tbody-transition-props="{ name: 'statistics-table' }"
         v-model="rowItems"
-        primary-key="msid"
         thead-class="table-head">
         <template v-slot:head(referrerSelect)="data">
           <div class="stacked-th-with-selection">

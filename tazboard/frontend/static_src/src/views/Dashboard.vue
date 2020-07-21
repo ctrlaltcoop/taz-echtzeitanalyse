@@ -34,13 +34,6 @@ import { ActionTypes } from '@/store/dataset/types'
 import store from '@/store'
 import { DEFAULT_TIMEFRAME, getTimeframeById, Timeframe, TimeframeId, TIMEFRAMES } from '@/common/timeframe'
 
-async function updateTimeframeHistogram (timeframe: Timeframe) {
-  await store.dispatch(ActionTypes.SET_TIMEFRAME, {
-    minDate: timeframe.minDate,
-    maxDate: timeframe.maxDate
-  })
-}
-
 export default Vue.extend({
   name: 'Dashboard',
   data () {
@@ -83,17 +76,6 @@ export default Vue.extend({
           timeframeId
         }
       })
-    }
-  },
-  watch: {
-    '$route.query': {
-      handler (query) {
-        if (query.timeframeId) {
-          updateTimeframeHistogram(getTimeframeById(query.timeframeId as TimeframeId)!!)
-        }
-      },
-      immediate: true,
-      deep: true
     }
   }
 })
