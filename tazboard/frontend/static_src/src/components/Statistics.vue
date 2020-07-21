@@ -98,7 +98,7 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
         this.loadingStateTimeframe = LoadingState.SUCCESS
       } catch (e) {
         if (!(e instanceof DOMException)) {
-          this.loadingStateHistogram = LoadingState.ERROR
+          this.loadingStateTimeframe = LoadingState.ERROR
         }
       }
     }

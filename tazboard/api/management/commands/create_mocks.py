@@ -5,6 +5,7 @@ from django.core.management import BaseCommand
 
 from tazboard.api.elastic_client import es
 from tazboard.api.queries.constants import MOCK_FAKE_NOW
+from tazboard.api.queries.devices import get_devices_query
 from tazboard.api.queries.histogram import get_histogram_query
 from tazboard.api.queries.referrer import get_referrer_query
 from tazboard.api.queries.toplist import get_toplist_query
@@ -19,6 +20,17 @@ def get_argument_matrix(list_a, list_b):
             yield i + j
 
 
+FAKE_TIMEFRAMES = (
+    (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=15)), MOCK_FAKE_NOW),
+    (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=30)), MOCK_FAKE_NOW),
+    (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=1)), MOCK_FAKE_NOW),
+    (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=6)), MOCK_FAKE_NOW),
+    (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
+    (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW),
+    (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW)
+)
+
+
 class Command(BaseCommand):
     query_configs = [
         {
@@ -29,39 +41,19 @@ class Command(BaseCommand):
         },
         {
             'get_query': get_referrer_query,
-            'arguments': [
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=15)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=30)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=1)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=6)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW),
-            ]
+            'arguments': FAKE_TIMEFRAMES
         },
         {
             'get_query': get_toplist_query,
-            'arguments': get_argument_matrix((
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=15)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=30)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=1)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=6)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW),
-            ), ((10,), (25,)))
+            'arguments': get_argument_matrix(FAKE_TIMEFRAMES, ((10,), (25,)))
+        },
+        {
+            'get_query': get_devices_query,
+            'arguments': FAKE_TIMEFRAMES
         },
         {
             'get_query': get_total_query,
-            'arguments': (
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=15)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(minutes=30)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=1)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=6)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW),
-                (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW),
-            )
+            'arguments': FAKE_TIMEFRAMES
         }
     ]
 

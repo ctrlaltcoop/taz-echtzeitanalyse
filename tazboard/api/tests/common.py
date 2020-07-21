@@ -37,5 +37,7 @@ def activate_global_elastic_mocks():
     views.get_histogram_query = rewrite_query_params(views.get_histogram_query)
     views.get_toplist_query = rewrite_query_params(views.get_toplist_query)
     views.get_referrer_query = rewrite_query_params(views.get_referrer_query)
+    views.get_devices_query = rewrite_query_params(views.get_devices_query)
+    views.get_total_query = rewrite_query_params(views.get_total_query)
 
     es.search = get_elastic_mock_response

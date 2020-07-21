@@ -1,0 +1,54 @@
+{
+    "took": 204,
+    "timed_out": false,
+    "_shards": {
+        "total": 134,
+        "successful": 134,
+        "skipped": 130,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 10000,
+            "relation": "gte"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "KEY_DEVICES_AGGREGATION": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "mobile",
+                    "doc_count": 355825,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 250814
+                    }
+                },
+                {
+                    "key": "desktop",
+                    "doc_count": 311800,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 65276
+                    }
+                },
+                {
+                    "key": "unclassified",
+                    "doc_count": 41508,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 1086
+                    }
+                },
+                {
+                    "key": "mastodonpod",
+                    "doc_count": 3834,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 511
+                    }
+                }
+            ]
+        }
+    }
+}
