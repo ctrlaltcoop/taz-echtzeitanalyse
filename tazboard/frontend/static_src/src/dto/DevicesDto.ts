@@ -1,5 +1,5 @@
 import { ChartData } from 'chart.js'
-import {DEVICE_LABEL_UNCLASSIFIED, deviceColors} from '@/common/colors'
+import { DEVICE_LABEL_UNCLASSIFIED, deviceColors } from '@/common/colors'
 
 export class DevicesData {
   deviceclass!: string
