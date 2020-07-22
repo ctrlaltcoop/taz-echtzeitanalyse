@@ -13,6 +13,7 @@ export class DevicesData {
       datasets: [{
         label: 'Devices',
         data: devicesData.map((item) => item.hits),
+        barThickness: 20,
         backgroundColor: devicesData.map((item) =>
           deviceColors[item.deviceclass] ?? deviceColors[DEVICE_LABEL_UNCLASSIFIED])
       }]

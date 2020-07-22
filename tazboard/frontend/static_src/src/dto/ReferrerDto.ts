@@ -14,6 +14,7 @@ export class ReferrerData {
       datasets: [{
         label: 'Referrers',
         data: referrerData.map((item) => item.hits),
+        barThickness: 20,
         backgroundColor: referrerData.map((item) =>
           referrerColors[item.referrer] ?? referrerColors[REFERRER_LABEL_UNBEKANNT])
       }]
