@@ -9,14 +9,13 @@
       <ClickCounter class="card-shadow flex-fill"/>
     </div>
     <div class="col-4 pt-5 pb-5 statistics-box">
-
       <LoadingControl class="card-shadow" :loading-state="loadingStateTimeframe">
         <div class="row no-gutters flex-fill">
           <div class="col-6">
-            <GraphContainer :chart-component="deviceBarComponent" :graph-data="devicesGraph"/>
+            <GraphContainer class="graph-container" :chart-component="deviceBarComponent" :graph-data="devicesGraph"/>
           </div>
           <div class="col-6">
-            <GraphContainer :chart-component="referrerBarComponent" :graph-data="referrerGraph"/>
+            <GraphContainer class="graph-container" :chart-component="referrerBarComponent" :graph-data="referrerGraph"/>
           </div>
         </div>
       </LoadingControl>
@@ -140,12 +139,16 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
 }
 
 .statistics-box {
-  height: 300px;
+  height: 350px;
   display: flex;
 }
 
 .click-counter-area {
   display: flex;
+}
+
+.graph-container {
+  height: 220px;
 }
 
 </style>
