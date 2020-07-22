@@ -1,4 +1,5 @@
 import { ChartData } from 'chart.js'
+import {DEVICE_LABEL_UNCLASSIFIED, deviceColors} from '@/common/colors'
 
 export class DevicesData {
   deviceclass!: string
@@ -11,7 +12,9 @@ export class DevicesData {
       labels: devicesData.map((item) => item.deviceclass),
       datasets: [{
         label: 'Devices',
-        data: devicesData.map((item) => item.hits)
+        data: devicesData.map((item) => item.hits),
+        backgroundColor: devicesData.map((item) =>
+          deviceColors[item.deviceclass] ?? deviceColors[DEVICE_LABEL_UNCLASSIFIED])
       }]
     }
   }
