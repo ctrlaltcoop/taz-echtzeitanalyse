@@ -9,9 +9,11 @@
       </LoadingControl>
     </div>
     <div class="devices col-4">
+      <p class="bars-heading">Geräte</p>
       <GraphContainer class="graph-container" :chart-component="devicesChartComponent" :graph-data="article.devices"/>
     </div>
     <div class="referrers col-4">
+      <p class="bars-heading">Referrer</p>
       <GraphContainer class="graph-container" :chart-component="referrerChartComponent" :graph-data="article.referrers"/>
     </div>
   </div>
@@ -87,6 +89,11 @@ export default Vue.extend<Data, {}, {}, Props>({
 .article-row-detail {
   display: flex;
   height: 250px;
+}
+
+.bars-heading {
+  margin-bottom: 3px;
+  text-align: center;
 }
 
 .graph-container {

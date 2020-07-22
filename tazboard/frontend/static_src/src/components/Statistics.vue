@@ -12,9 +12,11 @@
       <LoadingControl class="card-shadow" :loading-state="loadingStateTimeframe">
         <div class="row no-gutters flex-fill">
           <div class="col-6">
+            <p class="statistics-heading">Geräte</p>
             <GraphContainer class="graph-container" :chart-component="deviceBarComponent" :graph-data="devicesGraph"/>
           </div>
           <div class="col-6">
+            <p class="statistics-heading">Referrer</p>
             <GraphContainer class="graph-container" :chart-component="referrerBarComponent" :graph-data="referrerGraph"/>
           </div>
         </div>
@@ -145,6 +147,11 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
 
 .click-counter-area {
   display: flex;
+}
+
+.statistics-heading {
+  margin-bottom: 3px;
+  text-align: center;
 }
 
 .graph-container {
