@@ -1,4 +1,5 @@
 import { ChartData } from 'chart.js'
+import { referrerColors, REFERRER_LABEL_UNBEKANNT } from '@/common/colors'
 
 export class ReferrerData {
   referrer!: string
@@ -12,7 +13,9 @@ export class ReferrerData {
       labels: referrerData.map((item) => item.referrer),
       datasets: [{
         label: 'Referrers',
-        data: referrerData.map((item) => item.hits)
+        data: referrerData.map((item) => item.hits),
+        backgroundColor: referrerData.map((item) =>
+          referrerColors[item.referrer] ?? referrerColors[REFERRER_LABEL_UNBEKANNT])
       }]
     }
   }
