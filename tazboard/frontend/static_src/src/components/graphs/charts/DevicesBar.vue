@@ -32,6 +32,7 @@ export default Vue.extend<DeviceBarData, ChartMethods<DevicesData>, {}, DevicesB
         },
         scales: {
           xAxes: [{
+            display: false,
             gridLines: {
               display: false
             }

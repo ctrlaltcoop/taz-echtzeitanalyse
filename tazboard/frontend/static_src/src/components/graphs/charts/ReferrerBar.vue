@@ -32,6 +32,7 @@ export default Vue.extend<ReferrerGraphData, ChartMethods<ReferrerData>, {}, Ref
         },
         scales: {
           xAxes: [{
+            display: false,
             gridLines: {
               display: false
             }
