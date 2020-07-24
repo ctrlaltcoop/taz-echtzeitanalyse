@@ -10,7 +10,7 @@
     </div>
     <div class="devices col-4">
       <p class="bars-heading">Geräte</p>
-      <GraphContainer class="graph-container" :chart-component="devicesChartComponent" :graph-data="article.devices"/>
+      <GraphContainer class="graph-container-devices" :chart-component="devicesChartComponent" :graph-data="article.devices"/>
     </div>
     <div class="referrers col-4">
       <p class="bars-heading">Referrer</p>
@@ -98,6 +98,10 @@ export default Vue.extend<Data, {}, {}, Props>({
 
 .graph-container {
   height: 220px;
+}
+
+.graph-container-devices {
+  height: 120px;
 }
 
 </style>
