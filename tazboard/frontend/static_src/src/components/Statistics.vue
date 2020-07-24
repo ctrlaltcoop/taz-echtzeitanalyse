@@ -13,7 +13,7 @@
         <div class="row no-gutters flex-fill">
           <div class="col-6">
             <p class="statistics-heading">Geräte</p>
-            <GraphContainer class="graph-container" :chart-component="deviceBarComponent" :graph-data="devicesGraph"/>
+            <GraphContainer class="graph-container-devices" :chart-component="deviceBarComponent" :graph-data="devicesGraph"/>
           </div>
           <div class="col-6">
             <p class="statistics-heading">Referrer</p>
@@ -156,6 +156,10 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
 
 .graph-container {
   height: 220px;
+}
+
+.graph-container-devices {
+  height: 120px;
 }
 
 </style>
