@@ -1,8 +1,6 @@
 import { ChartData } from 'chart.js'
 import { referrerColors, REFERRER_LABEL_UNBEKANNT } from '@/common/colors'
 
-import { aggregate } from '@/common/utils'
-
 export class ReferrerData {
   referrer!: string
   hits!: number
@@ -13,13 +11,17 @@ export class ReferrerData {
     referrerData.sort((a, b) => b.hits - a.hits)
 
     if (referrerData.length > 8) {
-      const aggregateSmallStuff = {
+      const remainingReferrersAggregated = {
         referrer: 'andere',
-        hits: referrerData.slice(7, referrerData.length).map((item) => item.hits).reduce(aggregate),
-        percentage: referrerData.slice(7, referrerData.length).map((item) => item.percentage).reduce(aggregate)
+        hits: referrerData.slice(7, referrerData.length)
+          .map((item) => item.hits)
+          .reduce((a, b) => a + b),
+        percentage: referrerData.slice(7, referrerData.length)
+          .map((item) => item.percentage)
+          .reduce((a, b) => a + b)
       }
       referrerData = referrerData.slice(0, 7)
-      referrerData.push(aggregateSmallStuff)
+      referrerData.push(remainingReferrersAggregated)
     }
 
     return {
