@@ -13,11 +13,13 @@
         <div class="row no-gutters flex-fill">
           <div class="col-6">
             <p class="statistics-heading">Geräte</p>
-            <GraphContainer class="graph-container-devices" :chart-component="deviceBarComponent" :graph-data="devicesGraph"/>
+            <GraphContainer class="graph-container-devices" :chart-component="deviceBarComponent"
+                            :graph-data="devicesGraph"/>
           </div>
           <div class="col-6">
             <p class="statistics-heading">Referrer</p>
-            <GraphContainer class="graph-container" :chart-component="referrerBarComponent" :graph-data="referrerGraph"/>
+            <GraphContainer class="graph-container" :chart-component="referrerBarComponent"
+                            :graph-data="referrerGraph"/>
           </div>
         </div>
       </LoadingControl>
@@ -34,13 +36,14 @@ import LoadingControl from '@/components/LoadingControl.vue'
 import ReferrerBar from '@/components/graphs/charts/ReferrerBar.vue'
 import HistogramLine from '@/components/graphs/charts/HistogramLine.vue'
 import DevicesBar from '@/components/graphs/charts/DevicesBar.vue'
-import { getTimeframeById, Timeframe } from '@/common/timeframe'
+import { getTimeframeById, Timeframe, TimeframeId } from '@/common/timeframe'
 import { ApiClient } from '@/client/ApiClient'
 import { subDays } from 'date-fns'
 import { ReferrerData } from '@/dto/ReferrerDto'
 import { HistogramData } from '@/dto/HistogramDto'
 import { DevicesData } from '@/dto/DevicesDto'
 import { LoadingState } from '@/common/LoadingState'
+import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 
 const apiClient = new ApiClient()
 
@@ -56,7 +59,8 @@ interface StatisticsData {
 }
 
 interface StatisticsMethods {
-  update (timeframe: Timeframe): void;
+  updateData (timeframe: Timeframe): Promise<void>;
+  updateHistogram (): Promise<void>;
 }
 
 let currentRequestController: AbortController | null = null
@@ -81,7 +85,7 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
     }
   },
   methods: {
-    async update (timeframe: Timeframe) {
+    async updateData (timeframe: Timeframe) {
       this.loadingStateTimeframe = LoadingState.LOADING
       try {
         if (currentRequestController !== null) {
@@ -89,10 +93,10 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
         }
         currentRequestController = new AbortController()
         const { signal } = currentRequestController!!
-        this.referrerGraph = (await apiClient.referrer(timeframe.minDate, timeframe.maxDate, null, {
+        this.referrerGraph = (await apiClient.referrer(timeframe.minDate(), timeframe.maxDate(), null, {
           signal
         })).data
-        this.devicesGraph = (await apiClient.devices(timeframe.minDate, timeframe.maxDate, null, {
+        this.devicesGraph = (await apiClient.devices(timeframe.minDate(), timeframe.maxDate(), null, {
           signal
         })).data
         currentRequestController = null
@@ -102,6 +106,17 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
           this.loadingStateTimeframe = LoadingState.ERROR
         }
       }
+    },
+    async updateHistogram () {
+      this.loadingStateHistogram = LoadingState.LOADING
+      try {
+        this.histogramGraph = (await apiClient.histogram(subDays(new Date(), 1), new Date())).data
+        this.loadingStateHistogram = LoadingState.SUCCESS
+      } catch (e) {
+        if (!(e instanceof DOMException)) {
+          this.loadingStateHistogram = LoadingState.ERROR
+        }
+      }
     }
   },
   watch: {
@@ -109,7 +124,7 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
       handler (query: any, oldQuery: any) {
         if (query.timeframeId !== oldQuery?.timeframeId) {
           const timeframe = getTimeframeById(query.timeframeId)
-          this.update(timeframe!!)
+          this.updateData(timeframe!!)
         }
       },
       immediate: true,
@@ -117,15 +132,14 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
     }
   },
   async mounted () {
-    this.loadingStateHistogram = LoadingState.LOADING
-    try {
-      this.histogramGraph = (await apiClient.histogram(subDays(new Date(), 1), new Date())).data
-      this.loadingStateHistogram = LoadingState.SUCCESS
-    } catch (e) {
-      if (!(e instanceof DOMException)) {
-        this.loadingStateHistogram = LoadingState.ERROR
+    await this.updateHistogram()
+    GlobalPulse.$on(PULSE_EVENT, () => {
+      this.updateHistogram()
+      const timeframe = getTimeframeById(this.$route.query.timeframeId as TimeframeId)
+      if (timeframe) {
+        this.updateData(timeframe)
       }
-    }
+    })
   }
 })
 </script>

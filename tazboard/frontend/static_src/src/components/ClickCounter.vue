@@ -9,11 +9,12 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import { getTimeframeById, Timeframe } from '@/common/timeframe'
+import { getTimeframeById, Timeframe, TimeframeId } from '@/common/timeframe'
 import { LoadingState } from '@/common/LoadingState'
 import { ApiClient } from '@/client/ApiClient'
 
 import LoadingControl from '@/components/LoadingControl.vue'
+import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 
 let currentRequestController: AbortController | null = null
 const apiClient = new ApiClient()
@@ -24,7 +25,7 @@ interface Data {
 }
 
 interface Methods {
-  update (timeframe: Timeframe): void;
+  updateData (timeframe: Timeframe): void;
 }
 
 export default Vue.extend<Data, Methods, {}, {}>({
@@ -39,7 +40,7 @@ export default Vue.extend<Data, Methods, {}, {}>({
     }
   },
   methods: {
-    async update (timeframe: Timeframe) {
+    async updateData (timeframe: Timeframe) {
       this.loadingState = LoadingState.LOADING
       try {
         if (currentRequestController !== null) {
@@ -47,7 +48,7 @@ export default Vue.extend<Data, Methods, {}, {}>({
         }
         currentRequestController = new AbortController()
         const { signal } = currentRequestController!!
-        this.total = (await apiClient.total(timeframe.minDate, timeframe.maxDate, null, {
+        this.total = (await apiClient.total(timeframe.minDate(), timeframe.maxDate(), null, {
           signal
         })).total
         currentRequestController = null
@@ -64,12 +65,20 @@ export default Vue.extend<Data, Methods, {}, {}>({
       handler (query: any, oldQuery: any) {
         if (query.timeframeId !== oldQuery?.timeframeId) {
           const timeframe = getTimeframeById(query.timeframeId)
-          this.update(timeframe!!)
+          this.updateData(timeframe!!)
         }
       },
       immediate: true,
       deep: true
     }
+  },
+  mounted () {
+    GlobalPulse.$on(PULSE_EVENT, () => {
+      const timeframe = getTimeframeById(this.$route.query.timeframeId as TimeframeId)
+      if (timeframe) {
+        this.updateData(timeframe)
+      }
+    })
   }
 })
 </script>

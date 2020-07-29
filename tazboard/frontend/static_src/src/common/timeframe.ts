@@ -13,45 +13,45 @@ export enum TimeframeId {
 export interface Timeframe {
   id: TimeframeId;
   label: string;
-  minDate: Date;
-  maxDate: Date;
+  minDate: () => Date;
+  maxDate: () => Date;
 }
 
 export const TIMEFRAMES: Array<Timeframe> = [{
   id: TimeframeId.KEY_15_MINUTES,
   label: '15 minuten',
-  minDate: subMinutes(new Date(), 15),
-  maxDate: new Date()
+  minDate: () => subMinutes(new Date(), 15),
+  maxDate: () => new Date()
 }, {
   id: TimeframeId.KEY_30_MINUTES,
   label: '30 Minuten',
-  minDate: subMinutes(new Date(), 30),
-  maxDate: new Date()
+  minDate: () => subMinutes(new Date(), 30),
+  maxDate: () => new Date()
 }, {
   id: TimeframeId.KEY_1_HOURS,
   label: '1 Stunde',
-  minDate: subHours(new Date(), 1),
-  maxDate: new Date()
+  minDate: () => subHours(new Date(), 1),
+  maxDate: () => new Date()
 }, {
   id: TimeframeId.KEY_6_HOURS,
   label: '6 Stunden',
-  minDate: subHours(new Date(), 6),
-  maxDate: new Date()
+  minDate: () => subHours(new Date(), 6),
+  maxDate: () => new Date()
 }, {
   id: TimeframeId.KEY_24_HOURS,
   label: '24 Stunden',
-  minDate: subHours(new Date(), 24),
-  maxDate: new Date()
+  minDate: () => subHours(new Date(), 24),
+  maxDate: () => new Date()
 }, {
   id: TimeframeId.KEY_7_DAYS,
   label: '7 Tage',
-  minDate: subDays(new Date(), 7),
-  maxDate: new Date()
+  minDate: () => subDays(new Date(), 7),
+  maxDate: () => new Date()
 }, {
   id: TimeframeId.KEY_30_DAYS,
   label: '30 Tage',
-  minDate: subDays(new Date(), 30),
-  maxDate: new Date()
+  minDate: () => subDays(new Date(), 30),
+  maxDate: () => new Date()
 }]
 
 export function getTimeframeById (timeframeId: TimeframeId): Timeframe | undefined {

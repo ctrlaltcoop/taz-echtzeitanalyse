@@ -44,11 +44,12 @@ import { BTable } from 'bootstrap-vue'
 
 import { ApiClient } from '@/client/ApiClient'
 import { ArticleData } from '@/dto/ToplistDto'
-import { getTimeframeById, Timeframe } from '@/common/timeframe'
+import { getTimeframeById, Timeframe, TimeframeId } from '@/common/timeframe'
 import { CAPTION_TODAY, CAPTION_YESTERDAY, TOP_REFERRER_THRESHOLD } from '@/common/constants'
 import ArticleRowDetail from '@/components/ArticleRowDetail.vue'
 import LoadingControl from '@/components/LoadingControl.vue'
 import { LoadingState } from '@/common/LoadingState'
+import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 
 const apiClient = new ApiClient()
 
@@ -60,12 +61,9 @@ interface Data {
 }
 
 interface Methods {
-  update (timeframe: Timeframe): void;
-
+  updateData (timeframe: Timeframe): void;
   toggleDetails (row: any): void;
-
   syncOpenedDetailsStateWithRoute (): void;
-
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
 }
 
@@ -110,7 +108,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         }
       }
     },
-    async update (timeframe: Timeframe) {
+    async updateData (timeframe: Timeframe) {
       this.loadingState = LoadingState.LOADING
       try {
         if (currentRequestController !== null) {
@@ -118,7 +116,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         }
         currentRequestController = new AbortController()
         const { signal } = currentRequestController!!
-        this.items = (await apiClient.toplist(timeframe.minDate, timeframe.maxDate, 25, {
+        this.items = (await apiClient.toplist(timeframe.minDate(), timeframe.maxDate(), 25, {
           signal
         })).data
         currentRequestController = null
@@ -239,13 +237,21 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       handler (query: any, oldQuery: any) {
         if (query.timeframeId !== oldQuery?.timeframeId) {
           const timeframe = getTimeframeById(query.timeframeId)
-          this.update(timeframe!!)
+          this.updateData(timeframe!!)
         }
         this.syncOpenedDetailsStateWithRoute()
       },
       immediate: true,
       deep: true
     }
+  },
+  mounted () {
+    GlobalPulse.$on(PULSE_EVENT, () => {
+      const timeframe = getTimeframeById(this.$route.query.timeframeId as TimeframeId)
+      if (timeframe) {
+        this.updateData(timeframe!!)
+      }
+    })
   }
 })
 </script>
