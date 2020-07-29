@@ -10,9 +10,12 @@
         </div>
         <div class="col-12 col-lg-5 pr-0 timeframe-select-area">
           <div class="timeframe-select-container">
+            <span class="pulse-caption">Letzte Aktualisierung: {{
+                lastPulse.toLocaleString([], dateFormatOptions)
+              }}</span>
             <span class="timeframe-caption">{{
-                currentTimeframe.minDate.toLocaleString([], dateFormatOptions)
-              }} - {{ currentTimeframe.maxDate.toLocaleString([], dateFormatOptions) }}</span>
+                currentTimeframe.minDate().toLocaleString([], dateFormatOptions)
+              }} - {{ currentTimeframe.maxDate().toLocaleString([], dateFormatOptions) }}</span>
             <select class="timeframe-select" @change="timeframeSelect($event.target.value)"
                     :value="currentTimeframe.id">
               <option v-for="timeframe in timeframeSelection" :value="timeframe.id" :key="timeframe.id">
@@ -24,19 +27,19 @@
       </div>
       <Statistics/>
       <div>
-          <BTabs card>
-            <template v-slot:tabs-end>
-              <li class="nav-item">
-                <router-link class="nav-link" active-class="active" to="/toplist">Artikel Top X</router-link>
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/fireplace">Kamin</router-link>
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/focusTopics">Schwerpunkte Top 10</router-link>
-              </li>
-            </template>
-          </BTabs>
+        <BTabs card>
+          <template v-slot:tabs-end>
+            <li class="nav-item">
+              <router-link class="nav-link" active-class="active" to="/toplist">Artikel Top X</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/fireplace">Kamin</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/focusTopics">Schwerpunkte Top 10</router-link>
+            </li>
+          </template>
+        </BTabs>
       </div>
       <router-view/>
     </div>
@@ -46,9 +49,8 @@
 import Vue from 'vue'
 import { BTabs } from 'bootstrap-vue'
 import Statistics from '@/components/Statistics.vue'
-import { ActionTypes } from '@/store/dataset/types'
-import store from '@/store'
 import { DEFAULT_TIMEFRAME, getTimeframeById, Timeframe, TimeframeId, TIMEFRAMES } from '@/common/timeframe'
+import { GlobalPulse, PULSE_EVENT, RESET_PULSE_EVENT } from '@/common/GlobalPulse'
 
 export default Vue.extend({
   name: 'Dashboard',
@@ -58,6 +60,7 @@ export default Vue.extend({
   },
   data () {
     return {
+      lastPulse: new Date(),
       timeframeSelection: TIMEFRAMES,
       dateFormatOptions: {
         day: '2-digit',
@@ -80,11 +83,20 @@ export default Vue.extend({
       }
     }
   },
+  mounted () {
+    GlobalPulse.$on(PULSE_EVENT, (date: Date) => {
+      this.lastPulse = date
+    })
+    GlobalPulse.$on(RESET_PULSE_EVENT, (date: Date) => {
+      this.lastPulse = date
+    })
+  },
   methods: {
     timeframeSelect (timeframeId: TimeframeId) {
       if (timeframeId === this.$route.query.timeframeId as TimeframeId) {
         return
       }
+      GlobalPulse.$emit(RESET_PULSE_EVENT, new Date())
       this.$router.push({
         path: this.$route.path,
         params: this.$route.params,
@@ -134,6 +146,10 @@ export default Vue.extend({
     background-repeat: no-repeat;
     background-position-x: 100%;
     background-position-y: 5px;
+  }
+
+  .pulse-caption {
+    display: flex;
   }
 
   .timeframe-caption {

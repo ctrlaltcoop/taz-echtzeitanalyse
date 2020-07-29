@@ -10,11 +10,13 @@
     </div>
     <div class="devices col-4">
       <p class="bars-heading">Geräte</p>
-      <GraphContainer class="graph-container-devices" :chart-component="devicesChartComponent" :graph-data="article.devices"/>
+      <GraphContainer class="graph-container-devices" :chart-component="devicesChartComponent"
+                      :graph-data="article.devices"/>
     </div>
     <div class="referrers col-4">
       <p class="bars-heading">Referrer</p>
-      <GraphContainer class="graph-container" :chart-component="referrerChartComponent" :graph-data="article.referrers"/>
+      <GraphContainer class="graph-container" :chart-component="referrerChartComponent"
+                      :graph-data="article.referrers"/>
     </div>
   </div>
 </template>
@@ -31,6 +33,9 @@ import LoadingControl from '@/components/LoadingControl.vue'
 import ReferrerBar from '@/components/graphs/charts/ReferrerBar.vue'
 import { HistogramData } from '@/dto/HistogramDto'
 import { LoadingState } from '@/common/LoadingState'
+import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
+
+const apiClient = new ApiClient()
 
 interface Props {
   article: ArticleData;
@@ -41,7 +46,11 @@ interface Data {
   loadingState: LoadingState;
 }
 
-export default Vue.extend<Data, {}, {}, Props>({
+interface Methods {
+  updateData(): Promise<void>;
+}
+
+export default Vue.extend<Data, Methods, {}, Props>({
   name: 'ArticleRowDetail',
   props: {
     article: Object
@@ -70,14 +79,19 @@ export default Vue.extend<Data, {}, {}, Props>({
     LoadingControl
   },
   async mounted () {
-    const apiClient = new ApiClient()
-    this.loadingState = LoadingState.LOADING
-    try {
-      this.histogram = (await apiClient.histogram(new Date(this.article.pubdate), new Date(), this.article.msid)).data
-      this.loadingState = LoadingState.SUCCESS
-    } catch (e) {
-      if (!(e instanceof DOMException)) {
-        this.loadingState = LoadingState.ERROR
+    await this.updateData()
+    GlobalPulse.$on(PULSE_EVENT, this.updateData)
+  },
+  methods: {
+    async updateData () {
+      this.loadingState = LoadingState.LOADING
+      try {
+        this.histogram = (await apiClient.histogram(new Date(this.article.pubdate), new Date(), this.article.msid)).data
+        this.loadingState = LoadingState.SUCCESS
+      } catch (e) {
+        if (!(e instanceof DOMException)) {
+          this.loadingState = LoadingState.ERROR
+        }
       }
     }
   }
