@@ -93,12 +93,15 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
         }
         currentRequestController = new AbortController()
         const { signal } = currentRequestController!!
-        this.referrerGraph = (await apiClient.referrer(timeframe.minDate(), timeframe.maxDate(), null, {
+        const referrerFetch = apiClient.referrer(timeframe.minDate(), timeframe.maxDate(), null, {
           signal
-        })).data
-        this.devicesGraph = (await apiClient.devices(timeframe.minDate(), timeframe.maxDate(), null, {
+        })
+        const devicesFetch = apiClient.devices(timeframe.minDate(), timeframe.maxDate(), null, {
           signal
-        })).data
+        })
+        const results = await Promise.all([referrerFetch, devicesFetch])
+        this.referrerGraph = results[0].data
+        this.devicesGraph = results[1].data
         currentRequestController = null
         this.loadingStateTimeframe = LoadingState.SUCCESS
       } catch (e) {
