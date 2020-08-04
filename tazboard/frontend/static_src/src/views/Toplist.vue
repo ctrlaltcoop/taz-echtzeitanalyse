@@ -45,7 +45,7 @@ import { BTable } from 'bootstrap-vue'
 import { ApiClient } from '@/client/ApiClient'
 import { ArticleData } from '@/dto/ToplistDto'
 import { getTimeframeById, Timeframe, TimeframeId } from '@/common/timeframe'
-import { CAPTION_TODAY, CAPTION_YESTERDAY, TOP_REFERRER_THRESHOLD } from '@/common/constants'
+import { CAPTION_TODAY, CAPTION_YESTERDAY, NUM_ARTICLES_TOP_LIST, TOP_REFERRER_THRESHOLD } from '@/common/constants'
 import ArticleRowDetail from '@/components/ArticleRowDetail.vue'
 import LoadingControl from '@/components/LoadingControl.vue'
 import { LoadingState } from '@/common/LoadingState'
@@ -116,7 +116,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         }
         currentRequestController = new AbortController()
         const { signal } = currentRequestController!!
-        this.items = (await apiClient.toplist(timeframe.minDate(), timeframe.maxDate(), 25, {
+        this.items = (await apiClient.toplist(timeframe.minDate(), timeframe.maxDate(), NUM_ARTICLES_TOP_LIST, {
           signal
         })).data
         currentRequestController = null
