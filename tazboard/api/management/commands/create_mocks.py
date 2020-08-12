@@ -45,7 +45,7 @@ class Command(BaseCommand):
         },
         {
             'get_query': get_toplist_query,
-            'arguments': get_argument_matrix(FAKE_TIMEFRAMES, ((10,), (25,)))
+            'arguments': get_argument_matrix(FAKE_TIMEFRAMES, ((10,), (100,)))
         },
         {
             'get_query': get_devices_query,
