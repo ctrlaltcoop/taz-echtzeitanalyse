@@ -8,6 +8,7 @@ from tazboard.api.queries.constants import MOCK_FAKE_NOW
 from tazboard.api.queries.devices import get_devices_query
 from tazboard.api.queries.histogram import get_histogram_query
 from tazboard.api.queries.referrer import get_referrer_query
+from tazboard.api.queries.subjects import get_subjects_query
 from tazboard.api.queries.toplist import get_toplist_query
 from tazboard.api.queries.total import get_total_query
 from tazboard.api.tests.common import get_mock_filepath_for_query, get_mock_test_sample_path_for_query_function
@@ -54,6 +55,10 @@ class Command(BaseCommand):
         {
             'get_query': get_total_query,
             'arguments': FAKE_TIMEFRAMES
+        },
+        {
+            'get_query': get_subjects_query,
+            'arguments': get_argument_matrix(FAKE_TIMEFRAMES, ((10,), (25,)))
         }
     ]
 

@@ -14,16 +14,18 @@ from .queries.histogram import get_histogram_query
 from .queries.constants import INTERVAL_10MINUTES
 from .queries.referrer import get_referrer_query
 from .queries.devices import get_devices_query
+from .queries.subjects import get_subjects_query
 from .queries.toplist import get_toplist_query
 from .queries.total import get_total_query
 from .query_params import HistogramQuerySerializer, ReferrerQuerySerializer, ToplistQuerySerializer, \
-    DevicesQuerySerializer, TotalQuerySerializer
+    DevicesQuerySerializer, TotalQuerySerializer, SubjectQuerySerializer
 from .schema import AutoSchemaWithQuery
 from .tests.common import activate_global_elastic_mocks
 from .transformers import elastic_histogram_response_to_histogram_graph, \
     elastic_toplist_response_to_toplist, elastic_referrer_response_to_referrer_data, \
-    elastic_devices_response_to_devices_graph, elastic_total_response_total
-from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer, DevicesSerializer, TotalSerializer
+    elastic_devices_response_to_devices_graph, elastic_total_response_total, elastic_subjects_response_to_subjects_data
+from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer, DevicesSerializer, TotalSerializer, \
+    SubjectSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -144,6 +146,25 @@ class TotalView(APIView):
         response = search_or_raise_api_exception(query)
         serializer = self.serializer_class(
             data=elastic_total_response_total(response)
+        )
+        if not serializer.is_valid():
+            logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
+            raise BadElasticResponseException()
+        return Response(serializer.data)
+
+
+class SubjectsView(APIView):
+    serializer_class = SubjectSerializer
+    query_serializer = SubjectQuerySerializer
+
+    def get(self, request, *args, **kwargs):
+        min_date = self.query_params.get('min_date', timezone.now() - timedelta(days=1))
+        max_date = self.query_params.get('max_date', timezone.now())
+        limit = self.query_params.get('limit', 10)
+        query = get_subjects_query(min_date, max_date, limit)
+        response = search_or_raise_api_exception(query)
+        serializer = self.serializer_class(
+            data=elastic_subjects_response_to_subjects_data(response)
         )
         if not serializer.is_valid():
             logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))

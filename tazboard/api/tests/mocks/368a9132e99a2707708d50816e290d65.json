@@ -1,16 +1,16 @@
 {
-    "took": 6,
+    "took": 17,
     "timed_out": false,
     "_shards": {
         "total": 137,
         "successful": 137,
-        "skipped": 135,
+        "skipped": 121,
         "failed": 0
     },
     "hits": {
         "total": {
-            "value": 6066,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -21,24 +21,31 @@
             "sum_other_doc_count": 0,
             "buckets": [
                 {
-                    "key": "mobile",
-                    "doc_count": 3439,
+                    "key": "desktop",
+                    "doc_count": 2165623,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 2772
+                        "value": 456387
                     }
                 },
                 {
-                    "key": "desktop",
-                    "doc_count": 2238,
+                    "key": "mobile",
+                    "doc_count": 1831894,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 755
+                        "value": 1120455
                     }
                 },
                 {
                     "key": "unclassified",
-                    "doc_count": 389,
+                    "doc_count": 273991,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 16
+                        "value": 5601
+                    }
+                },
+                {
+                    "key": "mastodonpod",
+                    "doc_count": 25067,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 805
                     }
                 }
             ]

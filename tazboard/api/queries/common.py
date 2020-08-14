@@ -1,5 +1,5 @@
 from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
-    KEY_TREND_AGGREGATION, KEY_RANGES_AGGREGATION
+    KEY_TREND_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION, KEY_REFERRER_AGGREGATION
 
 
 def maybe_add_msid_filter(msid, query):
@@ -52,14 +52,14 @@ def get_fingerprint_aggregation_with_ranges(interval_start, interval_mid, interv
     }
 
 
-def get_referrer_aggregation():
+def get_referrer_aggregation(limit=10):
     return {
         "terms": {
             "field": "referrerlabel",
             "order": {
                 "_count": "desc"
             },
-            "size": 10
+            "size": str(limit)
         },
         "aggs": {
             KEY_FINGERPRINT_AGGREGATION: {
@@ -71,14 +71,14 @@ def get_referrer_aggregation():
     }
 
 
-def get_referrer_aggregation_with_ranges(interval_start, interval_mid, interval_end):
+def get_referrer_aggregation_with_ranges(interval_start, interval_mid, interval_end, limit=10):
     return {
         "terms": {
             "field": "referrerlabel",
             "order": {
                 "_count": "desc"
             },
-            "size": 10
+            "size": str(limit)
         },
         "aggs": {
             KEY_RANGES_AGGREGATION: {
@@ -146,14 +146,14 @@ def get_interval_filter_exclude_bots(interval_start, interval_end):
     }
 
 
-def get_devices_aggregation():
+def get_devices_aggregation(limit=10):
     return {
         "terms": {
             "field": "deviceclass",
             "order": {
                 "_count": "desc"
             },
-            "size": 10
+            "size": str(limit)
         },
         "aggs": {
             KEY_FINGERPRINT_AGGREGATION: {
@@ -161,5 +161,30 @@ def get_devices_aggregation():
                     "field": "fingerprint"
                 }
             }
+        }
+    }
+
+
+def get_subject_aggregation(limit=10):
+    return {
+        "terms": {
+            "field": "schwerpunkte",
+            "order": {
+                "_count": "desc"
+            },
+            "size": str(limit)
+        },
+        "aggs": {
+            KEY_FINGERPRINT_AGGREGATION: {
+                "cardinality": {
+                    "field": "fingerprint",
+                }
+            },
+            KEY_ARTICLE_COUNT_AGGREGATION: {
+                "cardinality": {
+                    "field": "msid",
+                }
+            },
+            KEY_REFERRER_AGGREGATION: get_referrer_aggregation()
         }
     }

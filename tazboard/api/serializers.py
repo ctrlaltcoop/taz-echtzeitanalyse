@@ -50,3 +50,15 @@ class ToplistSerializer(serializers.Serializer):
 class TotalSerializer(serializers.Serializer):
     total = serializers.IntegerField()
     total_previous = serializers.IntegerField()
+
+
+class SubjectDataSerializer(serializers.Serializer):
+    subject_name = serializers.CharField()
+    article_count = serializers.IntegerField()
+    hits = serializers.CharField()
+    referrers = ReferrerDataSerializer(many=True)
+
+
+class SubjectSerializer(serializers.Serializer):
+    total = serializers.IntegerField()
+    data = SubjectDataSerializer(many=True)
