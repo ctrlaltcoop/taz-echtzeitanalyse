@@ -24,8 +24,8 @@ from .tests.common import activate_global_elastic_mocks
 from .transformers import elastic_histogram_response_to_histogram_graph, \
     elastic_toplist_response_to_toplist, elastic_referrer_response_to_referrer_data, \
     elastic_devices_response_to_devices_graph, elastic_total_response_total, elastic_subjects_response_to_subjects_data
-from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer, DevicesSerializer, TotalSerializer, \
-    SubjectSerializer
+from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer, DevicesSerializer, \
+    TotalSerializer, SubjectSerializer
 
 logger = logging.getLogger(__name__)
 
