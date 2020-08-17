@@ -9,8 +9,8 @@
     },
     "hits": {
         "total": {
-            "value": 6066,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -22,23 +22,30 @@
             "buckets": [
                 {
                     "key": "mobile",
-                    "doc_count": 3439,
+                    "doc_count": 150135,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 2772
+                        "value": 113797
                     }
                 },
                 {
                     "key": "desktop",
-                    "doc_count": 2238,
+                    "doc_count": 82168,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 755
+                        "value": 21495
                     }
                 },
                 {
                     "key": "unclassified",
-                    "doc_count": 389,
+                    "doc_count": 13065,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 16
+                        "value": 469
+                    }
+                },
+                {
+                    "key": "mastodonpod",
+                    "doc_count": 462,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 207
                     }
                 }
             ]

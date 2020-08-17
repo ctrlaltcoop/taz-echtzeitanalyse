@@ -3,7 +3,8 @@ from functools import reduce
 from tazboard.api.queries.common import get_dict_path_safe
 from tazboard.api.queries.constants import KEY_TIMESTAMP_AGGREGATION, KEY_FINGERPRINT_AGGREGATION, \
     KEY_REFERRER_AGGREGATION, KEY_TOPLIST_AGGREGTAION, KEY_RANGES_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
-    KEY_TREND_AGGREGATION, KEY_EXTRA_FIELDS_AGGREGATION, KEY_DEVICES_AGGREGATION
+    KEY_TREND_AGGREGATION, KEY_EXTRA_FIELDS_AGGREGATION, KEY_DEVICES_AGGREGATION, KEY_SUBJECTS_AGGREGATION, \
+    KEY_ARTICLE_COUNT_AGGREGATION
 
 
 def _transform_ranges(buckets):
@@ -60,6 +61,18 @@ def _transform_device_buckets(device_buckets):
             'hits': bucket[KEY_FINGERPRINT_AGGREGATION]['value']
         }
         for bucket in device_buckets
+    ]
+
+
+def _transform_subject_buckets(subject_buckets):
+    return [
+        {
+            'subject_name': bucket['key'],
+            'article_count': bucket[KEY_ARTICLE_COUNT_AGGREGATION]['value'],
+            'hits': bucket[KEY_FINGERPRINT_AGGREGATION]['value'],
+            'referrers': _transform_referrer_buckets(bucket[KEY_REFERRER_AGGREGATION]['buckets']),
+        }
+        for bucket in subject_buckets
     ]
 
 
@@ -128,6 +141,15 @@ def elastic_referrer_response_to_referrer_data(es_response):
 
 def elastic_devices_response_to_devices_graph(es_response):
     data = _transform_device_buckets(es_response['aggregations'][KEY_DEVICES_AGGREGATION]['buckets'])
+    total = reduce(lambda acc, x: acc + x['hits'], data, 0)
+    return {
+        'total': total,
+        'data': data
+    }
+
+
+def elastic_subjects_response_to_subjects_data(es_response):
+    data = _transform_subject_buckets(es_response['aggregations'][KEY_SUBJECTS_AGGREGATION]['buckets'])
     total = reduce(lambda acc, x: acc + x['hits'], data, 0)
     return {
         'total': total,

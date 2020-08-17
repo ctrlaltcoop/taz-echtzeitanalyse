@@ -29,6 +29,12 @@ class TotalQuerySerializer(Serializer):
     max_date = DateTimeField(default=timezone.now())
 
 
+class SubjectQuerySerializer(Serializer):
+    min_date = DateTimeField(required=True)
+    max_date = DateTimeField(default=timezone.now())
+    limit = IntegerField(default=10)
+
+
 class DevicesQuerySerializer(Serializer):
     min_date = DateTimeField(required=True)
     max_date = DateTimeField(default=timezone.now())
