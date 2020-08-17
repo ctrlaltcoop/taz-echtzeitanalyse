@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div>
     Coming soon
   </div>
 </template>
@@ -8,7 +8,7 @@
 import Vue from 'vue'
 
 export default Vue.extend<{}, {}, {}, {}>({
-  name: 'FocusTopics',
+  name: 'Subjects',
   components: {
   },
   methods: {

@@ -3,7 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Dashboard from '@/views/Dashboard.vue'
 import Toplist from '@/views/Toplist.ts'
 import Fireplace from '@/views/Fireplace.ts'
-import FocusTopics from '@/views/FocusTopics.vue'
+import Subjects from '@/views/Subjects.vue'
 
 Vue.use(VueRouter)
 
@@ -27,9 +27,9 @@ const routes: Array<RouteConfig> = [
         component: Fireplace
       },
       {
-        path: '/focusTopics',
-        name: 'focus',
-        component: FocusTopics
+        path: '/subjects',
+        name: 'subjects',
+        component: Subjects
       }
     ]
   }

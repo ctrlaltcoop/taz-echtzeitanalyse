@@ -26,40 +26,65 @@
         </div>
       </div>
       <Statistics/>
-      <div>
-        <BTabs card>
-          <template v-slot:tabs-end>
-            <li class="nav-item">
-              <router-link class="nav-link" active-class="active" to="/toplist">Artikel Top X</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/fireplace">Kamin</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/focusTopics">Schwerpunkte Top 10</router-link>
-            </li>
-          </template>
-        </BTabs>
+      <div class="row">
+        <BNav>
+          <BNavItem v-for="tab in tabs" role="presentation" :to="tab.route" active-class="active"
+                    :style="getTabStyleFor(tab)" :key="tab.route">
+            <span class="tab-title-primary">{{ tab.primaryTitle }}</span><span class="tab-title-secondary"> {{ tab.secondaryTitle }}</span>
+          </BNavItem>
+        </BNav>
       </div>
-      <router-view/>
+      <div class="row content">
+        <router-view/>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { BTabs } from 'bootstrap-vue'
+import { BNav, BNavItem } from 'bootstrap-vue'
 import Statistics from '@/components/Statistics.vue'
 import { DEFAULT_TIMEFRAME, getTimeframeById, Timeframe, TimeframeId, TIMEFRAMES } from '@/common/timeframe'
 import { GlobalPulse, PULSE_EVENT, RESET_PULSE_EVENT } from '@/common/GlobalPulse'
+
+interface TabConfig {
+  route: string;
+  order: number;
+  primaryTitle: string;
+  secondaryTitle: string;
+}
+
+const TABS: TabConfig[] = [
+  {
+    route: '/toplist',
+    order: 0,
+    primaryTitle: 'Artikel',
+    secondaryTitle: 'Top 100'
+  },
+  {
+    route: '/fireplace',
+    order: 1,
+    primaryTitle: 'Kamin',
+    secondaryTitle: 'Top 8'
+  },
+  {
+    route: '/subjects',
+    order: 2,
+    primaryTitle: 'Schwerpunkte',
+    secondaryTitle: 'Top 10'
+  }
+]
 
 export default Vue.extend({
   name: 'Dashboard',
   components: {
     Statistics,
-    BTabs
+    BNavItem,
+    BNav
   },
   data () {
     return {
+      tabs: TABS,
       lastPulse: new Date(),
       timeframeSelection: TIMEFRAMES,
       dateFormatOptions: {
@@ -92,6 +117,12 @@ export default Vue.extend({
     })
   },
   methods: {
+    getTabStyleFor (tab: TabConfig) {
+      const zBoost = this.$route.path === tab.route ? 10 : 0
+      return {
+        'z-index': 10 - tab.order + zBoost
+      }
+    },
     timeframeSelect (timeframeId: TimeframeId) {
       if (timeframeId === this.$route.query.timeframeId as TimeframeId) {
         return
@@ -109,13 +140,45 @@ export default Vue.extend({
   }
 })
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../style/variables";
+
+.nav {
+  border: none;
+
+  .nav-link {
+    padding: 0.5rem 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: $taz-red-light;
+    border: none;
+    border-top-left-radius: 0.75em;
+    border-top-right-radius: 0.75em;
+    position: relative;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+    &.active {
+      background-color: $taz-red;
+    }
+  }
+}
+
+.tab-title-primary {
+  color: $white;
+}
+
+.tab-title-secondary {
+  color: $black;
+}
 
 .app-heading {
   margin: 1.9rem 0 0 1rem;
   font-size: 3.5em;
   font-weight: bold;
+}
+
+.content {
+  z-index: 21;
+  position: relative;
 }
 
 .logo-container {
