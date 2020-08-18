@@ -66,9 +66,10 @@ class HistogramView(APIView):
     def get(self, request, *args, **kwargs):
         min_date = self.query_params.get('min_date', timezone.now() - timedelta(days=1))
         max_date = self.query_params.get('max_date', timezone.now())
+        subject_name = self.query_params.get('subject', None)
         msid = self.query_params.get('msid', None)
         interval = self.query_params.get('interval', INTERVAL_10MINUTES)
-        es_query = get_histogram_query(min_date, max_date, msid=msid, interval=interval)
+        es_query = get_histogram_query(min_date, max_date, msid=msid, subject=subject_name, interval=interval)
 
         response = search_or_raise_api_exception(es_query)
         serializer = self.serializer_class(

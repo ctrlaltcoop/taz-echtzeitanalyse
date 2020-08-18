@@ -1,5 +1,5 @@
 <template>
-  <div class="article-row-detail mr-5 ml-5 pb-3 row">
+  <div class="row-detail mr-5 ml-5 pb-3 row">
     <div class="histogram col-4 h-100 d-flex">
       <LoadingControl :loading-state="loadingState">
         <GraphContainer class="card-shadow"
@@ -11,12 +11,12 @@
     <div class="devices col-4">
       <p class="bars-heading">Geräte</p>
       <GraphContainer class="graph-container-devices" :chart-component="devicesChartComponent"
-                      :graph-data="article.devices"/>
+                      :graph-data="item.devices"/>
     </div>
     <div class="referrers col-4">
       <p class="bars-heading">Referrer</p>
       <GraphContainer class="graph-container" :chart-component="referrerChartComponent"
-                      :graph-data="article.referrers"/>
+                      :graph-data="item.referrers"/>
     </div>
   </div>
 </template>
@@ -24,21 +24,22 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import GraphContainer from './graphs/GraphContainer.vue'
-import HistogramLine from './graphs/charts/HistogramLine.vue'
-import { ApiClient } from '@/client/ApiClient'
-import { ArticleData } from '@/dto/ToplistDto'
+import GraphContainer from '../graphs/GraphContainer.vue'
+import HistogramLine from '../graphs/charts/HistogramLine.vue'
 import DevicesBar from '@/components/graphs/charts/DevicesBar.vue'
 import LoadingControl from '@/components/LoadingControl.vue'
 import ReferrerBar from '@/components/graphs/charts/ReferrerBar.vue'
 import { HistogramData } from '@/dto/HistogramDto'
 import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
-
-const apiClient = new ApiClient()
+import { ReferrerData } from '@/dto/ReferrerDto'
+import { DevicesData } from '@/dto/DevicesDto'
 
 interface Props {
-  article: ArticleData;
+  item: {
+    referrers: Array<ReferrerData>;
+    devices: Array<DevicesData>;
+  };
 }
 
 interface Data {
@@ -47,13 +48,13 @@ interface Data {
 }
 
 interface Methods {
-  updateData(): Promise<void>;
+  updateHistogram(): Promise<void>;
 }
 
 export default Vue.extend<Data, Methods, {}, Props>({
-  name: 'ArticleRowDetail',
+  name: 'BaseRowDetail',
   props: {
-    article: Object
+    item: Object
   },
   data () {
     return {
@@ -62,6 +63,8 @@ export default Vue.extend<Data, Methods, {}, Props>({
       devicesChartComponent: DevicesBar,
       loadingState: LoadingState.FRESH,
       histogram: [],
+      referrers: [],
+      devices: [],
       histogramGraphOptions: {
         scales: {
           yAxes: [{
@@ -79,14 +82,16 @@ export default Vue.extend<Data, Methods, {}, Props>({
     LoadingControl
   },
   async mounted () {
-    await this.updateData()
+    await this.updateHistogram()
     GlobalPulse.$on(PULSE_EVENT, this.updateData)
   },
   methods: {
-    async updateData () {
+    async updateHistogram () {
       this.loadingState = LoadingState.LOADING
       try {
-        this.histogram = (await apiClient.histogram(new Date(this.article.pubdate), new Date(), this.article.msid)).data
+        // @ts-ignore fetchHistogram should be implemented in subclass -
+        // @ts-ignore no proper way to define abstract methods on vue components
+        await this.fetchHistogram()
         this.loadingState = LoadingState.SUCCESS
       } catch (e) {
         if (!(e instanceof DOMException)) {
@@ -100,7 +105,7 @@ export default Vue.extend<Data, Methods, {}, Props>({
 <style lang="scss" scoped>
 @import "src/style/variables";
 
-.article-row-detail {
+.row-detail {
   display: flex;
   height: 250px;
 }

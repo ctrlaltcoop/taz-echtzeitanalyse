@@ -1,5 +1,6 @@
 from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
-    KEY_TREND_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION, KEY_REFERRER_AGGREGATION
+    KEY_TREND_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION, KEY_REFERRER_AGGREGATION, \
+    KEY_DEVICES_AGGREGATION
 
 
 def maybe_add_msid_filter(msid, query):
@@ -12,6 +13,19 @@ def maybe_add_msid_filter(msid, query):
             }
         }
         query['query']['bool']['filter'] = [msid_filter] + query['query']['bool']['filter']
+    return query
+
+
+def maybe_add_subject_filter(subject, query):
+    if subject:
+        subject_filter = {
+            "match_phrase": {
+                "schwerpunkte": {
+                    "query": str(subject)
+                }
+            }
+        }
+        query['query']['bool']['filter'] = [subject_filter] + query['query']['bool']['filter']
     return query
 
 
@@ -148,22 +162,13 @@ def get_interval_filter_exclude_bots(interval_start, interval_end):
 
 def get_interval_filter_exclude_bots_with_msids(interval_start, interval_end, msids):
     base_query = get_interval_filter_exclude_bots(interval_start, interval_end)
-    append_query = {
-        "bool": {
-            "should": [],
-            "minimum_should_match": 1
+
+    msid_query = {
+        "terms": {
+            "msid": msids
         }
     }
-    for msid in msids:
-        msid_query = {
-            "match_phrase": {
-                "msid": {
-                    "query": msid
-                }
-            }
-        }
-        append_query["bool"]["should"].append(msid_query)
-    base_query["bool"]["filter"].append(append_query)
+    base_query["bool"]["filter"].append(msid_query)
     return base_query
 
 
@@ -206,6 +211,7 @@ def get_subject_aggregation(limit=10):
                     "field": "msid",
                 }
             },
-            KEY_REFERRER_AGGREGATION: get_referrer_aggregation()
+            KEY_REFERRER_AGGREGATION: get_referrer_aggregation(),
+            KEY_DEVICES_AGGREGATION: get_devices_aggregation()
         }
     }

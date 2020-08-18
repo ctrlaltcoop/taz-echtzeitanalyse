@@ -10,6 +10,7 @@ class HistogramQuerySerializer(Serializer):
     max_date = DateTimeField(default=timezone.now())
     interval = CharField(default=INTERVAL_10MINUTES)
     msid = IntegerField(required=False)
+    subject = CharField(required=False)
 
 
 class ReferrerQuerySerializer(Serializer):

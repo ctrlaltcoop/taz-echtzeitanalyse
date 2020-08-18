@@ -71,6 +71,7 @@ def _transform_subject_buckets(subject_buckets):
             'article_count': bucket[KEY_ARTICLE_COUNT_AGGREGATION]['value'],
             'hits': bucket[KEY_FINGERPRINT_AGGREGATION]['value'],
             'referrers': _transform_referrer_buckets(bucket[KEY_REFERRER_AGGREGATION]['buckets']),
+            'devices': _transform_device_buckets(bucket[KEY_DEVICES_AGGREGATION]['buckets']),
         }
         for bucket in subject_buckets
     ]

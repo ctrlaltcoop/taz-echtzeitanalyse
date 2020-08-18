@@ -33,8 +33,6 @@ export default Vue.extend<ReferrerGraphData, ChartMethods<ReferrerData>, {}, Ref
         scales: {
           xAxes: [{
             display: false,
-            barPercentage: 1,
-            categoryPercentage: 0.9,
             gridLines: {
               display: false
             }
@@ -54,6 +52,8 @@ export default Vue.extend<ReferrerGraphData, ChartMethods<ReferrerData>, {}, Ref
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {
+          barPercentage: 1,
+          categoryPercentage: 0.9,
           ...dataset
         }
       })

@@ -59,8 +59,9 @@ class TotalSerializer(serializers.Serializer):
 class SubjectDataSerializer(serializers.Serializer):
     subject_name = serializers.CharField()
     article_count = serializers.IntegerField()
-    hits = serializers.CharField()
+    hits = serializers.IntegerField()
     referrers = ReferrerDataSerializer(many=True)
+    devices = DevicesDataSerializer(many=True)
 
 
 class SubjectSerializer(serializers.Serializer):

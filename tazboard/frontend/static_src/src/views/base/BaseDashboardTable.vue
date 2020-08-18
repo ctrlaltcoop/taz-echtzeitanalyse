@@ -29,7 +29,7 @@
       </template>
 
       <template v-slot:row-details="row">
-        <ArticleRowDetail :article="row.item"/>
+        <ArticleRowDetail :item="row.item"/>
       </template>
     </BTable>
   </LoadingControl>
@@ -42,7 +42,7 @@ import { BTable } from 'bootstrap-vue'
 import { ArticleData } from '@/dto/ToplistDto'
 import { getTimeframeById, Timeframe, TimeframeId } from '@/common/timeframe'
 import { TOP_REFERRER_THRESHOLD } from '@/common/constants'
-import ArticleRowDetail from '@/components/ArticleRowDetail.vue'
+import ArticleRowDetail from '@/components/ArticleRowDetail'
 import LoadingControl from '@/components/LoadingControl.vue'
 import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
@@ -57,11 +57,8 @@ interface Data {
 
 interface Methods {
   loadData (timeframe: Timeframe): Promise<void>;
-
   toggleDetails (row: any): void;
-
   syncOpenedDetailsStateWithRoute (): void;
-
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
 }
 
@@ -153,7 +150,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       fields: [
         {
           key: 'hits',
-          label: 'Klicks',
+          label: 'Pageviews',
           class: 'text-right',
           thClass: 'taztable-th',
           formatter: (value: number) => value.toLocaleString(),
