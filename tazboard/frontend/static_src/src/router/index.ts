@@ -31,7 +31,10 @@ const routes: Array<RouteConfig> = [
         name: 'subjects',
         component: Subjects
       }
-    ]
+    ],
+    meta: {
+      title: 'die echtzeitanalyse'
+    }
   }
 ]
 

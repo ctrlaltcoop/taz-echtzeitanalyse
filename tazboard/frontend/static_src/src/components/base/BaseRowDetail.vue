@@ -83,7 +83,7 @@ export default Vue.extend<Data, Methods, {}, Props>({
   },
   async mounted () {
     await this.updateHistogram()
-    GlobalPulse.$on(PULSE_EVENT, this.updateData)
+    GlobalPulse.$on(PULSE_EVENT, this.updateHistogram)
   },
   methods: {
     async updateHistogram () {
