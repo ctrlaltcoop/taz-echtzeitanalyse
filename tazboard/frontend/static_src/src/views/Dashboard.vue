@@ -65,7 +65,7 @@ const TABS: TabConfig[] = [
     route: '/fireplace',
     order: 1,
     primaryTitle: 'Kamin',
-    secondaryTitle: 'Top 8'
+    secondaryTitle: 'Top 10'
   },
   {
     route: '/subjects',
