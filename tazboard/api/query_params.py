@@ -24,6 +24,11 @@ class ToplistQuerySerializer(Serializer):
     limit = IntegerField(default=10)
 
 
+class FireplaceQuerySerializer(Serializer):
+    min_date = DateTimeField(required=True)
+    max_date = DateTimeField(default=timezone.now())
+
+
 class TotalQuerySerializer(Serializer):
     min_date = DateTimeField(required=True)
     max_date = DateTimeField(default=timezone.now())

@@ -68,6 +68,14 @@ export class ApiClient {
     }, requestArgs.signal)
   }
 
+  async fireplace (minDate: Date, maxDate: Date, msid: number | null = null, requestArgs: RequestArgs = {}): Promise<ToplistDto> {
+    return await this.request<ToplistDto>('fireplace', 'GET', {
+      msid,
+      min_date: minDate.toISOString(),
+      max_date: maxDate.toISOString()
+    }, requestArgs.signal)
+  }
+
   async request<T> (path: string, method: string, queryParams: QueryParams = {}, signal: AbortSignal | null = null): Promise<T> {
     const response = await this.requestRaw(path, method, queryParams, signal)
 

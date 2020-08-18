@@ -1,6 +1,8 @@
+import os
 from datetime import datetime
 
 from django.utils.timezone import make_aware
+from tazboard.core.settings import BASE_DIR
 
 
 KEY_TIMEFRAME_AGGREGATION = "KEY_TIMEFRAME_AGGREGATION"
@@ -15,8 +17,9 @@ KEY_TOPLIST_AGGREGTAION = "KEY_TOPLIST_AGGREGTAION"
 KEY_EXTRA_FIELDS_AGGREGATION = "KEY_EXTRA_FIELDS_AGGREGATION"
 KEY_RANGES_AGGREGATION = "KEY_RANGES_AGGREGATION"
 KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION = "KEY_REFERRERTAGS_FINGERPRINT_AGGREGATION"
+KEY_FIREPLACE_AGGREGATION = "KEY_FIREPLACE_AGGREGATION"
 
 INTERVAL_10MINUTES = '10m'
 
-
-MOCK_FAKE_NOW = make_aware(datetime(year=2020, month=7, day=20))
+MOCK_FAKE_NOW = make_aware(datetime(year=2020, month=8, day=18))
+MOCK_CXML_PATH = os.path.join(BASE_DIR, '..', 'api', 'tests', 'mocks', 'c.xml')

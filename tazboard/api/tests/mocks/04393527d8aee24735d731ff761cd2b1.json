@@ -1,0 +1,46 @@
+{
+    "took": 4521,
+    "timed_out": false,
+    "_shards": {
+        "total": 137,
+        "successful": 137,
+        "skipped": 15,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 10000,
+            "relation": "gte"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "KEY_RANGES_AGGREGATION": {
+            "buckets": [
+                {
+                    "key": "KEY_TREND_AGGREGATION",
+                    "from": 1592517600000.0,
+                    "from_as_string": "2020-06-18T22:00:00.000Z",
+                    "to": 1595109600000.0,
+                    "to_as_string": "2020-07-18T22:00:00.000Z",
+                    "doc_count": 21785327,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 8243085
+                    }
+                },
+                {
+                    "key": "KEY_TIMEFRAME_AGGREGATION",
+                    "from": 1595109600000.0,
+                    "from_as_string": "2020-07-18T22:00:00.000Z",
+                    "to": 1597701600000.0,
+                    "to_as_string": "2020-08-17T22:00:00.000Z",
+                    "doc_count": 18383551,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 6550073
+                    }
+                }
+            ]
+        }
+    }
+}

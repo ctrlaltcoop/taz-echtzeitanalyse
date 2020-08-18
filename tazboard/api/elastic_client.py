@@ -10,7 +10,7 @@ from tazboard.api.errors import BadElasticQueryException, ElasticUnavailableExce
 
 logger = logging.getLogger(__name__)
 
-ELASTIC_SEARCH_TIMEOUT = 20
+ELASTIC_SEARCH_TIMEOUT = 50
 
 es = Elasticsearch(
     hosts=[{'host': settings.TAZBOARD_ELASTIC_HOST, 'port': settings.TAZBOARD_ELASTIC_PORT}],
