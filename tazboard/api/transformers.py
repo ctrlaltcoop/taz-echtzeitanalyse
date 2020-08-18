@@ -3,8 +3,8 @@ from functools import reduce
 from tazboard.api.queries.common import get_dict_path_safe
 from tazboard.api.queries.constants import KEY_TIMESTAMP_AGGREGATION, KEY_FINGERPRINT_AGGREGATION, \
     KEY_REFERRER_AGGREGATION, KEY_TOPLIST_AGGREGTAION, KEY_RANGES_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
-    KEY_TREND_AGGREGATION, KEY_EXTRA_FIELDS_AGGREGATION, KEY_DEVICES_AGGREGATION, KEY_SUBJECTS_AGGREGATION, \
-    KEY_ARTICLE_COUNT_AGGREGATION
+    KEY_TREND_AGGREGATION, KEY_EXTRA_FIELDS_AGGREGATION, KEY_DEVICES_AGGREGATION, KEY_FIREPLACE_AGGREGATION, \
+    KEY_SUBJECTS_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION
 
 
 def _transform_ranges(buckets):
@@ -113,6 +113,35 @@ def elastic_toplist_response_to_toplist(es_response):
             **_transform_ranges(toplist_bucket[KEY_RANGES_AGGREGATION]['buckets'])
         }
         data.append(toplist_data)
+    total = reduce(lambda acc, x: acc + x['hits'], data, 0)
+    total_previous = reduce(lambda acc, x: acc + x['hits_previous'], data, 0)
+    return {
+        'total': total,
+        'total_previous': total_previous,
+        'data': data
+    }
+
+
+def elastic_fireplace_response_to_fireplace_list(es_response):
+    data = []
+
+    for fireplace_bucket in es_response['aggregations'][KEY_FIREPLACE_AGGREGATION]['buckets']:
+        fireplace_data = {
+            'msid': fireplace_bucket['key'],
+            'kicker': get_dict_path_safe(
+                fireplace_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'kicker'
+            ),
+            'pubdate': get_dict_path_safe(
+                fireplace_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'pubtime'
+            ),
+            'headline': get_dict_path_safe(
+                fireplace_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'headline'
+            ),
+            'referrers': _transform_referrer_buckets(fireplace_bucket[KEY_REFERRER_AGGREGATION]['buckets']),
+            'devices': _transform_device_buckets(fireplace_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
+            **_transform_ranges(fireplace_bucket[KEY_RANGES_AGGREGATION]['buckets'])
+        }
+        data.append(fireplace_data)
     total = reduce(lambda acc, x: acc + x['hits'], data, 0)
     total_previous = reduce(lambda acc, x: acc + x['hits_previous'], data, 0)
     return {

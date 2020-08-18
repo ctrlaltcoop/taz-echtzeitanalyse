@@ -1,16 +1,18 @@
 import json
 from datetime import timedelta
 
+from django.conf import settings
 from django.core.management import BaseCommand
 
 from tazboard.api.elastic_client import es
-from tazboard.api.queries.constants import MOCK_FAKE_NOW
+from tazboard.api.queries.constants import MOCK_FAKE_NOW, MOCK_CXML_PATH
 from tazboard.api.queries.devices import get_devices_query
 from tazboard.api.queries.histogram import get_histogram_query
 from tazboard.api.queries.referrer import get_referrer_query
 from tazboard.api.queries.subjects import get_subjects_query
 from tazboard.api.queries.toplist import get_toplist_query
 from tazboard.api.queries.total import get_total_query
+from tazboard.api.queries.fireplace import get_fireplace_query, fetch_ressort_cxml
 from tazboard.api.tests.common import get_mock_filepath_for_query, get_mock_test_sample_path_for_query_function
 from tazboard.api.utils.datetime import round_to_seconds
 
@@ -57,6 +59,10 @@ class Command(BaseCommand):
             'arguments': FAKE_TIMEFRAMES
         },
         {
+            'get_query': get_fireplace_query,
+            'arguments': FAKE_TIMEFRAMES
+        },
+        {
             'get_query': get_subjects_query,
             'arguments': get_argument_matrix(FAKE_TIMEFRAMES, ((10,), (25,)))
         }
@@ -75,3 +81,6 @@ class Command(BaseCommand):
                 if index == 0:
                     with open(get_mock_test_sample_path_for_query_function(query_fn), 'w') as outfile:
                         outfile.write(json.dumps(response, indent=4))
+
+        with open(MOCK_CXML_PATH, 'w') as outfile:
+            outfile.write(fetch_ressort_cxml(settings.TAZBOARD_ID_FIREPLACE_CXML))

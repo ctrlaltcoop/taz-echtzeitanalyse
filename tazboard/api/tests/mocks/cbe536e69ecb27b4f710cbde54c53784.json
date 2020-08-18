@@ -1,0 +1,96 @@
+{
+    "took": 20,
+    "timed_out": false,
+    "_shards": {
+        "total": 137,
+        "successful": 137,
+        "skipped": 135,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 10000,
+            "relation": "gte"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "KEY_REFERRER_AGGREGATION": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 177,
+            "buckets": [
+                {
+                    "key": "taz",
+                    "doc_count": 5830,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 2624
+                    }
+                },
+                {
+                    "key": "Google",
+                    "doc_count": 5112,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 3846
+                    }
+                },
+                {
+                    "key": "Unbekannt",
+                    "doc_count": 4758,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 2434
+                    }
+                },
+                {
+                    "key": "Facebook",
+                    "doc_count": 1554,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 1422
+                    }
+                },
+                {
+                    "key": "Twitter",
+                    "doc_count": 707,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 616
+                    }
+                },
+                {
+                    "key": "Pocket",
+                    "doc_count": 369,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 353
+                    }
+                },
+                {
+                    "key": "Andere kleine Referrer",
+                    "doc_count": 205,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 177
+                    }
+                },
+                {
+                    "key": "Flipboard",
+                    "doc_count": 57,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 50
+                    }
+                },
+                {
+                    "key": "DuckDuckGo",
+                    "doc_count": 46,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 40
+                    }
+                },
+                {
+                    "key": "Upday",
+                    "doc_count": 44,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 41
+                    }
+                }
+            ]
+        }
+    }
+}

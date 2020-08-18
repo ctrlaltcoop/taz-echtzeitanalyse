@@ -146,6 +146,27 @@ def get_interval_filter_exclude_bots(interval_start, interval_end):
     }
 
 
+def get_interval_filter_exclude_bots_with_msids(interval_start, interval_end, msids):
+    base_query = get_interval_filter_exclude_bots(interval_start, interval_end)
+    append_query = {
+        "bool": {
+            "should": [],
+            "minimum_should_match": 1
+        }
+    }
+    for msid in msids:
+        msid_query = {
+            "match_phrase": {
+                "msid": {
+                    "query": msid
+                }
+            }
+        }
+        append_query["bool"]["should"].append(msid_query)
+    base_query["bool"]["filter"].append(append_query)
+    return base_query
+
+
 def get_devices_aggregation(limit=10):
     return {
         "terms": {

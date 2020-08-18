@@ -1,0 +1,578 @@
+{
+    "took": 25,
+    "timed_out": false,
+    "_shards": {
+        "total": 137,
+        "successful": 137,
+        "skipped": 130,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 115,
+            "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "KEY_FIREPLACE_AGGREGATION": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "5703215",
+                    "doc_count": 105,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1597528800000.0,
+                                "from_as_string": "2020-08-15T22:00:00.000Z",
+                                "to": 1597615200000.0,
+                                "to_as_string": "2020-08-16T22:00:00.000Z",
+                                "doc_count": 75,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 57
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1597615200000.0,
+                                "from_as_string": "2020-08-16T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 30,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 19
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 66,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 45
+                                }
+                            },
+                            {
+                                "key": "desktop",
+                                "doc_count": 39,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 30
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 105,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.08.16",
+                                    "_type": "_doc",
+                                    "_id": "ONr79HMBZFK4U3pBrI3h",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "pubtime": "2020-08-15 00:00:00+01:00",
+                                        "headline": "\u201eDie Pille war kein emanzipatorisches Projekt\u201c",
+                                        "kicker": null
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "Unbekannt",
+                                "doc_count": 63,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 37
+                                }
+                            },
+                            {
+                                "key": "Facebook",
+                                "doc_count": 16,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 15
+                                }
+                            },
+                            {
+                                "key": "Andere kleine Referrer",
+                                "doc_count": 13,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 11
+                                }
+                            },
+                            {
+                                "key": "Google",
+                                "doc_count": 5,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
+                                }
+                            },
+                            {
+                                "key": "taz",
+                                "doc_count": 4,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
+                                }
+                            },
+                            {
+                                "key": "Telegram",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "5707512",
+                    "doc_count": 4,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1597528800000.0,
+                                "from_as_string": "2020-08-15T22:00:00.000Z",
+                                "to": 1597615200000.0,
+                                "to_as_string": "2020-08-16T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1597615200000.0,
+                                "from_as_string": "2020-08-16T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 4,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 4,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 4,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.08.17",
+                                    "_type": "_doc",
+                                    "_id": "-C5p_XMBMK26Z3QrJnU_",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "pubtime": "2020-08-18 00:00:00+01:00",
+                                        "headline": "Pl\u00f6tzlich diese Unterschicht",
+                                        "kicker": null
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "Unbekannt",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            },
+                            {
+                                "key": "Google",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "taz",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "5702549",
+                    "doc_count": 2,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1597528800000.0,
+                                "from_as_string": "2020-08-15T22:00:00.000Z",
+                                "to": 1597615200000.0,
+                                "to_as_string": "2020-08-16T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1597615200000.0,
+                                "from_as_string": "2020-08-16T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 2,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.08.17",
+                                    "_type": "_doc",
+                                    "_id": "1zEO_nMBMK26Z3QrTKGY",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "pubtime": "2020-08-18 00:00:00+01:00",
+                                        "headline": "Richtig so \u2013 aber nicht f\u00fcr die Niedriglohnbranchen",
+                                        "kicker": "Kommentar von Wolfgang Mulke zum Vorsto\u00df der IG Metall zur Arbeitszeitverk\u00fcrzung"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "Google",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "Unbekannt",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "5702587",
+                    "doc_count": 2,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1597528800000.0,
+                                "from_as_string": "2020-08-15T22:00:00.000Z",
+                                "to": 1597615200000.0,
+                                "to_as_string": "2020-08-16T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1597615200000.0,
+                                "from_as_string": "2020-08-16T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 2,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.08.17",
+                                    "_type": "_doc",
+                                    "_id": "3C5p_XMBMK26Z3QrtHio",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "pubtime": "2020-08-18 00:00:00+01:00",
+                                        "headline": "Fracking-Land ist abgebrannt",
+                                        "kicker": null
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "Google",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "Unbekannt",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "5707558",
+                    "doc_count": 1,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1597528800000.0,
+                                "from_as_string": "2020-08-15T22:00:00.000Z",
+                                "to": 1597615200000.0,
+                                "to_as_string": "2020-08-16T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1597615200000.0,
+                                "from_as_string": "2020-08-16T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 1,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.08.17",
+                                    "_type": "_doc",
+                                    "_id": "4jHz_XMBMK26Z3QrciIH",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "pubtime": "2020-08-18 00:00:00+01:00",
+                                        "headline": "Mit zweiter Welle in den Herbst?",
+                                        "kicker": null
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "Google",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "5707565",
+                    "doc_count": 1,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1597528800000.0,
+                                "from_as_string": "2020-08-15T22:00:00.000Z",
+                                "to": 1597615200000.0,
+                                "to_as_string": "2020-08-16T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1597615200000.0,
+                                "from_as_string": "2020-08-16T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 1,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.08.17",
+                                    "_type": "_doc",
+                                    "_id": "1zEN_nMBMK26Z3Qrop6g",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "pubtime": "2020-08-18 00:00:00+01:00",
+                                        "headline": "Dumpfe Propaganda",
+                                        "kicker": "Felix Lee \u00fcber das Wettrennen um den Corona-Impfstoff"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "Google",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "took": 52,
+    "timed_out": false,
+    "_shards": {
+        "total": 137,
+        "successful": 137,
+        "skipped": 135,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 10000,
+            "relation": "gte"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "KEY_DEVICES_AGGREGATION": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "desktop",
+                    "doc_count": 78725,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 29259
+                    }
+                },
+                {
+                    "key": "mobile",
+                    "doc_count": 78271,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 53777
+                    }
+                },
+                {
+                    "key": "unclassified",
+                    "doc_count": 11943,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 754
+                    }
+                }
+            ]
+        }
+    }
+}
