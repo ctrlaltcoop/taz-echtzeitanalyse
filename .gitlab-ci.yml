@@ -84,7 +84,7 @@ backend:test:
     - pip install poetry
     - poetry install
   script:
-    - DJANGO_SECRET_KEY='dummy' poetry run coverage run --source 'tazboard' tazboard/manage.py test
+    - DJANGO_SETTINGS_MODULE=tazboard.core.settings.test poetry run coverage run --source 'tazboard' tazboard/manage.py test
     - poetry run coverage xml
   cache:
     paths:

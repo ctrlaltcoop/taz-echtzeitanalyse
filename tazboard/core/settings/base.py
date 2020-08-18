@@ -24,6 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+TEST_RUNNER = 'tazboard.api.tests.runner.NoDbTestRunner'
+
 INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
@@ -53,8 +55,8 @@ WSGI_APPLICATION = 'tazboard.core.wsgi.application'
 DATABASES = {}
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-    ],
+    'UNAUTHENTICATED_USER': None,
+    'DEFAULT_PERMISSION_CLASSES': [],
     'DEFAULT_AUTHENTICATION_CLASSES': []
 }
 
