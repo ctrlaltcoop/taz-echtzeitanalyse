@@ -47,6 +47,39 @@ Run the tests:
 poetry run coverage run --source 'tazboard' manage.py test
 ```
 
+## Run app in production
+
+Assuming you have a wheel distribution of this application (built with `poetry run full-build`) the deployment process
+looks like this.
+
+```
+$ pip install tazboard-x.x.x-py3-none-any.whl 
+$ export DJANGO_SECRET_KEY=thisismysupersecretsecret
+$ gunicorn tazboard.core.wsgi:application --bind 0.0.0.0:8000
+```
+
+Using gunicorn is optional and can be replaced with any wsgi compatible system.
+
+### Using your own settings.py
+
+It is possible to use your own django settings module if you need more control over the application behavior.
+Just set the DJANGO_SETTINGS_MODULE variable to a settings module in you PYTHONPATH:
+
+```
+$ pip install tazboard-x.x.x-py3-none-any.whl
+$ cd /etc/tazboard 
+$ export DJANGO_SETTINGS_MODULE=config
+$ gunicorn tazboard.core.wsgi:application --bind 0.0.0.0:8000
+```
+
+In this example it's required to have a file named `config.py` in /etc/tazboard. You can of course reference any python module
+in your PYTHONPATH. In this file you can inherit from the base config and override variables:
+
+```
+from tazboard.core.settings.base import *
+SECRET_KEY='mysecretkey'
+```
+
 ## Frontend
 
 The frontend is developed in a seperate toolchain in [frontend/static_src/](frontend/static_src) using `vue CLI`. For development instructions 

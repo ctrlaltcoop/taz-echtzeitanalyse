@@ -12,15 +12,15 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+# secret key can be specefied with env var
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2%*he2bjz3k$v%xa8tk)z_o*my-y+8ab5i#v8x(e%emd!#(ruw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
