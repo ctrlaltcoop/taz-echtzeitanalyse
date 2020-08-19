@@ -118,9 +118,10 @@ export default Vue.extend({
   },
   methods: {
     getTabStyleFor (tab: TabConfig) {
-      const zBoost = this.$route.path === tab.route ? 10 : 0
+      const maxOrder = Math.max(...TABS.map(({ order }) => order))
+      const zBoost = this.$route.path === tab.route ? maxOrder : 0
       return {
-        'z-index': 10 - tab.order + zBoost
+        'z-index': maxOrder - tab.order + zBoost
       }
     },
     timeframeSelect (timeframeId: TimeframeId) {
