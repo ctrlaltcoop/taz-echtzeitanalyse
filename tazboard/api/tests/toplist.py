@@ -53,7 +53,21 @@ class ToplistTestCase(LiveServerTestCase):
         self.assertEquals(response.status_code, 200)
         self.es_client.search.assert_called_once()
         get_toplist_query_spy.assert_called_once()
-        get_toplist_query_spy.assert_called_with(min_date, max_date, 25)
+        get_toplist_query_spy.assert_called_with(min_date, max_date, 25, None)
+
+    @patch('tazboard.api.views.get_toplist_query')
+    def test_toplist_with_subject(self, get_toplist_query_spy):
+        min_date = MOCK_FAKE_NOW - timedelta(hours=24)
+        max_date = MOCK_FAKE_NOW
+        response = self.client.get('/api/v1/toplist', {
+            'min_date': min_date.isoformat(),
+            'max_date': max_date.isoformat(),
+            'subject': 'Foosubject'
+        })
+        self.assertEquals(response.status_code, 200)
+        self.es_client.search.assert_called_once()
+        get_toplist_query_spy.assert_called_once()
+        get_toplist_query_spy.assert_called_with(min_date, max_date, 10, 'Foosubject')
 
     def test_expect_503_if_elastic_is_unavailable(self):
         min_date = MOCK_FAKE_NOW - timedelta(days=1)

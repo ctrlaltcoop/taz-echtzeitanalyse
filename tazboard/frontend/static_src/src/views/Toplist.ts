@@ -26,6 +26,7 @@ export default Vue.extend<Data, Methods, {}, {}>({
           timeframe.minDate(),
           timeframe.maxDate(),
           NUM_ARTICLES_TOP_LIST,
+          null,
           {
             signal
           })).data

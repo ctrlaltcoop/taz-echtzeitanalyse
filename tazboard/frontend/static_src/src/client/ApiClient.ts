@@ -54,11 +54,12 @@ export class ApiClient {
     }, requestArgs.signal)
   }
 
-  async toplist (minDate: Date, maxDate: Date, limit = 10, requestArgs: RequestArgs = {}): Promise<ToplistDto> {
+  async toplist (minDate: Date, maxDate: Date, limit = 10, subject: string | null = null, requestArgs: RequestArgs = {}): Promise<ToplistDto> {
     return await this.request<ToplistDto>('toplist', 'GET', {
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString(),
-      limit: limit
+      limit,
+      subject
     }, requestArgs.signal)
   }
 

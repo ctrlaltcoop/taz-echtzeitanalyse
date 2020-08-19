@@ -14,10 +14,10 @@
                 lastPulse.toLocaleString([], dateFormatOptions)
               }}</span>
             <span class="timeframe-caption">{{
-                currentTimeframe.minDate().toLocaleString([], dateFormatOptions)
-              }} - {{ currentTimeframe.maxDate().toLocaleString([], dateFormatOptions) }}</span>
+                currentTimeframeOrDefault.minDate().toLocaleString([], dateFormatOptions)
+              }} - {{ currentTimeframeOrDefault.maxDate().toLocaleString([], dateFormatOptions) }}</span>
             <select class="timeframe-select" @change="timeframeSelect($event.target.value)"
-                    :value="currentTimeframe.id">
+                    :value="currentTimeframeOrDefault.id">
               <option v-for="timeframe in timeframeSelection" :value="timeframe.id" :key="timeframe.id">
                 {{ timeframe.label }}
               </option>
@@ -30,7 +30,8 @@
         <BNav>
           <BNavItem v-for="tab in tabs" role="presentation" :to="tab.route" active-class="active"
                     :style="getTabStyleFor(tab)" :key="tab.route">
-            <span class="tab-title-primary">{{ tab.primaryTitle }}</span><span class="tab-title-secondary"> {{ tab.secondaryTitle }}</span>
+            <span class="tab-title-primary">{{ tab.primaryTitle }}</span><span
+            class="tab-title-secondary"> {{ tab.secondaryTitle }}</span>
           </BNavItem>
         </BNav>
       </div>
@@ -44,7 +45,13 @@
 import Vue from 'vue'
 import { BNav, BNavItem } from 'bootstrap-vue'
 import Statistics from '@/components/Statistics.vue'
-import { DEFAULT_TIMEFRAME, getTimeframeById, Timeframe, TimeframeId, TIMEFRAMES } from '@/common/timeframe'
+import {
+  DEFAULT_TIMEFRAME,
+  Timeframe,
+  TimeframeId,
+  TimeframeMixin,
+  TIMEFRAMES
+} from '@/common/timeframe'
 import { GlobalPulse, PULSE_EVENT, RESET_PULSE_EVENT } from '@/common/GlobalPulse'
 
 interface TabConfig {
@@ -75,13 +82,30 @@ const TABS: TabConfig[] = [
   }
 ]
 
-export default Vue.extend({
+interface Data {
+  tabs: Array<TabConfig>;
+  lastPulse: Date;
+  timeframeSelection: Array<Timeframe>;
+  dateFormatOptions: { [key: string]: string };
+}
+
+interface Computed {
+  currentTimeframeOrDefault: Timeframe;
+}
+
+interface Methods {
+  getTabStyleFor (tab: TabConfig): { [key: string]: string | number };
+  timeframeSelect (timeframeId: TimeframeId): void;
+}
+
+export default Vue.extend<Data, Methods, Computed, {}>({
   name: 'Dashboard',
   components: {
     Statistics,
     BNavItem,
     BNav
   },
+  mixins: [TimeframeMixin],
   data () {
     return {
       tabs: TABS,
@@ -97,14 +121,14 @@ export default Vue.extend({
     }
   },
   computed: {
-    currentTimeframe (): Timeframe {
-      const currentTimeframeId = this.$route.query.timeframeId as TimeframeId
-      const currentTimeframe = getTimeframeById(currentTimeframeId)
-      if (!currentTimeframe) {
+    currentTimeframeOrDefault (): Timeframe {
+      // @ts-ignore typescript won't infer types from vue mixins unfortunately
+      if (this.currentTimeframe == null) {
         this.timeframeSelect(DEFAULT_TIMEFRAME.id)
         return DEFAULT_TIMEFRAME
       } else {
-        return currentTimeframe
+        // @ts-ignore typescript won't infer types from vue mixins unfortunately
+        return this.currentTimeframe
       }
     }
   },
@@ -117,7 +141,7 @@ export default Vue.extend({
     })
   },
   methods: {
-    getTabStyleFor (tab: TabConfig) {
+    getTabStyleFor (tab: TabConfig): { [key: string]: string | number } {
       const maxOrder = Math.max(...TABS.map(({ order }) => order))
       const zBoost = this.$route.path === tab.route ? maxOrder : 0
       return {
@@ -156,7 +180,8 @@ export default Vue.extend({
     border-top-left-radius: 0.75em;
     border-top-right-radius: 0.75em;
     position: relative;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.75);
+
     &.active {
       background-color: $taz-red;
     }

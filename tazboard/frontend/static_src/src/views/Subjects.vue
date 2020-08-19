@@ -42,7 +42,7 @@ import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 import { SubjectsData } from '@/dto/SubjectsDto'
 import { ApiClient } from '@/client/ApiClient'
-import SubjectRowDetail from '@/components/SubjectRowDetail'
+import SubjectRowDetail from '@/components/SubjectRowDetail.vue'
 
 const apiClient = new ApiClient()
 
