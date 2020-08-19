@@ -37,12 +37,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { getISOWeek, isToday, isYesterday } from 'date-fns'
 import { BTable } from 'bootstrap-vue'
 
 import { ArticleData } from '@/dto/ToplistDto'
 import { getTimeframeById, Timeframe, TimeframeId } from '@/common/timeframe'
-import { CAPTION_TODAY, CAPTION_YESTERDAY, TOP_REFERRER_THRESHOLD } from '@/common/constants'
+import { TOP_REFERRER_THRESHOLD } from '@/common/constants'
 import ArticleRowDetail from '@/components/ArticleRowDetail.vue'
 import LoadingControl from '@/components/LoadingControl.vue'
 import { LoadingState } from '@/common/LoadingState'

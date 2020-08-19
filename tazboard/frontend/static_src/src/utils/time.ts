@@ -8,7 +8,7 @@ export function formatPublicationTime (value: string | null): string {
   const thisWeek = getISOWeek(now)
   const pubWeek = getISOWeek(pubDate)
   if (isToday(pubDate)) {
-    return new Date(value).toLocaleTimeString([], { timeStyle: 'short' })
+    return new Date(value).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
   } else if (isYesterday(pubDate)) {
     return CAPTION_YESTERDAY
   } else if (thisWeek === pubWeek) {
