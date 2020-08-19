@@ -1,8 +1,10 @@
 <template>
   <div class="row-detail mr-5 ml-5 pb-3 row">
-    <div class="col-8 h-100 d-flex">
+    <div class="col-8 h-100 d-flex flex-column">
+      <p class="bars-heading">Top 5 Artikel im Schwerpunkt</p>
       <LoadingControl :loading-state="loadingState">
         <BTable
+          small
           :items="toplist"
           :fields="toplistFields"
         />

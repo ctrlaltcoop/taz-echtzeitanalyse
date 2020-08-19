@@ -110,11 +110,6 @@ export default Vue.extend<Data, Methods, {}, Props>({
   height: 250px;
 }
 
-.bars-heading {
-  margin-bottom: 3px;
-  text-align: center;
-}
-
 .graph-container {
   height: 220px;
 }
