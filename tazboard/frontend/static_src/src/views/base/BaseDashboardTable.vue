@@ -1,40 +1,38 @@
 <template>
-  <div class="row">
-    <LoadingControl class="loading-control" :loading-state="loadingState">
-      <BTable
-        striped
-        class="w-100"
-        :fields="fields"
-        :items="items"
-        :tbody-transition-props="{ name: 'statistics-table' }"
-        v-model="rowItems"
-        thead-class="table-head">
-        <template v-slot:head(referrerSelect)="data">
-          <div class="stacked-th-with-selection">
-            <div>{{ data.label }}</div>
-            <select class="referrer-select" v-model="selectedReferrer">
-              <option v-for="referrer in availableReferrers" :value="referrer" :key="referrer">
-                {{ referrer }}
-              </option>
-            </select>
-          </div>
-        </template>
+  <LoadingControl class="loading-control" :loading-state="loadingState">
+    <BTable
+      striped
+      class="w-100"
+      :fields="fields"
+      :items="items"
+      :tbody-transition-props="{ name: 'statistics-table' }"
+      v-model="rowItems"
+      thead-class="table-head">
+      <template v-slot:head(referrerSelect)="data">
+        <div class="stacked-th-with-selection">
+          <div>{{ data.label }}</div>
+          <select class="referrer-select" v-model="selectedReferrer">
+            <option v-for="referrer in availableReferrers" :value="referrer" :key="referrer">
+              {{ referrer }}
+            </option>
+          </select>
+        </div>
+      </template>
 
-        <template v-slot:cell(headline)="row">
+      <template v-slot:cell(headline)="row">
         <span class="row-headline-kicker">
           {{ row.item.kicker }}
         </span>
-          <span class="row-headline-headline" @click="toggleDetails(row)">
+        <span class="row-headline-headline" @click="toggleDetails(row)">
           {{ row.item.headline }}
         </span>
-        </template>
+      </template>
 
-        <template v-slot:row-details="row">
-          <ArticleRowDetail :article="row.item"/>
-        </template>
-      </BTable>
-    </LoadingControl>
-  </div>
+      <template v-slot:row-details="row">
+        <ArticleRowDetail :article="row.item"/>
+      </template>
+    </BTable>
+  </LoadingControl>
 </template>
 
 <script lang="ts">
@@ -154,7 +152,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'hits',
           label: 'Klicks',
           class: 'text-right',
-          thClass: 'white-caption',
+          thClass: 'taztable-th',
           formatter: (value: number) => value.toLocaleString(),
           sortable: true
         },
@@ -162,6 +160,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'trend',
           label: '',
           class: 'text-center',
+          thClass: 'taztable-th',
           formatter: (value: null, key: string, item: ArticleData) => {
             return (item.hits / item.hits_previous - 1).toLocaleString([], { style: 'percent' })
           }
@@ -170,7 +169,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'headline',
           label: 'Titel',
           class: 'text-left',
-          thClass: 'white-caption',
+          thClass: 'taztable-th',
           formatter: (value: null, key: string, item: ArticleData) => {
             return (item.hits / item.hits_previous - 1).toLocaleString([], { style: 'percent' })
           }
@@ -179,7 +178,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'pubdate',
           label: 'veröffentlicht',
           class: 'text-right',
-          thClass: 'white-caption',
+          thClass: 'taztable-th',
           formatter: (value: string | null) => {
             if (value === null) return
             const now = new Date()
@@ -203,7 +202,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'referrerSelect',
           label: 'Klicks über',
           class: 'text-right',
-          thClass: 'white-caption',
+          thClass: 'taztable-th',
           formatter: (value: null, key: string, item: ArticleData) => {
             // @ts-ignore type inference of this doesn't work here
             return this.formatSelectReferrer(value, key, item)
@@ -212,7 +211,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'topReferrer',
           label: 'Top Referrer',
           class: 'text-right',
-          thClass: 'white-caption',
+          thClass: 'taztable-th',
           formatter: (value: null, key: string, item: ArticleData) => {
             return item.referrers
               .filter(({ percentage }) => percentage > TOP_REFERRER_THRESHOLD)
@@ -270,11 +269,14 @@ export default Vue.extend<Data, Methods, Computed, {}>({
 
 .table-head {
   background-color: $taz-red;
+
 }
 
-.white-caption {
+.taztable-th {
   color: $white;
   font-size: 2rem;
+  // found no different way to overwrite default style
+  border-top: none !important;
 }
 </style>
 
@@ -282,6 +284,12 @@ export default Vue.extend<Data, Methods, Computed, {}>({
 .loading-control {
   min-height: 450px;
   flex-direction: column;
+}
+
+.table {
+  th {
+    border: none;
+  }
 }
 
 </style>
