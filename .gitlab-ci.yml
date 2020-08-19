@@ -1,13 +1,6 @@
 variables:
   ROLLOUT_RESOURCE_TYPE: deployment
-  AUTO_DEVOPS_DEPLOY_DEBUG: 'true'
-  POSTGRES_ENABLED: 'true'
-  POSTGRES_VERSION: '10'
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: notasecret
-  POSTGRES_DB: 'tazboard'
-  AUTO_DEVOPS_POSTGRES_CHANNEL: '2'
-  DB_MIGRATE: "django-admin migrate"
+  POSTGRES_ENABLED: 'false'
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   K8S_SECRET_DJANGO_SETTINGS_MODULE: "tazboard.core.settings.docker_mocked"
   K8S_SECRET_DJANGO_SECRET_KEY: "dummysecret"
@@ -91,7 +84,7 @@ backend:test:
     - pip install poetry
     - poetry install
   script:
-    - DJANGO_SECRET_KEY='dummy' poetry run coverage run --source 'tazboard' tazboard/manage.py test
+    - DJANGO_SETTINGS_MODULE=tazboard.core.settings.test poetry run coverage run --source 'tazboard' tazboard/manage.py test
     - poetry run coverage xml
   cache:
     paths:
