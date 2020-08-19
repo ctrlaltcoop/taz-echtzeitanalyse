@@ -30,14 +30,15 @@ interface Trend {
   infinity: boolean;
 }
 
-export function getTrend(tx1: number,
-                         tx2: number,
-                         interval = 3,
-                         k= 4,
-                         a= -1.3,
-                         b= 1,
-                         cheat = false) : Trend {
-
+export function getTrend (
+  tx1: number,
+  tx2: number,
+  cheat = false,
+  interval = 3,
+  k = 4,
+  a = -1.3,
+  b = 1
+): Trend {
   let x = null
   let direction = null
 
@@ -51,12 +52,12 @@ export function getTrend(tx1: number,
   }
 
   // sicherstellen, dass niemals ne division durch null statt findet
-  if ( tx1 <= 0.0 ) {
-    throw RangeError("tx1 ist kleiner oder gleich 0.0")
+  if (tx1 <= 0.0) {
+    throw RangeError(`tx1=${tx1} ist kleiner oder gleich 0.0`)
   }
 
-  if ( tx2 <= 0.0 ) {
-    throw RangeError("tx2 ist kleiner oder gleich 0.0")
+  if (tx2 <= 0.0) {
+    throw RangeError(`tx2=${tx2} ist kleiner oder gleich 0.0`)
   }
 
   // erzwinge immer werte groesser oder gleich 1 fuer x.
@@ -64,8 +65,7 @@ export function getTrend(tx1: number,
   if (tx1 > tx2) {
     direction = -1
     x = tx1 / tx2
-  }
-  else {
+  } else {
     direction = 1
     x = tx2 / tx1
   }
@@ -77,7 +77,7 @@ export function getTrend(tx1: number,
 
   const xo = k * (x + a) // stauchen und x-verschiebung
   const fx = Math.tanh(xo) // die eigentlich Funktion
-  const y = (fx + b)/2 // y-verschiebung und auf einen umfang von 1 bringen (zwei Quadranten in einem darstellen)
+  const y = (fx + b) / 2 // y-verschiebung und auf einen umfang von 1 bringen (zwei Quadranten in einem darstellen)
 
   // der interval ist linear, kann einfach gerundet werden
   let score = Math.floor(y * interval)
@@ -86,15 +86,15 @@ export function getTrend(tx1: number,
   // Beispiel: activityfunction(1000,6000,interval=10,k=4,a=-1.3,b=1) wenn also ein anstieg um 500% statt gefunden hat
   // {'y': 1.0, 'direction': 1, 'x': 6.0, 'interval': 9, 'infinity': True, 'xo': 18.8}
   let infinity = false
-  if ( Math.floor(fx) == 1 || Math.floor(fx) == -1 ) {
+  if (Math.floor(fx) === 1 || Math.floor(fx) === -1) {
     // ist dann der maximal wert des Intervals und es wird markiert
     infinity = true
     score = interval - 1
   }
 
   return {
-    'direction': direction,
-    'score': score,
-    'infinity': infinity
+    direction: direction,
+    score: score,
+    infinity: infinity
   }
 }
