@@ -30,6 +30,11 @@ interface Trend {
   infinity: boolean;
 }
 
+interface TrendGraphic {
+  color: string;
+  path: string;
+}
+
 export function getTrend (
   tx1: number,
   tx2: number,
@@ -96,5 +101,47 @@ export function getTrend (
     direction: direction,
     score: score,
     infinity: infinity
+  }
+}
+
+export function getTrendGraphic (trend: Trend): TrendGraphic {
+  let color = 'white'
+  let path = ''
+  if (trend.direction === 1) {
+    color = 'green'
+    switch (trend.score) {
+      case 0:
+        path = '../assets/arrows/right-arrow.svg'
+        break
+      case 1:
+        path = '../assets/arrows/diagonal-arrow-up.svg'
+        break
+      case 2:
+        path = '../assets/arrows/up-arrow.svg'
+        break
+      default:
+        color = 'white'
+        path = '../assets/arrows/right-arrow.svg'
+    }
+  } else if (trend.direction === -1) {
+    color = 'red'
+    switch (trend.score) {
+      case 0:
+        path = '../assets/arrows/right-arrow.svg'
+        break
+      case 1:
+        path = '../assets/arrows/diagonal-arrow-down.svg'
+        break
+      case 2:
+        path = '../assets/arrows/down-arrow.svg'
+        break
+      default:
+        color = 'white'
+        path = '../assets/arrows/right-arrow.svg'
+    }
+  }
+  return {
+    color: color,
+    path: path
   }
 }
