@@ -47,6 +47,7 @@ import ArticleRowDetail from '@/components/ArticleRowDetail.vue'
 import LoadingControl from '@/components/LoadingControl.vue'
 import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
+import { formatPublicationTime } from '@/utils/time'
 
 interface Data {
   items: ArticleData[];
@@ -57,8 +58,11 @@ interface Data {
 
 interface Methods {
   loadData (timeframe: Timeframe): Promise<void>;
+
   toggleDetails (row: any): void;
+
   syncOpenedDetailsStateWithRoute (): void;
+
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
 }
 
@@ -179,24 +183,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           label: 'veröffentlicht',
           class: 'text-right',
           thClass: 'taztable-th',
-          formatter: (value: string | null) => {
-            if (value === null) return
-            const now = new Date()
-            const pubDate = new Date(value)
-            const thisWeek = getISOWeek(now)
-            const pubWeek = getISOWeek(pubDate)
-            if (isToday(pubDate)) {
-              return CAPTION_TODAY
-            } else if (isYesterday(pubDate)) {
-              return CAPTION_YESTERDAY
-            } else if (thisWeek === pubWeek) {
-              return new Date(value).toLocaleDateString([], {
-                weekday: 'long'
-              })
-            } else {
-              return new Date(value).toLocaleDateString()
-            }
-          },
+          formatter: formatPublicationTime,
           sortable: true
         }, {
           key: 'referrerSelect',
