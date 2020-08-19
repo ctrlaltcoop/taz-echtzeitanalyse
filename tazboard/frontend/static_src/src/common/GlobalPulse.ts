@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 export const PULSE_EVENT = 'PULSE_EVENT'
 export const RESET_PULSE_EVENT = 'RESET_PULSE_EVENT'
-export const PULSE_INTERVAL_MS = 60000
+export const PULSE_INTERVAL_MS = 180000
 
 interface Data {
   currentPulse?: number | null;
