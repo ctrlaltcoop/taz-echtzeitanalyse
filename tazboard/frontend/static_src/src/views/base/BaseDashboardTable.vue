@@ -153,6 +153,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           label: 'Pageviews',
           class: 'text-right',
           thClass: 'taztable-th',
+          tdClass: 'taztable-td-hits',
           formatter: (value: number) => value.toLocaleString(),
           sortable: true
         },
@@ -236,9 +237,11 @@ export default Vue.extend<Data, Methods, Computed, {}>({
 
 <!-- styles for vue table won't take effect unless unscoped -->
 <style lang="scss">
+@import "src/style/mixins";
 @import 'src/style/variables';
 
 .row-headline-headline {
+  @include serif-font();
   font-size: 1.4rem;
   font-weight: bold;
   display: block;
@@ -260,6 +263,14 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   font-size: 2rem;
   // found no different way to overwrite default style
   border-top: none !important;
+}
+
+.taztable-td-hits {
+  @include serif-font();
+  @include light-text-shadow();
+  font-weight: bold;
+  font-size: 2rem;
+  color: $gray-800;
 }
 </style>
 

@@ -1,7 +1,7 @@
 <template>
   <LoadingControl :loading-state="loadingState">
     <div class="w-100 h-100 bg-white d-flex align-items-center justify-content-center flex-fill">
-      <span class="counter">{{ total }}</span>
+      <span class="counter">{{ totalFormatted }}</span>
     </div>
   </LoadingControl>
 </template>
@@ -28,7 +28,11 @@ interface Methods {
   updateData (timeframe: Timeframe): void;
 }
 
-export default Vue.extend<Data, Methods, {}, {}>({
+interface Computed {
+  totalFormatted (): string;
+}
+
+export default Vue.extend<Data, Methods, Computed, {}>({
   name: 'ClickCounter',
   components: {
     LoadingControl
@@ -37,6 +41,11 @@ export default Vue.extend<Data, Methods, {}, {}>({
     return {
       total: null,
       loadingState: LoadingState.FRESH
+    }
+  },
+  computed: {
+    totalFormatted () {
+      return this.total.toLocaleString()
     }
   },
   methods: {
@@ -84,6 +93,7 @@ export default Vue.extend<Data, Methods, {}, {}>({
 </script>
 <style lang="scss" scoped>
 @import "src/style/variables";
+@import "src/style/mixins";
 
 .click-counter-card {
   box-shadow: #2c3e50;
@@ -93,8 +103,10 @@ export default Vue.extend<Data, Methods, {}, {}>({
 }
 
 .counter {
+  @include serif-font();
+  @include light-text-shadow();
   color: #7DD2D2;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 5rem;
 }
 </style>
