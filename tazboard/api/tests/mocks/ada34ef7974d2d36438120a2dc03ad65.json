@@ -1,0 +1,1637 @@
+{
+    "took": 11055,
+    "timed_out": false,
+    "_shards": {
+        "total": 137,
+        "successful": 133,
+        "skipped": 19,
+        "failed": 4,
+        "failures": [
+            {
+                "shard": 0,
+                "index": "article-2020.07.16",
+                "node": "OPlhizulSRWNpuWdqRCNNg",
+                "reason": {
+                    "type": "illegal_argument_exception",
+                    "reason": "Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [referrerlabel] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+                }
+            },
+            {
+                "shard": 0,
+                "index": "article-2020.07.17",
+                "node": "OPlhizulSRWNpuWdqRCNNg",
+                "reason": {
+                    "type": "illegal_argument_exception",
+                    "reason": "Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [referrerlabel] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+                }
+            }
+        ]
+    },
+    "hits": {
+        "total": {
+            "value": 10000,
+            "relation": "gte"
+        },
+        "max_score": 0.0,
+        "hits": [
+            {
+                "_index": ".kibana-event-log-7.8.0-000001",
+                "_type": "_doc",
+                "_id": "bEWj4XIBef5iujqoIE4l",
+                "_score": 0.0,
+                "_source": {
+                    "event": {
+                        "provider": "eventLog",
+                        "action": "starting"
+                    },
+                    "message": "eventLog starting",
+                    "@timestamp": "2020-06-23T14:44:23.455Z",
+                    "ecs": {
+                        "version": "1.5.0"
+                    },
+                    "kibana": {
+                        "server_uuid": "4b0f8837-bcfd-46f3-b6e9-7199bf838078"
+                    }
+                }
+            },
+            {
+                "_index": ".kibana-event-log-7.8.0-000001",
+                "_type": "_doc",
+                "_id": "cB_G4XIBp6nT3r4STmtZ",
+                "_score": 0.0,
+                "_source": {
+                    "event": {
+                        "provider": "eventLog",
+                        "action": "starting"
+                    },
+                    "message": "eventLog starting",
+                    "@timestamp": "2020-06-23T15:22:49.255Z",
+                    "ecs": {
+                        "version": "1.5.0"
+                    },
+                    "kibana": {
+                        "server_uuid": "4b0f8837-bcfd-46f3-b6e9-7199bf838078"
+                    }
+                }
+            },
+            {
+                "_index": ".kibana-event-log-7.8.1-000001",
+                "_type": "_doc",
+                "_id": "Y9Qjm3MBp6nT3r4S13FH",
+                "_score": 0.0,
+                "_source": {
+                    "event": {
+                        "provider": "eventLog",
+                        "action": "starting"
+                    },
+                    "message": "eventLog starting",
+                    "@timestamp": "2020-07-29T15:14:43.825Z",
+                    "ecs": {
+                        "version": "1.5.0"
+                    },
+                    "kibana": {
+                        "server_uuid": "4b0f8837-bcfd-46f3-b6e9-7199bf838078"
+                    }
+                }
+            },
+            {
+                "_index": ".kibana-event-log-7.8.1-000001",
+                "_type": "_doc",
+                "_id": "55BJs3MB6pxhCsM56Ghf",
+                "_score": 0.0,
+                "_source": {
+                    "event": {
+                        "provider": "eventLog",
+                        "action": "starting"
+                    },
+                    "message": "eventLog starting",
+                    "@timestamp": "2020-08-03T07:47:12.059Z",
+                    "ecs": {
+                        "version": "1.5.0"
+                    },
+                    "kibana": {
+                        "server_uuid": "4b0f8837-bcfd-46f3-b6e9-7199bf838078"
+                    }
+                }
+            },
+            {
+                "_index": ".kibana-event-log-7.8.1-000001",
+                "_type": "_doc",
+                "_id": "dmhx3XMBZFK4U3pBtLEb",
+                "_score": 0.0,
+                "_source": {
+                    "event": {
+                        "provider": "eventLog",
+                        "action": "starting"
+                    },
+                    "message": "eventLog starting",
+                    "@timestamp": "2020-08-11T12:14:43.184Z",
+                    "ecs": {
+                        "version": "1.5.0"
+                    },
+                    "kibana": {
+                        "server_uuid": "4b0f8837-bcfd-46f3-b6e9-7199bf838078"
+                    }
+                }
+            },
+            {
+                "_index": ".kibana-event-log-7.8.1-000001",
+                "_type": "_doc",
+                "_id": "2SwU_XMBMK26Z3QrkpXK",
+                "_score": 0.0,
+                "_source": {
+                    "event": {
+                        "provider": "eventLog",
+                        "action": "starting"
+                    },
+                    "message": "eventLog starting",
+                    "@timestamp": "2020-08-17T15:40:50.714Z",
+                    "ecs": {
+                        "version": "1.5.0"
+                    },
+                    "kibana": {
+                        "server_uuid": "4b0f8837-bcfd-46f3-b6e9-7199bf838078"
+                    }
+                }
+            },
+            {
+                "_index": "article-2020.06.21",
+                "_type": "_doc",
+                "_id": "z7Z-1nIBXXPHq16YkCbe",
+                "_score": 0.0,
+                "_source": {
+                    "bid": "4148913",
+                    "tazlocal": "false",
+                    "referrer": "\"https://taz.de/Petition-zu-Motorradlaerm/!5691659/\"",
+                    "filepath": "/Bundesrat-zu-Laermgrenzen/!5685921/",
+                    "geoip": {
+                        "asn": "6805",
+                        "as_org": "Telefonica Germany"
+                    },
+                    "kicker": "Bundesrat zu L\u00e4rmgrenzen",
+                    "ressortIDs": [
+                        "4628"
+                    ],
+                    "place_4608": null,
+                    "taztags": [
+                        "Bundesrat",
+                        "Nordrhein-Westfalen"
+                    ],
+                    "schwerpunkte": [
+                        "Schwerpunkt Motorradl\u00e4rm"
+                    ],
+                    "rlinktext": "Petition-zu-Motorradlaerm/",
+                    "rmsid": "5691659",
+                    "artscope": "cms-article",
+                    "referrerfilepath": "/Petition-zu-Motorradlaerm/!5691659/",
+                    "msid": "5685921",
+                    "tagids": [
+                        "5613160",
+                        "5008863",
+                        "5008120"
+                    ],
+                    "SSL_CIPHER": "\"ECDHE-RSA-AES256-GCM-SHA384\"",
+                    "arttype": "Bericht",
+                    "DoNotTrack": "\"-\"",
+                    "referrerclass": "self",
+                    "tags": [
+                        "syslogformat",
+                        "parsed",
+                        "uaparsed",
+                        "gotreferrer",
+                        "jsondata",
+                        "_grokparsefailure"
+                    ],
+                    "pubtimediff": 3189878,
+                    "@timestamp": "2020-06-21T10:48:38.248Z",
+                    "deviceclass": "mobile",
+                    "fulluseragent": "\"Mozilla/5.0 (Linux; Android 7.0; SM-G920F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36\"",
+                    "major": "83",
+                    "name": "Chrome Mobile",
+                    "minor": "0",
+                    "@version": "1",
+                    "patch": "4103",
+                    "referrerhost": "taz.de",
+                    "ressorts": [
+                        "Verkehr"
+                    ],
+                    "errors": [],
+                    "fingerprint": "544575281",
+                    "os_minor": "0",
+                    "headline": "Kein Bock auf das Geknatter",
+                    "referrertags": "istaz",
+                    "request": "\"GET /Bundesrat-zu-Laermgrenzen/!5685921/ HTTP/1.1\"",
+                    "device": "Samsung SM-G920F",
+                    "os_name": "Android",
+                    "type": "article",
+                    "linktext": "Bundesrat-zu-Laermgrenzen/",
+                    "os_major": "7",
+                    "build": "",
+                    "reloaded": "false",
+                    "pubtime": "2020-05-15 14:44:00+02:00",
+                    "os": "Android",
+                    "SSL_PROTOCOL": "\"TLSv1.2\""
+                }
+            },
+            {
+                "_index": "article-2020.06.21",
+                "_type": "_doc",
+                "_id": "0LZ-1nIBXXPHq16YkSZ8",
+                "_score": 0.0,
+                "_source": {
+                    "bid": "4220465",
+                    "tazlocal": "false",
+                    "referrer": "\"https://taz.de/\"",
+                    "filepath": "/Corona-in-Toennies-Fleischfabrik/!5696568/",
+                    "geoip": {
+                        "asn": "6805",
+                        "as_org": "Telefonica Germany"
+                    },
+                    "kicker": "Corona in T\u00f6nnies-Fleischfabrik",
+                    "ressortIDs": [
+                        "4629"
+                    ],
+                    "place_4608": 2,
+                    "taztags": [
+                        "Ausbeutung",
+                        "Clemens T\u00f6nnies",
+                        "Diskriminierung",
+                        "Fleischindustrie"
+                    ],
+                    "schwerpunkte": [
+                        "Schwerpunkt Coronavirus"
+                    ],
+                    "artscope": "cms-article",
+                    "referrerfilepath": "/",
+                    "msid": "5696568",
+                    "tagids": [
+                        "5007519",
+                        "5660746",
+                        "5009077",
+                        "5008580",
+                        "5008041"
+                    ],
+                    "SSL_CIPHER": "\"ECDHE-RSA-AES256-GCM-SHA384\"",
+                    "arttype": "Bericht",
+                    "DoNotTrack": "\"-\"",
+                    "referrerclass": "self",
+                    "tags": [
+                        "syslogformat",
+                        "parsed",
+                        "uaparsed",
+                        "gotreferrer",
+                        "jsondata",
+                        "_grokparsefailure"
+                    ],
+                    "pubtimediff": 3797,
+                    "@timestamp": "2020-06-21T10:48:38.146Z",
+                    "deviceclass": "mobile",
+                    "fulluseragent": "\"Mozilla/5.0 (Linux; Android 8.0.0; SM-G930F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36\"",
+                    "major": "83",
+                    "name": "Chrome Mobile",
+                    "minor": "0",
+                    "@version": "1",
+                    "patch": "4103",
+                    "referrerhost": "taz.de",
+                    "ressorts": [
+                        "Arbeit"
+                    ],
+                    "errors": [],
+                    "fingerprint": "3072408124",
+                    "os_minor": "0",
+                    "headline": "Regionaler Lockdown droht",
+                    "referrertags": "isstartpage",
+                    "request": "\"GET /Corona-in-Toennies-Fleischfabrik/!5696568/ HTTP/1.1\"",
+                    "device": "Samsung SM-G930F",
+                    "os_name": "Android",
+                    "type": "article",
+                    "linktext": "Corona-in-Toennies-Fleischfabrik/",
+                    "os_major": "8",
+                    "build": "",
+                    "reloaded": "false",
+                    "pubtime": "2020-06-21 11:45:00+02:00",
+                    "os": "Android",
+                    "SSL_PROTOCOL": "\"TLSv1.2\""
+                }
+            },
+            {
+                "_index": "article-2020.06.21",
+                "_type": "_doc",
+                "_id": "1rZ-1nIBXXPHq16YkSaT",
+                "_score": 0.0,
+                "_source": {
+                    "bid": "4219454",
+                    "tazlocal": "false",
+                    "referrer": "\"http://m.facebook.com/\"",
+                    "filepath": "/Toedlicher-Polizei-Schuss-in-Bremen/!5696443/",
+                    "geoip": {
+                        "asn": "3320",
+                        "as_org": "Deutsche Telekom AG"
+                    },
+                    "kicker": "T\u00f6dlicher Polizei-Schuss in Bremen",
+                    "ressortIDs": [
+                        "4652"
+                    ],
+                    "place_4608": null,
+                    "taztags": [
+                        "Sch\u00fcsse",
+                        "Marokko",
+                        "Polizei Bremen"
+                    ],
+                    "schwerpunkte": [
+                        "Schwerpunkt Polizeigewalt und Rassismus"
+                    ],
+                    "artscope": "cms-article",
+                    "referrerfilepath": "/",
+                    "msid": "5696443",
+                    "tagids": [
+                        "5200097",
+                        "5333784",
+                        "5008089",
+                        "5013061"
+                    ],
+                    "SSL_CIPHER": "\"ECDHE-RSA-AES256-GCM-SHA384\"",
+                    "arttype": "Kommentar",
+                    "DoNotTrack": "\"-\"",
+                    "referrerclass": "social",
+                    "tags": [
+                        "syslogformat",
+                        "parsed",
+                        "uaparsed",
+                        "gotreferrer",
+                        "jsondata"
+                    ],
+                    "pubtimediff": 103709,
+                    "@timestamp": "2020-06-21T10:48:38.168Z",
+                    "deviceclass": "mobile",
+                    "fulluseragent": "\"Mozilla/5.0 (Linux; Android 10; VOG-L29 Build/HUAWEIVOG-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.101 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/274.0.0.46.119;]\"",
+                    "major": "274",
+                    "name": "Facebook",
+                    "minor": "0",
+                    "@version": "1",
+                    "patch": "0",
+                    "referrerhost": "m.facebook.com",
+                    "ressorts": [
+                        "Bremen"
+                    ],
+                    "errors": [],
+                    "fingerprint": "427726620",
+                    "headline": "Einsprachigkeit kann t\u00f6ten",
+                    "referrertags": "isfacebook",
+                    "request": "\"GET /Toedlicher-Polizei-Schuss-in-Bremen/!5696443/ HTTP/1.1\"",
+                    "device": "VOG-L29",
+                    "os_name": "Android",
+                    "type": "article",
+                    "linktext": "Toedlicher-Polizei-Schuss-in-Bremen/",
+                    "build": "",
+                    "reloaded": "false",
+                    "pubtime": "2020-06-20 08:00:00+02:00",
+                    "os": "Android",
+                    "SSL_PROTOCOL": "\"TLSv1.2\""
+                }
+            },
+            {
+                "_index": "article-2020.06.21",
+                "_type": "_doc",
+                "_id": "27Z-1nIBXXPHq16YkiYo",
+                "_score": 0.0,
+                "_source": {
+                    "bid": "109853",
+                    "tazlocal": "false",
+                    "referrer": "\"-\"",
+                    "filepath": "/!5041943/",
+                    "geoip": {
+                        "asn": "24940",
+                        "as_org": "Hetzner Online GmbH"
+                    },
+                    "kicker": "Die Wahrheit",
+                    "ressortIDs": [
+                        "4644"
+                    ],
+                    "place_4608": null,
+                    "taztags": [
+                        "Avantgarde"
+                    ],
+                    "schwerpunkte": [],
+                    "artscope": "cms-article",
+                    "msid": "5041943",
+                    "tagids": [
+                        "5010641"
+                    ],
+                    "SSL_CIPHER": "\"ECDHE-RSA-AES256-GCM-SHA384\"",
+                    "arttype": "Kolumne",
+                    "DoNotTrack": "\"-\"",
+                    "referrerclass": "missing",
+                    "tags": [
+                        "syslogformat",
+                        "parsed",
+                        "uaparsed",
+                        "jsondata"
+                    ],
+                    "pubtimediff": 192217718,
+                    "@timestamp": "2020-06-21T10:48:38.532Z",
+                    "deviceclass": "desktop",
+                    "fulluseragent": "\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36\"",
+                    "major": "64",
+                    "name": "Chrome",
+                    "minor": "0",
+                    "@version": "1",
+                    "patch": "3282",
+                    "ressorts": [
+                        "Wahrheit"
+                    ],
+                    "errors": [],
+                    "fingerprint": "3957806001",
+                    "headline": "Franks futuristischer Sound",
+                    "referrertags": "missing",
+                    "request": "\"GET /!5041943/ HTTP/1.1\"",
+                    "device": "Other",
+                    "os_name": "Linux",
+                    "type": "article",
+                    "build": "",
+                    "reloaded": "false",
+                    "pubtime": "2014-05-19 19:00:00+02:00",
+                    "os": "Linux",
+                    "SSL_PROTOCOL": "\"TLSv1.2\""
+                }
+            }
+        ]
+    },
+    "aggregations": {
+        "KEY_TOPLIST_AGGREGTAION": {
+            "doc_count_error_upper_bound": 226594,
+            "sum_other_doc_count": 33198830,
+            "buckets": [
+                {
+                    "key": "__missing__",
+                    "doc_count": 776995,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 317239,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 21687
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 459756,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 19161
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 715095,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 19645
+                                }
+                            },
+                            {
+                                "key": "mobile",
+                                "doc_count": 40291,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 18949
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 21601,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 414
+                                }
+                            },
+                            {
+                                "key": "mastodonpod",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 776995,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": ".kibana-event-log-7.8.0-000001",
+                                    "_type": "_doc",
+                                    "_id": "bEWj4XIBef5iujqoIE4l",
+                                    "_score": 0.0,
+                                    "_source": {}
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 246,
+                        "buckets": [
+                            {
+                                "key": "taz",
+                                "doc_count": 334790,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2279
+                                }
+                            },
+                            {
+                                "key": "Unbekannt",
+                                "doc_count": 113886,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 6120
+                                }
+                            },
+                            {
+                                "key": "",
+                                "doc_count": 12368,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1768
+                                }
+                            },
+                            {
+                                "key": "Google",
+                                "doc_count": 11709,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 10017
+                                }
+                            },
+                            {
+                                "key": "Andere kleine Referrer",
+                                "doc_count": 695,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 370
+                                }
+                            },
+                            {
+                                "key": "DuckDuckGo",
+                                "doc_count": 166,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 134
+                                }
+                            },
+                            {
+                                "key": "Bing",
+                                "doc_count": 160,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 139
+                                }
+                            },
+                            {
+                                "key": "Ecosia",
+                                "doc_count": 140,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 126
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 103,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 88
+                                }
+                            },
+                            {
+                                "key": "Wikipedia",
+                                "doc_count": 94,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 84
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "All cops are berufsunf\u00e4hig",
+                    "doc_count": 614878,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 614878,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 471117
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 391746,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 301735
+                                }
+                            },
+                            {
+                                "key": "desktop",
+                                "doc_count": 222015,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 169916
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 1066,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 379
+                                }
+                            },
+                            {
+                                "key": "mastodonpod",
+                                "doc_count": 51,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 51
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 614878,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.21",
+                                    "_type": "_doc",
+                                    "_id": "PLZ-1nIBXXPHq16Y2Slx",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5689584",
+                                        "pubtime": "2020-06-15 09:41:00+02:00",
+                                        "kicker": "Abschaffung der Polizei"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": []
+                    }
+                },
+                {
+                    "key": "Provinz am Limit",
+                    "doc_count": 575561,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 575561,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 441076
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 418660,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 358298
+                                }
+                            },
+                            {
+                                "key": "mobile",
+                                "doc_count": 156712,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 82438
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 189,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 79
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 575561,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.24",
+                                    "_type": "_doc",
+                                    "_id": "vjil5nIBp6nT3r4STCck",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5691183",
+                                        "pubtime": "2020-06-23 18:07:00+02:00",
+                                        "kicker": "Anstieg der Corona-Infektionen"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": []
+                    }
+                },
+                {
+                    "key": "Unterst\u00fctzer*in werden!",
+                    "doc_count": 532178,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 286466,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 249536
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 245712,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 214681
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 303852,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 270264
+                                }
+                            },
+                            {
+                                "key": "desktop",
+                                "doc_count": 228048,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 191364
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 278,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 154
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 532178,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.21",
+                                    "_type": "_doc",
+                                    "_id": "GbZ-1nIBXXPHq16YmieS",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "115932",
+                                        "pubtime": "2013-05-08 09:55:24+02:00",
+                                        "kicker": "Freiwilliges Soziales Ja"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 4,
+                        "buckets": [
+                            {
+                                "key": "taz",
+                                "doc_count": 238055,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 215567
+                                }
+                            },
+                            {
+                                "key": "Unbekannt",
+                                "doc_count": 12963,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 8025
+                                }
+                            },
+                            {
+                                "key": "",
+                                "doc_count": 1496,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 986
+                                }
+                            },
+                            {
+                                "key": "Flipboard",
+                                "doc_count": 651,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 615
+                                }
+                            },
+                            {
+                                "key": "Andere kleine Referrer",
+                                "doc_count": 181,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 160
+                                }
+                            },
+                            {
+                                "key": "Google",
+                                "doc_count": 139,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 134
+                                }
+                            },
+                            {
+                                "key": "Facebook",
+                                "doc_count": 125,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 117
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 76,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 68
+                                }
+                            },
+                            {
+                                "key": "uninterressant",
+                                "doc_count": 12,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 10
+                                }
+                            },
+                            {
+                                "key": "Instagram",
+                                "doc_count": 8,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 8
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "Astronomische Fehlrechnungen",
+                    "doc_count": 479414,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 479414,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 385145
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 379836,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 313666
+                                }
+                            },
+                            {
+                                "key": "desktop",
+                                "doc_count": 97931,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 73448
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 1647,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 674
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 479414,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.08.10",
+                                    "_type": "_doc",
+                                    "_id": "Nip22HMB6pxhCsM5W41m",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5701892",
+                                        "pubtime": "2020-08-10 13:27:00+02:00",
+                                        "kicker": "Streit um Corona-Politik"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 342,
+                        "buckets": [
+                            {
+                                "key": "Facebook",
+                                "doc_count": 247050,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 220889
+                                }
+                            },
+                            {
+                                "key": "Unbekannt",
+                                "doc_count": 132647,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 94681
+                                }
+                            },
+                            {
+                                "key": "Google",
+                                "doc_count": 31572,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 25068
+                                }
+                            },
+                            {
+                                "key": "taz",
+                                "doc_count": 20043,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 15168
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 19158,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 15192
+                                }
+                            },
+                            {
+                                "key": "Andere kleine Referrer",
+                                "doc_count": 18352,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 15207
+                                }
+                            },
+                            {
+                                "key": "Telegram",
+                                "doc_count": 8856,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 7437
+                                }
+                            },
+                            {
+                                "key": "Flipboard",
+                                "doc_count": 788,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 695
+                                }
+                            },
+                            {
+                                "key": "DuckDuckGo",
+                                "doc_count": 385,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 280
+                                }
+                            },
+                            {
+                                "key": "Bing",
+                                "doc_count": 221,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 175
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "Er will\u2019s wirklich wissen",
+                    "doc_count": 360303,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 360303,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 322872
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 332705,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 301940
+                                }
+                            },
+                            {
+                                "key": "desktop",
+                                "doc_count": 26470,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 20692
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 1095,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 262
+                                }
+                            },
+                            {
+                                "key": "mastodonpod",
+                                "doc_count": 33,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 32
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 360303,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.07.07",
+                                    "_type": "_doc",
+                                    "_id": "VZ7EKXMBp6nT3r4SflcB",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5693746",
+                                        "pubtime": "2020-07-07 12:18:00+02:00",
+                                        "kicker": "Moderator Markus Lanz"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": []
+                    }
+                },
+                {
+                    "key": "Armut macht krank",
+                    "doc_count": 334664,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 334664,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 261038
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 218420,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 193870
+                                }
+                            },
+                            {
+                                "key": "mobile",
+                                "doc_count": 115445,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 66656
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 561,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 294
+                                }
+                            },
+                            {
+                                "key": "mastodonpod",
+                                "doc_count": 238,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 144
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 334664,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.26",
+                                    "_type": "_doc",
+                                    "_id": "Y2-O8XIBp6nT3r4STIHm",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5692783",
+                                        "pubtime": "2020-06-26 18:54:00+02:00",
+                                        "kicker": "Neue Coronawelle"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": []
+                    }
+                },
+                {
+                    "key": "\u201eBei uns wird Wasser knapp\u201c",
+                    "doc_count": 279970,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 279970,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 228849
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 175257,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 151466
+                                }
+                            },
+                            {
+                                "key": "mobile",
+                                "doc_count": 103788,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 73974
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 733,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 287
+                                }
+                            },
+                            {
+                                "key": "mastodonpod",
+                                "doc_count": 192,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 141
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 279970,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.07.06",
+                                    "_type": "_doc",
+                                    "_id": "TYJcJHMBp6nT3r4SWf2p",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5693923",
+                                        "pubtime": "2020-07-06 14:27:00+02:00",
+                                        "kicker": "Hydrologe \u00fcber D\u00fcrreperiode 2020"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": []
+                    }
+                },
+                {
+                    "key": "Attila kocht braune So\u00dfe",
+                    "doc_count": 237607,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 237607,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 206043
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 215461,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 190178
+                                }
+                            },
+                            {
+                                "key": "desktop",
+                                "doc_count": 21453,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 16501
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 431,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 225
+                                }
+                            },
+                            {
+                                "key": "mastodonpod",
+                                "doc_count": 262,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 215
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 237607,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.07.19",
+                                    "_type": "_doc",
+                                    "_id": "YrIJZ3MBp6nT3r4SFoLW",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5701321",
+                                        "pubtime": "2020-07-19 13:52:00+02:00",
+                                        "kicker": "Attila Hildmann-Kundgebung in Berlin"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 850,
+                        "buckets": [
+                            {
+                                "key": "Google",
+                                "doc_count": 129696,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 122540
+                                }
+                            },
+                            {
+                                "key": "",
+                                "doc_count": 52116,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 41496
+                                }
+                            },
+                            {
+                                "key": "taz",
+                                "doc_count": 19464,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 16916
+                                }
+                            },
+                            {
+                                "key": "Upday",
+                                "doc_count": 9685,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 8907
+                                }
+                            },
+                            {
+                                "key": "Facebook",
+                                "doc_count": 6929,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 6470
+                                }
+                            },
+                            {
+                                "key": "Unbekannt",
+                                "doc_count": 5790,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4106
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 5592,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 5065
+                                }
+                            },
+                            {
+                                "key": "uninterressant",
+                                "doc_count": 3076,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2820
+                                }
+                            },
+                            {
+                                "key": "Andere kleine Referrer",
+                                "doc_count": 2335,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2187
+                                }
+                            },
+                            {
+                                "key": "Flipboard",
+                                "doc_count": 2074,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1921
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "Nazis kriegen Sprengk\u00f6rper zur\u00fcck",
+                    "doc_count": 224413,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1592517600000.0,
+                                "from_as_string": "2020-06-18T22:00:00.000Z",
+                                "to": 1595109600000.0,
+                                "to_as_string": "2020-07-18T22:00:00.000Z",
+                                "doc_count": 224413,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 183026
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1595109600000.0,
+                                "from_as_string": "2020-07-18T22:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "desktop",
+                                "doc_count": 151375,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 140221
+                                }
+                            },
+                            {
+                                "key": "mobile",
+                                "doc_count": 72555,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 43731
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 432,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 186
+                                }
+                            },
+                            {
+                                "key": "mastodonpod",
+                                "doc_count": 51,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 50
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 224413,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.06.30",
+                                    "_type": "_doc",
+                                    "_id": "JdOLAnMBp6nT3r4SeZb2",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "msid": "5693202",
+                                        "pubtime": "2020-06-29 20:00:00+02:00",
+                                        "kicker": "Nach Beschlagnahme durch die Polizei"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": []
+                    }
+                }
+            ]
+        }
+    }
+}

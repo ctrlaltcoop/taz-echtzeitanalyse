@@ -1,0 +1,45 @@
+{
+    "took": 1274,
+    "timed_out": false,
+    "_shards": {
+        "total": 137,
+        "successful": 133,
+        "skipped": 21,
+        "failed": 4,
+        "failures": [
+            {
+                "shard": 0,
+                "index": "article-2020.07.16",
+                "node": "OPlhizulSRWNpuWdqRCNNg",
+                "reason": {
+                    "type": "illegal_argument_exception",
+                    "reason": "Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [referrerlabel] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+                }
+            },
+            {
+                "shard": 0,
+                "index": "article-2020.07.17",
+                "node": "OPlhizulSRWNpuWdqRCNNg",
+                "reason": {
+                    "type": "illegal_argument_exception",
+                    "reason": "Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [referrerlabel] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+                }
+            }
+        ]
+    },
+    "hits": {
+        "total": {
+            "value": 0,
+            "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "KEY_FIREPLACE_AGGREGATION": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": []
+        }
+    }
+}
