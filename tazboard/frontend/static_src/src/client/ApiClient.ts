@@ -5,6 +5,7 @@ import { ReferrerDto } from '@/dto/ReferrerDto'
 import { ToplistDto } from '@/dto/ToplistDto'
 import { DevicesDto } from '@/dto/DevicesDto'
 import { TotalDto } from '@/dto/TotalDto'
+import { SubjectsDto } from '@/dto/SubjectsDto'
 
 export class HttpError extends Error {
   constructor (public response: Response) {
@@ -36,9 +37,10 @@ export class ApiClient {
     }, requestArgs.signal)
   }
 
-  async histogram (minDate: Date, maxDate: Date, msid: number | null = null, requestArgs: RequestArgs = {}): Promise<HistogramDto> {
+  async histogram (minDate: Date, maxDate: Date, msid: number | null = null, subject: string | null = null, requestArgs: RequestArgs = {}): Promise<HistogramDto> {
     return await this.request<HistogramDto>('histogram', 'GET', {
       msid,
+      subject,
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString()
     }, requestArgs.signal)
@@ -52,8 +54,17 @@ export class ApiClient {
     }, requestArgs.signal)
   }
 
-  async toplist (minDate: Date, maxDate: Date, limit = 10, requestArgs: RequestArgs = {}): Promise<ToplistDto> {
+  async toplist (minDate: Date, maxDate: Date, limit = 10, subject: string | null = null, requestArgs: RequestArgs = {}): Promise<ToplistDto> {
     return await this.request<ToplistDto>('toplist', 'GET', {
+      min_date: minDate.toISOString(),
+      max_date: maxDate.toISOString(),
+      limit,
+      subject
+    }, requestArgs.signal)
+  }
+
+  async subjects (minDate: Date, maxDate: Date, limit = 10, requestArgs: RequestArgs = {}): Promise<SubjectsDto> {
+    return await this.request<SubjectsDto>('subjects', 'GET', {
       min_date: minDate.toISOString(),
       max_date: maxDate.toISOString(),
       limit: limit

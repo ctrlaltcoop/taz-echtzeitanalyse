@@ -1,10 +1,11 @@
 from django.utils import timezone
 
-from tazboard.api.queries.common import maybe_add_msid_filter, get_interval_filter_exclude_bots
+from tazboard.api.queries.common import maybe_add_msid_filter, get_interval_filter_exclude_bots, \
+    maybe_add_subject_filter
 from tazboard.api.queries.constants import INTERVAL_10MINUTES, KEY_FINGERPRINT_AGGREGATION, KEY_TIMESTAMP_AGGREGATION
 
 
-def get_histogram_query(min_date, max_date=timezone.now(), msid=None, interval=INTERVAL_10MINUTES):
+def get_histogram_query(min_date, max_date=timezone.now(), msid=None, subject=None, interval=INTERVAL_10MINUTES):
     query = {
         "aggs": {
             KEY_TIMESTAMP_AGGREGATION: {
@@ -34,4 +35,5 @@ def get_histogram_query(min_date, max_date=timezone.now(), msid=None, interval=I
         "query": get_interval_filter_exclude_bots(min_date, max_date)
     }
     query = maybe_add_msid_filter(msid, query)
+    query = maybe_add_subject_filter(subject, query)
     return query

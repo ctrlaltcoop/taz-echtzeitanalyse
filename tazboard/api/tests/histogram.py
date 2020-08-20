@@ -44,7 +44,9 @@ class HistogramTestCase(LiveServerTestCase):
         })
         self.es_client.search.assert_called_once()
         get_histogram_query_spy.assert_called_once()
-        get_histogram_query_spy.assert_called_with(min_date, max_date, msid=None, interval=INTERVAL_10MINUTES)
+        get_histogram_query_spy.assert_called_with(
+            min_date, max_date, msid=None, subject=None, interval=INTERVAL_10MINUTES
+        )
 
     @patch('tazboard.api.views.get_histogram_query')
     def test_unfiltered_histogram_query_specify_msid(self, get_histogram_query):
@@ -58,7 +60,9 @@ class HistogramTestCase(LiveServerTestCase):
         })
         self.es_client.search.assert_called_once()
         get_histogram_query.assert_called_once()
-        get_histogram_query.assert_called_with(min_date, max_date, msid=int(msid), interval=INTERVAL_10MINUTES)
+        get_histogram_query.assert_called_with(
+            min_date, max_date, msid=int(msid), subject=None, interval=INTERVAL_10MINUTES
+        )
 
     @patch('tazboard.api.views.get_histogram_query')
     def test_histogram_specify_interval(self, get_histogram_query_spy):
@@ -73,7 +77,26 @@ class HistogramTestCase(LiveServerTestCase):
         self.assertEquals(response.status_code, 200)
         self.es_client.search.assert_called_once()
         get_histogram_query_spy.assert_called_once()
-        get_histogram_query_spy.assert_called_with(min_date, max_date, msid=None, interval=interval)
+        get_histogram_query_spy.assert_called_with(
+            min_date, max_date, msid=None, subject=None, interval=interval
+        )
+
+    @patch('tazboard.api.views.get_histogram_query')
+    def test_histogram_specify_subject(self, get_histogram_query_spy):
+        subject = 'A very good suBject'
+        min_date = MOCK_FAKE_NOW - timedelta(days=1)
+        max_date = MOCK_FAKE_NOW
+        response = self.client.get('/api/v1/histogram', {
+            'min_date': min_date.isoformat(),
+            'max_date': max_date.isoformat(),
+            'subject': subject
+        })
+        self.assertEquals(response.status_code, 200)
+        self.es_client.search.assert_called_once()
+        get_histogram_query_spy.assert_called_once()
+        get_histogram_query_spy.assert_called_with(
+            min_date, max_date, msid=None, subject=subject, interval=INTERVAL_10MINUTES
+        )
 
     def test_expect_503_if_elastic_is_unavailable(self):
         self.es_client.search = Mock(side_effect=ConnectionError())

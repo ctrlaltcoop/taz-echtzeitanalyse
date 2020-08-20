@@ -1,12 +1,12 @@
 from django.utils import timezone
 
 from tazboard.api.queries.common import get_fingerprint_aggregation_with_ranges, \
-    get_interval_filter_exclude_bots, get_devices_aggregation, get_referrer_aggregation
+    get_interval_filter_exclude_bots, get_devices_aggregation, get_referrer_aggregation, maybe_add_subject_filter
 from tazboard.api.queries.constants import KEY_TOPLIST_AGGREGTAION, \
     KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_DEVICES_AGGREGATION
 
 
-def get_toplist_query(min_date, max_date=timezone.now(), limit=10):
+def get_toplist_query(min_date, max_date=timezone.now(), limit=10, subject=None):
     min_date_previous_interval = min_date - (max_date - min_date)
     query = {
         "aggs": {
@@ -36,7 +36,8 @@ def get_toplist_query(min_date, max_date=timezone.now(), limit=10):
                 }
             }
         },
-        "size": 0,
+        "size": str(limit),
         "query": get_interval_filter_exclude_bots(min_date_previous_interval, max_date)
     }
+    maybe_add_subject_filter(subject, query)
     return query

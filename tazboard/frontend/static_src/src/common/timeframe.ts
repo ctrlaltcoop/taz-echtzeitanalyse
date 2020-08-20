@@ -1,4 +1,5 @@
 import { subDays, subHours, subMinutes } from 'date-fns'
+import Vue from 'vue'
 
 export enum TimeframeId {
   KEY_15_MINUTES = '15_MINUTES',
@@ -57,5 +58,19 @@ export const TIMEFRAMES: Array<Timeframe> = [{
 export function getTimeframeById (timeframeId: TimeframeId): Timeframe | undefined {
   return TIMEFRAMES.find(({ id }) => id === timeframeId)
 }
+
+export interface TimeframeMixinComputed {
+  currentTimeframe: Timeframe | null;
+}
+
+export const TimeframeMixin = Vue.extend<{}, {}, TimeframeMixinComputed, {}>({
+  computed: {
+    currentTimeframe (): Timeframe | null {
+      const currentTimeframeId = this.$route.query.timeframeId as TimeframeId
+      const currentTimeframe = getTimeframeById(currentTimeframeId)
+      return currentTimeframe ?? null
+    }
+  }
+})
 
 export const DEFAULT_TIMEFRAME: Timeframe = TIMEFRAMES[0]
