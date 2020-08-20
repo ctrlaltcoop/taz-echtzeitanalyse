@@ -45,6 +45,7 @@ import { CMS_BASE_LINK } from '@/common/constants'
 
 interface Props {
   item: {
+    bid: number;
     referrers: Array<ReferrerData>;
     devices: Array<DevicesData>;
   };
