@@ -33,11 +33,17 @@ def rewrite_query_params(original_function):
 def activate_global_elastic_mocks():
     from tazboard.api import views
     from ..elastic_client import es
+    from tazboard.api.queries import fireplace
 
     views.get_histogram_query = rewrite_query_params(views.get_histogram_query)
     views.get_toplist_query = rewrite_query_params(views.get_toplist_query)
     views.get_referrer_query = rewrite_query_params(views.get_referrer_query)
     views.get_devices_query = rewrite_query_params(views.get_devices_query)
     views.get_total_query = rewrite_query_params(views.get_total_query)
+    views.get_subjects_query = rewrite_query_params(views.get_subjects_query)
+    views.get_fireplace_query = rewrite_query_params(views.get_fireplace_query)
+    with open(os.path.join(BASE_DIR, '..', 'api', 'tests', 'mocks', 'c.xml'), 'r') as cxml_mock:
+        cxml_mock_string = cxml_mock.read()
+        fireplace.fetch_ressort_cxml = lambda x: cxml_mock_string
 
     es.search = get_elastic_mock_response
