@@ -8,6 +8,11 @@
       :tbody-transition-props="{ name: 'statistics-table' }"
       v-model="rowItems"
       thead-class="table-head">
+
+      <template v-slot:head(hits)="data">
+        {{ data.label }}
+      </template>
+
       <template v-slot:head(referrerSelect)="data">
         <div class="stacked-th-with-selection">
           <div>{{ data.label }}</div>
@@ -162,6 +167,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   },
   data () {
     return {
+      sortBy: null,
+      sortDesc: false,
       rowItems: [],
       selectedReferrer: null,
       loadingStateTimeframe: LoadingState.FRESH,
@@ -169,11 +176,10 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         {
           key: 'hits',
           label: 'Pageviews',
-          class: 'text-right',
-          thClass: 'taztable-th',
-          tdClass: 'taztable-td-hits',
-          formatter: (value: number) => value.toLocaleString(),
-          sortable: true
+          thClass: 'taztable-th text-center',
+          tdClass: 'text-right taztable-td-hits',
+          sortable: true,
+          formatter: (value: number) => value.toLocaleString()
         },
         {
           key: 'trend',
@@ -184,21 +190,23 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         {
           key: 'headline',
           label: 'Titel',
-          class: 'text-left',
-          thClass: 'taztable-th'
+          tdClass: 'text-left',
+          thClass: 'taztable-th taztable-th-title text-left'
         },
         {
           key: 'pubdate',
           label: 'veröffentlicht',
-          class: 'text-right',
-          thClass: 'taztable-th',
+          tdClass: 'align-middle taztable-td-pubdate text-right',
+          thClass: 'taztable-th text-center',
           formatter: formatPublicationTime,
           sortable: true
         }, {
           key: 'referrerSelect',
           label: 'Klicks über',
-          class: 'text-right',
-          thClass: 'taztable-th',
+          tdClass: 'text-right taztable-td-referrer-select align-middle',
+          thClass: 'taztable-th taztable-th-black text-center',
+          sortable: true,
+          sortByFormatted: true,
           formatter: (value: null, key: string, item: ArticleData) => {
             // @ts-ignore type inference of this doesn't work here
             return this.formatSelectReferrer(value, key, item)
@@ -206,8 +214,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         }, {
           key: 'topReferrer',
           label: 'Top Referrer',
-          class: 'text-right',
-          thClass: 'taztable-th',
+          tdClass: 'text-right',
+          thClass: 'taztable-th text-center',
           formatter: (value: null, key: string, item: ArticleData) => {
             return item.referrers
               .filter(({ percentage }) => percentage > TOP_REFERRER_THRESHOLD)
@@ -270,11 +278,36 @@ export default Vue.extend<Data, Methods, Computed, {}>({
 
 }
 
+.taztable-td-referrer-select {
+  font-weight: bold;
+}
+
+.taztable-td-pubdate {
+  font-size: 1.2rem;
+}
+
+.taztable-td-referrer-select {
+  font-size: 1.2rem;
+}
+
 .taztable-th {
   color: $white;
-  font-size: 2rem;
+  font-size: 1.4rem !important;
   // found no different way to overwrite default style
   border-top: none !important;
+  background-position: center bottom !important;
+  padding: 1rem !important;
+  padding-bottom: 0.9em !important;
+  text-align: center !important;
+  vertical-align: top !important;
+}
+
+.taztable-th-black {
+  color: $black;
+}
+
+.taztable-th-title {
+  width: 100%;
 }
 
 .taztable-td-hits {
