@@ -1,5 +1,5 @@
 {
-    "took": 12,
+    "took": 23,
     "timed_out": false,
     "_shards": {
         "total": 137,
@@ -9,8 +9,8 @@
     },
     "hits": {
         "total": {
-            "value": 8356,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -22,23 +22,23 @@
             "buckets": [
                 {
                     "key": "desktop",
-                    "doc_count": 4813,
+                    "doc_count": 23545,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 2943
+                        "value": 11775
                     }
                 },
                 {
                     "key": "mobile",
-                    "doc_count": 2753,
+                    "doc_count": 11135,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 2072
+                        "value": 7710
                     }
                 },
                 {
                     "key": "unclassified",
-                    "doc_count": 790,
+                    "doc_count": 2416,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 59
+                        "value": 235
                     }
                 }
             ]

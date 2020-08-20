@@ -1,5 +1,5 @@
 {
-    "took": 114,
+    "took": 129,
     "timed_out": false,
     "_shards": {
         "total": 137,
@@ -9,36 +9,36 @@
     },
     "hits": {
         "total": {
-            "value": 8356,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
     },
     "aggregations": {
         "KEY_SUBJECTS_AGGREGATION": {
-            "doc_count_error_upper_bound": 10,
-            "sum_other_doc_count": 713,
+            "doc_count_error_upper_bound": 24,
+            "sum_other_doc_count": 1519,
             "buckets": [
                 {
                     "key": "Schwerpunkt Klimawandel",
-                    "doc_count": 1701,
+                    "doc_count": 3549,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 1229,
+                                "doc_count": 2657,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1087
+                                    "value": 2278
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 463,
+                                "doc_count": 883,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 409
+                                    "value": 759
                                 }
                             },
                             {
@@ -51,10 +51,10 @@
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 1499
+                        "value": 3040
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
-                        "value": 35
+                        "value": 52
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
@@ -62,58 +62,58 @@
                         "buckets": [
                             {
                                 "key": "Pocket",
-                                "doc_count": 481,
+                                "doc_count": 1045,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 469
+                                    "value": 1009
                                 }
                             },
                             {
                                 "key": "taz",
-                                "doc_count": 479,
+                                "doc_count": 980,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 427
+                                    "value": 852
                                 }
                             },
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 367,
+                                "doc_count": 762,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 291
+                                    "value": 601
                                 }
                             },
                             {
                                 "key": "Twitter",
-                                "doc_count": 150,
+                                "doc_count": 293,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 136
+                                    "value": 266
                                 }
                             },
                             {
                                 "key": "Facebook",
-                                "doc_count": 83,
+                                "doc_count": 155,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 78
+                                    "value": 144
                                 }
                             },
                             {
                                 "key": "Andere kleine Referrer",
-                                "doc_count": 64,
+                                "doc_count": 148,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 64
+                                    "value": 141
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 60,
+                                "doc_count": 148,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 52
+                                    "value": 107
                                 }
                             },
                             {
                                 "key": "Instagram",
-                                "doc_count": 10,
+                                "doc_count": 11,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 9
+                                    "value": 10
                                 }
                             },
                             {
@@ -135,23 +135,23 @@
                 },
                 {
                     "key": "Schwerpunkt Fridays For Future",
-                    "doc_count": 820,
+                    "doc_count": 1631,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 445,
+                                "doc_count": 917,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 408
+                                    "value": 831
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 371,
+                                "doc_count": 710,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 335
+                                    "value": 634
                                 }
                             },
                             {
@@ -164,10 +164,10 @@
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 746
+                        "value": 1468
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
-                        "value": 12
+                        "value": 19
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
@@ -175,51 +175,51 @@
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 389,
+                                "doc_count": 753,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 365
+                                    "value": 704
                                 }
                             },
                             {
                                 "key": "Twitter",
-                                "doc_count": 150,
+                                "doc_count": 293,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 136
+                                    "value": 266
                                 }
                             },
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 104,
+                                "doc_count": 214,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 82
-                                }
-                            },
-                            {
-                                "key": "Facebook",
-                                "doc_count": 61,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 58
+                                    "value": 169
                                 }
                             },
                             {
                                 "key": "Andere kleine Referrer",
-                                "doc_count": 58,
+                                "doc_count": 134,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 58
+                                    "value": 129
+                                }
+                            },
+                            {
+                                "key": "Facebook",
+                                "doc_count": 119,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 112
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 44,
+                                "doc_count": 103,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 44
+                                    "value": 93
                                 }
                             },
                             {
                                 "key": "Instagram",
-                                "doc_count": 10,
+                                "doc_count": 11,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 9
+                                    "value": 10
                                 }
                             },
                             {
@@ -248,112 +248,112 @@
                 },
                 {
                     "key": "Schwerpunkt Coronavirus",
-                    "doc_count": 778,
+                    "doc_count": 1616,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 445,
+                                "doc_count": 963,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 290
+                                    "value": 576
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 293,
+                                "doc_count": 564,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 255
+                                    "value": 471
                                 }
                             },
                             {
                                 "key": "unclassified",
-                                "doc_count": 40,
+                                "doc_count": 89,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 22
+                                    "value": 48
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 567
+                        "value": 1095
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
-                        "value": 133
+                        "value": 208
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 2,
+                        "sum_other_doc_count": 9,
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 295,
+                                "doc_count": 590,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 235
+                                    "value": 445
                                 }
                             },
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 249,
+                                "doc_count": 513,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 133
+                                    "value": 278
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 174,
+                                "doc_count": 390,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 153
+                                    "value": 283
                                 }
                             },
                             {
                                 "key": "Pocket",
-                                "doc_count": 21,
+                                "doc_count": 34,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 21
+                                    "value": 33
                                 }
                             },
                             {
                                 "key": "Twitter",
-                                "doc_count": 15,
+                                "doc_count": 23,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 14
+                                    "value": 20
                                 }
                             },
                             {
                                 "key": "Facebook",
-                                "doc_count": 8,
+                                "doc_count": 21,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 8
-                                }
-                            },
-                            {
-                                "key": "Newstral",
-                                "doc_count": 6,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 5
-                                }
-                            },
-                            {
-                                "key": "Bing",
-                                "doc_count": 3,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
-                                }
-                            },
-                            {
-                                "key": "DuckDuckGo",
-                                "doc_count": 3,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
+                                    "value": 20
                                 }
                             },
                             {
                                 "key": "Andere kleine Referrer",
-                                "doc_count": 2,
+                                "doc_count": 17,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
+                                    "value": 16
+                                }
+                            },
+                            {
+                                "key": "Bing",
+                                "doc_count": 7,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 7
+                                }
+                            },
+                            {
+                                "key": "Newstral",
+                                "doc_count": 7,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 6
+                                }
+                            },
+                            {
+                                "key": "Upday",
+                                "doc_count": 5,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 5
                                 }
                             }
                         ]
@@ -361,70 +361,91 @@
                 },
                 {
                     "key": "Lesest\u00fcck Recherche und Reportage",
-                    "doc_count": 399,
+                    "doc_count": 803,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 217,
+                                "doc_count": 453,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 189
+                                    "value": 384
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 176,
+                                "doc_count": 340,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 167
+                                    "value": 317
                                 }
                             },
                             {
                                 "key": "unclassified",
-                                "doc_count": 6,
+                                "doc_count": 10,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 4
+                                    "value": 7
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 360
+                        "value": 708
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
-                        "value": 35
+                        "value": 66
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 2,
+                        "sum_other_doc_count": 3,
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 189,
+                                "doc_count": 360,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 181
+                                    "value": 338
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 114,
+                                "doc_count": 245,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 110
+                                    "value": 232
                                 }
                             },
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 67,
+                                "doc_count": 146,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 42
+                                    "value": 93
+                                }
+                            },
+                            {
+                                "key": "Andere kleine Referrer",
+                                "doc_count": 13,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 12
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 10,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 9
+                                }
+                            },
+                            {
+                                "key": "Upday",
+                                "doc_count": 7,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 7
                                 }
                             },
                             {
                                 "key": "Facebook",
-                                "doc_count": 5,
+                                "doc_count": 6,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 5
+                                    "value": 6
                                 }
                             },
                             {
@@ -435,13 +456,6 @@
                                 }
                             },
                             {
-                                "key": "Andere kleine Referrer",
-                                "doc_count": 4,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 4
-                                }
-                            },
-                            {
                                 "key": "Bing",
                                 "doc_count": 4,
                                 "KEY_FINGERPRINT_AGGREGATION": {
@@ -449,24 +463,10 @@
                                 }
                             },
                             {
-                                "key": "Upday",
+                                "key": "Ecosia",
                                 "doc_count": 4,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 4
-                                }
-                            },
-                            {
-                                "key": "Twitter",
-                                "doc_count": 3,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
-                                }
-                            },
-                            {
-                                "key": "Ecosia",
-                                "doc_count": 2,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
                                 }
                             }
                         ]
@@ -474,95 +474,109 @@
                 },
                 {
                     "key": "Schwerpunkt AfD",
-                    "doc_count": 372,
+                    "doc_count": 738,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 233,
+                                "doc_count": 463,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 193
+                                    "value": 369
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 130,
+                                "doc_count": 257,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 111
+                                    "value": 217
                                 }
                             },
                             {
                                 "key": "unclassified",
-                                "doc_count": 9,
+                                "doc_count": 18,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 6
+                                    "value": 13
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 310
+                        "value": 599
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
-                        "value": 11
+                        "value": 13
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
-                        "sum_other_doc_count": 0,
+                        "sum_other_doc_count": 1,
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 206,
+                                "doc_count": 406,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 183
+                                    "value": 367
                                 }
                             },
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 75,
+                                "doc_count": 156,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 46
+                                    "value": 99
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 37,
+                                "doc_count": 85,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 35
+                                    "value": 60
                                 }
                             },
                             {
                                 "key": "Pocket",
-                                "doc_count": 21,
+                                "doc_count": 32,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 21
+                                    "value": 32
                                 }
                             },
                             {
                                 "key": "Flipboard",
-                                "doc_count": 16,
+                                "doc_count": 30,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 15
+                                    "value": 24
                                 }
                             },
                             {
                                 "key": "Newstral",
-                                "doc_count": 9,
+                                "doc_count": 14,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 8
+                                    "value": 13
                                 }
                             },
                             {
                                 "key": "Twitter",
-                                "doc_count": 7,
+                                "doc_count": 11,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 6
+                                    "value": 9
                                 }
                             },
                             {
                                 "key": "Bing",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "Facebook",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "Upday",
                                 "doc_count": 1,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 1
@@ -573,39 +587,39 @@
                 },
                 {
                     "key": "Schwerpunkt Polizeigewalt und Rassismus",
-                    "doc_count": 219,
+                    "doc_count": 449,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "mobile",
-                                "doc_count": 119,
+                                "doc_count": 244,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 106
+                                    "value": 208
                                 }
                             },
                             {
                                 "key": "desktop",
-                                "doc_count": 98,
+                                "doc_count": 201,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 73
+                                    "value": 145
                                 }
                             },
                             {
                                 "key": "unclassified",
-                                "doc_count": 2,
+                                "doc_count": 4,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
+                                    "value": 4
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 181
+                        "value": 357
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
-                        "value": 22
+                        "value": 34
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
@@ -613,51 +627,65 @@
                         "buckets": [
                             {
                                 "key": "Facebook",
-                                "doc_count": 72,
+                                "doc_count": 138,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 66
+                                    "value": 125
                                 }
                             },
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 50,
+                                "doc_count": 108,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 36
+                                    "value": 74
                                 }
                             },
                             {
                                 "key": "taz",
-                                "doc_count": 43,
+                                "doc_count": 95,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 34
+                                    "value": 75
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 32,
+                                "doc_count": 58,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 47
+                                }
+                            },
+                            {
+                                "key": "Twitter",
+                                "doc_count": 33,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 28
                                 }
                             },
                             {
-                                "key": "Twitter",
-                                "doc_count": 13,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 11
-                                }
-                            },
-                            {
                                 "key": "Andere kleine Referrer",
-                                "doc_count": 7,
+                                "doc_count": 9,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 7
+                                    "value": 9
                                 }
                             },
                             {
                                 "key": "Ecosia",
+                                "doc_count": 5,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 5
+                                }
+                            },
+                            {
+                                "key": "Telegram",
                                 "doc_count": 2,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 2
+                                }
+                            },
+                            {
+                                "key": "DuckDuckGo",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
                                 }
                             }
                         ]
@@ -665,36 +693,36 @@
                 },
                 {
                     "key": "Kolumne Helden der Bewegung",
-                    "doc_count": 155,
+                    "doc_count": 282,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 79,
+                                "doc_count": 154,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 63
+                                    "value": 119
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 42,
+                                "doc_count": 70,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 39
+                                    "value": 66
                                 }
                             },
                             {
                                 "key": "unclassified",
-                                "doc_count": 34,
+                                "doc_count": 58,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 22
+                                    "value": 29
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 124
+                        "value": 214
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
                         "value": 3
@@ -705,16 +733,16 @@
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 71,
+                                "doc_count": 137,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 55
+                                    "value": 99
                                 }
                             },
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 57,
+                                "doc_count": 106,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 42
+                                    "value": 79
                                 }
                             },
                             {
@@ -726,23 +754,30 @@
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 5,
+                                "doc_count": 11,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 5
-                                }
-                            },
-                            {
-                                "key": "Flipboard",
-                                "doc_count": 3,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 3
+                                    "value": 9
                                 }
                             },
                             {
                                 "key": "Bing",
-                                "doc_count": 2,
+                                "doc_count": 4,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 2
+                                    "value": 4
+                                }
+                            },
+                            {
+                                "key": "Flipboard",
+                                "doc_count": 4,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
+                                }
+                            },
+                            {
+                                "key": "Upday",
+                                "doc_count": 4,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
                                 }
                             },
                             {
@@ -758,45 +793,45 @@
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 1
                                 }
-                            },
-                            {
-                                "key": "Upday",
-                                "doc_count": 1,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
-                                }
                             }
                         ]
                     }
                 },
                 {
                     "key": "Verschw\u00f6rungstheorien und Corona",
-                    "doc_count": 124,
+                    "doc_count": 225,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 85,
+                                "doc_count": 151,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 75
+                                    "value": 136
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 39,
+                                "doc_count": 73,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 35
+                                    "value": 60
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 110
+                        "value": 197
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
-                        "value": 20
+                        "value": 25
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
@@ -804,30 +839,44 @@
                         "buckets": [
                             {
                                 "key": "taz",
-                                "doc_count": 58,
+                                "doc_count": 104,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 50
+                                    "value": 89
                                 }
                             },
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 30,
+                                "doc_count": 58,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 27
+                                    "value": 54
                                 }
                             },
                             {
                                 "key": "Pocket",
-                                "doc_count": 21,
+                                "doc_count": 32,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 32
+                                }
+                            },
+                            {
+                                "key": "Google",
+                                "doc_count": 23,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 21
                                 }
                             },
                             {
-                                "key": "Google",
-                                "doc_count": 11,
+                                "key": "Facebook",
+                                "doc_count": 3,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 10
+                                    "value": 2
+                                }
+                            },
+                            {
+                                "key": "Andere kleine Referrer",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
                                 }
                             },
                             {
@@ -835,13 +884,6 @@
                                 "doc_count": 2,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 2
-                                }
-                            },
-                            {
-                                "key": "Facebook",
-                                "doc_count": 1,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
                                 }
                             },
                             {
@@ -856,39 +898,39 @@
                 },
                 {
                     "key": "Jens Spahn",
-                    "doc_count": 108,
+                    "doc_count": 221,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 66,
+                                "doc_count": 143,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 28
+                                    "value": 53
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 38,
+                                "doc_count": 71,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 35
+                                    "value": 63
                                 }
                             },
                             {
                                 "key": "unclassified",
-                                "doc_count": 4,
+                                "doc_count": 7,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 1
+                                    "value": 3
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 64
+                        "value": 119
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
-                        "value": 4
+                        "value": 8
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
@@ -896,70 +938,84 @@
                         "buckets": [
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 48,
+                                "doc_count": 100,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 12
+                                    "value": 21
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 34,
+                                "doc_count": 68,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 31
+                                    "value": 55
                                 }
                             },
                             {
                                 "key": "taz",
-                                "doc_count": 22,
+                                "doc_count": 44,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 18
+                                    "value": 38
                                 }
                             },
                             {
                                 "key": "Twitter",
-                                "doc_count": 4,
+                                "doc_count": 6,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 4
+                                }
+                            },
+                            {
+                                "key": "Andere kleine Referrer",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            },
+                            {
+                                "key": "Facebook",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
                                 }
                             }
                         ]
                     }
                 },
                 {
-                    "key": "Schwerpunkt Pestizide",
-                    "doc_count": 99,
+                    "key": "Schwerpunkt US-Pr\u00e4sidentschaftswahl 2020",
+                    "doc_count": 200,
                     "KEY_DEVICES_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0,
                         "buckets": [
                             {
                                 "key": "desktop",
-                                "doc_count": 63,
+                                "doc_count": 108,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 45
-                                }
-                            },
-                            {
-                                "key": "unclassified",
-                                "doc_count": 27,
-                                "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 15
+                                    "value": 64
                                 }
                             },
                             {
                                 "key": "mobile",
-                                "doc_count": 9,
+                                "doc_count": 76,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 9
+                                    "value": 64
+                                }
+                            },
+                            {
+                                "key": "unclassified",
+                                "doc_count": 16,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 13
                                 }
                             }
                         ]
                     },
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 69
+                        "value": 141
                     },
                     "KEY_ARTICLE_COUNT_AGGREGATION": {
-                        "value": 2
+                        "value": 12
                     },
                     "KEY_REFERRER_AGGREGATION": {
                         "doc_count_error_upper_bound": 0,
@@ -967,30 +1023,65 @@
                         "buckets": [
                             {
                                 "key": "Unbekannt",
-                                "doc_count": 50,
+                                "doc_count": 74,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 31
+                                    "value": 42
                                 }
                             },
                             {
                                 "key": "taz",
-                                "doc_count": 41,
+                                "doc_count": 73,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 30
+                                    "value": 65
                                 }
                             },
                             {
                                 "key": "Google",
-                                "doc_count": 6,
+                                "doc_count": 38,
                                 "KEY_FINGERPRINT_AGGREGATION": {
-                                    "value": 6
+                                    "value": 25
                                 }
                             },
                             {
                                 "key": "Twitter",
+                                "doc_count": 8,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 7
+                                }
+                            },
+                            {
+                                "key": "Facebook",
                                 "doc_count": 2,
                                 "KEY_FINGERPRINT_AGGREGATION": {
                                     "value": 2
+                                }
+                            },
+                            {
+                                "key": "Newstral",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "Bing",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "Flipboard",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "Upday",
+                                "doc_count": 1,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 1
                                 }
                             }
                         ]

@@ -1,5 +1,5 @@
 {
-    "took": 21,
+    "took": 35,
     "timed_out": false,
     "_shards": {
         "total": 137,
@@ -9,8 +9,8 @@
     },
     "hits": {
         "total": {
-            "value": 8356,
-            "relation": "eq"
+            "value": 10000,
+            "relation": "gte"
         },
         "max_score": null,
         "hits": []
@@ -18,76 +18,76 @@
     "aggregations": {
         "KEY_REFERRER_AGGREGATION": {
             "doc_count_error_upper_bound": 0,
-            "sum_other_doc_count": 70,
+            "sum_other_doc_count": 274,
             "buckets": [
                 {
                     "key": "Unbekannt",
-                    "doc_count": 3116,
+                    "doc_count": 13573,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 1341
+                        "value": 5181
                     }
                 },
                 {
                     "key": "taz",
-                    "doc_count": 2347,
+                    "doc_count": 10533,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 1401
+                        "value": 4969
                     }
                 },
                 {
                     "key": "Google",
-                    "doc_count": 1206,
+                    "doc_count": 5339,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 1033
+                        "value": 3982
                     }
                 },
                 {
                     "key": "Pocket",
-                    "doc_count": 603,
+                    "doc_count": 3262,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 586
+                        "value": 3090
                     }
                 },
                 {
                     "key": "Facebook",
-                    "doc_count": 404,
+                    "doc_count": 1617,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 373
+                        "value": 1476
                     }
                 },
                 {
                     "key": "Twitter",
-                    "doc_count": 356,
+                    "doc_count": 1503,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 323
+                        "value": 1337
                     }
                 },
                 {
                     "key": "Andere kleine Referrer",
-                    "doc_count": 170,
+                    "doc_count": 685,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 152
-                    }
-                },
-                {
-                    "key": "Flipboard",
-                    "doc_count": 35,
-                    "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 32
+                        "value": 601
                     }
                 },
                 {
                     "key": "Bing",
-                    "doc_count": 30,
+                    "doc_count": 124,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 26
+                        "value": 103
+                    }
+                },
+                {
+                    "key": "Flipboard",
+                    "doc_count": 117,
+                    "KEY_FINGERPRINT_AGGREGATION": {
+                        "value": 105
                     }
                 },
                 {
                     "key": "Ecosia",
-                    "doc_count": 19,
+                    "doc_count": 69,
                     "KEY_FINGERPRINT_AGGREGATION": {
-                        "value": 18
+                        "value": 62
                     }
                 }
             ]
