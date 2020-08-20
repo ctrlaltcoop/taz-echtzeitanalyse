@@ -29,7 +29,7 @@ interface Methods {
 }
 
 interface Computed {
-  totalFormatted (): string;
+  totalFormatted: string;
 }
 
 export default Vue.extend<Data, Methods, Computed, {}>({
@@ -44,8 +44,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     }
   },
   computed: {
-    totalFormatted () {
-      return this.total.toLocaleString()
+    totalFormatted (): string {
+      return this.total?.toLocaleString() ?? ''
     }
   },
   methods: {
