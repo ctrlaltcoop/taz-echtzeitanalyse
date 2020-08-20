@@ -7,6 +7,7 @@ export class ArticleData {
   kicker!: string
   pubdate!: string
   hits!: number
+  bid!: number
   hits_previous!: number
   referrers!: Array<ReferrerData>
   devices!: Array<DevicesData>

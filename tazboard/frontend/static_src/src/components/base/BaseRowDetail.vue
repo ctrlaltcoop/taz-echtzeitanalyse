@@ -1,22 +1,29 @@
 <template>
-  <div class="row-detail mr-5 ml-5 pb-3 row">
-    <div class="histogram col-4 h-100 d-flex">
-      <LoadingControl :loading-state="loadingState">
-        <GraphContainer class="card-shadow"
-                        :chart-component="histogramChartComponent"
-                        :graph-data="histogram"
-                        :options="histogramGraphOptions"/>
-      </LoadingControl>
+  <div>
+    <div class="row-detail mr-5 ml-5 pb-3 row">
+      <div class="histogram col-4 h-100 d-flex">
+        <LoadingControl :loading-state="loadingState">
+          <GraphContainer class="card-shadow"
+                          :chart-component="histogramChartComponent"
+                          :graph-data="histogram"
+                          :options="histogramGraphOptions"/>
+        </LoadingControl>
+      </div>
+      <div class="devices col-4">
+        <p class="bars-heading">Geräte</p>
+        <GraphContainer class="graph-container-devices" :chart-component="devicesChartComponent"
+                        :graph-data="item.devices"/>
+      </div>
+      <div class="referrers col-4">
+        <p class="bars-heading">Referrer</p>
+        <GraphContainer class="graph-container" :chart-component="referrerChartComponent"
+                        :graph-data="item.referrers"/>
+      </div>
     </div>
-    <div class="devices col-4">
-      <p class="bars-heading">Geräte</p>
-      <GraphContainer class="graph-container-devices" :chart-component="devicesChartComponent"
-                      :graph-data="item.devices"/>
-    </div>
-    <div class="referrers col-4">
-      <p class="bars-heading">Referrer</p>
-      <GraphContainer class="graph-container" :chart-component="referrerChartComponent"
-                      :graph-data="item.referrers"/>
+    <div class="row">
+      <div class="col-12 align-items-end flex-column d-flex">
+        <a class="btn btn-danger" target="_blank" :href="cmsLink" v-if="cmsLink">Im Redaktionssystem öffnen</a>
+      </div>
     </div>
   </div>
 </template>
@@ -34,6 +41,7 @@ import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 import { ReferrerData } from '@/dto/ReferrerDto'
 import { DevicesData } from '@/dto/DevicesDto'
+import { CMS_BASE_LINK } from '@/common/constants'
 
 interface Props {
   item: {
@@ -48,10 +56,14 @@ interface Data {
 }
 
 interface Methods {
-  updateHistogram(): Promise<void>;
+  updateHistogram (): Promise<void>;
 }
 
-export default Vue.extend<Data, Methods, {}, Props>({
+interface Computed {
+  cmsLink: string | null;
+}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   name: 'BaseRowDetail',
   props: {
     item: Object
@@ -97,6 +109,15 @@ export default Vue.extend<Data, Methods, {}, Props>({
         if (!(e instanceof DOMException)) {
           this.loadingState = LoadingState.ERROR
         }
+      }
+    }
+  },
+  computed: {
+    cmsLink (): string | null {
+      if (this.item.bid !== null) {
+        return CMS_BASE_LINK + this.item.bid
+      } else {
+        return null
       }
     }
   }

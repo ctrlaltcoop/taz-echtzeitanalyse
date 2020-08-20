@@ -41,6 +41,7 @@ class ToplistDataSerializer(serializers.Serializer):
     referrers = ReferrerDataSerializer(many=True)
     devices = DevicesDataSerializer(many=True)
     msid = serializers.IntegerField()
+    bid = serializers.IntegerField(required=False, allow_null=True)
 
 
 class ToplistSerializer(serializers.Serializer):

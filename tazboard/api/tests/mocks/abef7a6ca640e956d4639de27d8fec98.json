@@ -1,0 +1,112 @@
+{
+    "took": 42,
+    "timed_out": false,
+    "_shards": {
+        "total": 137,
+        "successful": 137,
+        "skipped": 135,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 6,
+            "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "KEY_FIREPLACE_AGGREGATION": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "5702338",
+                    "doc_count": 6,
+                    "KEY_RANGES_AGGREGATION": {
+                        "buckets": [
+                            {
+                                "key": "KEY_TREND_AGGREGATION",
+                                "from": 1597658400000.0,
+                                "from_as_string": "2020-08-17T10:00:00.000Z",
+                                "to": 1597680000000.0,
+                                "to_as_string": "2020-08-17T16:00:00.000Z",
+                                "doc_count": 6,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
+                                }
+                            },
+                            {
+                                "key": "KEY_TIMEFRAME_AGGREGATION",
+                                "from": 1597680000000.0,
+                                "from_as_string": "2020-08-17T16:00:00.000Z",
+                                "to": 1597701600000.0,
+                                "to_as_string": "2020-08-17T22:00:00.000Z",
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_DEVICES_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "mobile",
+                                "doc_count": 6,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 4
+                                }
+                            }
+                        ]
+                    },
+                    "KEY_EXTRA_FIELDS_AGGREGATION": {
+                        "hits": {
+                            "total": {
+                                "value": 6,
+                                "relation": "eq"
+                            },
+                            "max_score": 0.0,
+                            "hits": [
+                                {
+                                    "_index": "article-2020.08.17",
+                                    "_type": "_doc",
+                                    "_id": "XvlA_HMBZFK4U3pBhmf3",
+                                    "_score": 0.0,
+                                    "_source": {
+                                        "pubtime": "2020-08-14 00:00:00+01:00",
+                                        "bid": "4275437",
+                                        "headline": "Meditation: Stellen wir die falschen Fragen?",
+                                        "kicker": null
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "KEY_REFERRER_AGGREGATION": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                            {
+                                "key": "Google",
+                                "doc_count": 4,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            },
+                            {
+                                "key": "Unbekannt",
+                                "doc_count": 2,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 2
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
