@@ -28,6 +28,13 @@
         </span>
       </template>
 
+      <template v-slot:cell(trend)="row">
+        <span v-if="row.item.hits_previous === 0">
+          Neu
+        </span>
+        <span v-else :class="getTrendClass(row.item)"></span>
+      </template>
+
       <template v-slot:row-details="row">
         <ArticleRowDetail :item="row.item"/>
       </template>
@@ -47,6 +54,7 @@ import LoadingControl from '@/components/LoadingControl.vue'
 import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 import { formatPublicationTime } from '@/utils/time'
+import { getTrend } from '@/utils/trends'
 
 interface Data {
   items: ArticleData[];
@@ -60,6 +68,7 @@ interface Methods {
   toggleDetails (row: any): void;
   syncOpenedDetailsStateWithRoute (): void;
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
+  getTrendClass (item: ArticleData): string;
 }
 
 interface Computed {
@@ -129,6 +138,15 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       return item.referrers.find(({ referrer }) => {
         return selectedReferrer === referrer
       })?.percentage.toLocaleString([], { style: 'percent' })
+    },
+    getTrendClass (item: ArticleData) {
+      if (item.hits_previous === 0) {
+        return ''
+      } else {
+        const trend = getTrend(item.hits_previous, item.hits, true)
+        const arrowType = trend.direction * trend.score
+        return `trend-${arrowType}`
+      }
     }
   },
   computed: {
@@ -161,19 +179,13 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'trend',
           label: '',
           class: 'text-center',
-          thClass: 'taztable-th',
-          formatter: (value: null, key: string, item: ArticleData) => {
-            return (item.hits / item.hits_previous - 1).toLocaleString([], { style: 'percent' })
-          }
+          thClass: 'taztable-th'
         },
         {
           key: 'headline',
           label: 'Titel',
           class: 'text-left',
-          thClass: 'taztable-th',
-          formatter: (value: null, key: string, item: ArticleData) => {
-            return (item.hits / item.hits_previous - 1).toLocaleString([], { style: 'percent' })
-          }
+          thClass: 'taztable-th'
         },
         {
           key: 'pubdate',
