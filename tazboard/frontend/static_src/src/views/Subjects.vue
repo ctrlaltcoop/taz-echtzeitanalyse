@@ -53,20 +53,15 @@ const apiClient = new ApiClient()
 
 interface Data {
   items: SubjectsData[];
-  selectedReferrer: string | null;
   rowItems: Array<any>;
   loadingState: LoadingState;
 }
 
 interface Methods {
   loadData (timeframe: Timeframe): Promise<void>;
-
   fetchData (timeframe: Timeframe, signal: AbortSignal): Promise<void>;
-
   toggleDetails (row: any): void;
-
   syncOpenedDetailsStateWithRoute (): void;
-
   formatSelectReferrer (value: null, key: string, item: SubjectsData): string | undefined;
 }
 
@@ -136,8 +131,9 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     async fetchData (timeframe: Timeframe, signal: AbortSignal) {
       this.items = (await apiClient.subjects(timeframe.minDate(), timeframe.maxDate(), 10, { signal })).data
     },
-    formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined {
+    formatSelectReferrer (value: null, key: string, item: SubjectsData): string | undefined {
       return item.referrers.find(({ referrer }) => {
+        // @ts-ignore selectedReferrer is defined on mixin type inferrence fails
         return this.selectedReferrer === referrer
       })?.percentage.toLocaleString([], { style: 'percent' })
     }

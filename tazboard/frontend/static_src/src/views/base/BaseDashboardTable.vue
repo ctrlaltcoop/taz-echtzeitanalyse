@@ -66,7 +66,6 @@ import { SelectReferrerMixin } from '@/common/SelectReferrerMixin'
 
 interface Data {
   items: ArticleData[];
-  selectedReferrer: string | null;
   rowItems: Array<any>;
   loadingState: LoadingState;
   defaultFields: any;
@@ -144,6 +143,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     },
     formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined {
       return item.referrers.find(({ referrer }) => {
+        // @ts-ignore selectedReferrer is defined on mixin type inferrence fails
         return this.selectedReferrer === referrer
       })?.percentage.toLocaleString([], { style: 'percent' })
     },
