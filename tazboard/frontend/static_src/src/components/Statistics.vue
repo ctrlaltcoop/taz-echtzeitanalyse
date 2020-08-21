@@ -44,7 +44,6 @@ import { HistogramData } from '@/dto/HistogramDto'
 import { DevicesData } from '@/dto/DevicesDto'
 import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
-import { FIXED_BAR_DISPLAY_COUNT } from '@/common/constants'
 
 const apiClient = new ApiClient()
 

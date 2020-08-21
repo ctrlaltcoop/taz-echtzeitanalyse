@@ -51,7 +51,7 @@ export default Vue.extend<DeviceBarData, ChartMethods<DevicesData>, {}, DevicesB
     updateChart (data: Array<DevicesData>) {
       if (data.length < FIXED_BAR_DISPLAY_COUNT) {
         for (let i = data.length; i < FIXED_BAR_DISPLAY_COUNT; i++) {
-          data.push({})
+          data.push({} as DevicesData)
         }
       }
       const chartData = DevicesData.toChartdata(data!!.slice())

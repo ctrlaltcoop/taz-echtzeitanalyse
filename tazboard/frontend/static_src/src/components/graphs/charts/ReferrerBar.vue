@@ -51,7 +51,7 @@ export default Vue.extend<ReferrerGraphData, ChartMethods<ReferrerData>, {}, Ref
     updateChart (data: Array<ReferrerData>) {
       if (data.length < FIXED_BAR_DISPLAY_COUNT) {
         for (let i = data.length; i < FIXED_BAR_DISPLAY_COUNT; i++) {
-          data.push({})
+          data.push({} as ReferrerData)
         }
       }
       const chartData = ReferrerData.toChartdata(data!!.slice())
