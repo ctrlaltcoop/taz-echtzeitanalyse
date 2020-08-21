@@ -67,6 +67,7 @@ interface Data {
   selectedReferrer: string | null;
   rowItems: Array<any>;
   loadingState: LoadingState;
+  defaultFields: any;
 }
 
 interface Methods {
@@ -80,6 +81,7 @@ interface Methods {
 interface Computed {
   availableReferrers: Array<string>;
   openedMsids: Array<number>;
+  fields: any;
 }
 
 let currentRequestController: AbortController | null = null
@@ -165,6 +167,21 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     },
     openedMsids () {
       return JSON.parse(this.$route.query.openMsids as string || '[]')
+    },
+    fields () {
+      if ([TimeframeId.KEY_15_MINUTES, TimeframeId.KEY_30_MINUTES, TimeframeId.KEY_1_HOURS].includes(this.$route.query.timeframeId as TimeframeId)) {
+        const trendsColumnDefinition = {
+          key: 'trend',
+          label: '',
+          class: 'text-center',
+          thClass: 'taztable-th'
+        }
+        const fields = this.defaultFields.slice()
+        fields.splice(2, 0, trendsColumnDefinition)
+        return fields
+      } else {
+        return this.defaultFields
+      }
     }
   },
   data () {
@@ -174,7 +191,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       rowItems: [],
       selectedReferrer: null,
       loadingStateTimeframe: LoadingState.FRESH,
-      fields: [
+      defaultFields: [
         {
           key: 'index',
           label: '#',
@@ -188,12 +205,6 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           thClass: 'tazboard-dashboard-table-th text-center',
           sortable: true,
           formatter: (value: number) => value.toLocaleString()
-        },
-        {
-          key: 'trend',
-          label: '',
-          class: 'text-center',
-          thClass: 'tazboard-dashboard-table-th'
         },
         {
           key: 'headline',
