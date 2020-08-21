@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex w-100 h-100 tazboard-shimmer-wrapper" :class="{
+  <div class="d-flex w-100 tazboard-shimmer-wrapper" :class="{
     'loading-control-error': loadingState === LoadingState.ERROR,
     'loading-control-success': loadingState === LoadingState.SUCCESS,
     'loading-control-loading': loadingState === LoadingState.LOADING,

@@ -1,6 +1,6 @@
 <template>
   <LoadingControl :loading-state="loadingState">
-    <div class="w-100 h-100 bg-white d-flex align-items-center justify-content-center flex-fill flex-column">
+    <div class="bg-white d-flex align-items-center justify-content-center flex-fill flex-column">
       <div>
         <span class="counter">{{ totalFormatted }}</span>
         <span class="counter-trend" :class="getTrendClass()"></span>
@@ -81,10 +81,6 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     getTrendClass () {
       const trend = getTrend(this.totalPrevious, this.total, true)
       const arrowType = trend.direction * trend.score
-      console.log(`total: ${this.total}`)
-      console.log(`totalPrevious: ${this.totalPrevious}`)
-      console.log(`trend: ${trend}`)
-      console.log(`arrowType: ${arrowType}`)
       return `trend-${arrowType}`
     }
   },
