@@ -1,4 +1,4 @@
 export class TotalDto {
   total!: number
-  totalPrevious!: number
+  total_previous!: number
 }
