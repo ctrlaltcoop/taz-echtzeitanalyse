@@ -5,6 +5,7 @@ import { HistogramData } from '@/dto/HistogramDto'
 import { ChartMethods } from '@/types/chartjs'
 import { ChartOptions } from 'chart.js'
 import { mergeDeep } from '@/utils/objects'
+import { isToday } from 'date-fns'
 
 interface HistogramLineProps {
   graph: Array<HistogramData> | null;
@@ -35,13 +36,29 @@ const DEFAULT_OPTIONS = {
         display: false
       },
       ticks: {
-        autoSkip: true
+        autoSkip: false,
+        callback: function (value: any, index, values) {
+          if (index === Math.floor(values.length / 2) || index === 0) {
+            if (isToday(value)) {
+              return value.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            } else {
+              return value.toLocaleDateString([], { day: '2-digit', month: '2-digit' })
+            }
+          } else if (index === values.length - 1) {
+            return value.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        }
       }
     }],
     yAxes: [{
       ticks: {
+        suggestedMax: 10000,
         beginAtZero: true,
-        suggestedMax: 10000
+        callback: function (value, index, values) {
+          if (index === 0 || index === Math.floor(values.length / 2)) {
+            return value
+          }
+        }
       },
       gridLines: {
         display: false

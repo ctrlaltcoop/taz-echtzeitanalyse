@@ -6,12 +6,7 @@ export class HistogramData {
 
   static toChartdata (graphData: Array<HistogramData>): ChartData {
     return {
-      labels: graphData.map((item) => new Date(item.datetime).toLocaleTimeString(
-        [], {
-          hour: '2-digit',
-          minute: '2-digit'
-        }
-      )),
+      labels: graphData.map((item) => new Date(item.datetime)),
       datasets: [{
         label: 'Number of Clicks',
         data: graphData.map((item) => item.hits)

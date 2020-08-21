@@ -1,15 +1,20 @@
 <template>
-  <div class="row statistics-area">
-    <div class="col-4 pt-5 pb-5  statistics-box histogram-box">
-      <LoadingControl class="tazboard-card-shadow" :loading-state="loadingStateHistogram">
-        <GraphContainer :chart-component="histogramLineComponent" :graph-data="histogramGraph"/>
+  <div class="statistics-area row">
+    <div class="col-4 pt-2 pb-5 d-flex flex-column statistics-box histogram-box">
+      <div class="caption-space justify-content-center align-items-center d-flex">
+        <h6 class="font-weight-bold">Tagesverlauf der letzten 24h (Besucher*innen gesamt)</h6>
+      </div>
+      <LoadingControl class="p-2 taz-board tazboard-card-shadow statistics-card flex-row d-flex align-items-center justify-content-center" :loading-state="loadingStateHistogram">
+        <GraphContainer class="histogram-container flex-fill w-100 h-100" :chart-component="histogramLineComponent" :graph-data="histogramGraph"/>
       </LoadingControl>
     </div>
-    <div class="col-4 pt-5 pb-5 statistics-box">
-      <ClickCounter class="tazboard-card-shadow flex-fill"/>
+    <div class="col-4 pt-2 pb-5 statistics-box d-flex flex-column">
+      <div class="caption-space"></div>
+      <ClickCounter class="tazboard-card-shadow statistics-card flex-fill"/>
     </div>
-    <div class="col-4 pt-5 pb-5 statistics-box">
-      <LoadingControl class="tazboard-card-shadow" :loading-state="loadingStateTimeframe">
+    <div class="col-4 pt-2 pb-5 statistics-box d-flex flex-column">
+      <div class="caption-space"></div>
+      <LoadingControl class="tazboard-card-shadow statistics-card" :loading-state="loadingStateTimeframe">
         <div class="row no-gutters flex-fill">
           <div class="col-6">
             <p class="statistics-heading">Geräte</p>
@@ -60,6 +65,7 @@ interface StatisticsData {
 
 interface StatisticsMethods {
   updateData (timeframe: Timeframe): Promise<void>;
+
   updateHistogram (): Promise<void>;
 }
 
@@ -149,7 +155,9 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
 </script>
 <style lang="scss" scoped>
 @import "src/style/variables";
-
+.caption-space {
+  height: 3rem;
+}
 .histogram-box {
   background: $white;
 }
@@ -158,8 +166,8 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
   background: $gray-200;
 }
 
-.statistics-box {
-  height: 350px;
+.statistics-card {
+  height: 250px;
   display: flex;
 }
 
