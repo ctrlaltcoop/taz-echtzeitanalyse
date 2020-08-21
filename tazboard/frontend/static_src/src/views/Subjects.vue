@@ -155,8 +155,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         {
           key: 'hits',
           label: 'Pageviews',
-          class: 'text-right',
-          thClass: 'taztable-th',
+          tdClass: 'text-right',
+          thClass: 'taztable-th text-center',
           formatter: (value: number) => value.toLocaleString(),
           sortable: true
         },
@@ -164,20 +164,22 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'subject_name',
           label: 'Schwerpunkt',
           class: 'text-left',
-          thClass: 'taztable-th'
+          thClass: 'taztable-th taztable-th-title'
         },
         {
           key: 'article_count',
           label: 'Artikelanzahl',
-          class: 'text-left',
-          thClass: 'taztable-th',
+          tdClass: 'text-center',
+          thClass: 'taztable-th text-center',
           sortable: true
         },
         {
           key: 'referrerSelect',
           label: 'Klicks über',
-          class: 'text-right',
-          thClass: 'taztable-th',
+          tdClass: 'taztable-td-referrer-select text-right',
+          thClass: 'taztable-th taztable text-center',
+          sortable: true,
+          sortByFormatted: true,
           formatter: (value: null, key: string, item: SubjectsData) => {
             // @ts-ignore type inference of this doesn't work here
             return this.formatSelectReferrer(value, key, item)
