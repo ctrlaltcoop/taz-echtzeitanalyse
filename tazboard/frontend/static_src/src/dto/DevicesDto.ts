@@ -9,7 +9,7 @@ export class DevicesData {
     // sort data descending
     devicesData.sort((a, b) => b.hits - a.hits)
     return {
-      labels: devicesData.map((item) => `${item.deviceclass}`),
+      labels: devicesData.map((item) => item.deviceclass ?? ''),
       datasets: [{
         label: 'Devices',
         data: devicesData.map((item) => item.hits),

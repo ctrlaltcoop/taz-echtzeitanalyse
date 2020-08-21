@@ -4,6 +4,7 @@ import { HorizontalBar } from 'vue-chartjs'
 import { ChartOptions } from 'chart.js'
 import { ReferrerData } from '@/dto/ReferrerDto'
 import { ChartMethods } from '@/types/chartjs'
+import { FIXED_BAR_DISPLAY_COUNT } from '@/common/constants'
 
 export interface ReferrerGraphProps {
   graph: Array<ReferrerData> | null;
@@ -48,12 +49,14 @@ export default Vue.extend<ReferrerGraphData, ChartMethods<ReferrerData>, {}, Ref
   },
   methods: {
     updateChart (data: Array<ReferrerData>) {
+      if (data.length < FIXED_BAR_DISPLAY_COUNT) {
+        for (let i = data.length; i < FIXED_BAR_DISPLAY_COUNT; i++) {
+          data.push({} as ReferrerData)
+        }
+      }
       const chartData = ReferrerData.toChartdata(data!!.slice())
-
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {
-          barPercentage: 1,
-          categoryPercentage: 0.9,
           ...dataset
         }
       })
