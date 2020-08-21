@@ -131,6 +131,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 .row-detail {
   display: flex;
   height: 250px;
+  margin-bottom: 1em;
 }
 
 </style>
