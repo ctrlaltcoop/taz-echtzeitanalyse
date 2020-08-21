@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+import { subWeeks } from 'date-fns'
 import { ApiClient } from '@/client/ApiClient'
 import { ArticleData } from '@/dto/ToplistDto'
 import { Timeframe } from '@/common/timeframe'
@@ -28,7 +29,9 @@ export default Vue.extend<Data, Methods, {}, Props>({
   extends: BaseRowDetail,
   methods: {
     async fetchHistogram () {
-      this.histogram = (await apiClient.histogram(new Date(this.item.pubdate), new Date(), this.item.msid)).data
+      const oneWeekAgo = subWeeks(new Date(), 1)
+      const since = oneWeekAgo > new Date(this.item.pubdate) ? oneWeekAgo : new Date(this.item.pubdate)
+      this.histogram = (await apiClient.histogram(since, new Date(), this.item.msid)).data
     }
   }
 })
