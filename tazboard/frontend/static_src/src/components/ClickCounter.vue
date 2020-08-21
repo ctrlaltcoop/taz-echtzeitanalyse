@@ -1,7 +1,11 @@
 <template>
   <LoadingControl :loading-state="loadingState">
-    <div class="w-100 h-100 bg-white d-flex align-items-center justify-content-center flex-fill">
-      <span class="counter">{{ totalFormatted }}</span>
+    <div class="w-100 h-100 bg-white d-flex align-items-center justify-content-center flex-fill flex-column">
+      <div>
+        <span class="counter">{{ totalFormatted }}</span>
+        <span class="counter-trend" :class="getTrendClass()"></span>
+      </div>
+      <span class="subtitle">Pageviews</span>
     </div>
   </LoadingControl>
 </template>
@@ -15,17 +19,20 @@ import { ApiClient } from '@/client/ApiClient'
 
 import LoadingControl from '@/components/LoadingControl.vue'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
+import { getTrend } from '@/utils/trends'
 
 let currentRequestController: AbortController | null = null
 const apiClient = new ApiClient()
 
 interface Data {
   loadingState: LoadingState;
-  total: number | null;
+  total: number;
+  totalPrevious: number;
 }
 
 interface Methods {
   updateData (timeframe: Timeframe): void;
+  getTrendClass (): string;
 }
 
 interface Computed {
@@ -39,7 +46,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   },
   data () {
     return {
-      total: null,
+      total: 0,
+      totalPrevious: 0,
       loadingState: LoadingState.FRESH
     }
   },
@@ -57,9 +65,11 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         }
         currentRequestController = new AbortController()
         const { signal } = currentRequestController!!
-        this.total = (await apiClient.total(timeframe.minDate(), timeframe.maxDate(), null, {
+        const totalResponse = (await apiClient.total(timeframe.minDate(), timeframe.maxDate(), null, {
           signal
-        })).total
+        }))
+        this.total = totalResponse.total
+        this.totalPrevious = totalResponse.total_previous
         currentRequestController = null
         this.loadingState = LoadingState.SUCCESS
       } catch (e) {
@@ -67,6 +77,15 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           this.loadingState = LoadingState.ERROR
         }
       }
+    },
+    getTrendClass () {
+      const trend = getTrend(this.totalPrevious, this.total, true)
+      const arrowType = trend.direction * trend.score
+      console.log(`total: ${this.total}`)
+      console.log(`totalPrevious: ${this.totalPrevious}`)
+      console.log(`trend: ${trend}`)
+      console.log(`arrowType: ${arrowType}`)
+      return `trend-${arrowType}`
     }
   },
   watch: {
@@ -108,5 +127,17 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   color: #7DD2D2;
   font-weight: bold;
   font-size: 5rem;
+}
+
+.subtitle {
+  color: #5D5D5D;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.counter-trend {
+  font-size: 3rem;
+  justify-content: center;
+  padding: 10px;
 }
 </style>
