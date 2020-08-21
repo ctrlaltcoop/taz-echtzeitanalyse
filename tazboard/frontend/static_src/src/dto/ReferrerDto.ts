@@ -27,7 +27,7 @@ export class ReferrerData {
     }
 
     return {
-      labels: referrerData.map((item) => `${item.referrer}`),
+      labels: referrerData.map((item) => `${item.referrer ?? ''}`),
       datasets: [{
         label: 'Referrers',
         data: referrerData.map((item) => item.hits),
