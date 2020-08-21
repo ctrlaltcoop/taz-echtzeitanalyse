@@ -1,24 +1,24 @@
 <template>
   <div class="row statistics-area">
     <div class="col-4 pt-5 pb-5  statistics-box histogram-box">
-      <LoadingControl class="card-shadow" :loading-state="loadingStateHistogram">
+      <LoadingControl class="tazboard-card-shadow" :loading-state="loadingStateHistogram">
         <GraphContainer :chart-component="histogramLineComponent" :graph-data="histogramGraph"/>
       </LoadingControl>
     </div>
     <div class="col-4 pt-5 pb-5 statistics-box">
-      <ClickCounter class="card-shadow flex-fill"/>
+      <ClickCounter class="tazboard-card-shadow flex-fill"/>
     </div>
     <div class="col-4 pt-5 pb-5 statistics-box">
-      <LoadingControl class="card-shadow" :loading-state="loadingStateTimeframe">
+      <LoadingControl class="tazboard-card-shadow" :loading-state="loadingStateTimeframe">
         <div class="row no-gutters flex-fill">
           <div class="col-6">
             <p class="statistics-heading">Geräte</p>
-            <GraphContainer class="graph-container-devices" :chart-component="deviceBarComponent"
+            <GraphContainer class="tazboard-graph-container-devices" :chart-component="deviceBarComponent"
                             :graph-data="devicesGraph"/>
           </div>
           <div class="col-6">
             <p class="statistics-heading">Referrer</p>
-            <GraphContainer class="graph-container" :chart-component="referrerBarComponent"
+            <GraphContainer class="tazboard-graph-container" :chart-component="referrerBarComponent"
                             :graph-data="referrerGraph"/>
           </div>
         </div>
@@ -146,7 +146,7 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
   }
 })
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "src/style/variables";
 
 .histogram-box {
@@ -162,21 +162,9 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
   display: flex;
 }
 
-.click-counter-area {
-  display: flex;
-}
-
 .statistics-heading {
   margin-bottom: 3px;
   text-align: center;
-}
-
-.graph-container {
-  height: 220px;
-}
-
-.graph-container-devices {
-  height: 120px;
 }
 
 </style>

@@ -3,20 +3,20 @@
     <div class="row-detail mr-5 ml-5 pb-3 row">
       <div class="histogram col-4 h-100 d-flex">
         <LoadingControl :loading-state="loadingState">
-          <GraphContainer class="card-shadow"
+          <GraphContainer class="tazboard-card-shadow"
                           :chart-component="histogramChartComponent"
                           :graph-data="histogram"
                           :options="histogramGraphOptions"/>
         </LoadingControl>
       </div>
       <div class="devices col-4">
-        <p class="bars-heading">Geräte</p>
-        <GraphContainer class="graph-container-devices" :chart-component="devicesChartComponent"
+        <p class="tazboard-detail-caption">Geräte</p>
+        <GraphContainer class="tazboard-graph-container-devices" :chart-component="devicesChartComponent"
                         :graph-data="item.devices"/>
       </div>
       <div class="referrers col-4">
-        <p class="bars-heading">Referrer</p>
-        <GraphContainer class="graph-container" :chart-component="referrerChartComponent"
+        <p class="tazboard-detail-caption">Referrer</p>
+        <GraphContainer class="tazboard-graph-container" :chart-component="referrerChartComponent"
                         :graph-data="item.referrers"/>
       </div>
     </div>
@@ -130,14 +130,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 .row-detail {
   display: flex;
   height: 250px;
-}
-
-.graph-container {
-  height: 220px;
-}
-
-.graph-container-devices {
-  height: 120px;
 }
 
 </style>

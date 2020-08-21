@@ -1,7 +1,7 @@
 <template>
   <div class="row-detail mr-5 ml-5 pb-3 row">
     <div class="col-8 h-100 d-flex flex-column">
-      <p class="bars-heading">Top 5 Artikel im Schwerpunkt</p>
+      <p class="tazboard-detail-caption">Top 5 Artikel im Schwerpunkt</p>
       <LoadingControl :loading-state="loadingState">
         <BTable
           small
@@ -11,9 +11,9 @@
       </LoadingControl>
     </div>
     <div class="referrers col-4">
-      <p class="bars-heading">Referrer</p>
+      <p class="tazboard-detail-caption">Referrer</p>
       <GraphContainer
-        class="graph-container"
+        class="tazboard-graph-container"
         :chart-component="referrerChartComponent"
         :graph-data="item.referrers"
       />

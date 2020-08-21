@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex w-100 h-100 shimmer-wrapper" :class="{
+  <div class="d-flex w-100 h-100 tazboard-shimmer-wrapper" :class="{
     'loading-control-error': loadingState === LoadingState.ERROR,
     'loading-control-success': loadingState === LoadingState.SUCCESS,
     'loading-control-loading': loadingState === LoadingState.LOADING,
@@ -8,7 +8,7 @@
       <img src="../assets/ikons/cloud_fail.svg">
       <span>Fehler bei der Verbindung zum Server</span>
     </div>
-    <div class="h-100 w-100 shimmer-animate" v-if="loadingState === LoadingState.LOADING"/>
+    <div class="h-100 w-100 tazboard-shimmer-animate" v-if="loadingState === LoadingState.LOADING"/>
     <slot v-if="loadingState === LoadingState.SUCCESS"/>
   </div>
 </template>

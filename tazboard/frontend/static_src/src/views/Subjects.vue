@@ -1,26 +1,23 @@
 <template>
-  <LoadingControl class="loading-control" :loading-state="loadingState">
+  <LoadingControl class="tazboard-dashboard-table-loading-control" :loading-state="loadingState">
     <BTable
       striped
-      class="w-100"
+      class="w-100 tazboard-dashboard-table"
       :fields="fields"
       :items="items"
       :tbody-transition-props="{ name: 'statistics-table' }"
       v-model="rowItems"
-      thead-class="table-head">
+      thead-class="tazboard-dashboard-table-head">
+
       <template v-slot:head(referrerSelect)="data">
-        <div class="stacked-th-with-selection">
+        <div class="tazboard-dashboard-table-th-stacked-with-selection">
           <div>{{ data.label }}</div>
-          <select class="referrer-select" v-model="selectedReferrer">
-            <option v-for="referrer in availableReferrers" :value="referrer" :key="referrer">
-              {{ referrer }}
-            </option>
-          </select>
+          <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers" v-model="selectedReferrer" :auto-width="true" />
         </div>
       </template>
 
       <template v-slot:cell(subject_name)="row">
-        <span class="row-subjectName" @click="toggleDetails(row)">
+        <span class="row-subject" @click="toggleDetails(row)">
           {{ row.item.subject_name }}
         </span>
       </template>
@@ -43,6 +40,7 @@ import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 import { SubjectsData } from '@/dto/SubjectsDto'
 import { ApiClient } from '@/client/ApiClient'
 import SubjectRowDetail from '@/components/SubjectRowDetail.vue'
+import Select from '@/components/Select.vue'
 
 const apiClient = new ApiClient()
 
@@ -73,7 +71,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   components: {
     SubjectRowDetail,
     BTable,
-    LoadingControl
+    LoadingControl,
+    Select
   },
   methods: {
     toggleDetails (row: any) {
@@ -155,29 +154,29 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         {
           key: 'hits',
           label: 'Pageviews',
-          tdClass: 'text-right',
-          thClass: 'taztable-th text-center',
+          tdClass: 'text-right tazboard-dashboard-table-td-hits align-middle',
+          thClass: 'tazboard-dashboard-table-th text-center',
           formatter: (value: number) => value.toLocaleString(),
           sortable: true
         },
         {
           key: 'subject_name',
           label: 'Schwerpunkt',
-          class: 'text-left',
-          thClass: 'taztable-th taztable-th-title'
+          tdClass: 'text-left align-middle',
+          thClass: 'tazboard-dashboard-table-th tazboard-dashboard-table-th-title text-left'
         },
         {
           key: 'article_count',
           label: 'Artikelanzahl',
-          tdClass: 'text-center',
-          thClass: 'taztable-th text-center',
+          tdClass: 'text-center align-middle',
+          thClass: 'tazboard-dashboard-table-th text-center',
           sortable: true
         },
         {
           key: 'referrerSelect',
           label: 'Klicks über',
-          tdClass: 'taztable-td-referrer-select text-right',
-          thClass: 'taztable-th taztable text-center',
+          tdClass: 'tazboard-dashboard-table-td-referrer-select align-middle text-right',
+          thClass: 'tazboard-dashboard-table-th tazboard-dashboard-table-th-referrer-select tazboard-dashboard-table-th-black text-center',
           sortable: true,
           sortByFormatted: true,
           formatter: (value: null, key: string, item: SubjectsData) => {
@@ -216,46 +215,15 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   }
 })
 </script>
-
-<!-- styles for vue table won't take effect unless unscoped -->
-<style lang="scss">
+<style lang="scss" scoped>
 @import 'src/style/variables';
+@import "src/style/mixins";
 
-.row-subjectName {
+.row-subject {
+  @include serif-font;
   font-size: 1.4rem;
   font-weight: bold;
   display: block;
-}
-
-.row-headline-kicker {
-  font-size: 1rem;
-  display: block;
-  color: $gray-700;
-}
-
-.table-head {
-  background-color: $taz-red;
-
-}
-
-.taztable-th {
-  color: $white;
-  font-size: 2rem;
-  // found no different way to overwrite default style
-  border-top: none !important;
-}
-</style>
-
-<style lang="scss" scoped>
-.loading-control {
-  min-height: 450px;
-  flex-direction: column;
-}
-
-.table {
-  th {
-    border: none;
-  }
 }
 
 </style>

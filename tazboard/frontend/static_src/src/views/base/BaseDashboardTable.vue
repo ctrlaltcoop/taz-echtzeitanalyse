@@ -1,34 +1,30 @@
 <template>
-  <LoadingControl class="loading-control" :loading-state="loadingState">
+  <LoadingControl class="tazboard-dashboard-table-loading-control" :loading-state="loadingState">
     <BTable
       striped
-      class="w-100"
+      class="w-100 tazboard-dashboard-table"
       :fields="fields"
       :items="items"
       :tbody-transition-props="{ name: 'statistics-table' }"
       v-model="rowItems"
-      thead-class="table-head">
+      thead-class="tazboard-dashboard-table-head">
 
       <template v-slot:head(hits)="data">
         {{ data.label }}
       </template>
 
       <template v-slot:head(referrerSelect)="data">
-        <div class="stacked-th-with-selection">
+        <div class="tazboard-dashboard-table-th-stacked-with-selection">
           <div>{{ data.label }}</div>
-          <select class="referrer-select" v-model="selectedReferrer">
-            <option v-for="referrer in availableReferrers" :value="referrer" :key="referrer">
-              {{ referrer }}
-            </option>
-          </select>
+          <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers" v-model="selectedReferrer" :auto-width="true" />
         </div>
       </template>
 
       <template v-slot:cell(headline)="row">
-        <span class="row-headline-kicker">
+        <span class="tazboard-dashboard-table-row-headline-kicker">
           {{ row.item.kicker }}
         </span>
-        <span class="row-headline-headline" @click="toggleDetails(row)">
+        <span class="tazboard-dashboard-table-row-headline-headline" @click="toggleDetails(row)">
           {{ row.item.headline }}
         </span>
       </template>
@@ -60,6 +56,7 @@ import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 import { formatPublicationTime } from '@/utils/time'
 import { getTrend } from '@/utils/trends'
+import Select from '@/components/Select.vue'
 
 interface Data {
   items: ArticleData[];
@@ -88,7 +85,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   components: {
     BTable,
     LoadingControl,
-    ArticleRowDetail
+    ArticleRowDetail,
+    Select
   },
   methods: {
     toggleDetails (row: any) {
@@ -150,7 +148,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       } else {
         const trend = getTrend(item.hits_previous, item.hits, true)
         const arrowType = trend.direction * trend.score
-        return `trend-${arrowType}`
+        return `tazboard-trend-${arrowType}`
       }
     }
   },
@@ -176,8 +174,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         {
           key: 'hits',
           label: 'Pageviews',
-          thClass: 'taztable-th text-center',
-          tdClass: 'text-right taztable-td-hits',
+          tdClass: 'text-right tazboard-dashboard-table-td-hits align-middle',
+          thClass: 'tazboard-dashboard-table-th text-center',
           sortable: true,
           formatter: (value: number) => value.toLocaleString()
         },
@@ -185,26 +183,26 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'trend',
           label: '',
           class: 'text-center',
-          thClass: 'taztable-th'
+          thClass: 'tazboard-dashboard-table-th'
         },
         {
           key: 'headline',
           label: 'Titel',
           tdClass: 'text-left',
-          thClass: 'taztable-th taztable-th-title text-left'
+          thClass: 'tazboard-dashboard-table-th tazboard-dashboard-table-th-title text-left'
         },
         {
           key: 'pubdate',
           label: 'veröffentlicht',
-          tdClass: 'align-middle taztable-td-pubdate text-right',
-          thClass: 'taztable-th text-center',
+          tdClass: 'align-middle tazboard-dashboard-table-td-pubdate text-right',
+          thClass: 'tazboard-dashboard-table-th text-center',
           formatter: formatPublicationTime,
           sortable: true
         }, {
           key: 'referrerSelect',
           label: 'Klicks über',
-          tdClass: 'text-right taztable-td-referrer-select align-middle',
-          thClass: 'taztable-th taztable-th-black text-center',
+          tdClass: 'tazboard-dashboard-table-td-referrer-select align-middle text-right',
+          thClass: 'tazboard-dashboard-table-th tazboard-dashboard-table-th-referrer-select tazboard-dashboard-table-th-black text-center',
           sortable: true,
           sortByFormatted: true,
           formatter: (value: null, key: string, item: ArticleData) => {
@@ -215,7 +213,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'topReferrer',
           label: 'Top Referrer',
           tdClass: 'text-right',
-          thClass: 'taztable-th text-center',
+          thClass: 'tazboard-dashboard-table-th text-center',
           formatter: (value: null, key: string, item: ArticleData) => {
             return item.referrers
               .filter(({ percentage }) => percentage > TOP_REFERRER_THRESHOLD)
@@ -254,81 +252,3 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   }
 })
 </script>
-
-<!-- styles for vue table won't take effect unless unscoped -->
-<style lang="scss">
-@import "src/style/mixins";
-@import 'src/style/variables';
-
-.row-headline-headline {
-  @include serif-font();
-  font-size: 1.4rem;
-  font-weight: bold;
-  display: block;
-}
-
-.row-headline-kicker {
-  font-size: 1rem;
-  display: block;
-  color: $gray-700;
-}
-
-.table-head {
-  background-color: $taz-red;
-
-}
-
-.taztable-td-referrer-select {
-  font-weight: bold;
-}
-
-.taztable-td-pubdate {
-  font-size: 1.2rem;
-}
-
-.taztable-td-referrer-select {
-  font-size: 1.2rem;
-}
-
-.taztable-th {
-  color: $white;
-  font-size: 1.4rem !important;
-  // found no different way to overwrite default style
-  border-top: none !important;
-  background-position: center bottom !important;
-  padding: 1rem !important;
-  padding-bottom: 0.9em !important;
-  text-align: center !important;
-  vertical-align: top !important;
-}
-
-.taztable-th-black {
-  color: $black;
-}
-
-.taztable-th-title {
-  width: 100%;
-}
-
-.taztable-td-hits {
-  @include serif-font();
-  @include light-text-shadow();
-  font-weight: bold;
-  font-size: 2rem;
-  color: $gray-800;
-}
-</style>
-
-<style lang="scss" scoped>
-.loading-control {
-  min-height: 450px;
-  flex-direction: column;
-}
-
-.table {
-  th {
-    border: none;
-  }
-}
-
-</style>
