@@ -1,6 +1,6 @@
 <template>
   <div class="select-wrapper" :style="selectStyle">
-    <select ref="select" @input="updateStyle(); $emit('input', $event.target.value)"
+    <select ref="select" @change="updateStyle(); $emit('input', $event.target.value)"
             :value="value">
       <option v-for="item in items" :value="getValue(item)" :key="getKey(item)">
         {{ getLabel(item) }}
@@ -11,17 +11,31 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { isObject } from '@/utils/objects'
+
+type AnyObject = { [key: string]: any }
+
+interface Data {
+  selectStyle: object;
+}
 
 interface Props {
   value: string;
   valueProperty: string | undefined;
   labelProperty: string | undefined;
   keyProperty: string | undefined;
-  items: Array<object | string>;
+  items: Array<AnyObject | string>;
   autoWidth: boolean;
 }
 
-export default Vue.extend<{}, {}, {}, Props>({
+interface Methods {
+  getLabel(item: object | string): string;
+  getKey(item: object | string): string;
+  getValue(item: object | string): string;
+  updateStyle(): void;
+}
+
+export default Vue.extend<Data, Methods, {}, Props>({
   name: 'Select',
   props: {
     value: String,
@@ -49,30 +63,33 @@ export default Vue.extend<{}, {}, {}, Props>({
     }
   },
   methods: {
-    getLabel (item) {
-      if (this.labelProperty) {
+    getLabel (item: AnyObject | string) {
+      if (this.labelProperty && isObject(item)) {
         return item[this.labelProperty]
       } else {
         return item
       }
     },
-    getValue (item) {
-      if (this.valueProperty) {
+    getValue (item: AnyObject | string) {
+      if (this.valueProperty && isObject(item)) {
         return item[this.valueProperty]
       } else {
         return item
       }
     },
-    getKey (item) {
-      if (this.keyProperty) {
+    getKey (item: AnyObject | string) {
+      if (this.keyProperty && isObject(item)) {
         return item[this.keyProperty]
       } else {
         return item
       }
     },
     updateStyle () {
-      if (this.$refs.select && this.autoWidth) {
-        const textNode = Array.from(this.$refs.select.children).find((option: HTMLOptionElement) => option.selected) as Node
+      if (this.$refs.select instanceof Element && this.autoWidth) {
+        const select = this.$refs.select
+        // @ts-ignore typescript complains although Array.from(HTMLOptionElement[]) is perfectly OK
+        const textNode = Array.from(select.children as HTMLOptionElement[])
+          .find((option: HTMLOptionElement) => option.selected) as HTMLOptionElement
         if (textNode) {
           const range = document.createRange()
           range.selectNodeContents(textNode)
@@ -82,7 +99,7 @@ export default Vue.extend<{}, {}, {}, Props>({
             optionWidth += 25
           }
           this.selectStyle = {
-            width: `${optionWidth ?? this.$refs.select.clientWidth}px`
+            width: `${optionWidth ?? select.clientWidth}px`
           }
         }
       }
@@ -125,8 +142,9 @@ select {
   color: inherit;
 
   option {
-    color: inherit;
+    color: initial;
   }
+
 }
 
 </style>

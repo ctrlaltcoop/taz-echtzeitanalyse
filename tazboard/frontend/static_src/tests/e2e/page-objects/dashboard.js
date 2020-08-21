@@ -24,7 +24,7 @@ module.exports = {
           selector: 'span.timeframe-caption'
         },
         timeframeSelect: {
-          selector: 'select.timeframe-select'
+          selector: '.timeframe-select select'
         }
       }
     }
