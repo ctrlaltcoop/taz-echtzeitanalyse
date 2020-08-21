@@ -4,6 +4,7 @@ import { HorizontalBar } from 'vue-chartjs'
 import { ChartOptions } from 'chart.js'
 import { ChartMethods } from '@/types/chartjs'
 import { DevicesData } from '@/dto/DevicesDto'
+import { FIXED_BAR_DISPLAY_COUNT } from '@/common/constants'
 
 export interface DevicesBarProps {
   graph: Array<DevicesData> | null;
@@ -38,7 +39,6 @@ export default Vue.extend<DeviceBarData, ChartMethods<DevicesData>, {}, DevicesB
             }
           }],
           yAxes: [{
-            categoryPercentage: 0.9,
             gridLines: {
               display: false
             }
@@ -49,11 +49,15 @@ export default Vue.extend<DeviceBarData, ChartMethods<DevicesData>, {}, DevicesB
   },
   methods: {
     updateChart (data: Array<DevicesData>) {
+      if (data.length < FIXED_BAR_DISPLAY_COUNT) {
+        for (let i = data.length; i < FIXED_BAR_DISPLAY_COUNT; i++) {
+          data.push({})
+        }
+      }
       const chartData = DevicesData.toChartdata(data!!.slice())
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {
-          barPercentage: 1,
           ...dataset
         }
       })

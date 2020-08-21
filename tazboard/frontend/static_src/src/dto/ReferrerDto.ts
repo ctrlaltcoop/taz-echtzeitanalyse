@@ -1,6 +1,6 @@
 import { ChartData } from 'chart.js'
 import { referrerColors, REFERRER_LABEL_UNBEKANNT } from '@/common/colors'
-import { MAX_NUM_DISPLAY_REFERRERS } from '@/common/constants'
+import { FIXED_BAR_DISPLAY_COUNT } from '@/common/constants'
 
 export class ReferrerData {
   referrer!: string
@@ -10,18 +10,19 @@ export class ReferrerData {
   static toChartdata (referrerData: Array<ReferrerData>): ChartData {
     // sort data descending
     referrerData.sort((a, b) => b.hits - a.hits)
-
-    if (referrerData.length > MAX_NUM_DISPLAY_REFERRERS) {
+    const displayableData = referrerData.slice(0, FIXED_BAR_DISPLAY_COUNT - 1)
+    const remainingData = referrerData.slice(FIXED_BAR_DISPLAY_COUNT - 1, referrerData.length)
+    if (referrerData.length > FIXED_BAR_DISPLAY_COUNT) {
       const remainingReferrersAggregated = {
         referrer: 'andere',
-        hits: referrerData.slice(MAX_NUM_DISPLAY_REFERRERS - 1, referrerData.length)
+        hits: remainingData
           .map((item) => item.hits)
           .reduce((a, b) => a + b),
-        percentage: referrerData.slice(MAX_NUM_DISPLAY_REFERRERS - 1, referrerData.length)
+        percentage: remainingData
           .map((item) => item.percentage)
           .reduce((a, b) => a + b)
       }
-      referrerData = referrerData.slice(0, MAX_NUM_DISPLAY_REFERRERS - 1)
+      referrerData = displayableData
       referrerData.push(remainingReferrersAggregated)
     }
 

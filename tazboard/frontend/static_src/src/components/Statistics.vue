@@ -13,7 +13,7 @@
         <div class="row no-gutters flex-fill">
           <div class="col-6">
             <p class="statistics-heading">Geräte</p>
-            <GraphContainer class="tazboard-graph-container-devices" :chart-component="deviceBarComponent"
+            <GraphContainer class="graph-container" :chart-component="deviceBarComponent"
                             :graph-data="devicesGraph"/>
           </div>
           <div class="col-6">
@@ -44,6 +44,7 @@ import { HistogramData } from '@/dto/HistogramDto'
 import { DevicesData } from '@/dto/DevicesDto'
 import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
+import { FIXED_BAR_DISPLAY_COUNT } from '@/common/constants'
 
 const apiClient = new ApiClient()
 
@@ -100,6 +101,7 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
           signal
         })
         const results = await Promise.all([referrerFetch, devicesFetch])
+
         this.referrerGraph = results[0].data
         this.devicesGraph = results[1].data
         currentRequestController = null
@@ -165,6 +167,10 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
 .statistics-heading {
   margin-bottom: 3px;
   text-align: center;
+}
+
+.graph-container {
+  height: 220px;
 }
 
 </style>

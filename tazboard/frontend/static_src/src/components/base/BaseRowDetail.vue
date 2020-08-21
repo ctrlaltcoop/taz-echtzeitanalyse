@@ -12,7 +12,7 @@
       </div>
       <div class="devices col-4">
         <p class="tazboard-detail-caption">Geräte</p>
-        <GraphContainer class="tazboard-graph-container-devices" :chart-component="devicesChartComponent"
+        <GraphContainer class="graph-container" :chart-component="devicesChartComponent"
                         :graph-data="item.devices"/>
       </div>
       <div class="referrers col-4">
@@ -132,6 +132,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   display: flex;
   height: 250px;
   margin-bottom: 1em;
+}
+
+.graph-container {
+  height: 220px;
 }
 
 </style>
