@@ -9,19 +9,23 @@
           <h1 class="app-heading">die echtzeitanalyse</h1>
         </div>
         <div class="col-12 col-lg-5 pr-0 timeframe-select-area">
-          <div class="timeframe-select-container">
             <span class="pulse-caption">Letzte Aktualisierung: {{
                 lastPulse.toLocaleString([], dateFormatOptions)
               }}</span>
+          <div class="d-flex">
             <span class="timeframe-caption">{{
                 currentTimeframeOrDefault.minDate().toLocaleString([], dateFormatOptions)
               }} - {{ currentTimeframeOrDefault.maxDate().toLocaleString([], dateFormatOptions) }}</span>
-            <select class="timeframe-select" @change="timeframeSelect($event.target.value)"
-                    :value="currentTimeframeOrDefault.id">
-              <option v-for="timeframe in timeframeSelection" :value="timeframe.id" :key="timeframe.id">
-                {{ timeframe.label }}
-              </option>
-            </select>
+            <Select
+              class="tazboard-selection timeframe-select"
+              @input="timeframeSelect($event)"
+              :value="$route.query.timeframeId"
+              :items="timeframeSelection"
+              value-property="id"
+              label-property="label"
+              key-property="id"
+            >
+            </Select>
           </div>
         </div>
       </div>
@@ -53,6 +57,7 @@ import {
   TIMEFRAMES
 } from '@/common/timeframe'
 import { GlobalPulse, PULSE_EVENT, RESET_PULSE_EVENT } from '@/common/GlobalPulse'
+import Select from '@/components/Select.vue'
 
 interface TabConfig {
   route: string;
@@ -95,6 +100,7 @@ interface Computed {
 
 interface Methods {
   getTabStyleFor (tab: TabConfig): { [key: string]: string | number };
+
   timeframeSelect (timeframeId: TimeframeId): void;
 }
 
@@ -103,7 +109,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   components: {
     Statistics,
     BNavItem,
-    BNav
+    BNav,
+    Select
   },
   mixins: [TimeframeMixin],
   data () {
@@ -213,28 +220,13 @@ export default Vue.extend<Data, Methods, Computed, {}>({
 
 .timeframe-select-area {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
 
-  .timeframe-select-container {
-
-  }
-
   .timeframe-select {
-    /* reset */
-    border: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: transparent;
-
-    margin-left: 0.4rem;
     color: $taz-red;
-    font-size: 1.0em;
-    font-weight: bold;
-    background-repeat: no-repeat;
-    background-position-x: 100%;
-    background-position-y: 5px;
+    margin-left: 0.4rem;
   }
 
   .pulse-caption {
