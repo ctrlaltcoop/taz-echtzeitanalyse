@@ -2,7 +2,7 @@
   <div>
     <div class="row-detail mr-5 ml-5 pb-3 row">
       <div class="histogram col-4 h-100">
-        <p class="tazboard-detail-caption">Verlauf seit Veröffentlichung</p>
+        <p class="tazboard-detail-caption">Verlauf seit Veröffentlichung (max. 1 Woche)</p>
         <LoadingControl :loading-state="loadingState">
           <GraphContainer class="tazboard-card-shadow tazboard-graph-container"
                           :chart-component="histogramChartComponent"
