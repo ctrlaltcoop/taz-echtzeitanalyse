@@ -50,7 +50,7 @@ def get_fireplace_query(min_date, max_date=timezone.now()):
                         "top_hits": {
                             "size": 1,
                             "_source": {
-                                "include": ['headline', 'kicker', 'pubtime']
+                                "include": ['bid', 'headline', 'kicker', 'pubtime']
                             }
                         }
                     },

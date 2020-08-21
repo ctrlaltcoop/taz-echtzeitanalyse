@@ -109,6 +109,9 @@ def elastic_toplist_response_to_toplist(es_response):
             'msid': get_dict_path_safe(
                 toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'msid'
             ),
+            'bid': get_dict_path_safe(
+                toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'bid'
+            ),
             'referrers': _transform_referrer_buckets(toplist_bucket[KEY_REFERRER_AGGREGATION]['buckets']),
             'devices': _transform_device_buckets(toplist_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
             **_transform_ranges(toplist_bucket[KEY_RANGES_AGGREGATION]['buckets'])
@@ -137,6 +140,9 @@ def elastic_fireplace_response_to_fireplace_list(es_response):
             ),
             'headline': get_dict_path_safe(
                 fireplace_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'headline'
+            ),
+            'bid': get_dict_path_safe(
+                fireplace_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'bid'
             ),
             'referrers': _transform_referrer_buckets(fireplace_bucket[KEY_REFERRER_AGGREGATION]['buckets']),
             'devices': _transform_device_buckets(fireplace_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
