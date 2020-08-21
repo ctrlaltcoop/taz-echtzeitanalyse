@@ -81,7 +81,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     getTrendClass () {
       const trend = getTrend(this.totalPrevious, this.total, true)
       const arrowType = trend.direction * trend.score
-      return `trend-${arrowType}`
+      return `tazboard-trend-${arrowType}`
     }
   },
   watch: {
