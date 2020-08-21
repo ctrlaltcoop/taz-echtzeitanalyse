@@ -9,6 +9,10 @@
       v-model="rowItems"
       thead-class="tazboard-dashboard-table-head">
 
+      <template v-slot:cell(index)="data">
+        {{ data.index + 1 }}.
+      </template>
+
       <template v-slot:head(hits)="data">
         {{ data.label }}
       </template>
@@ -171,6 +175,12 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       selectedReferrer: null,
       loadingStateTimeframe: LoadingState.FRESH,
       fields: [
+        {
+          key: 'index',
+          label: '#',
+          tdClass: 'text-center tazboard-dashboard-table-td-hits align-middle',
+          thClass: 'taztable-th text-center'
+        },
         {
           key: 'hits',
           label: 'Pageviews',
