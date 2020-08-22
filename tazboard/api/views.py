@@ -25,7 +25,7 @@ from .tests.common import activate_global_elastic_mocks
 from .transformers import elastic_histogram_response_to_histogram_graph, \
     elastic_toplist_response_to_toplist, elastic_referrer_response_to_referrer_data, \
     elastic_devices_response_to_devices_graph, elastic_total_response_total, \
-    elastic_fireplace_response_to_fireplace_list, elastic_subjects_response_to_subjects_data
+    elastic_fireplace_response_to_fireplace, elastic_subjects_response_to_subjects_data
 from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer, DevicesSerializer, \
     TotalSerializer, SubjectSerializer, FireplaceSerializer
 
@@ -130,7 +130,7 @@ class FireplaceView(APIView):
         query = get_fireplace_query(min_date, max_date)
         response = search_or_raise_api_exception(query)
         serializer = self.serializer_class(
-            data=elastic_fireplace_response_to_fireplace_list(response)
+            data=elastic_fireplace_response_to_fireplace(response)
         )
         if not serializer.is_valid():
             logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))

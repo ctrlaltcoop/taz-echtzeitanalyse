@@ -7,7 +7,8 @@ from django.conf import settings
 from tazboard.api.queries.common import get_fingerprint_aggregation_with_ranges, \
     get_interval_filter_exclude_bots_with_msids, get_devices_aggregation, get_referrer_aggregation
 from tazboard.api.queries.constants import KEY_FIREPLACE_AGGREGATION, \
-    KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_DEVICES_AGGREGATION
+    KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION, KEY_DEVICES_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
+    KEY_FINGERPRINT_AGGREGATION
 
 
 @cached(cache=TTLCache(ttl=60, maxsize=float('inf')))
@@ -41,7 +42,7 @@ def get_fireplace_query(min_date, max_date=timezone.now()):
                 "terms": {
                     "field": "msid",
                     "order": {
-                        "_count": "desc"
+                        "{}>{}".format(KEY_TIMEFRAME_AGGREGATION, KEY_FINGERPRINT_AGGREGATION): "desc"
                     },
                     "missing": "__missing__"
                 },
@@ -50,11 +51,11 @@ def get_fireplace_query(min_date, max_date=timezone.now()):
                         "top_hits": {
                             "size": 1,
                             "_source": {
-                                "include": ['bid', 'headline', 'kicker', 'pubtime']
+                                "includes": ['bid', 'kicker', 'pubtime', 'msid', 'headline']
                             }
                         }
                     },
-                    KEY_RANGES_AGGREGATION: get_fingerprint_aggregation_with_ranges(
+                    **get_fingerprint_aggregation_with_ranges(
                         min_date_previous_interval, min_date, max_date
                     ),
                     KEY_DEVICES_AGGREGATION: get_devices_aggregation(),

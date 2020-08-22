@@ -32,7 +32,7 @@ class DevicesSerializer(serializers.Serializer):
     data = DevicesDataSerializer(many=True)
 
 
-class ToplistDataSerializer(serializers.Serializer):
+class ArticleDataSerializer(serializers.Serializer):
     headline = serializers.CharField()
     kicker = serializers.CharField(required=False, allow_null=True)
     pubdate = serializers.DateTimeField(required=False, allow_null=True)
@@ -42,14 +42,16 @@ class ToplistDataSerializer(serializers.Serializer):
     devices = DevicesDataSerializer(many=True)
     msid = serializers.IntegerField()
     bid = serializers.IntegerField(required=False, allow_null=True)
+    frontpage = serializers.BooleanField(default=False)
+    archive = serializers.BooleanField(default=False)
 
 
 class ToplistSerializer(serializers.Serializer):
-    data = ToplistDataSerializer(many=True)
+    data = ArticleDataSerializer(many=True)
 
 
 class FireplaceSerializer(serializers.Serializer):
-    data = ToplistDataSerializer(many=True)
+    data = ArticleDataSerializer(many=True)
 
 
 class TotalSerializer(serializers.Serializer):

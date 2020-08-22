@@ -28,7 +28,13 @@
         <span class="tazboard-dashboard-table-row-headline-kicker">
           {{ row.item.kicker }}
         </span>
-        <span class="tazboard-dashboard-table-row-headline-headline" @click="toggleDetails(row)">
+        <span
+          class="tazboard-dashboard-table-row-headline-headline"
+          :class="{
+            'archive': row.item.archive,
+            'frontpage': row.item.frontpage
+          }"
+          @click="toggleDetails(row)">
           {{ row.item.headline }}
         </span>
       </template>
@@ -273,3 +279,15 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   }
 })
 </script>
+<style lang="scss" scoped>
+@import "src/style/variables";
+
+.archive {
+  background-color: $taz-archive;
+}
+
+.frontpage {
+  background-color: $taz-highlight;
+}
+
+</style>

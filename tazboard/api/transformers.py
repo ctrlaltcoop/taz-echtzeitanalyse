@@ -1,21 +1,20 @@
 from functools import reduce
 
+from django.conf import settings
+
 from tazboard.api.queries.common import get_dict_path_safe
 from tazboard.api.queries.constants import KEY_TIMESTAMP_AGGREGATION, KEY_FINGERPRINT_AGGREGATION, \
-    KEY_REFERRER_AGGREGATION, KEY_TOPLIST_AGGREGTAION, KEY_RANGES_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
+    KEY_REFERRER_AGGREGATION, KEY_TOPLIST_AGGREGTAION, KEY_TIMEFRAME_AGGREGATION, \
     KEY_TREND_AGGREGATION, KEY_EXTRA_FIELDS_AGGREGATION, KEY_DEVICES_AGGREGATION, KEY_FIREPLACE_AGGREGATION, \
     KEY_SUBJECTS_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION
+from tazboard.api.queries.fireplace import get_fireplace_articles_msids
 
 
 def _transform_ranges(buckets):
-    data = {}
-    for bucket in buckets:
-        if bucket['key'] == KEY_TIMEFRAME_AGGREGATION:
-            data['hits'] = bucket[KEY_FINGERPRINT_AGGREGATION]['value']
-        elif bucket['key'] == KEY_TREND_AGGREGATION:
-            data['hits_previous'] = bucket[KEY_FINGERPRINT_AGGREGATION]['value']
-
-    return data
+    return {
+        'hits': buckets[KEY_TIMEFRAME_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value'],
+        'hits_previous': buckets[KEY_TREND_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value']
+    }
 
 
 def _transform_referrer_with_ranges_buckets(referrer_buckets):
@@ -23,7 +22,7 @@ def _transform_referrer_with_ranges_buckets(referrer_buckets):
     total = 0
     total_previous = 0
     for referrer_bucket in referrer_buckets:
-        hits_data = _transform_ranges(referrer_bucket[KEY_RANGES_AGGREGATION]['buckets'])
+        hits_data = _transform_ranges(referrer_bucket)
         total += hits_data['hits']
         total_previous += hits_data['hits_previous']
         referrer_data = {
@@ -92,14 +91,23 @@ def elastic_histogram_response_to_histogram_graph(es_response):
     }
 
 
-def elastic_toplist_response_to_toplist(es_response):
+def _article_response_to_article_data(article_buckets):
     data = []
+    frontpage_msids = get_fireplace_articles_msids()
+    for toplist_bucket in article_buckets:
+        headline = get_dict_path_safe(
+            toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'headline'
+        )
+        msid = get_dict_path_safe(
+            toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'msid'
+        )
+        archive = False
+        if headline is None:
+            headline = settings.TAZBOARD_TAZ_WEB_URL + '!{}/'.format(msid)
+            archive = True
 
-    for toplist_bucket in es_response['aggregations'][KEY_TOPLIST_AGGREGTAION]['buckets']:
-        if toplist_bucket['key'] == '__missing__':
-            continue
         toplist_data = {
-            'headline': toplist_bucket['key'],
+            'headline': headline,
             'kicker': get_dict_path_safe(
                 toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'kicker'
             ),
@@ -114,9 +122,16 @@ def elastic_toplist_response_to_toplist(es_response):
             ),
             'referrers': _transform_referrer_buckets(toplist_bucket[KEY_REFERRER_AGGREGATION]['buckets']),
             'devices': _transform_device_buckets(toplist_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
-            **_transform_ranges(toplist_bucket[KEY_RANGES_AGGREGATION]['buckets'])
+            'frontpage': msid in frontpage_msids,
+            'archive': archive,
+            **_transform_ranges(toplist_bucket)
         }
         data.append(toplist_data)
+    return data
+
+
+def elastic_toplist_response_to_toplist(es_response):
+    data = _article_response_to_article_data(es_response['aggregations'][KEY_TOPLIST_AGGREGTAION]['buckets'])
     total = reduce(lambda acc, x: acc + x['hits'], data, 0)
     total_previous = reduce(lambda acc, x: acc + x['hits_previous'], data, 0)
     return {
@@ -126,29 +141,8 @@ def elastic_toplist_response_to_toplist(es_response):
     }
 
 
-def elastic_fireplace_response_to_fireplace_list(es_response):
-    data = []
-
-    for fireplace_bucket in es_response['aggregations'][KEY_FIREPLACE_AGGREGATION]['buckets']:
-        fireplace_data = {
-            'msid': fireplace_bucket['key'],
-            'kicker': get_dict_path_safe(
-                fireplace_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'kicker'
-            ),
-            'pubdate': get_dict_path_safe(
-                fireplace_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'pubtime'
-            ),
-            'headline': get_dict_path_safe(
-                fireplace_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'headline'
-            ),
-            'bid': get_dict_path_safe(
-                fireplace_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'bid'
-            ),
-            'referrers': _transform_referrer_buckets(fireplace_bucket[KEY_REFERRER_AGGREGATION]['buckets']),
-            'devices': _transform_device_buckets(fireplace_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
-            **_transform_ranges(fireplace_bucket[KEY_RANGES_AGGREGATION]['buckets'])
-        }
-        data.append(fireplace_data)
+def elastic_fireplace_response_to_fireplace(es_response):
+    data = _article_response_to_article_data(es_response['aggregations'][KEY_FIREPLACE_AGGREGATION]['buckets'])
     total = reduce(lambda acc, x: acc + x['hits'], data, 0)
     total_previous = reduce(lambda acc, x: acc + x['hits_previous'], data, 0)
     return {
@@ -159,7 +153,7 @@ def elastic_fireplace_response_to_fireplace_list(es_response):
 
 
 def elastic_total_response_total(es_response):
-    data = _transform_ranges(es_response['aggregations'][KEY_RANGES_AGGREGATION]['buckets'])
+    data = _transform_ranges(es_response['aggregations'])
     return {
         'total': data['hits'],
         'total_previous': data['hits_previous'],

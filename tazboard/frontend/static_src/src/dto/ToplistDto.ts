@@ -11,6 +11,8 @@ export class ArticleData {
   hits_previous!: number
   referrers!: Array<ReferrerData>
   devices!: Array<DevicesData>
+  archive!: boolean
+  frontpage!: boolean
 }
 
 export class ToplistDto {
