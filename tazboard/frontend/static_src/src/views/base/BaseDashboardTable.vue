@@ -7,7 +7,8 @@
       :items="items"
       :tbody-transition-props="{ name: 'statistics-table' }"
       v-model="rowItems"
-      thead-class="tazboard-dashboard-table-head">
+      thead-class="tazboard-dashboard-table-head"
+      @row-clicked="toggleDetails">
 
       <template v-slot:cell(index)="data">
         {{ data.index + 1 }}.
@@ -20,24 +21,33 @@
       <template v-slot:head(referrerSelect)="data">
         <div class="tazboard-dashboard-table-th-stacked-with-selection">
           <div>{{ data.label }}</div>
-          <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers" v-model="selectedReferrer" :auto-width="true" />
+          <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers"
+                  v-model="selectedReferrer" :auto-width="true"/>
         </div>
       </template>
 
       <template v-slot:cell(headline)="row">
         <span class="tazboard-dashboard-table-row-headline-kicker">
-          {{ row.item.kicker }}
+          {{ row.item.kicker || '-' }}
         </span>
-        <span class="tazboard-dashboard-table-row-headline-headline" @click="toggleDetails(row)">
+        <a
+          target="_blank"
+          :href="row.item.url" :alt="row.item.headline"
+          class="tazboard-dashboard-table-row-headline-headline"
+          @click="$event.stopPropagation()"
+          :class="{
+            'archive': row.item.archive,
+            'frontpage': row.item.frontpage
+          }">
           {{ row.item.headline }}
-        </span>
+        </a>
       </template>
 
       <template v-slot:cell(trend)="row">
-        <span v-if="row.item.hits_previous === 0">
+        <span class="trend-new" v-if="row.item.hits_previous === 0">
           Neu
         </span>
-        <span v-else :class="getTrendClass(row.item)"></span>
+        <span v-else class="trend" :class="getTrendClass(row.item)"></span>
       </template>
 
       <template v-slot:row-details="row">
@@ -72,9 +82,13 @@ interface Data {
 
 interface Methods {
   loadData (timeframe: Timeframe): Promise<void>;
+
   toggleDetails (row: any): void;
+
   syncOpenedDetailsStateWithRoute (): void;
+
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
+
   getTrendClass (item: ArticleData): string;
 }
 
@@ -95,13 +109,13 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     Select
   },
   methods: {
-    toggleDetails (row: any) {
+    toggleDetails (item: any) {
       const query = this.$route.query.openMsids as string || '[]'
       let currentlyOpenMsids = JSON.parse(query)
-      if (currentlyOpenMsids.includes(row.item.msid)) {
-        currentlyOpenMsids = currentlyOpenMsids.filter((msid: number) => msid !== row.item.msid)
+      if (currentlyOpenMsids.includes(item.msid)) {
+        currentlyOpenMsids = currentlyOpenMsids.filter((msid: number) => msid !== item.msid)
       } else {
-        currentlyOpenMsids.push(row.item.msid)
+        currentlyOpenMsids.push(item.msid)
       }
       this.$router.push({
         path: this.$route.path,
@@ -173,8 +187,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         const trendsColumnDefinition = {
           key: 'trend',
           label: '',
-          class: 'text-center',
-          thClass: 'taztable-th'
+          tdClass: 'text-center align-middle',
+          thClass: 'tazboard-dashboard-table-th'
         }
         const fields = this.defaultFields.slice()
         fields.splice(2, 0, trendsColumnDefinition)
@@ -196,7 +210,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'index',
           label: '#',
           tdClass: 'text-center tazboard-dashboard-table-td-hits align-middle',
-          thClass: 'taztable-th text-center'
+          thClass: 'tazboard-dashboard-table-th text-center'
         },
         {
           key: 'hits',
@@ -273,3 +287,27 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   }
 })
 </script>
+<style lang="scss" scoped>
+@import "src/style/variables";
+
+.archive {
+  background-color: $taz-archive;
+}
+
+.frontpage {
+  background-color: $taz-highlight;
+}
+
+.trend {
+  font-size: 1.5rem;
+  line-height: 2;
+  position: relative;
+  top: 3px;
+}
+
+.trend-new {
+  color: green;
+  font-weight: bold;
+}
+
+</style>

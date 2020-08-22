@@ -1,0 +1,33 @@
+{
+    "took": 66,
+    "timed_out": false,
+    "_shards": {
+        "total": 137,
+        "successful": 137,
+        "skipped": 133,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 10000,
+            "relation": "gte"
+        },
+        "max_score": null,
+        "hits": []
+    },
+    "aggregations": {
+        "KEY_TREND_AGGREGATION": {
+            "doc_count": 69427,
+            "KEY_FINGERPRINT_AGGREGATION": {
+                "value": 18639
+            }
+        },
+        "KEY_TIMEFRAME_AGGREGATION": {
+            "meta": {},
+            "doc_count": 122501,
+            "KEY_FINGERPRINT_AGGREGATION": {
+                "value": 53405
+            }
+        }
+    }
+}
