@@ -12,7 +12,6 @@ def get_total_query(min_date, max_date=timezone.now()):
                 min_date_previous_interval, min_date, max_date
             ),
         },
-        "size": 0,
         "query": get_interval_filter_exclude_bots(min_date_previous_interval, max_date)
     }
     return query

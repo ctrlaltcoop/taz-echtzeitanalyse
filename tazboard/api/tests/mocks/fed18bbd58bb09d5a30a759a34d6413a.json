@@ -1,5 +1,5 @@
 {
-    "took": 22,
+    "took": 26,
     "timed_out": false,
     "_shards": {
         "total": 137,
@@ -790,17 +790,41 @@
         ]
     },
     "aggregations": {
-        "KEY_TREND_AGGREGATION": {
-            "doc_count": 5545,
-            "KEY_FINGERPRINT_AGGREGATION": {
-                "value": 3413
-            }
-        },
-        "KEY_TIMEFRAME_AGGREGATION": {
-            "doc_count": 5404,
-            "KEY_FINGERPRINT_AGGREGATION": {
-                "value": 3382
-            }
+        "KEY_DEVICES_AGGREGATION": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "desktop",
+                    "doc_count": 5355,
+                    "KEY_TIMEFRAME_AGGREGATION": {
+                        "doc_count": 5355,
+                        "KEY_FINGERPRINT_AGGREGATION": {
+                            "value": 2562
+                        }
+                    }
+                },
+                {
+                    "key": "mobile",
+                    "doc_count": 5105,
+                    "KEY_TIMEFRAME_AGGREGATION": {
+                        "doc_count": 5105,
+                        "KEY_FINGERPRINT_AGGREGATION": {
+                            "value": 3681
+                        }
+                    }
+                },
+                {
+                    "key": "unclassified",
+                    "doc_count": 485,
+                    "KEY_TIMEFRAME_AGGREGATION": {
+                        "doc_count": 485,
+                        "KEY_FINGERPRINT_AGGREGATION": {
+                            "value": 155
+                        }
+                    }
+                }
+            ]
         }
     }
 }

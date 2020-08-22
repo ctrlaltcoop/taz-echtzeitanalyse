@@ -58,8 +58,8 @@ def get_fireplace_query(min_date, max_date=timezone.now()):
                     **get_fingerprint_aggregation_with_ranges(
                         min_date_previous_interval, min_date, max_date
                     ),
-                    KEY_DEVICES_AGGREGATION: get_devices_aggregation(),
-                    KEY_REFERRER_AGGREGATION: get_referrer_aggregation()
+                    KEY_DEVICES_AGGREGATION: get_devices_aggregation(min_date, max_date),
+                    KEY_REFERRER_AGGREGATION: get_referrer_aggregation(min_date, max_date)
                 }
             }
         },

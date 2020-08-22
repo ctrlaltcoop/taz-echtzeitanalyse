@@ -78,19 +78,54 @@ def get_fingerprint_aggregation_with_ranges(interval_start, interval_mid, interv
     }
 
 
-def get_referrer_aggregation(limit=10):
+def get_referrer_aggregation(start, end):
     return {
         "terms": {
-            "field": "referrerlabel",
-            "order": {
-                "_count": "desc"
-            },
-            "size": str(limit)
+            "field": "referrerlabel"
         },
         "aggs": {
-            KEY_FINGERPRINT_AGGREGATION: {
-                "cardinality": {
-                    "field": "fingerprint",
+            KEY_TIMEFRAME_AGGREGATION: {
+                "filter": {
+                    "range": {
+                        "@timestamp": {
+                            "gte": start.isoformat(),
+                            "lte": end.isoformat()
+                        },
+                    },
+                },
+                "aggs": {
+                    KEY_FINGERPRINT_AGGREGATION: {
+                        "cardinality": {
+                            "field": "fingerprint",
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+def get_devices_aggregation(start, end):
+    return {
+        "terms": {
+            "field": "deviceclass"
+        },
+        "aggs": {
+            KEY_TIMEFRAME_AGGREGATION: {
+                "filter": {
+                    "range": {
+                        "@timestamp": {
+                            "gte": start.isoformat(),
+                            "lte": end.isoformat()
+                        },
+                    },
+                },
+                "aggs": {
+                    KEY_FINGERPRINT_AGGREGATION: {
+                        "cardinality": {
+                            "field": "fingerprint",
+                        }
+                    }
                 }
             }
         }
@@ -145,26 +180,7 @@ def get_interval_filter_exclude_bots_with_msids(interval_start, interval_end, ms
     return base_query
 
 
-def get_devices_aggregation(limit=10):
-    return {
-        "terms": {
-            "field": "deviceclass",
-            "order": {
-                "_count": "desc"
-            },
-            "size": str(limit)
-        },
-        "aggs": {
-            KEY_FINGERPRINT_AGGREGATION: {
-                "cardinality": {
-                    "field": "fingerprint"
-                }
-            }
-        }
-    }
-
-
-def get_subject_aggregation(limit=10):
+def get_subject_aggregation(start, end, limit=10):
     return {
         "terms": {
             "field": "schwerpunkte",
@@ -184,7 +200,7 @@ def get_subject_aggregation(limit=10):
                     "field": "msid",
                 }
             },
-            KEY_REFERRER_AGGREGATION: get_referrer_aggregation(),
-            KEY_DEVICES_AGGREGATION: get_devices_aggregation()
+            KEY_REFERRER_AGGREGATION: get_referrer_aggregation(start, end),
+            KEY_DEVICES_AGGREGATION: get_devices_aggregation(start, end)
         }
     }
