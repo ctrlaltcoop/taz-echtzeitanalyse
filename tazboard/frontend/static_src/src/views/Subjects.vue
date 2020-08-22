@@ -157,7 +157,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           key: 'index',
           label: '#',
           tdClass: 'text-center tazboard-dashboard-table-td-hits align-middle',
-          thClass: 'taztable-th text-center'
+          thClass: 'tazboard-dashboard-table-th text-center'
         },
         {
           key: 'hits',
