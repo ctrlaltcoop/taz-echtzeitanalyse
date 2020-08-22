@@ -101,13 +101,16 @@ def _article_response_to_article_data(article_buckets):
         msid = get_dict_path_safe(
             toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'msid'
         )
+        url = '{}!{}/'.format(settings.TAZBOARD_TAZ_WEB_URL, msid)
         archive = False
+
         if headline is None:
-            headline = settings.TAZBOARD_TAZ_WEB_URL + '!{}/'.format(msid)
+            headline = url
             archive = True
 
         toplist_data = {
             'headline': headline,
+            'url': url,
             'kicker': get_dict_path_safe(
                 toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'kicker'
             ),

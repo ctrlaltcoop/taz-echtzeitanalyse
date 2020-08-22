@@ -32,7 +32,10 @@
       <Statistics/>
       <div class="row">
         <BNav>
-          <BNavItem v-for="tab in tabs" role="presentation" :to="tab.route" active-class="active"
+          <BNavItem v-for="tab in tabs" role="presentation" :to="{
+            path: tab.route,
+            query: { timeframeId: $route.query.timeframeId }
+          }" active-class="active"
                     :style="getTabStyleFor(tab)" :key="tab.route">
             <span class="tab-title-primary">{{ tab.primaryTitle }}</span><span
             class="tab-title-secondary"> {{ tab.secondaryTitle }}</span>

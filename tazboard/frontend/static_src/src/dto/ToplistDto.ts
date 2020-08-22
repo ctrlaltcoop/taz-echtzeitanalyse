@@ -13,6 +13,7 @@ export class ArticleData {
   devices!: Array<DevicesData>
   archive!: boolean
   frontpage!: boolean
+  url!: string
 }
 
 export class ToplistDto {

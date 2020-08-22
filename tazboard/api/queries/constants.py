@@ -22,5 +22,3 @@ INTERVAL_10MINUTES = '10m'
 
 MOCK_FAKE_NOW = make_aware(datetime(year=2020, month=8, day=22, hour=12, minute=00))
 MOCK_CXML_PATH = os.path.join(BASE_DIR, '..', 'api', 'tests', 'mocks', 'c.xml')
-
-TAZ_BASE_URL = 'https://taz.de/'

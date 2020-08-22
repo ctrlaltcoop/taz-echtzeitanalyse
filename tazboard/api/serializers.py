@@ -34,6 +34,7 @@ class DevicesSerializer(serializers.Serializer):
 
 class ArticleDataSerializer(serializers.Serializer):
     headline = serializers.CharField()
+    url = serializers.CharField(required=False, allow_null=True)
     kicker = serializers.CharField(required=False, allow_null=True)
     pubdate = serializers.DateTimeField(required=False, allow_null=True)
     hits = serializers.IntegerField()

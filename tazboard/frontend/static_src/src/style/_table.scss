@@ -45,8 +45,14 @@
 .tazboard-dashboard-table-row-headline-headline {
   @include serif-font();
   font-size: 1.4rem;
+  color: $black;
   font-weight: bold;
-  display: block;
+  display: inline;
+
+  &:hover {
+    color: $black;
+    cursor: pointer;
+  }
 }
 
 .tazboard-dashboard-table-row-headline-kicker {
