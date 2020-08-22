@@ -50,6 +50,13 @@
         <span v-else class="trend" :class="getTrendClass(row.item)"></span>
       </template>
 
+      <template v-slot:cell(topReferrer)="row">
+        <div class="top-referrers">
+          <img class="top-referrer-logo" v-for="referrer in getTopReferrers(row.item)" :alt="referrer"
+               :src="`${publicPath}/vendor_logos/${referrer.toLowerCase()}.png`" :key="referrer"/>
+        </div>
+      </template>
+
       <template v-slot:row-details="row">
         <ArticleRowDetail :item="row.item"/>
       </template>
@@ -78,18 +85,16 @@ interface Data {
   rowItems: Array<any>;
   loadingState: LoadingState;
   defaultFields: any;
+  publicPath: string;
 }
 
 interface Methods {
   loadData (timeframe: Timeframe): Promise<void>;
-
   toggleDetails (row: any): void;
-
   syncOpenedDetailsStateWithRoute (): void;
-
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
-
   getTrendClass (item: ArticleData): string;
+  getTopReferrers (item: ArticleData): Array<string>;
 }
 
 interface Computed {
@@ -168,6 +173,11 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         const arrowType = trend.direction * trend.score
         return `tazboard-trend-${arrowType}`
       }
+    },
+    getTopReferrers (item: ArticleData): Array<string> {
+      return item.referrers
+        .filter(({ percentage }) => percentage > TOP_REFERRER_THRESHOLD)
+        .map(({ referrer }) => referrer)
     }
   },
   computed: {
@@ -198,6 +208,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   },
   data () {
     return {
+      publicPath: process.env.BASE_URL,
       sortBy: null,
       sortDesc: false,
       rowItems: [],
@@ -244,14 +255,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         }, {
           key: 'topReferrer',
           label: 'Top Referrer',
-          tdClass: 'text-right',
-          thClass: 'tazboard-dashboard-table-th text-center',
-          formatter: (value: null, key: string, item: ArticleData) => {
-            return item.referrers
-              .filter(({ percentage }) => percentage > TOP_REFERRER_THRESHOLD)
-              .map(({ referrer }) => referrer)
-              .join(',')
-          }
+          tdClass: 'text-right align-middle',
+          thClass: 'tazboard-dashboard-table-th text-center'
         }
       ],
       items: [],
@@ -305,6 +310,11 @@ export default Vue.extend<Data, Methods, Computed, {}>({
 .trend-new {
   color: green;
   font-weight: bold;
+}
+
+.top-referrer-logo {
+  width: 24px;
+  margin: 0 2px;
 }
 
 </style>

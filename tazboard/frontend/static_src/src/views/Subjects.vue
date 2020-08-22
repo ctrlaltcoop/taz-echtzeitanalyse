@@ -16,7 +16,7 @@
       <template v-slot:head(referrerSelect)="data">
         <div class="tazboard-dashboard-table-th-stacked-with-selection">
           <div>{{ data.label }}</div>
-          <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers"
+          <Select @click="$event.stopPropagation()" class="tazboard-dashboard-table-referrer-select" :items="availableReferrers"
                   v-model="selectedReferrer" :auto-width="true"/>
         </div>
       </template>
@@ -46,7 +46,6 @@ import { SubjectsData } from '@/dto/SubjectsDto'
 import { ApiClient } from '@/client/ApiClient'
 import SubjectRowDetail from '@/components/SubjectRowDetail.vue'
 import Select from '@/components/Select.vue'
-import { ArticleData } from '@/dto/ToplistDto'
 import { SelectReferrerMixin } from '@/common/SelectReferrerMixin'
 
 const apiClient = new ApiClient()
