@@ -16,7 +16,8 @@
       <template v-slot:head(referrerSelect)="data">
         <div class="tazboard-dashboard-table-th-stacked-with-selection">
           <div>{{ data.label }}</div>
-          <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers" v-model="selectedReferrer" :auto-width="true" />
+          <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers"
+                  v-model="selectedReferrer" :auto-width="true"/>
         </div>
       </template>
 
@@ -45,12 +46,13 @@ import { SubjectsData } from '@/dto/SubjectsDto'
 import { ApiClient } from '@/client/ApiClient'
 import SubjectRowDetail from '@/components/SubjectRowDetail.vue'
 import Select from '@/components/Select.vue'
+import { ArticleData } from '@/dto/ToplistDto'
+import { SelectReferrerMixin } from '@/common/SelectReferrerMixin'
 
 const apiClient = new ApiClient()
 
 interface Data {
   items: SubjectsData[];
-  selectedReferrer: string | null;
   rowItems: Array<any>;
   loadingState: LoadingState;
 }
@@ -78,6 +80,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     LoadingControl,
     Select
   },
+  mixins: [SelectReferrerMixin],
   methods: {
     toggleDetails (row: any) {
       const query = this.$route.query.openSubjects as string || '[]'
@@ -129,12 +132,9 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       this.items = (await apiClient.subjects(timeframe.minDate(), timeframe.maxDate(), 10, { signal })).data
     },
     formatSelectReferrer (value: null, key: string, item: SubjectsData): string | undefined {
-      if (this.selectedReferrer === null) {
-        this.selectedReferrer = item.referrers[0].referrer
-      }
-      const selectedReferrer = this.selectedReferrer
       return item.referrers.find(({ referrer }) => {
-        return selectedReferrer === referrer
+        // @ts-ignore selectedReferrer is defined on mixin type inferrence fails
+        return this.selectedReferrer === referrer
       })?.percentage.toLocaleString([], { style: 'percent' })
     }
   },
@@ -152,7 +152,6 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   data () {
     return {
       rowItems: [],
-      selectedReferrer: null,
       loadingStateTimeframe: LoadingState.FRESH,
       fields: [
         {

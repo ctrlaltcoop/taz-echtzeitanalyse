@@ -22,7 +22,7 @@
         <div class="tazboard-dashboard-table-th-stacked-with-selection">
           <div>{{ data.label }}</div>
           <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers"
-                  v-model="selectedReferrer" :auto-width="true"/>
+                  @input="selectReferrer($event)" :value="selectedReferrer" :auto-width="true"/>
         </div>
       </template>
 
@@ -71,10 +71,10 @@ import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 import { formatPublicationTime } from '@/utils/time'
 import { getTrend } from '@/utils/trends'
 import Select from '@/components/Select.vue'
+import { SelectReferrerMixin } from '@/common/SelectReferrerMixin'
 
 interface Data {
   items: ArticleData[];
-  selectedReferrer: string | null;
   rowItems: Array<any>;
   loadingState: LoadingState;
   defaultFields: any;
@@ -108,6 +108,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     ArticleRowDetail,
     Select
   },
+  mixins: [SelectReferrerMixin],
   methods: {
     toggleDetails (item: any) {
       const query = this.$route.query.openMsids as string || '[]'
@@ -154,12 +155,9 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       }
     },
     formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined {
-      if (this.selectedReferrer === null) {
-        this.selectedReferrer = item.referrers[0].referrer
-      }
-      const selectedReferrer = this.selectedReferrer
       return item.referrers.find(({ referrer }) => {
-        return selectedReferrer === referrer
+        // @ts-ignore selectedReferrer is defined on mixin type inferrence fails
+        return this.selectedReferrer === referrer
       })?.percentage.toLocaleString([], { style: 'percent' })
     },
     getTrendClass (item: ArticleData) {
@@ -203,7 +201,6 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       sortBy: null,
       sortDesc: false,
       rowItems: [],
-      selectedReferrer: null,
       loadingStateTimeframe: LoadingState.FRESH,
       defaultFields: [
         {

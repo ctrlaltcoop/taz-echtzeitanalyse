@@ -7,5 +7,7 @@ export const NUM_ARTICLES_TOP_LIST = 200
 
 export const MISC_REFERRER_KEY = 'Andere kleine Referrer'
 
+export const DEFAULT_REFERRER_SELECT = 'taz'
+
 export const SUBJECT_DETAIL_TOPLIST_LIMIT = 5
 export const CMS_BASE_LINK = 'https://irre.taz.de/exec/login.pl?mode=stage_edit&bid='
