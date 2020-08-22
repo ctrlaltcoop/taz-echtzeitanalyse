@@ -53,7 +53,7 @@
       <template v-slot:cell(topReferrer)="row">
         <div class="top-referrers">
           <img class="top-referrer-logo" v-for="referrer in getTopReferrers(row.item)" :alt="referrer"
-               :src="`${publicPath}/vendor_logos/${referrer.toLowerCase()}.png`" :key="referrer"/>
+               :src="`${publicPath}vendor_logos/${referrer.toLowerCase()}.png`" :key="referrer"/>
         </div>
       </template>
 
