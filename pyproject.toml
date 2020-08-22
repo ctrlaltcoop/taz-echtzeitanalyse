@@ -1,14 +1,18 @@
 [tool.poetry]
 name = "tazboard"
-version = "0.0.1"
+version = "1.0.0-beta01"
 description = "An internal application for monitoring and management of the taz website"
-authors = ["Lyudmila Vaseva <lyudmila@ctrl.alt.coop>",
-           "Jonatan Zint <jonatan@ctrl.alt.coop>" ]
+authors = [
+    "Lyudmila Vaseva <lyudmila@ctrl.alt.coop>",
+    "Jonatan Zint <jonatan@ctrl.alt.coop>"
+]
+
 license = "GPL-2.0-or-later"
 include = [
     "tazboard/frontend/templates/**/*",
     "tazboard/frontend/static/**/*"
 ]
+
 exclude = [
     "tazboard/frontend/static_src/**/"
 ]
@@ -21,7 +25,6 @@ elasticsearch = "^7.0.0"
 requests = "^2.24.0"
 djangorestframework = "^3.11.0"
 pyyaml = "^5.3.1"
-uritemplate = "^3.0.1"
 cachetools = "^4.1.1"
 
 [tool.poetry.scripts]
