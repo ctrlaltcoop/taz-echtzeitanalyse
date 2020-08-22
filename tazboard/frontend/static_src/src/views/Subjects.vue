@@ -17,7 +17,7 @@
         <div class="tazboard-dashboard-table-th-stacked-with-selection">
           <div>{{ data.label }}</div>
           <Select @click="$event.stopPropagation()" class="tazboard-dashboard-table-referrer-select" :items="availableReferrers"
-                  v-model="selectedReferrer" :auto-width="true"/>
+                  @input="selectReferrer($event)" :value="selectedReferrer" :auto-width="true"/>
         </div>
       </template>
 
