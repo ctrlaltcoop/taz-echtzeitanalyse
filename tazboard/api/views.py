@@ -21,7 +21,6 @@ from .queries.fireplace import get_fireplace_query
 from .query_params import HistogramQuerySerializer, ReferrerQuerySerializer, ToplistQuerySerializer, \
     DevicesQuerySerializer, TotalQuerySerializer, SubjectQuerySerializer, FireplaceQuerySerializer
 from .schema import AutoSchemaWithQuery
-from .tests.common import activate_global_elastic_mocks
 from .transformers import elastic_histogram_response_to_histogram_graph, \
     elastic_toplist_response_to_toplist, elastic_referrer_response_to_referrer_data, \
     elastic_devices_response_to_devices_graph, elastic_total_response_total, \
@@ -38,6 +37,10 @@ class RedocView(TemplateView):
 
 
 if settings.TAZBOARD_MOCKS_ENABLED:
+    try:
+        from .tests.common import activate_global_elastic_mocks
+    except ImportError:
+        raise Exception('Test module is not available in production distribution')
     activate_global_elastic_mocks()
 
 

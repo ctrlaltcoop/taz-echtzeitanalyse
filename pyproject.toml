@@ -14,7 +14,9 @@ include = [
 ]
 
 exclude = [
-    "tazboard/frontend/static_src/**/"
+    "tazboard/frontend/static_src/**/",
+    "tazboard/frontend/static/**/*.map",
+    "tazboard/api/tests/**/*"
 ]
 
 [tool.poetry.dependencies]
