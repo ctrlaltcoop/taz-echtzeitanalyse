@@ -7,7 +7,8 @@
       :items="items"
       :tbody-transition-props="{ name: 'statistics-table' }"
       v-model="rowItems"
-      thead-class="tazboard-dashboard-table-head">
+      thead-class="tazboard-dashboard-table-head"
+      @row-clicked="toggleDetails">
 
       <template v-slot:cell(index)="data">
         {{ data.index + 1 }}.
@@ -20,24 +21,40 @@
       <template v-slot:head(referrerSelect)="data">
         <div class="tazboard-dashboard-table-th-stacked-with-selection">
           <div>{{ data.label }}</div>
-          <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers" v-model="selectedReferrer" :auto-width="true" />
+          <Select class="tazboard-dashboard-table-referrer-select" :items="availableReferrers"
+                  @input="selectReferrer($event)" :value="selectedReferrer" :auto-width="true"/>
         </div>
       </template>
 
       <template v-slot:cell(headline)="row">
         <span class="tazboard-dashboard-table-row-headline-kicker">
-          {{ row.item.kicker }}
+          {{ row.item.kicker || '-' }}
         </span>
-        <span class="tazboard-dashboard-table-row-headline-headline" @click="toggleDetails(row)">
+        <a
+          target="_blank"
+          :href="row.item.url" :alt="row.item.headline"
+          class="tazboard-dashboard-table-row-headline-headline"
+          @click="$event.stopPropagation()"
+          :class="{
+            'archive': row.item.archive,
+            'frontpage': row.item.frontpage
+          }">
           {{ row.item.headline }}
-        </span>
+        </a>
       </template>
 
       <template v-slot:cell(trend)="row">
-        <span v-if="row.item.hits_previous === 0">
+        <span class="trend-new" v-if="row.item.hits_previous === 0">
           Neu
         </span>
-        <span v-else :class="getTrendClass(row.item)"></span>
+        <span v-else class="trend" :class="getTrendClass(row.item)"></span>
+      </template>
+
+      <template v-slot:cell(topReferrer)="row">
+        <div class="top-referrers">
+          <img class="top-referrer-logo" v-for="referrer in getTopReferrers(row.item)" :alt="referrer"
+               :src="`${publicPath}vendor_logos/${referrer.toLowerCase()}.png`" :key="referrer"/>
+        </div>
       </template>
 
       <template v-slot:row-details="row">
@@ -61,13 +78,14 @@ import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 import { formatPublicationTime } from '@/utils/time'
 import { getTrend } from '@/utils/trends'
 import Select from '@/components/Select.vue'
+import { SelectReferrerMixin } from '@/common/SelectReferrerMixin'
 
 interface Data {
   items: ArticleData[];
-  selectedReferrer: string | null;
   rowItems: Array<any>;
   loadingState: LoadingState;
   defaultFields: any;
+  publicPath: string;
 }
 
 interface Methods {
@@ -76,6 +94,7 @@ interface Methods {
   syncOpenedDetailsStateWithRoute (): void;
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
   getTrendClass (item: ArticleData): string;
+  getTopReferrers (item: ArticleData): Array<string>;
 }
 
 interface Computed {
@@ -94,14 +113,15 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     ArticleRowDetail,
     Select
   },
+  mixins: [SelectReferrerMixin],
   methods: {
-    toggleDetails (row: any) {
+    toggleDetails (item: any) {
       const query = this.$route.query.openMsids as string || '[]'
       let currentlyOpenMsids = JSON.parse(query)
-      if (currentlyOpenMsids.includes(row.item.msid)) {
-        currentlyOpenMsids = currentlyOpenMsids.filter((msid: number) => msid !== row.item.msid)
+      if (currentlyOpenMsids.includes(item.msid)) {
+        currentlyOpenMsids = currentlyOpenMsids.filter((msid: number) => msid !== item.msid)
       } else {
-        currentlyOpenMsids.push(row.item.msid)
+        currentlyOpenMsids.push(item.msid)
       }
       this.$router.push({
         path: this.$route.path,
@@ -140,12 +160,9 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       }
     },
     formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined {
-      if (this.selectedReferrer === null) {
-        this.selectedReferrer = item.referrers[0].referrer
-      }
-      const selectedReferrer = this.selectedReferrer
       return item.referrers.find(({ referrer }) => {
-        return selectedReferrer === referrer
+        // @ts-ignore selectedReferrer is defined on mixin type inferrence fails
+        return this.selectedReferrer === referrer
       })?.percentage.toLocaleString([], { style: 'percent' })
     },
     getTrendClass (item: ArticleData) {
@@ -156,6 +173,11 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         const arrowType = trend.direction * trend.score
         return `tazboard-trend-${arrowType}`
       }
+    },
+    getTopReferrers (item: ArticleData): Array<string> {
+      return item.referrers
+        .filter(({ percentage }) => percentage > TOP_REFERRER_THRESHOLD)
+        .map(({ referrer }) => referrer)
     }
   },
   computed: {
@@ -173,8 +195,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         const trendsColumnDefinition = {
           key: 'trend',
           label: '',
-          class: 'text-center',
-          thClass: 'taztable-th'
+          tdClass: 'text-center align-middle',
+          thClass: 'tazboard-dashboard-table-th'
         }
         const fields = this.defaultFields.slice()
         fields.splice(2, 0, trendsColumnDefinition)
@@ -186,17 +208,17 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   },
   data () {
     return {
+      publicPath: process.env.BASE_URL,
       sortBy: null,
       sortDesc: false,
       rowItems: [],
-      selectedReferrer: null,
       loadingStateTimeframe: LoadingState.FRESH,
       defaultFields: [
         {
           key: 'index',
           label: '#',
           tdClass: 'text-center tazboard-dashboard-table-td-hits align-middle',
-          thClass: 'taztable-th text-center'
+          thClass: 'tazboard-dashboard-table-th text-center'
         },
         {
           key: 'hits',
@@ -233,14 +255,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         }, {
           key: 'topReferrer',
           label: 'Top Referrer',
-          tdClass: 'text-right',
-          thClass: 'tazboard-dashboard-table-th text-center',
-          formatter: (value: null, key: string, item: ArticleData) => {
-            return item.referrers
-              .filter(({ percentage }) => percentage > TOP_REFERRER_THRESHOLD)
-              .map(({ referrer }) => referrer)
-              .join(',')
-          }
+          tdClass: 'text-right align-middle',
+          thClass: 'tazboard-dashboard-table-th text-center'
         }
       ],
       items: [],
@@ -273,3 +289,32 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   }
 })
 </script>
+<style lang="scss" scoped>
+@import "src/style/variables";
+
+.archive {
+  background-color: $taz-archive;
+}
+
+.frontpage {
+  background-color: $taz-highlight;
+}
+
+.trend {
+  font-size: 1.5rem;
+  line-height: 2;
+  position: relative;
+  top: 3px;
+}
+
+.trend-new {
+  color: green;
+  font-weight: bold;
+}
+
+.top-referrer-logo {
+  width: 24px;
+  margin: 0 2px;
+}
+
+</style>

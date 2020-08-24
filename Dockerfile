@@ -19,7 +19,4 @@ RUN apk add --no-cache \
         postgresql-dev \
         gcc
 
-
-ENV DJANGO_SETTINGS_MODULE tazboard.core.settings.docker
-
 CMD gunicorn tazboard.core.wsgi:application --bind 0.0.0.0:8000

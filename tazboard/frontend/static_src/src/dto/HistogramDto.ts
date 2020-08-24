@@ -8,7 +8,7 @@ export class HistogramData {
     return {
       labels: graphData.map((item) => new Date(item.datetime)),
       datasets: [{
-        label: 'Number of Clicks',
+        label: 'Pageviews',
         data: graphData.map((item) => item.hits)
       }]
     }

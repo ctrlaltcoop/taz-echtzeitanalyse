@@ -1,5 +1,5 @@
 from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
-    KEY_TREND_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION, KEY_REFERRER_AGGREGATION, \
+    KEY_TREND_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION, KEY_REFERRER_AGGREGATION, \
     KEY_DEVICES_AGGREGATION
 
 
@@ -41,76 +41,57 @@ def get_dict_path_safe(obj: dict, *path_segments):
 
 def get_fingerprint_aggregation_with_ranges(interval_start, interval_mid, interval_end):
     return {
-        "range": {
-            "field": "@timestamp",
-            "ranges": [
-                {
-                    "key": KEY_TIMEFRAME_AGGREGATION,
-                    "from": interval_mid.isoformat(),
-                    "to": interval_end.isoformat()
-                },
-                {
-                    "key": KEY_TREND_AGGREGATION,
-                    "from": interval_start.isoformat(),
-                    "to": interval_mid.isoformat()
-                }
-            ],
-        },
-        "aggs": {
-            KEY_FINGERPRINT_AGGREGATION: {
-                "cardinality": {
-                    "field": "fingerprint",
-                }
-            }
-        }
-    }
-
-
-def get_referrer_aggregation(limit=10):
-    return {
-        "terms": {
-            "field": "referrerlabel",
-            "order": {
-                "_count": "desc"
-            },
-            "size": str(limit)
-        },
-        "aggs": {
-            KEY_FINGERPRINT_AGGREGATION: {
-                "cardinality": {
-                    "field": "fingerprint",
-                }
-            }
-        }
-    }
-
-
-def get_referrer_aggregation_with_ranges(interval_start, interval_mid, interval_end, limit=10):
-    return {
-        "terms": {
-            "field": "referrerlabel",
-            "order": {
-                "_count": "desc"
-            },
-            "size": str(limit)
-        },
-        "aggs": {
-            KEY_RANGES_AGGREGATION: {
+        KEY_TIMEFRAME_AGGREGATION: {
+            "filter": {
                 "range": {
-                    "field": "@timestamp",
-                    "ranges": [
-                        {
-                            "key": KEY_TIMEFRAME_AGGREGATION,
-                            "from": interval_mid.isoformat(),
-                            "to": interval_end.isoformat()
-                        },
-                        {
-                            "key": KEY_TREND_AGGREGATION,
-                            "from": interval_start.isoformat(),
-                            "to": interval_mid.isoformat()
-                        }
-                    ],
+                    "@timestamp": {
+                        "gte": interval_mid.isoformat(),
+                        "lte": interval_end.isoformat()
+                    },
+                },
+            },
+            "aggs": {
+                KEY_FINGERPRINT_AGGREGATION: {
+                    "cardinality": {
+                        "field": "fingerprint",
+                    }
+                }
+            }
+        },
+        KEY_TREND_AGGREGATION: {
+            "filter": {
+                "range": {
+                    "@timestamp": {
+                        "gte": interval_start.isoformat(),
+                        "lte": interval_mid.isoformat()
+                    },
+                },
+            },
+            "aggs": {
+                KEY_FINGERPRINT_AGGREGATION: {
+                    "cardinality": {
+                        "field": "fingerprint",
+                    }
+                }
+            }
+        }
+    }
 
+
+def get_referrer_aggregation(start, end):
+    return {
+        "terms": {
+            "field": "referrerlabel"
+        },
+        "aggs": {
+            KEY_TIMEFRAME_AGGREGATION: {
+                "filter": {
+                    "range": {
+                        "@timestamp": {
+                            "gte": start.isoformat(),
+                            "lte": end.isoformat()
+                        },
+                    },
                 },
                 "aggs": {
                     KEY_FINGERPRINT_AGGREGATION: {
@@ -119,7 +100,34 @@ def get_referrer_aggregation_with_ranges(interval_start, interval_mid, interval_
                         }
                     }
                 }
-            },
+            }
+        }
+    }
+
+
+def get_devices_aggregation(start, end):
+    return {
+        "terms": {
+            "field": "deviceclass"
+        },
+        "aggs": {
+            KEY_TIMEFRAME_AGGREGATION: {
+                "filter": {
+                    "range": {
+                        "@timestamp": {
+                            "gte": start.isoformat(),
+                            "lte": end.isoformat()
+                        },
+                    },
+                },
+                "aggs": {
+                    KEY_FINGERPRINT_AGGREGATION: {
+                        "cardinality": {
+                            "field": "fingerprint",
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -172,26 +180,7 @@ def get_interval_filter_exclude_bots_with_msids(interval_start, interval_end, ms
     return base_query
 
 
-def get_devices_aggregation(limit=10):
-    return {
-        "terms": {
-            "field": "deviceclass",
-            "order": {
-                "_count": "desc"
-            },
-            "size": str(limit)
-        },
-        "aggs": {
-            KEY_FINGERPRINT_AGGREGATION: {
-                "cardinality": {
-                    "field": "fingerprint"
-                }
-            }
-        }
-    }
-
-
-def get_subject_aggregation(limit=10):
+def get_subject_aggregation(start, end, limit=10):
     return {
         "terms": {
             "field": "schwerpunkte",
@@ -211,7 +200,7 @@ def get_subject_aggregation(limit=10):
                     "field": "msid",
                 }
             },
-            KEY_REFERRER_AGGREGATION: get_referrer_aggregation(),
-            KEY_DEVICES_AGGREGATION: get_devices_aggregation()
+            KEY_REFERRER_AGGREGATION: get_referrer_aggregation(start, end),
+            KEY_DEVICES_AGGREGATION: get_devices_aggregation(start, end)
         }
     }

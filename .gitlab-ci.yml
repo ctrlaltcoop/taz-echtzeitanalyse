@@ -2,7 +2,6 @@ variables:
   ROLLOUT_RESOURCE_TYPE: deployment
   POSTGRES_ENABLED: 'false'
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-  K8S_SECRET_DJANGO_SETTINGS_MODULE: "tazboard.core.settings.docker_mocked"
   K8S_SECRET_DJANGO_SECRET_KEY: "dummysecret"
 
 include:

@@ -89,3 +89,5 @@ TAZBOARD_ID_FIREPLACE_CXML = 4608
 TAZBOARD_CXML_HOST = 'taz.de'
 TAZBOARD_CXML_XFORWARD_HEADER = 'downey.taz.de'
 TAZBOARD_CXML_USER_AGENT = 'hitlist dataenrichment - taz-article metadata provider'
+
+TAZBOARD_TAZ_WEB_URL = 'https://taz.de/'

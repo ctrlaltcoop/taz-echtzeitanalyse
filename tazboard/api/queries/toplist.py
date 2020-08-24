@@ -3,7 +3,8 @@ from django.utils import timezone
 from tazboard.api.queries.common import get_fingerprint_aggregation_with_ranges, \
     get_interval_filter_exclude_bots, get_devices_aggregation, get_referrer_aggregation, maybe_add_subject_filter
 from tazboard.api.queries.constants import KEY_TOPLIST_AGGREGTAION, \
-    KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION, KEY_RANGES_AGGREGATION, KEY_DEVICES_AGGREGATION
+    KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION, KEY_DEVICES_AGGREGATION, \
+    KEY_FINGERPRINT_AGGREGATION, KEY_TIMEFRAME_AGGREGATION
 
 
 def get_toplist_query(min_date, max_date=timezone.now(), limit=10, subject=None):
@@ -12,9 +13,9 @@ def get_toplist_query(min_date, max_date=timezone.now(), limit=10, subject=None)
         "aggs": {
             KEY_TOPLIST_AGGREGTAION: {
                 "terms": {
-                    "field": "headline",
+                    "field": "msid",
                     "order": {
-                        "_count": "desc"
+                        "{}>{}".format(KEY_TIMEFRAME_AGGREGATION, KEY_FINGERPRINT_AGGREGATION): "desc"
                     },
                     "missing": "__missing__",
                     "size": str(limit)
@@ -24,15 +25,15 @@ def get_toplist_query(min_date, max_date=timezone.now(), limit=10, subject=None)
                         "top_hits": {
                             "size": 1,
                             "_source": {
-                                "include": ['bid', 'kicker', 'pubtime', 'msid']
+                                "includes": ['bid', 'kicker', 'pubtime', 'msid', 'headline']
                             }
                         }
                     },
-                    KEY_RANGES_AGGREGATION: get_fingerprint_aggregation_with_ranges(
+                    **get_fingerprint_aggregation_with_ranges(
                         min_date_previous_interval, min_date, max_date
                     ),
-                    KEY_DEVICES_AGGREGATION: get_devices_aggregation(),
-                    KEY_REFERRER_AGGREGATION: get_referrer_aggregation()
+                    KEY_DEVICES_AGGREGATION: get_devices_aggregation(min_date, max_date),
+                    KEY_REFERRER_AGGREGATION: get_referrer_aggregation(min_date, max_date)
                 }
             }
         },
