@@ -160,10 +160,15 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       }
     },
     formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined {
-      return item.referrers.find(({ referrer }) => {
+      const referrer = item.referrers.find(({ referrer }) => {
         // @ts-ignore selectedReferrer is defined on mixin type inferrence fails
         return this.selectedReferrer === referrer
-      })?.percentage.toLocaleString([], { style: 'percent' })
+      })
+      if (referrer) {
+        return (`${referrer.hits.toString()} (${referrer.percentage.toLocaleString([], { style: 'percent' })})`)
+      } else {
+        return ''
+      }
     },
     getTrendClass (item: ArticleData) {
       if (item.hits_previous === 0) {
