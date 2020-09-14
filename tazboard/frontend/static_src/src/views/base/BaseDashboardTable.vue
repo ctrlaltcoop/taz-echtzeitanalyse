@@ -223,7 +223,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       defaultFields: [
         {
           key: 'index',
-          label: '#',
+          label: '',
           tdClass: 'text-center tazboard-dashboard-table-td-index align-middle',
           thClass: 'tazboard-dashboard-table-th text-center'
         },
