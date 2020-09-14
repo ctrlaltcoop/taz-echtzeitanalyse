@@ -5,6 +5,7 @@
       class="w-100 tazboard-dashboard-table"
       :fields="fields"
       :items="items"
+      tbody-tr-class="tazboard-dashboard-table-row"
       :tbody-transition-props="{ name: 'statistics-table' }"
       v-model="rowItems"
       thead-class="tazboard-dashboard-table-head"
