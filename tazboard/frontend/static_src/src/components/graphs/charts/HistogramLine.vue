@@ -32,8 +32,12 @@ const DEFAULT_OPTIONS = {
   },
   tooltips: {
     callbacks: {
-      title (item: Chart.ChartTooltipItem[], data: Chart.ChartData): string | string[] {
-        return item[0].xLabel.toLocaleString()
+      title (item: Chart.ChartTooltipItem[]): string | undefined {
+        if (item.length) {
+          return item[0].xLabel?.toLocaleString()
+        } else {
+          return ''
+        }
       }
     }
   },
