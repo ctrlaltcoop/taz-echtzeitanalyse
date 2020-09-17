@@ -131,10 +131,15 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       this.items = (await apiClient.subjects(timeframe.minDate(), timeframe.maxDate(), 10, { signal })).data
     },
     formatSelectReferrer (value: null, key: string, item: SubjectsData): string | undefined {
-      return item.referrers.find(({ referrer }) => {
+      const referrer = item.referrers.find(({ referrer }) => {
         // @ts-ignore selectedReferrer is defined on mixin type inferrence fails
         return this.selectedReferrer === referrer
-      })?.percentage.toLocaleString([], { style: 'percent' })
+      })
+      if (referrer) {
+        return (`${referrer.hits.toString()} (${referrer.percentage.toLocaleString([], { style: 'percent' })})`)
+      } else {
+        return ''
+      }
     }
   },
   computed: {
