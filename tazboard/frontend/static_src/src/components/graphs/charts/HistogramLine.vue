@@ -30,6 +30,17 @@ const DEFAULT_OPTIONS = {
       radius: 2
     }
   },
+  tooltips: {
+    callbacks: {
+      title (item: Chart.ChartTooltipItem[]): string | undefined {
+        if (item.length) {
+          return item[0].xLabel?.toLocaleString()
+        } else {
+          return ''
+        }
+      }
+    }
+  },
   scales: {
     xAxes: [{
       gridLines: {
