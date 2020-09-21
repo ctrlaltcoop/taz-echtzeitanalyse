@@ -5,7 +5,7 @@
         <span class="counter">{{ totalFormatted }}</span>
         <span class="counter-trend" :class="getTrendClass()"></span>
       </div>
-      <span class="subtitle">Pageviews</span>
+      <span class="subtitle">Pageviews taz.de gesamt</span>
     </div>
   </LoadingControl>
 </template>
