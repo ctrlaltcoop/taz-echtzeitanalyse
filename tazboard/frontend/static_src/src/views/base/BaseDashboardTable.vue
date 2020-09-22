@@ -183,6 +183,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     getTopReferrers (item: ArticleData): Array<string> {
       return item.referrers
         .filter(({ percentage }) => percentage > TOP_REFERRER_THRESHOLD)
+        .filter(({ referrer }) => !['Unbekannt', 'Andere kleine Referrer'].includes(referrer))
         .map(({ referrer }) => referrer)
     }
   },
