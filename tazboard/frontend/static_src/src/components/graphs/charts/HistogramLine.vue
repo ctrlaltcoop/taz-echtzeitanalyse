@@ -93,7 +93,7 @@ export default Vue.extend<{}, ChartMethods<HistogramData>, HistogramLineComputed
   },
   computed: {
     graphOptions (): ChartOptions {
-      return mergeDeep(DEFAULT_OPTIONS, this.options)
+      return mergeDeep({}, DEFAULT_OPTIONS, this.options)
     }
   },
   methods: {
