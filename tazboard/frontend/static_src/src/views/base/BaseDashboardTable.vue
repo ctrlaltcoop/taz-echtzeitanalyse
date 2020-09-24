@@ -168,7 +168,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       if (referrer) {
         return (`${referrer.hits.toString()} (${referrer.percentage.toLocaleString([], { style: 'percent' })})`)
       } else {
-        return ''
+        return '-'
       }
     },
     getTrendClass (item: ArticleData) {
