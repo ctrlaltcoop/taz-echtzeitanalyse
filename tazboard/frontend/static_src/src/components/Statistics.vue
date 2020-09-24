@@ -5,7 +5,10 @@
         <h6 class="font-weight-bold">Tagesverlauf der letzten 24h (Besucher*innen gesamt)</h6>
       </div>
       <LoadingControl class="p-2 taz-board tazboard-card-shadow statistics-card flex-row d-flex align-items-center justify-content-center" :loading-state="loadingStateHistogram">
-        <GraphContainer class="histogram-container flex-fill w-100 h-100" :chart-component="histogramLineComponent" :graph-data="histogramGraph"/>
+        <GraphContainer class="histogram-container flex-fill w-100 h-100"
+                        :chart-component="histogramLineComponent"
+                        :graph-data="histogramGraph"
+                        :options="histogramGraphOptions"/>
       </LoadingControl>
     </div>
     <div class="col-4 pt-2 pb-5 statistics-box d-flex flex-column">
@@ -87,7 +90,24 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
       histogramGraph: [],
       devicesGraph: [],
       loadingStateTimeframe: LoadingState.FRESH,
-      loadingStateHistogram: LoadingState.FRESH
+      loadingStateHistogram: LoadingState.FRESH,
+      histogramGraphOptions: {
+        scales: {
+          xAxes: [{
+            ticks: {
+              autoSkip: false,
+              callback: function (value: any, index: number, values: string[] | number[]) {
+                if (index === 0 ||
+                    index === Math.floor(values.length / 3) ||
+                    index === Math.floor(values.length * 2 / 3) ||
+                    index === values.length - 1) {
+                  return value.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                }
+              }
+            }
+          }]
+        }
+      }
     }
   },
   methods: {
