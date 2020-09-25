@@ -80,6 +80,7 @@ import { formatPublicationTime } from '@/utils/time'
 import { getTrend } from '@/utils/trends'
 import Select from '@/components/Select.vue'
 import { SelectReferrerMixin } from '@/common/SelectReferrerMixin'
+import { CONNECTION_ALERT_EVENT, ConnectionAlertBus } from '@/common/ConnectionAlertBus'
 import { subMinutes } from 'date-fns'
 
 interface Data {
@@ -92,10 +93,15 @@ interface Data {
 
 interface Methods {
   loadData (timeframe: Timeframe): Promise<void>;
+
   toggleDetails (row: any): void;
+
   syncOpenedDetailsStateWithRoute (): void;
+
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
+
   getTrendClass (item: ArticleData): string;
+
   getTopReferrers (item: ArticleData): Array<string>;
   articleYoungerThan30Mins (item: ArticleData): boolean;
 }
@@ -148,7 +154,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       }
     },
     async loadData (timeframe: Timeframe) {
-      this.loadingState = LoadingState.LOADING
+      this.loadingState = this.loadingState !== LoadingState.SUCCESS ? LoadingState.LOADING : LoadingState.UPDATING
       try {
         if (currentRequestController !== null) {
           currentRequestController.abort()
@@ -161,7 +167,11 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         this.loadingState = LoadingState.SUCCESS
       } catch (e) {
         if (!(e instanceof DOMException)) {
-          this.loadingState = LoadingState.ERROR
+          if (this.loadingState === LoadingState.UPDATING) {
+            ConnectionAlertBus.$emit(CONNECTION_ALERT_EVENT)
+          } else {
+            this.loadingState = LoadingState.ERROR
+          }
         }
       }
     },

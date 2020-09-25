@@ -4,7 +4,9 @@
       <div class="caption-space justify-content-center align-items-center d-flex">
         <h6 class="font-weight-bold">Tagesverlauf der letzten 24h (Besucher*innen gesamt)</h6>
       </div>
-      <LoadingControl class="p-2 taz-board tazboard-card-shadow statistics-card flex-row d-flex align-items-center justify-content-center" :loading-state="loadingStateHistogram">
+      <LoadingControl
+        class="p-2 taz-board tazboard-card-shadow statistics-card flex-row d-flex align-items-center justify-content-center"
+        :loading-state="loadingStateHistogram">
         <GraphContainer class="histogram-container flex-fill w-100 h-100"
                         :chart-component="histogramLineComponent"
                         :graph-data="histogramGraph"
@@ -52,6 +54,7 @@ import { HistogramData } from '@/dto/HistogramDto'
 import { DevicesData } from '@/dto/DevicesDto'
 import { LoadingState } from '@/common/LoadingState'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
+import { CONNECTION_ALERT_EVENT, ConnectionAlertBus } from '@/common/ConnectionAlertBus'
 
 const apiClient = new ApiClient()
 
@@ -98,10 +101,13 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
               autoSkip: false,
               callback: function (value: any, index: number, values: string[] | number[]) {
                 if (index === 0 ||
-                    index === Math.floor(values.length / 3) ||
-                    index === Math.floor(values.length * 2 / 3) ||
-                    index === values.length - 1) {
-                  return value.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                  index === Math.floor(values.length / 3) ||
+                  index === Math.floor(values.length * 2 / 3) ||
+                  index === values.length - 1) {
+                  return value.toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                  })
                 }
               }
             }
@@ -112,7 +118,7 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
   },
   methods: {
     async updateData (timeframe: Timeframe) {
-      this.loadingStateTimeframe = LoadingState.LOADING
+      this.loadingStateTimeframe = this.loadingStateTimeframe !== LoadingState.SUCCESS ? LoadingState.LOADING : LoadingState.UPDATING
       try {
         if (currentRequestController !== null) {
           currentRequestController.abort()
@@ -133,18 +139,26 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
         this.loadingStateTimeframe = LoadingState.SUCCESS
       } catch (e) {
         if (!(e instanceof DOMException)) {
-          this.loadingStateTimeframe = LoadingState.ERROR
+          if (this.loadingStateTimeframe === LoadingState.UPDATING) {
+            ConnectionAlertBus.$emit(CONNECTION_ALERT_EVENT)
+          } else {
+            this.loadingStateTimeframe = LoadingState.ERROR
+          }
         }
       }
     },
     async updateHistogram () {
-      this.loadingStateHistogram = LoadingState.LOADING
+      this.loadingStateHistogram = this.loadingStateHistogram !== LoadingState.SUCCESS ? LoadingState.LOADING : LoadingState.UPDATING
       try {
         this.histogramGraph = (await apiClient.histogram(subDays(new Date(), 1), new Date())).data
         this.loadingStateHistogram = LoadingState.SUCCESS
       } catch (e) {
         if (!(e instanceof DOMException)) {
-          this.loadingStateHistogram = LoadingState.ERROR
+          if (this.loadingStateHistogram === LoadingState.UPDATING) {
+            ConnectionAlertBus.$emit(CONNECTION_ALERT_EVENT)
+          } else {
+            this.loadingStateHistogram = LoadingState.ERROR
+          }
         }
       }
     }
@@ -175,9 +189,11 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
 </script>
 <style lang="scss" scoped>
 @import "src/style/variables";
+
 .caption-space {
   height: 3rem;
 }
+
 .histogram-box {
   background: $white;
 }

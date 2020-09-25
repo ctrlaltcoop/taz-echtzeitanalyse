@@ -45,6 +45,7 @@ import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 import { ReferrerData } from '@/dto/ReferrerDto'
 import { DevicesData } from '@/dto/DevicesDto'
 import { CMS_BASE_LINK } from '@/common/constants'
+import { CONNECTION_ALERT_EVENT, ConnectionAlertBus } from '@/common/ConnectionAlertBus'
 
 interface Props {
   item: {
@@ -103,7 +104,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   methods: {
     async updateHistogram () {
-      this.loadingState = LoadingState.LOADING
+      this.loadingState = this.loadingState !== LoadingState.SUCCESS ? LoadingState.LOADING : LoadingState.UPDATING
       try {
         // @ts-ignore fetchHistogram should be implemented in subclass -
         // @ts-ignore no proper way to define abstract methods on vue components
@@ -111,7 +112,11 @@ export default Vue.extend<Data, Methods, Computed, Props>({
         this.loadingState = LoadingState.SUCCESS
       } catch (e) {
         if (!(e instanceof DOMException)) {
-          this.loadingState = LoadingState.ERROR
+          if (this.loadingState === LoadingState.UPDATING) {
+            ConnectionAlertBus.$emit(CONNECTION_ALERT_EVENT)
+          } else {
+            this.loadingState = LoadingState.ERROR
+          }
         }
       }
     }
