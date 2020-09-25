@@ -1,8 +1,8 @@
 <template>
   <div class="statistics-area row">
-    <div class="col-4 pt-2 pb-5 d-flex flex-column statistics-box histogram-box">
-      <div class="caption-space justify-content-center align-items-center d-flex">
-        <h6 class="font-weight-bold">Tagesverlauf der letzten 24h (Besucher*innen gesamt)</h6>
+    <div class="col-4 pb-4 d-flex flex-column statistics-box histogram-box">
+      <div class="caption-space justify-content-center text-center align-items-center d-flex">
+        <h6 class="font-weight-bold m-0">Tagesverlauf der letzten 24h (Besucher*innen gesamt)</h6>
       </div>
       <LoadingControl class="p-2 taz-board tazboard-card-shadow statistics-card flex-row d-flex align-items-center justify-content-center" :loading-state="loadingStateHistogram">
         <GraphContainer class="histogram-container flex-fill w-100 h-100"
@@ -11,11 +11,11 @@
                         :options="histogramGraphOptions"/>
       </LoadingControl>
     </div>
-    <div class="col-4 pt-2 pb-5 statistics-box d-flex flex-column">
+    <div class="col-4 pb-4 statistics-box d-flex flex-column">
       <div class="caption-space"></div>
       <ClickCounter class="tazboard-card-shadow statistics-card flex-fill"/>
     </div>
-    <div class="col-4 pt-2 pb-5 statistics-box d-flex flex-column">
+    <div class="col-4 pb-4 statistics-box d-flex flex-column">
       <div class="caption-space"></div>
       <LoadingControl class="tazboard-card-shadow statistics-card" :loading-state="loadingStateTimeframe">
         <div class="row no-gutters flex-fill">
@@ -176,7 +176,7 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
 <style lang="scss" scoped>
 @import "src/style/variables";
 .caption-space {
-  height: 3rem;
+  height: 1.8rem;
 }
 .histogram-box {
   background: $white;
@@ -187,12 +187,15 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
 }
 
 .statistics-card {
-  height: 250px;
+  height: 230px;
   display: flex;
 }
 
 .statistics-heading {
-  margin-bottom: 3px;
+  margin: 15px 0 0 0;
+  line-height: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
   text-align: center;
 }
 
