@@ -45,7 +45,7 @@
       </template>
 
       <template v-slot:cell(trend)="row">
-        <span class="trend-new" v-if="row.item.hits_previous === 0">
+        <span class="trend-new" v-if="row.item.hits_previous === 0 || articleYoungerThan30Mins(row.item)">
           Neu
         </span>
         <span v-else class="trend" :class="getTrendClass(row.item)"></span>
@@ -80,6 +80,7 @@ import { formatPublicationTime } from '@/utils/time'
 import { getTrend } from '@/utils/trends'
 import Select from '@/components/Select.vue'
 import { SelectReferrerMixin } from '@/common/SelectReferrerMixin'
+import { subMinutes } from 'date-fns'
 
 interface Data {
   items: ArticleData[];
@@ -96,6 +97,7 @@ interface Methods {
   formatSelectReferrer (value: null, key: string, item: ArticleData): string | undefined;
   getTrendClass (item: ArticleData): string;
   getTopReferrers (item: ArticleData): Array<string>;
+  articleYoungerThan30Mins (item: ArticleData): boolean;
 }
 
 interface Computed {
@@ -132,6 +134,9 @@ export default Vue.extend<Data, Methods, Computed, {}>({
           openMsids: JSON.stringify(currentlyOpenMsids)
         }
       })
+    },
+    articleYoungerThan30Mins (item: ArticleData) {
+      return new Date(item.pubdate).getTime() >= subMinutes(new Date(), 30).getTime()
     },
     syncOpenedDetailsStateWithRoute () {
       for (const row of this.rowItems) {
