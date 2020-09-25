@@ -12,8 +12,22 @@ from tazboard.api.queries.fireplace import get_fireplace_articles_msids
 
 def _transform_ranges(buckets):
     return {
+        'hits': buckets[KEY_TIMEFRAME_AGGREGATION]['doc_count'],
+        'hits_previous': buckets[KEY_TREND_AGGREGATION]['doc_count']
+    }
+
+
+def _transform_ranges_with_fingerprint_aggregation(buckets):
+    return {
         'hits': buckets[KEY_TIMEFRAME_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value'],
         'hits_previous': buckets[KEY_TREND_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value']
+    }
+
+
+def _transform_ranges_for_total(buckets):
+    return {
+        'hits': buckets[KEY_TIMEFRAME_AGGREGATION]['doc_count'],
+        'hits_previous': buckets[KEY_TREND_AGGREGATION]['doc_count']
     }
 
 
@@ -22,7 +36,7 @@ def _transform_referrer_with_ranges_buckets(referrer_buckets):
     total = 0
     total_previous = 0
     for referrer_bucket in referrer_buckets:
-        hits_data = _transform_ranges(referrer_bucket)
+        hits_data = _transform_ranges_with_fingerprint_aggregation(referrer_bucket)
         total += hits_data['hits']
         total_previous += hits_data['hits_previous']
         referrer_data = {
@@ -131,7 +145,7 @@ def _article_response_to_article_data(article_buckets):
             'devices': _transform_device_buckets(toplist_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
             'frontpage': msid in frontpage_msids,
             'archive': archive,
-            **_transform_ranges(toplist_bucket)
+            **_transform_ranges_with_fingerprint_aggregation(toplist_bucket)
         }
         data.append(toplist_data)
     return data
