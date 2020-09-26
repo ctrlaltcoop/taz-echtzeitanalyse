@@ -25,6 +25,7 @@ export default Vue.extend<Data, Methods, {}, {}>({
       label: 'Kamin',
       tdClass: 'text-center tazboard-dashboard-table-td-frontpage-position align-middle',
       thClass: 'tazboard-dashboard-table-th text-center',
+      sortable: true,
       formatter: (value: string) => `${value}.`
     }, ...this.defaultFields.splice(1)]
   },
