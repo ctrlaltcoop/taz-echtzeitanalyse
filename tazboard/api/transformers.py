@@ -8,6 +8,7 @@ from tazboard.api.queries.constants import KEY_TIMESTAMP_AGGREGATION, KEY_FINGER
     KEY_TREND_AGGREGATION, KEY_EXTRA_FIELDS_AGGREGATION, KEY_DEVICES_AGGREGATION, KEY_FIREPLACE_AGGREGATION, \
     KEY_SUBJECTS_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION
 from tazboard.api.queries.fireplace import get_fireplace_articles_msids
+from tazboard.api.utils.list import get_index_or_none
 
 
 def _transform_ranges(buckets):
@@ -121,7 +122,7 @@ def _article_response_to_article_data(article_buckets):
         )
         url = '{}!{}/'.format(settings.TAZBOARD_TAZ_WEB_URL, msid)
         archive = False
-
+        frontpage_index = get_index_or_none(frontpage_msids, msid)
         if headline is None:
             headline = url
             archive = True
@@ -145,6 +146,7 @@ def _article_response_to_article_data(article_buckets):
             'devices': _transform_device_buckets(toplist_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
             'frontpage': msid in frontpage_msids,
             'archive': archive,
+            'frontpage_position': frontpage_index + 1 if frontpage_index is not None else None,
             **_transform_ranges_with_fingerprint_aggregation(toplist_bucket)
         }
         data.append(toplist_data)

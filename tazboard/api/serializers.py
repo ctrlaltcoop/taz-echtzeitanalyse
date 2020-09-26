@@ -44,6 +44,7 @@ class ArticleDataSerializer(serializers.Serializer):
     msid = serializers.IntegerField()
     bid = serializers.IntegerField(required=False, allow_null=True)
     frontpage = serializers.BooleanField(default=False)
+    frontpage_position = serializers.IntegerField(allow_null=True, default=None)
     archive = serializers.BooleanField(default=False)
 
 
