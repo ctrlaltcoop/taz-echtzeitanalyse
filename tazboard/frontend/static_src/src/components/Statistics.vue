@@ -191,7 +191,7 @@ export default Vue.extend<StatisticsData, StatisticsMethods, {}, {}>({
 @import "src/style/variables";
 
 .caption-space {
-  height: 1.8rem;
+  height: 2.8rem;
 }
 
 .histogram-box {
