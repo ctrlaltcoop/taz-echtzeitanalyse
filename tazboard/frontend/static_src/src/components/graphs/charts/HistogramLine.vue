@@ -63,7 +63,7 @@ const DEFAULT_OPTIONS = {
     }],
     yAxes: [{
       ticks: {
-        suggestedMax: 10000,
+        suggestedMax: 0,
         beginAtZero: true,
         callback: function (value, index, values) {
           if (index === 0 || index === Math.floor(values.length / 2)) {
