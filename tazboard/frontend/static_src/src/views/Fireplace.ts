@@ -9,15 +9,26 @@ const apiClient = new ApiClient()
 
 interface Data {
   items: ArticleData[];
+  defaultFields: any;
 }
 
 interface Methods {
-  fetchData(timeframe: Timeframe, signal: AbortSignal): Promise<void>;
+  fetchData (timeframe: Timeframe, signal: AbortSignal): Promise<void>;
 }
 
 export default Vue.extend<Data, Methods, {}, {}>({
   name: 'Fireplace',
   extends: BaseDashboardTable,
+  created () {
+    this.defaultFields = [{
+      key: 'frontpage_position',
+      label: 'Position',
+      tdClass: 'text-center tazboard-dashboard-table-td-frontpage-position align-middle',
+      thClass: 'tazboard-dashboard-table-th text-center',
+      sortable: true,
+      formatter: (value: string) => `${value}.`
+    }, ...this.defaultFields.splice(1)]
+  },
   methods: {
     async fetchData (timeframe: Timeframe, signal: AbortSignal) {
       this.items = (

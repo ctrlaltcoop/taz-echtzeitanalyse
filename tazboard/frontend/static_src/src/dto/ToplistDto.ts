@@ -13,6 +13,7 @@ export class ArticleData {
   devices!: Array<DevicesData>
   archive!: boolean
   frontpage!: boolean
+  frontpage_position!: number | null
   url!: string
 }
 
