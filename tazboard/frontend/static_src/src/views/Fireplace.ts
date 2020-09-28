@@ -22,7 +22,7 @@ export default Vue.extend<Data, Methods, {}, {}>({
   created () {
     this.defaultFields = [{
       key: 'frontpage_position',
-      label: 'Kamin',
+      label: 'Position',
       tdClass: 'text-center tazboard-dashboard-table-td-frontpage-position align-middle',
       thClass: 'tazboard-dashboard-table-th text-center',
       sortable: true,
