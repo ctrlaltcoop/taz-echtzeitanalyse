@@ -138,7 +138,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
 }
 
 .counter-trend {
-  font-size: min(4vw, 2.5rem);
+  font-size: 2.5rem;
   justify-content: center;
   padding: 10px;
 }
