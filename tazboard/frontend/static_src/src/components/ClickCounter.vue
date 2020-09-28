@@ -128,17 +128,17 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   @include light-text-shadow();
   color: #7DD2D2;
   font-weight: bold;
-  font-size: min(4vw, 4.5rem);
+  font-size: 3.8rem;
 }
 
 .subtitle {
   color: #5D5D5D;
-  font-size: min(2vw, 2rem);
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
 .counter-trend {
-  font-size: min(4vw, 3rem);
+  font-size: 2.5rem;
   justify-content: center;
   padding: 10px;
 }
