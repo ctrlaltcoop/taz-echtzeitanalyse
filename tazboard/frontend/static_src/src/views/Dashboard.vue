@@ -2,13 +2,13 @@
   <div class="dashboard">
     <div class="container">
       <div class="banner row">
-        <div class="col-6 col-lg-2 logo-container pr-0 pl-0">
+        <div class="col-6 col-lg-auto logo-container pr-0 pl-0">
           <img class="img-fluid" src="../assets/logo_taz.png" alt="logo">
         </div>
-        <div class="col-6 col-lg-5 pr-0 app-heading-container">
+        <div class="col-6 col-lg-auto pt-2 pr-0 app-heading-container">
           <h1 class="app-heading">die echtzeitanalyse</h1>
         </div>
-        <div class="col-12 col-lg-5 pr-0 timeframe-select-area">
+        <div class="col-12 col-lg pr-0 timeframe-select-area">
             <span class="pulse-caption">Letzte Aktualisierung: {{
                 lastPulse.toLocaleString([], dateFormatOptions)
               }}</span>
@@ -206,10 +206,14 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   color: $black;
 }
 
+.app-heading-container {
+  display: flex;
+  align-items: center;
+}
+
 .app-heading {
-  margin: 1.9rem 0 0 1rem;
-  font-size: 3.5em;
   font-weight: bold;
+  margin: 0;
 }
 
 .content {
@@ -218,7 +222,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
 }
 
 .logo-container {
-  display: flex;
+  max-width: 170px;
 }
 
 .timeframe-select-area {

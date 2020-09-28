@@ -1,11 +1,11 @@
 <template>
   <LoadingControl :loading-state="loadingState">
-    <div class="bg-white d-flex align-items-center justify-content-center flex-fill flex-column">
+    <div class="bg-white d-flex align-items-center justify-content-center flex-fill flex-column w-100 ">
       <div>
         <span class="counter">{{ totalFormatted }}</span>
         <span class="counter-trend" :class="getTrendClass()"></span>
       </div>
-      <span class="subtitle">Pageviews taz.de gesamt</span>
+      <span class="subtitle text-center">Pageviews taz.de gesamt</span>
     </div>
   </LoadingControl>
 </template>
@@ -122,17 +122,17 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   @include light-text-shadow();
   color: #7DD2D2;
   font-weight: bold;
-  font-size: 5rem;
+  font-size: min(4vw, 4.5rem);
 }
 
 .subtitle {
   color: #5D5D5D;
-  font-size: 30px;
+  font-size: min(2vw, 2rem);
   font-weight: bold;
 }
 
 .counter-trend {
-  font-size: 3rem;
+  font-size: min(4vw, 3rem);
   justify-content: center;
   padding: 10px;
 }

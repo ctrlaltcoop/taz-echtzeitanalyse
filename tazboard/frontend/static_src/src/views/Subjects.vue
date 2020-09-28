@@ -5,9 +5,12 @@
       class="w-100 tazboard-dashboard-table"
       :fields="fields"
       :items="items"
+      tbody-tr-class="tazboard-dashboard-table-row"
       :tbody-transition-props="{ name: 'statistics-table' }"
       v-model="rowItems"
-      thead-class="tazboard-dashboard-table-head">
+      thead-class="tazboard-dashboard-table-head"
+      @row-clicked="toggleDetails"
+    >
 
       <template v-slot:cell(index)="data">
         {{ data.index + 1 }}.
@@ -22,7 +25,7 @@
       </template>
 
       <template v-slot:cell(subject_name)="row">
-        <span class="row-subject" @click="toggleDetails(row)">
+        <span class="row-subject">
           {{ row.item.subject_name }}
         </span>
       </template>
@@ -81,15 +84,13 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   },
   mixins: [SelectReferrerMixin],
   methods: {
-    toggleDetails (row: any) {
+    toggleDetails (item: any) {
       const query = this.$route.query.openSubjects as string || '[]'
       let currentlyOpenSubjects = JSON.parse(query)
-      if (currentlyOpenSubjects.includes(row.item.subject_name)) {
-        currentlyOpenSubjects = currentlyOpenSubjects.filter(
-          (subjectName: string) => subjectName !== row.item.subject_name
-        )
+      if (currentlyOpenSubjects.includes(item.subject_name)) {
+        currentlyOpenSubjects = currentlyOpenSubjects.filter((subjectName: string) => subjectName !== item.subject_name)
       } else {
-        currentlyOpenSubjects.push(row.item.subject_name)
+        currentlyOpenSubjects.push(item.subject_name)
       }
       this.$router.push({
         path: this.$route.path,
