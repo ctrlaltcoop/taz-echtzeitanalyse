@@ -4,11 +4,11 @@ export class HistogramData {
   datetime!: string
   hits!: number
 
-  static toChartdata (graphData: Array<HistogramData>): ChartData {
+  static toChartdata (graphData: Array<HistogramData>, label = 'Besucher*innen gesamt'): ChartData {
     return {
       labels: graphData.map((item) => new Date(item.datetime)),
       datasets: [{
-        label: 'Pageviews',
+        label,
         data: graphData.map((item) => item.hits)
       }]
     }
