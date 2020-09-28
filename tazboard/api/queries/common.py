@@ -170,6 +170,13 @@ def get_interval_filter_exclude_bots(interval_start, interval_end):
                     }
                 }
             ],
+            "must": [
+                {
+                    "exists": {
+                        "field": "msid"
+                    }
+                }
+            ],
             "must_not": [
                 {
                     "match_phrase": {
