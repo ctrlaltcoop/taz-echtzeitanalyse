@@ -19,7 +19,8 @@
       <template v-slot:head(referrerSelect)="data">
         <div class="tazboard-dashboard-table-th-stacked-with-selection">
           <div>{{ data.label }}</div>
-          <Select @click="$event.stopPropagation()" class="tazboard-dashboard-table-referrer-select" :items="availableReferrers"
+          <Select @click="$event.stopPropagation()" class="tazboard-dashboard-table-referrer-select"
+                  :items="availableReferrers"
                   @input="selectReferrer($event)" :value="selectedReferrer" :auto-width="true"/>
         </div>
       </template>
@@ -50,6 +51,7 @@ import { ApiClient } from '@/client/ApiClient'
 import SubjectRowDetail from '@/components/SubjectRowDetail.vue'
 import Select from '@/components/Select.vue'
 import { SelectReferrerMixin } from '@/common/SelectReferrerMixin'
+import { CONNECTION_ALERT_EVENT, ConnectionAlertBus } from '@/common/ConnectionAlertBus'
 
 const apiClient = new ApiClient()
 
@@ -61,9 +63,13 @@ interface Data {
 
 interface Methods {
   loadData (timeframe: Timeframe): Promise<void>;
+
   fetchData (timeframe: Timeframe, signal: AbortSignal): Promise<void>;
+
   toggleDetails (row: any): void;
+
   syncOpenedDetailsStateWithRoute (): void;
+
   formatSelectReferrer (value: null, key: string, item: SubjectsData): string | undefined;
 }
 
@@ -111,7 +117,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       }
     },
     async loadData (timeframe: Timeframe) {
-      this.loadingState = LoadingState.LOADING
+      this.loadingState = this.loadingState !== LoadingState.SUCCESS ? LoadingState.LOADING : LoadingState.UPDATING
       try {
         if (currentRequestController !== null) {
           currentRequestController.abort()
@@ -124,7 +130,11 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         this.loadingState = LoadingState.SUCCESS
       } catch (e) {
         if (!(e instanceof DOMException)) {
-          this.loadingState = LoadingState.ERROR
+          if (this.loadingState === LoadingState.UPDATING) {
+            ConnectionAlertBus.$emit(CONNECTION_ALERT_EVENT)
+          } else {
+            this.loadingState = LoadingState.ERROR
+          }
         }
       }
     },
@@ -157,7 +167,6 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   data () {
     return {
       rowItems: [],
-      loadingStateTimeframe: LoadingState.FRESH,
       fields: [
         {
           key: 'index',
@@ -200,7 +209,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         }
       ],
       items: [],
-      loadingState: LoadingState.FRESH
+      loadingState: LoadingState.FRESH as LoadingState
     }
   },
   watch: {

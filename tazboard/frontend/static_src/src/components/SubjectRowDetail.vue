@@ -38,6 +38,7 @@ import { BTable } from 'bootstrap-vue'
 import GraphContainer from '@/components/graphs/GraphContainer.vue'
 import LoadingControl from '@/components/LoadingControl.vue'
 import { getISOWeek, isToday, isYesterday } from 'date-fns'
+import { CONNECTION_ALERT_EVENT, ConnectionAlertBus } from '@/common/ConnectionAlertBus'
 
 const apiClient = new ApiClient()
 
@@ -112,7 +113,7 @@ export default Vue.extend<Data, Methods, {}, Props>({
   },
   methods: {
     async fetchToplist () {
-      this.loadingState = LoadingState.LOADING
+      this.loadingState = this.loadingState !== LoadingState.SUCCESS ? LoadingState.LOADING : LoadingState.UPDATING
       try {
         this.toplist = (await apiClient.toplist(
           // @ts-ignore typescript won't infer types from vue mixins unfortunately
@@ -125,7 +126,11 @@ export default Vue.extend<Data, Methods, {}, Props>({
         this.loadingState = LoadingState.SUCCESS
       } catch (e) {
         if (!(e instanceof DOMException)) {
-          this.loadingState = LoadingState.ERROR
+          if (this.loadingState === LoadingState.UPDATING) {
+            ConnectionAlertBus.$emit(CONNECTION_ALERT_EVENT)
+          } else {
+            this.loadingState = LoadingState.ERROR
+          }
         }
       }
     }

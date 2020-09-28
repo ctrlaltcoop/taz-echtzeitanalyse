@@ -1,5 +1,6 @@
 <template>
   <div class="dashboard">
+    <ConnectionAlerter />
     <div class="container">
       <div class="banner row">
         <div class="col-6 col-lg-auto logo-container pr-0 pl-0">
@@ -61,6 +62,7 @@ import {
 } from '@/common/timeframe'
 import { GlobalPulse, PULSE_EVENT, RESET_PULSE_EVENT } from '@/common/GlobalPulse'
 import Select from '@/components/Select.vue'
+import ConnectionAlerter from '@/components/ConnectionAlerter.vue'
 
 interface TabConfig {
   route: string;
@@ -113,7 +115,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     Statistics,
     BNavItem,
     BNav,
-    Select
+    Select,
+    ConnectionAlerter
   },
   mixins: [TimeframeMixin],
   data () {

@@ -20,6 +20,7 @@ import { ApiClient } from '@/client/ApiClient'
 import LoadingControl from '@/components/LoadingControl.vue'
 import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 import { getTrend } from '@/utils/trends'
+import { CONNECTION_ALERT_EVENT, ConnectionAlertBus } from '@/common/ConnectionAlertBus'
 
 let currentRequestController: AbortController | null = null
 const apiClient = new ApiClient()
@@ -32,6 +33,7 @@ interface Data {
 
 interface Methods {
   updateData (timeframe: Timeframe): void;
+
   getTrendClass (): string;
 }
 
@@ -58,7 +60,7 @@ export default Vue.extend<Data, Methods, Computed, {}>({
   },
   methods: {
     async updateData (timeframe: Timeframe) {
-      this.loadingState = LoadingState.LOADING
+      this.loadingState = this.loadingState !== LoadingState.SUCCESS ? LoadingState.LOADING : LoadingState.UPDATING
       try {
         if (currentRequestController !== null) {
           currentRequestController.abort()
@@ -74,7 +76,11 @@ export default Vue.extend<Data, Methods, Computed, {}>({
         this.loadingState = LoadingState.SUCCESS
       } catch (e) {
         if (!(e instanceof DOMException)) {
-          this.loadingState = LoadingState.ERROR
+          if (this.loadingState === LoadingState.UPDATING) {
+            ConnectionAlertBus.$emit(CONNECTION_ALERT_EVENT)
+          } else {
+            this.loadingState = LoadingState.ERROR
+          }
         }
       }
     },

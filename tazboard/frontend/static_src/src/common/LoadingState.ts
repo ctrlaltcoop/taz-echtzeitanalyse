@@ -1,3 +1,3 @@
 export enum LoadingState {
-  FRESH, LOADING, SUCCESS, ERROR
+  FRESH, LOADING, SUCCESS, ERROR, UPDATING
 }

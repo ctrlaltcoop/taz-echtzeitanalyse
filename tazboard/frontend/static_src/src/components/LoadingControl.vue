@@ -9,7 +9,7 @@
       <span>Fehler bei der Verbindung zum Server</span>
     </div>
     <div class="h-100 w-100 tazboard-shimmer-animate" v-if="loadingState === LoadingState.LOADING"/>
-    <slot v-if="loadingState === LoadingState.SUCCESS"/>
+    <slot v-if="loadingState === LoadingState.SUCCESS || loadingState === LoadingState.UPDATING"/>
   </div>
 </template>
 
