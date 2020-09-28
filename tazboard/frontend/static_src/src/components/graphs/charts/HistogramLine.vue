@@ -10,6 +10,7 @@ import { isToday } from 'date-fns'
 interface HistogramLineProps {
   graph: Array<HistogramData> | null;
   options: ChartOptions;
+  label: string;
 }
 
 interface HistogramLineComputed {
@@ -89,6 +90,10 @@ export default Vue.extend<{}, ChartMethods<HistogramData>, HistogramLineComputed
     graph: {
       type: Array,
       default: null
+    },
+    label: {
+      type: String,
+      default: 'Besucher*innen gesamt'
     }
   },
   computed: {
@@ -98,7 +103,7 @@ export default Vue.extend<{}, ChartMethods<HistogramData>, HistogramLineComputed
   },
   methods: {
     updateChart (histogramData: Array<HistogramData>) {
-      const chartData = HistogramData.toChartdata(histogramData!!.slice())
+      const chartData = HistogramData.toChartdata(histogramData!!.slice(), this.label)
 
       chartData.datasets = chartData.datasets?.map((dataset) => {
         return {

@@ -7,7 +7,9 @@
           <GraphContainer class="tazboard-card-shadow tazboard-graph-container"
                           :chart-component="histogramChartComponent"
                           :graph-data="histogram"
-                          :options="histogramGraphOptions"/>
+                          :options="histogramGraphOptions"
+                          :label="Pageviews"
+          />
         </LoadingControl>
       </div>
       <div class="devices col-4">
