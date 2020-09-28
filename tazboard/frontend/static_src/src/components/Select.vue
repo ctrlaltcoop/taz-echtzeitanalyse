@@ -2,7 +2,7 @@
   <div class="select-wrapper" :style="selectStyle">
     <select ref="select" @change="updateStyle(); $emit('input', $event.target.value)"
             :value="value">
-      <option v-for="item in items" :value="getValue(item)" :key="getKey(item)">
+      <option v-for="item in items" :value="getValue(item)" :key="getKey(item)" @click="$event.stopPropagation()">
         {{ getLabel(item) }}
       </option>
     </select>
