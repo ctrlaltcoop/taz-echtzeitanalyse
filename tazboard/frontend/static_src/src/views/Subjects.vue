@@ -170,8 +170,8 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       fields: [
         {
           key: 'index',
-          label: '#',
-          tdClass: 'text-center tazboard-dashboard-table-td-hits align-middle',
+          label: '',
+          tdClass: 'text-center tazboard-dashboard-table-td-index align-middle',
           thClass: 'tazboard-dashboard-table-th text-center'
         },
         {
