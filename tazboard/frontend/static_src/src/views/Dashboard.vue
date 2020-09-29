@@ -8,7 +8,7 @@
         </div>
         <div class="col-6 col-lg-auto pt-2 pr-0 app-heading-container">
           <h1 class="app-heading">die echtzeitanalyse</h1>
-          <a href="https://wiki.hal.taz.de/tazwiki/Echtzeit-Analyse">Was wird hier eigentlich gezählt?</a>
+          <a class="help-link" href="https://wiki.hal.taz.de/tazwiki/Echtzeit-Analyse" target="_blank">Was wird hier eigentlich gezählt?</a>
         </div>
         <div class="col-12 col-lg pr-0 timeframe-select-area">
             <span class="pulse-caption">Letzte Aktualisierung: {{
@@ -248,5 +248,9 @@ export default Vue.extend<Data, Methods, Computed, {}>({
     font-weight: bold;
     font-size: 1.2em;
   }
+}
+
+.help-link {
+  color: $taz-red;
 }
 </style>
