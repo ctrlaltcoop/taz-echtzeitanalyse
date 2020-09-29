@@ -11,7 +11,7 @@ export class DevicesData {
     return {
       labels: devicesData.map((item) => item.deviceclass ?? ''),
       datasets: [{
-        label: 'Devices',
+        label: 'Geräte',
         data: devicesData.map((item) => item.hits),
         barThickness: 20,
         backgroundColor: devicesData.map((item) =>
