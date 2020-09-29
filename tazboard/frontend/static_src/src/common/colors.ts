@@ -17,10 +17,14 @@ export const REFERRER_LABEL_WIKIPEDIA = 'Wikipedia'
 export const REFERRER_LABEL_FLIPBOARD = 'Flipboard'
 export const REFERRER_LABEL_POCKET = 'Pocket'
 export const REFERRER_LABEL_UNBEKANNT = 'Unbekannt'
-export const DEVICE_LABEL_DESKTOP = 'desktop'
-export const DEVICE_LABEL_MOBILE = 'mobile'
-export const DEVICE_LABEL_MASTODON = 'mastodonpod'
+export const DEVICE_LABEL_DESKTOP = 'Desktop'
+export const DEVICE_LABEL_MOBILE = 'Mobil'
 export const DEVICE_LABEL_UNCLASSIFIED = 'unclassified'
+
+// Those labels should not be used anymore and can be removed in the future
+export const DEVICE_LABEL_DESKTOP_DEPRECATED = 'desktop'
+export const DEVICE_LABEL_MOBILE_DEPRECATED = 'mobile'
+export const DEVICE_LABEL_MASTODON_DEPRECATED = 'mastodonpod'
 
 export const referrerColors: {[key: string]: string} = {
   [REFERRER_LABEL_ANDERE_KLEINE]: '#272727',
@@ -45,8 +49,10 @@ export const referrerColors: {[key: string]: string} = {
 }
 
 export const deviceColors: {[key: string]: string} = {
+  [DEVICE_LABEL_DESKTOP_DEPRECATED]: '#6302de',
   [DEVICE_LABEL_DESKTOP]: '#6302de',
+  [DEVICE_LABEL_MOBILE_DEPRECATED]: '#ff9900',
   [DEVICE_LABEL_MOBILE]: '#ff9900',
-  [DEVICE_LABEL_MASTODON]: '#1da1f2',
+  [DEVICE_LABEL_MASTODON_DEPRECATED]: '#ff9900',
   [DEVICE_LABEL_UNCLASSIFIED]: '#C6C6C6'
 }
