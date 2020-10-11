@@ -58,15 +58,15 @@ def _transform_referrer_with_ranges_buckets(referrer_buckets):
 
 def _transform_referrer_buckets(referrer_buckets):
     total = reduce(
-        lambda acc, x: acc + x[KEY_TIMEFRAME_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value'],
+        lambda acc, x: acc + x[KEY_TIMEFRAME_AGGREGATION]['doc_count'],
         referrer_buckets, 0
     )
     return [
         {
             'referrer': bucket['key'],
-            'hits': bucket[KEY_TIMEFRAME_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value'],
+            'hits': bucket[KEY_TIMEFRAME_AGGREGATION]['doc_count'],
             'percentage':
-                bucket[KEY_TIMEFRAME_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value'] / total if total > 0 else 0
+                bucket[KEY_TIMEFRAME_AGGREGATION]['doc_count'] / total if total > 0 else 0
         }
         for bucket in referrer_buckets
     ]
@@ -76,7 +76,7 @@ def _transform_device_buckets(device_buckets):
     return [
         {
             'deviceclass': bucket['key'],
-            'hits': bucket[KEY_TIMEFRAME_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value']
+            'hits': bucket[KEY_TIMEFRAME_AGGREGATION]['doc_count']
         }
         for bucket in device_buckets
     ]
