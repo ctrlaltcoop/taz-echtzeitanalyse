@@ -8,7 +8,7 @@
                           :chart-component="histogramChartComponent"
                           :graph-data="histogram"
                           :options="histogramGraphOptions"
-                          :label="Pageviews"
+                          label="Pageviews"
           />
         </LoadingControl>
       </div>
