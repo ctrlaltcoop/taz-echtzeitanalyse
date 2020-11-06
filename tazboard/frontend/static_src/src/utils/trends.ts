@@ -43,7 +43,7 @@ export function getTrend (
   let direction = null
 
   if (cheat) {
-    if (tx1 < 0.0) {
+    if (tx1 <= 0.0) {
       tx1 = 1
     }
     if (tx2 <= 0.0) {
@@ -52,7 +52,7 @@ export function getTrend (
   }
 
   // sicherstellen, dass niemals ne division durch null statt findet
-  if (tx1 < 0.0) {
+  if (tx1 <= 0.0) {
     throw RangeError(`tx1=${tx1} ist kleiner oder gleich 0.0`)
   }
 
@@ -80,13 +80,13 @@ export function getTrend (
   const y = (fx + b) / 2 // y-verschiebung und auf einen umfang von 1 bringen (zwei Quadranten in einem darstellen)
 
   // der interval ist linear, kann einfach gerundet werden
-  let score = Math.floor(y * interval)
+  let score = Number.parseInt((y * interval).toString())
 
   // catch infinity - eigentlich ist tanh(x) niemals -1 oder 1, aber irgendwann rundet python
   // Beispiel: activityfunction(1000,6000,interval=10,k=4,a=-1.3,b=1) wenn also ein anstieg um 500% statt gefunden hat
   // {'y': 1.0, 'direction': 1, 'x': 6.0, 'interval': 9, 'infinity': True, 'xo': 18.8}
   let infinity = false
-  if (Math.floor(fx) === 1 || Math.floor(fx) === -1) {
+  if (Number.parseInt(fx.toString()) === 1 || Number.parseInt(fx.toString()) === -1) {
     // ist dann der maximal wert des Intervals und es wird markiert
     infinity = true
     score = interval - 1
