@@ -95,13 +95,17 @@ def _transform_subject_buckets(subject_buckets):
     ]
 
 
-def elastic_histogram_response_to_histogram_graph(es_response):
+def elastic_histogram_response_to_histogram_graph(es_response, filter_last=False):
+    timestamp_buckets = es_response['aggregations'][KEY_TIMESTAMP_AGGREGATION]['buckets']
+    # in date aggregations the last item is displaying an uncompleted interval not reflecting comparable data
+    if filter_last:
+        timestamp_buckets = timestamp_buckets[:-1]
     data = [
         {
             'datetime': bucket['key_as_string'],
             'hits': bucket[KEY_FINGERPRINT_AGGREGATION]['value']
         }
-        for bucket in es_response['aggregations'][KEY_TIMESTAMP_AGGREGATION]['buckets']
+        for bucket in timestamp_buckets
     ]
     total = reduce(lambda acc, x: acc + x['hits'], data, 0)
     return {

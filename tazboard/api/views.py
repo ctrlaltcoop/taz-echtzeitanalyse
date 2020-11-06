@@ -76,7 +76,7 @@ class HistogramView(APIView):
 
         response = search_or_raise_api_exception(es_query)
         serializer = self.serializer_class(
-            data=elastic_histogram_response_to_histogram_graph(response)
+            data=elastic_histogram_response_to_histogram_graph(response, filter_last=True)
         )
         if not serializer.is_valid():
             logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
