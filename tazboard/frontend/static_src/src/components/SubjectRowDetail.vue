@@ -24,7 +24,7 @@
 import Vue from 'vue'
 
 import { ApiClient } from '@/client/ApiClient'
-import { TimeframeMixin } from '@/common/timeframe'
+import { getTimeframeById, TimeframeMixin } from '@/common/timeframe'
 import { SubjectsData } from '@/dto/SubjectsDto'
 import { LoadingState } from '@/common/LoadingState'
 import ReferrerBar from '@/components/graphs/charts/ReferrerBar.vue'
@@ -39,6 +39,7 @@ import GraphContainer from '@/components/graphs/GraphContainer.vue'
 import LoadingControl from '@/components/LoadingControl.vue'
 import { getISOWeek, isToday, isYesterday } from 'date-fns'
 import { CONNECTION_ALERT_EVENT, ConnectionAlertBus } from '@/common/ConnectionAlertBus'
+import { GlobalPulse, PULSE_EVENT } from '@/common/GlobalPulse'
 
 const apiClient = new ApiClient()
 
@@ -135,8 +136,20 @@ export default Vue.extend<Data, Methods, {}, Props>({
       }
     }
   },
+  watch: {
+    '$route.query': {
+      handler (query: any, oldQuery: any) {
+        if (query.timeframeId !== oldQuery?.timeframeId) {
+          this.fetchToplist()
+        }
+      },
+      immediate: true,
+      deep: true
+    }
+  },
   mounted () {
     this.fetchToplist()
+    GlobalPulse.$on(PULSE_EVENT, this.fetchToplist)
   }
 })
 </script>
