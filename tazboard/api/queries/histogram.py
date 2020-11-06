@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.utils import timezone
 
 from tazboard.api.queries.common import maybe_add_msid_filter, get_interval_filter_exclude_bots, \
@@ -6,6 +8,12 @@ from tazboard.api.queries.constants import INTERVAL_10MINUTES, KEY_FINGERPRINT_A
 
 
 def get_histogram_query(min_date, max_date=timezone.now(), msid=None, subject=None, interval=INTERVAL_10MINUTES):
+    if interval == INTERVAL_10MINUTES:
+        offset = max_date.minute * 60 + max_date.second
+        offset_max_date = max_date - timedelta(minutes=20)
+    else:
+        offset = 0
+        offset_max_date = max_date
     query = {
         "aggs": {
             KEY_TIMESTAMP_AGGREGATION: {
@@ -14,7 +22,8 @@ def get_histogram_query(min_date, max_date=timezone.now(), msid=None, subject=No
                     "fixed_interval": interval,
                     "time_zone": "Europe/Berlin",
                     "min_doc_count": 0,
-                    "extended_bounds": {"min": min_date.isoformat(), "max": max_date.isoformat()}
+                    "offset": "{}s".format(offset),
+                    "extended_bounds": {"min": min_date.isoformat(), "max": offset_max_date.isoformat()}
                 },
                 "aggs": {
                     KEY_FINGERPRINT_AGGREGATION: {
