@@ -118,13 +118,6 @@ def get_referrer_aggregation(start, end):
                         },
                     },
                 },
-                "aggs": {
-                    KEY_FINGERPRINT_AGGREGATION: {
-                        "cardinality": {
-                            "field": "fingerprint",
-                        }
-                    }
-                }
             }
         }
     }
@@ -144,13 +137,6 @@ def get_devices_aggregation(start, end):
                             "lte": end.isoformat()
                         },
                     },
-                },
-                "aggs": {
-                    KEY_FINGERPRINT_AGGREGATION: {
-                        "cardinality": {
-                            "field": "fingerprint",
-                        }
-                    }
                 }
             }
         }
