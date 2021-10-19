@@ -9,6 +9,7 @@ from rest_framework.utils import json
 from tazboard.api.errors import BadElasticQueryException, ElasticUnavailableException
 
 logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 ELASTIC_SEARCH_TIMEOUT = 45
 
@@ -23,6 +24,7 @@ es = Elasticsearch(
 
 def search_or_raise_api_exception(query, local_logger=logger):
     try:
+        local_logger.info('Successful elastic query: {}'.format(query))
         return es.search(body=query)
     except RequestError as e:
         local_logger.error(
