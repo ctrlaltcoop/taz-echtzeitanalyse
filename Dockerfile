@@ -1,4 +1,4 @@
-FROM python:3-alpine
+FROM python:3.9.0-alpine
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /tmp
