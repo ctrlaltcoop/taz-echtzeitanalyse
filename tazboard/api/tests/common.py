@@ -3,7 +3,7 @@ import json
 import os
 
 from tazboard.api.queries.constants import MOCK_FAKE_NOW
-from tazboard.api.utils.datetime import round_to_seconds
+from tazboard.api.utils.tazdatetime import round_to_seconds
 from tazboard.core.settings import BASE_DIR
 
 

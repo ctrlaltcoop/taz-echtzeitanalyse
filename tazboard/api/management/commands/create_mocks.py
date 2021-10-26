@@ -14,7 +14,7 @@ from tazboard.api.queries.toplist import get_toplist_query
 from tazboard.api.queries.total import get_total_query
 from tazboard.api.queries.fireplace import get_fireplace_query, fetch_ressort_cxml
 from tazboard.api.tests.common import get_mock_filepath_for_query, get_mock_test_sample_path_for_query_function
-from tazboard.api.utils.datetime import round_to_seconds
+from tazboard.api.utils.tazdatetime import round_to_seconds
 
 
 def get_argument_matrix(list_a, list_b):
