@@ -9,6 +9,7 @@ from tazboard.api.queries.constants import KEY_TIMESTAMP_AGGREGATION, KEY_FINGER
     KEY_SUBJECTS_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION
 from tazboard.api.queries.fireplace import get_fireplace_articles_msids
 from tazboard.api.utils.list import get_index_or_none
+from tazboard.api.utils.metadata import parse_article_metadata
 
 
 def _transform_ranges(buckets):
@@ -118,12 +119,11 @@ def _article_response_to_article_data(article_buckets):
     data = []
     frontpage_msids = get_fireplace_articles_msids()
     for toplist_bucket in article_buckets:
-        headline = get_dict_path_safe(
-            toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'headline'
-        )
         msid = get_dict_path_safe(
             toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'msid'
         )
+
+        headline, kicker, pubtime = parse_article_metadata(msid)
         url = '{}!{}/'.format(settings.TAZBOARD_TAZ_WEB_URL, msid)
         archive = False
         frontpage_index = get_index_or_none(frontpage_msids, msid)
@@ -134,12 +134,8 @@ def _article_response_to_article_data(article_buckets):
         toplist_data = {
             'headline': headline,
             'url': url,
-            'kicker': get_dict_path_safe(
-                toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'kicker'
-            ),
-            'pubdate': get_dict_path_safe(
-                toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'pubtime'
-            ),
+            'kicker': kicker,
+            'pubdate': pubtime,
             'msid': get_dict_path_safe(
                 toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'msid'
             ),
