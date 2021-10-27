@@ -26,7 +26,6 @@ class ToplistTestCase(LiveServerTestCase):
         self.cxml_parse_metadata = self.cxml_patcher.start()
         self.cxml_parse_metadata.return_value = ['Some Headline', 'Some Kicker', MOCK_FAKE_NOW]
 
-
     def tearDown(self):
         self.es_patcher.stop()
         self.cxml_patcher.stop()
