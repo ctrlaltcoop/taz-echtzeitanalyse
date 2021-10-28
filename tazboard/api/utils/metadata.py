@@ -26,8 +26,8 @@ def parse_article_metadata(msid):
 
         headline_tag = article_xml.find('headline')
         kicker_tag = article_xml.find('kicker')
-        kicker = kicker_tag.text if (kicker_tag is not None) else ''
-        headline = headline_tag.text if (headline_tag is not None) else ''
+        kicker = kicker_tag.text if (kicker_tag is not None) else None
+        headline = headline_tag.text if (headline_tag is not None) else None
 
         xml_pubtime = article_xml.find('meta/published')
         tz = xml_pubtime.find('dt').get('tz')
