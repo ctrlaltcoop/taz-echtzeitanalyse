@@ -1,6 +1,7 @@
 import requests
 
 from xml.etree import ElementTree
+from cachetools import cached, TTLCache
 from django.conf import settings
 from datetime import datetime
 
@@ -19,6 +20,7 @@ def fetch_article_cxml(msid):
     return response.text
 
 
+@cached(cache=TTLCache(ttl=120, maxsize=float('inf')))
 def parse_article_metadata(msid):
     try:
         xml_data = ElementTree.fromstring(fetch_article_cxml(msid))
