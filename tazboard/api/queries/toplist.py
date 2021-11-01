@@ -21,14 +21,6 @@ def get_toplist_query(min_date, max_date=timezone.now(), limit=10, subject=None)
                     "size": str(limit)
                 },
                 "aggs": {
-                    KEY_EXTRA_FIELDS_AGGREGATION: {
-                        "top_hits": {
-                            "size": 1,
-                            "_source": {
-                                "includes": ['bid', 'kicker', 'pubtime', 'msid', 'headline']
-                            }
-                        }
-                    },
                     **get_fingerprint_aggregation_with_ranges(
                         min_date_previous_interval, min_date, max_date
                     ),
@@ -37,7 +29,7 @@ def get_toplist_query(min_date, max_date=timezone.now(), limit=10, subject=None)
                 }
             }
         },
-        "size": str(limit),
+        "size": '1',
         "query": get_interval_filter_exclude_bots(min_date_previous_interval, max_date)
     }
     maybe_add_subject_filter(subject, query)

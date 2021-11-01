@@ -120,7 +120,7 @@ def _article_response_to_article_data(article_buckets):
     frontpage_msids = get_fireplace_articles_msids()
     for toplist_bucket in article_buckets:
         msid = get_dict_path_safe(
-            toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'msid'
+            toplist_bucket, 'key'
         )
 
         headline, kicker, pubtime = parse_article_metadata(msid)
@@ -136,12 +136,7 @@ def _article_response_to_article_data(article_buckets):
             'url': url,
             'kicker': kicker,
             'pubdate': pubtime,
-            'msid': get_dict_path_safe(
-                toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'msid'
-            ),
-            'bid': get_dict_path_safe(
-                toplist_bucket, KEY_EXTRA_FIELDS_AGGREGATION, 'hits', 'hits', 0, '_source', 'bid'
-            ),
+            'msid': msid,
             'referrers': _transform_referrer_buckets(toplist_bucket[KEY_REFERRER_AGGREGATION]['buckets']),
             'devices': _transform_device_buckets(toplist_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
             'frontpage': msid in frontpage_msids,
