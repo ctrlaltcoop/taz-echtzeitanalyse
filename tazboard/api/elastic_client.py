@@ -1,7 +1,7 @@
 import logging
 
 from django.conf import settings
-from elasticsearch import Elasticsearch, RequestsHttpConnection, RequestError, ConnectionError
+from elasticsearch import Elasticsearch, RequestsHttpConnection, RequestError, ConnectionError, TransportError
 
 # Get an instance of a logger
 from rest_framework.utils import json
@@ -35,6 +35,16 @@ def search_or_raise_api_exception(query, local_logger=logger):
                 json.dumps(e.info, indent=4),
                 query
             ))
+        raise BadElasticQueryException()
+    except TransportError as e:
+        local_logger.error(
+            'Bad request sent to elastic {}\n'
+            'Dumping error info: {}\n'
+            'Dumping executed query: {}\n'.format(
+                e.error,
+                json.dumps(e.info, indent=4),
+                query
+        ))
         raise BadElasticQueryException()
     except ConnectionError:
         local_logger.error('Elasticsearch server not reachable', exc_info=True)
