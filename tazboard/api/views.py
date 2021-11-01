@@ -119,6 +119,8 @@ class ToplistView(APIView):
         )
         if not serializer.is_valid():
             logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
+            logger.error('Raw elastic response: {}'.format(response))
+            logger.error('Transformer data: {}'.format(elastic_toplist_response_to_toplist(response)))
             raise BadElasticResponseException()
         return Response(serializer.data)
 
