@@ -8,7 +8,7 @@ from datetime import datetime
 
 def fetch_article_cxml(msid):
     response = requests.get(
-        'http://{}/!{}/c.xml'.format(settings.TAZBOARD_CXML_ARTICLE_HOST, msid),
+        'http://{cxml_host}/!{msid}/c.xml'.format(cxml_host=settings.TAZBOARD_CXML_ARTICLE_HOST, msid=msid),
         headers={
             'X-Forwarded-Host': settings.TAZBOARD_CXML_XFORWARD_HEADER,
             'X-Forwarded-Server': settings.TAZBOARD_CXML_XFORWARD_HEADER,
@@ -46,7 +46,7 @@ def parse_article_metadata(msid):
     except ElementTree.ParseError as error:
         print('Error occurred on parsing article with msid: {}'.format(msid))
         print(error)
-        headline = 'Metadaten des Artikels nicht Abrufbar: http://static.taz.de/!{}/c.xml'.format(msid)
+        headline = 'Metadaten des Artikels nicht Abrufbar: http://static.taz.de/!{msid}/c.xml'.format(msid=msid)
         kicker = None
         pubtime = None
 
