@@ -44,7 +44,7 @@ def search_or_raise_api_exception(query, local_logger=logger):
                 e.error,
                 json.dumps(e.info, indent=4),
                 query
-        ))
+            ))
         raise BadElasticQueryException()
     except ConnectionError:
         local_logger.error('Elasticsearch server not reachable', exc_info=True)

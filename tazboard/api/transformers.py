@@ -5,7 +5,7 @@ from django.conf import settings
 from tazboard.api.queries.common import get_dict_path_safe
 from tazboard.api.queries.constants import KEY_TIMESTAMP_AGGREGATION, KEY_FINGERPRINT_AGGREGATION, \
     KEY_REFERRER_AGGREGATION, KEY_TOPLIST_AGGREGTAION, KEY_TIMEFRAME_AGGREGATION, \
-    KEY_TREND_AGGREGATION, KEY_EXTRA_FIELDS_AGGREGATION, KEY_DEVICES_AGGREGATION, KEY_FIREPLACE_AGGREGATION, \
+    KEY_TREND_AGGREGATION, KEY_DEVICES_AGGREGATION, KEY_FIREPLACE_AGGREGATION, \
     KEY_SUBJECTS_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION
 from tazboard.api.queries.fireplace import get_fireplace_articles_msids
 from tazboard.api.utils.list import get_index_or_none
