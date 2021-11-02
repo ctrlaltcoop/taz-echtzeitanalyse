@@ -36,6 +36,9 @@ def search_or_raise_api_exception(query, local_logger=logger):
                 query
             ))
         raise BadElasticQueryException()
+    except ConnectionError:
+        local_logger.error('Elasticsearch server not reachable', exc_info=True)
+        raise ElasticUnavailableException()
     except TransportError as e:
         local_logger.error(
             'Bad request sent to elastic {}\n'
@@ -46,6 +49,3 @@ def search_or_raise_api_exception(query, local_logger=logger):
                 query
             ))
         raise BadElasticQueryException()
-    except ConnectionError:
-        local_logger.error('Elasticsearch server not reachable', exc_info=True)
-        raise ElasticUnavailableException()
