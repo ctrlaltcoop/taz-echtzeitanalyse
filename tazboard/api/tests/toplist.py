@@ -17,13 +17,18 @@ TEST_PATH = os.path.dirname(os.path.abspath(__file__))
 class ToplistTestCase(LiveServerTestCase):
 
     def setUp(self):
-        self.patcher = patch('tazboard.api.elastic_client.es')
-        self.es_client = self.patcher.start()
+        self.es_patcher = patch('tazboard.api.elastic_client.es')
+        self.es_client = self.es_patcher.start()
         with open(get_mock_test_sample_path_for_query_function(get_toplist_query), 'r') as mock_response_file:
             self.es_client.search = MagicMock(return_value=json.load(mock_response_file))
 
+        self.cxml_patcher = patch('tazboard.api.transformers.parse_article_metadata')
+        self.cxml_parse_metadata = self.cxml_patcher.start()
+        self.cxml_parse_metadata.return_value = ['Some Headline', 'Some Kicker', MOCK_FAKE_NOW]
+
     def tearDown(self):
-        self.patcher.stop()
+        self.es_patcher.stop()
+        self.cxml_patcher.stop()
 
     def test_toplist_response(self):
         min_date = MOCK_FAKE_NOW - timedelta(minutes=10)
@@ -88,3 +93,14 @@ class ToplistTestCase(LiveServerTestCase):
             'max_date': max_date.isoformat()
         })
         self.assertEquals(response.status_code, 500)
+
+    def test_on_successful_query_returns_article_metadata(self):
+        min_date = MOCK_FAKE_NOW - timedelta(minutes=10)
+        max_date = MOCK_FAKE_NOW
+        response = self.client.get('/api/v1/toplist', {
+            'min_date': min_date.isoformat(),
+            'max_date': max_date.isoformat(),
+        })
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+        self.assertEquals('Some Headline', data['data'][0]['headline'])
