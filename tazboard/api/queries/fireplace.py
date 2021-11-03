@@ -2,6 +2,7 @@ import requests
 
 from xml.etree import ElementTree
 from cachetools import cached, TTLCache
+from random import randrange
 from django.utils import timezone
 from django.conf import settings
 from tazboard.api.queries.common import get_fingerprint_aggregation_with_ranges, \
@@ -11,7 +12,7 @@ from tazboard.api.queries.constants import KEY_FIREPLACE_AGGREGATION, \
     KEY_FINGERPRINT_AGGREGATION
 
 
-@cached(cache=TTLCache(ttl=60, maxsize=float('inf')))
+@cached(cache=TTLCache(ttl=randrange(90, 120), maxsize=float('inf')))
 def fetch_ressort_cxml(pid):
     response = requests.get(
         'https://{}/!p{}/c.xml'.format(settings.TAZBOARD_CXML_HOST, pid),
