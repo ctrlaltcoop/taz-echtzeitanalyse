@@ -81,6 +81,9 @@ TAZBOARD_ELASTIC_PORT = 9201
 TAZBOARD_ELASTIC_SSL = True
 TAZBOARD_ELASTIC_VERIFY_CERT = False
 
+# only query the relevant indices and ignore everything else in the ES
+TAZBOARD_ELASTIC_INDEX = 'article-*'
+
 # Only for testing!
 TAZBOARD_MOCKS_ENABLED = False
 
