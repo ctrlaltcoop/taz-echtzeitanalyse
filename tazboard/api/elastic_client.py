@@ -25,7 +25,7 @@ es = Elasticsearch(
 def search_or_raise_api_exception(query, local_logger=logger):
     try:
         local_logger.info('Successful elastic query: {}'.format(query))
-        return es.search(body=query)
+        return es.search(index=settings.TAZBOARD_ELASTIC_INDEX, body=query)
     except RequestError as e:
         local_logger.error(
             'Bad request sent to elastic {}\n'
