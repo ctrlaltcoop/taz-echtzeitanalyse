@@ -54,14 +54,8 @@
 import Vue from 'vue'
 import { BNav, BNavItem } from 'bootstrap-vue'
 import Statistics from '@/components/Statistics.vue'
-import {
-  DEFAULT_TIMEFRAME,
-  Timeframe,
-  TimeframeId,
-  TimeframeMixin,
-  TIMEFRAMES
-} from '@/common/timeframe'
-import { GlobalPulse, PULSE_EVENT, RESET_PULSE_EVENT } from '@/common/GlobalPulse'
+import { DEFAULT_TIMEFRAME, Timeframe, TimeframeId, TimeframeMixin, TIMEFRAMES } from '@/common/timeframe'
+import { GlobalPulse, PULSE_EVENT, RESET_PULSE_EVENT, STOP_PULSE_EVENT } from '@/common/GlobalPulse'
 import Select from '@/components/Select.vue'
 import ConnectionAlerter from '@/components/ConnectionAlerter.vue'
 
@@ -166,7 +160,11 @@ export default Vue.extend<Data, Methods, Computed, {}>({
       if (timeframeId === this.$route.query.timeframeId as TimeframeId) {
         return
       }
-      GlobalPulse.$emit(RESET_PULSE_EVENT, new Date())
+      if (timeframeId === TimeframeId.KEY_7_DAYS || timeframeId === TimeframeId.KEY_30_DAYS) {
+        GlobalPulse.$emit(STOP_PULSE_EVENT)
+      } else {
+        GlobalPulse.$emit(RESET_PULSE_EVENT, new Date())
+      }
       this.$router.push({
         path: this.$route.path,
         params: this.$route.params,
