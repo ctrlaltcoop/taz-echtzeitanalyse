@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 export const PULSE_EVENT = 'PULSE_EVENT'
 export const RESET_PULSE_EVENT = 'RESET_PULSE_EVENT'
+export const STOP_PULSE_EVENT = 'STOP_PULSE_EVENT'
 export const PULSE_INTERVAL_MS = 60000
 
 interface Data {
@@ -25,6 +26,11 @@ const PulseEventBus = Vue.extend<Data, Methods, {}>({
         clearInterval(this.currentPulse)
       }
       this.currentPulse = setInterval(this.emitPulse, PULSE_INTERVAL_MS)
+    })
+    this.$on(STOP_PULSE_EVENT, () => {
+      if (this.currentPulse !== null) {
+        clearInterval(this.currentPulse)
+      }
     })
   },
   methods: {
