@@ -95,3 +95,6 @@ TAZBOARD_CXML_XFORWARD_HEADER = 'downey.taz.de'
 TAZBOARD_CXML_USER_AGENT = 'hitlist dataenrichment - taz-article metadata provider'
 
 TAZBOARD_TAZ_WEB_URL = 'https://taz.de/'
+
+# get rid of ssl-warnings
+TAZBOARD_ELASTIC_SHOW_SSL_WARN = False
