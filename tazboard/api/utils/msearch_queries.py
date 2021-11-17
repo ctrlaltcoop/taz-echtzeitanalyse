@@ -15,7 +15,7 @@ def prepare_msearch_query(query, query_indices=None):
     for i, q in enumerate(queries):
         # check if there is a definition for an index to use
         # otherwise use default index
-        if i <= (len(query_indices) - 1):
+        if i < len(query_indices):
             body += json.dumps({"index": query_indices[i]}) + "\n"
         else:
             body += json.dumps({}) + "\n"
