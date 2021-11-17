@@ -823,13 +823,33 @@
                 ]
             },
             "aggregations": {
-                "KEY_TREND_AGGREGATION": {
+                "KEY_DEVICES_AGGREGATION": {
                     "meta": {},
-                    "doc_count": 14077
-                },
-                "KEY_TIMEFRAME_AGGREGATION": {
-                    "meta": {},
-                    "doc_count": 13822
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Desktop",
+                            "doc_count": 19840,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 19840
+                            }
+                        },
+                        {
+                            "key": "Mobil",
+                            "doc_count": 7195,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 7195
+                            }
+                        },
+                        {
+                            "key": "Unklar",
+                            "doc_count": 847,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 847
+                            }
+                        }
+                    ]
                 }
             },
             "status": 200

@@ -20,5 +20,5 @@ KEY_FIREPLACE_AGGREGATION = "KEY_FIREPLACE_AGGREGATION"
 
 INTERVAL_10MINUTES = '10m'
 
-MOCK_FAKE_NOW = make_aware(datetime(year=2020, month=8, day=22, hour=12, minute=00))
+MOCK_FAKE_NOW = make_aware(datetime(year=2021, month=11, day=10, hour=15, minute=00))
 MOCK_CXML_PATH = os.path.join(BASE_DIR, '..', 'api', 'tests', 'mocks', 'c.xml')

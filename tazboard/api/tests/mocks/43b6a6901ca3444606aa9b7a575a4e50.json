@@ -1,0 +1,1432 @@
+{
+    "took": 11118,
+    "responses": [
+        {
+            "took": 11118,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 10000,
+                    "relation": "gte"
+                },
+                "max_score": 1.0,
+                "hits": [
+                    {
+                        "_index": "article-2021.10.27",
+                        "_type": "_doc",
+                        "_id": "ccsqxHwBahMtZ-O2uiiz",
+                        "_score": 1.0,
+                        "_source": {
+                            "@version": "1",
+                            "filepath": "/Bruder-und-Produzent-von-Billie-Eilish/!5811213/",
+                            "tazlocal": "false",
+                            "pubtimediff": 49956,
+                            "bid": "5186833",
+                            "pubtime": "2021-10-27 11:58:00+02:00",
+                            "arttype": "Bericht",
+                            "artscope": "cms-article",
+                            "headline": "All die bunten Bonbons",
+                            "os_full": "Other",
+                            "schwerpunkte": [],
+                            "type": "article",
+                            "referrertags": "missing",
+                            "deviceclass": "Unklar",
+                            "ressorts": [
+                                "Musik"
+                            ],
+                            "@timestamp": "2021-10-27T23:51:47.018Z",
+                            "reloaded": "false",
+                            "SSL_PROTOCOL": "\"TLSv1.3\"",
+                            "device": "Other",
+                            "fingerprint": "1055645797",
+                            "os": "Other",
+                            "tagids": [
+                                "5013961",
+                                "5027596",
+                                "5013445",
+                                "5012203",
+                                "5024032",
+                                "5587363"
+                            ],
+                            "name": "Other",
+                            "SSL_CIPHER": "\"TLS_AES_256_GCM_SHA384\"",
+                            "tags": [
+                                "syslogformat",
+                                "parsed",
+                                "uaparsed",
+                                "jsondata"
+                            ],
+                            "errors": [],
+                            "referrerlabel": "Unbekannt",
+                            "ressortIDs": [
+                                "4640"
+                            ],
+                            "os_name": "Other",
+                            "DoNotTrack": "\"-\"",
+                            "kicker": "Bruder und Produzent von Billie Eilish",
+                            "place_4608": 20,
+                            "msid": "5811213",
+                            "taztags": [
+                                "Musiker",
+                                "Musikproduzent",
+                                "Popmusik",
+                                "Billie Eilish",
+                                "Album",
+                                "Komponist"
+                            ],
+                            "fulluseragent": "\"-\"",
+                            "linktext": "Bruder-und-Produzent-von-Billie-Eilish/",
+                            "referrerclass": "missing",
+                            "request": "\"GET /Bruder-und-Produzent-von-Billie-Eilish/!5811213/ HTTP/1.1\"",
+                            "geoip": {
+                                "asn": "6724",
+                                "as_org": "Strato AG"
+                            },
+                            "referrer": "\"-\""
+                        }
+                    }
+                ]
+            },
+            "aggregations": {
+                "KEY_TOPLIST_AGGREGTAION": {
+                    "meta": {},
+                    "doc_count_error_upper_bound": -1,
+                    "sum_other_doc_count": 13113327,
+                    "buckets": [
+                        {
+                            "key": "5813348",
+                            "doc_count": 188093,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 153738,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 153738
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 32923,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 32923
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 1432,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 1432
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 188093,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 163440
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 89,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 102640,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 102640
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 46872,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 46872
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 21631,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 21631
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 10468,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 10468
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 2118,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 2118
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 2092,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 2092
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 1022,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 1022
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 957,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 957
+                                        }
+                                    },
+                                    {
+                                        "key": "Newstral",
+                                        "doc_count": 126,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 126
+                                        }
+                                    },
+                                    {
+                                        "key": "Upday",
+                                        "doc_count": 78,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 78
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "5813114",
+                            "doc_count": 170185,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 142841,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 142841
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 26383,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 26383
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 961,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 961
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 170185,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 150819
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 32,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 101802,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 101802
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 40769,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 40769
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 13723,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 13723
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 11356,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 11356
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 1418,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 1418
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 451,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 451
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 321,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 321
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 262,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 262
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 35,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 35
+                                        }
+                                    },
+                                    {
+                                        "key": "Telegram",
+                                        "doc_count": 16,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 16
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "5809293",
+                            "doc_count": 150046,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 17818,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 14810
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 123879,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 117092
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 25640,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 14899
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 527,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 237
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 132228,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 115537
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 77,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 89812,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 89812
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 29717,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 27000
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 21459,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 10704
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 7511,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 3874
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 514,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 259
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 376,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 168
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 241,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 162
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 164,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 111
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 107,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 75
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 68,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 23
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "5813380",
+                            "doc_count": 114355,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 90330,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 90330
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 22998,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 22998
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 1027,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 1027
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 114355,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 97729
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 35,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 61433,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 61433
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 26165,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 26165
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 15337,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 15337
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 6818,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 6818
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 1456,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 1456
+                                        }
+                                    },
+                                    {
+                                        "key": "Upday",
+                                        "doc_count": 1365,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 1365
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 843,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 843
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 725,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 725
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 162,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 162
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 16,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 16
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "5807413",
+                            "doc_count": 105623,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 95063,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 95063
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 10509,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 10509
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 51,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 51
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 105623,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 96965
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 6,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 67281,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 67281
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 29280,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 29280
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 5142,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 5142
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 2249,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 2249
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 1436,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 1436
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 120,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 120
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 96,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 96
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 5,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 5
+                                        }
+                                    },
+                                    {
+                                        "key": "Instagram",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Telegram",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 4
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "5809074",
+                            "doc_count": 169574,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 67056,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 62231
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 120263,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 89326
+                                        }
+                                    },
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 49214,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 13134
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 97,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 58
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 102518,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 96625
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 58,
+                                "buckets": [
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 116131,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 87120
+                                        }
+                                    },
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 36005,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 6943
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 8817,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 3040
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 4791,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 3220
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 2048,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 1252
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 773,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 354
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 591,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 350
+                                        }
+                                    },
+                                    {
+                                        "key": "Wikipedia",
+                                        "doc_count": 263,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 151
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 49,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 27
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 48,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 28
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "5809291",
+                            "doc_count": 93350,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 87667,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 87667
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 5629,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 5629
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 54,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 54
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 93350,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 84348
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 1,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 60477,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 60477
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 27952,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 27952
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 4109,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 4109
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 402,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 402
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 182,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 182
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 135,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 135
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 70,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 70
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 10,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 10
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 10,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 10
+                                        }
+                                    },
+                                    {
+                                        "key": "Telegram",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 2
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "5808898",
+                            "doc_count": 73388,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 55972,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 55972
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 16953,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 16953
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 463,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 463
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 73388,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 62799
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 29,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 34400,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 34400
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 17251,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 17251
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 12192,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 12192
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 4186,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 4186
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 2124,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 2124
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 1828,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 1828
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 989,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 989
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 319,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 319
+                                        }
+                                    },
+                                    {
+                                        "key": "Upday",
+                                        "doc_count": 51,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 51
+                                        }
+                                    },
+                                    {
+                                        "key": "Instagram",
+                                        "doc_count": 19,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 19
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "5810763",
+                            "doc_count": 60533,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 55312,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 55312
+                                        }
+                                    },
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 4994,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 4994
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 227,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 227
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 60533,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 56311
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 1,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 58776,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 58776
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 1011,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 1011
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 698,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 698
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 36,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 36
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Telegram",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "doc_count": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "5809013",
+                            "doc_count": 55773,
+                            "KEY_TREND_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 0,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 0
+                                }
+                            },
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 53306,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 53306
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 2444,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 2444
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 23,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 23
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "meta": {},
+                                "doc_count": 55773,
+                                "KEY_FINGERPRINT_AGGREGATION": {
+                                    "value": 51444
+                                }
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {},
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 1,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 39791,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 39791
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 13555,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 13555
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 1901,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 1901
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 172,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 172
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 163,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 163
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 149,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 149
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 30,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 30
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 6,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 6
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "Telegram",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "meta": {},
+                                            "doc_count": 2
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        }
+    ]
+}
