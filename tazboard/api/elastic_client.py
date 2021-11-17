@@ -3,11 +3,12 @@ import logging
 from django.conf import settings
 from elasticsearch import Elasticsearch, RequestsHttpConnection, RequestError, ConnectionError, TransportError
 
-# Get an instance of a logger
 from rest_framework.utils import json
 
 from tazboard.api.errors import BadElasticQueryException, ElasticUnavailableException
+from tazboard.api.utils.msearch_queries import prepare_msearch_query
 
+# Get an instance of a logger
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
@@ -33,25 +34,7 @@ def search_or_raise_api_exception(query, query_indices=None, local_logger=logger
 
     # make every query a list, but keep original query as reference for resulttype
 
-    if query_indices is None:
-        query_indices = []
-
-    if isinstance(query, list):
-        queries = query
-    else:
-        queries = [query]
-
-    # create a multi-search body
-    body = ""
-    for i, q in enumerate(queries):
-        # check if there is a definition for an index to use
-        # otherwise use default index
-        if i <= (len(query_indices) - 1):
-            body += json.dumps({"index": query_indices[i]}) + "\n"
-        else:
-            body += json.dumps({}) + "\n"
-        # ndjson lines; last line must be terminated with a newline
-        body += json.dumps(q) + "\n"
+    body = prepare_msearch_query(query, query_indices)
 
     try:
         result = es.msearch(index=settings.TAZBOARD_ELASTIC_INDEX, body=body)
