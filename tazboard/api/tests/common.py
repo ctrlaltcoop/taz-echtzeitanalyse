@@ -46,4 +46,4 @@ def activate_global_elastic_mocks():
         cxml_mock_string = cxml_mock.read()
         fireplace.fetch_ressort_cxml = lambda x: cxml_mock_string
 
-    es.search = get_elastic_mock_response
+    es.msearch = get_elastic_mock_response

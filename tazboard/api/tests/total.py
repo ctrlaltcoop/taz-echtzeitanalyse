@@ -20,10 +20,14 @@ class TotalTestCase(LiveServerTestCase):
         self.patcher = patch('tazboard.api.elastic_client.es')
         self.es_client = self.patcher.start()
         with open(get_mock_test_sample_path_for_query_function(get_total_query), 'r') as mock_response_file:
-            self.es_client.search = MagicMock(return_value=json.load(mock_response_file))
+            self.es_client.msearch = MagicMock(return_value=json.load(mock_response_file))
+        self.patcher_msearch_utils = patch('tazboard.api.elastic_client.prepare_msearch_query')
+        self.prepare_msearch_query = self.patcher_msearch_utils.start()
+        self.prepare_msearch_query = MagicMock(return_value='{bla}')
 
     def tearDown(self):
         self.patcher.stop()
+        self.patcher_msearch_utils.stop()
 
     def test_referrer_query_correct_response(self):
         min_date = MOCK_FAKE_NOW - timedelta(minutes=10)
@@ -48,14 +52,14 @@ class TotalTestCase(LiveServerTestCase):
             'max_date': max_date.isoformat(),
         })
         self.assertEquals(response.status_code, 200)
-        self.es_client.search.assert_called_once()
+        self.es_client.msearch.assert_called_once()
         get_total_query_spy.assert_called_once()
         get_total_query_spy.assert_called_with(min_date, max_date)
 
     def test_expect_503_if_elastic_is_unavailable(self):
         min_date = MOCK_FAKE_NOW - timedelta(days=1)
         max_date = MOCK_FAKE_NOW
-        self.es_client.search = Mock(side_effect=ConnectionError())
+        self.es_client.msearch = Mock(side_effect=ConnectionError())
         response = self.client.get('/api/v1/total', {
             "min_date": min_date.isoformat(),
             "max_date": max_date.isoformat()
@@ -65,7 +69,7 @@ class TotalTestCase(LiveServerTestCase):
     def test_expect_500_if_bad_elastic_query(self):
         min_date = MOCK_FAKE_NOW - timedelta(days=1)
         max_date = MOCK_FAKE_NOW
-        self.es_client.search = Mock(side_effect=RequestError('kaboom', 'error', {}))
+        self.es_client.msearch = Mock(side_effect=RequestError('kaboom', 'error', {}))
         response = self.client.get('/api/v1/total', {
             'min_date': min_date.isoformat(),
             'max_date': max_date.isoformat()
