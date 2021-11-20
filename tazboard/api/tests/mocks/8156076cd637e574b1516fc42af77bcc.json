@@ -1,8 +1,8 @@
 {
-    "took": 11,
+    "took": 17,
     "responses": [
         {
-            "took": 11,
+            "took": 17,
             "timed_out": false,
             "_shards": {
                 "total": 120,
@@ -823,13 +823,82 @@
                 ]
             },
             "aggregations": {
-                "KEY_TREND_AGGREGATION": {
+                "KEY_REFERRER_AGGREGATION": {
                     "meta": {},
-                    "doc_count": 14077
-                },
-                "KEY_TIMEFRAME_AGGREGATION": {
-                    "meta": {},
-                    "doc_count": 13822
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 131,
+                    "buckets": [
+                        {
+                            "key": "Unbekannt",
+                            "doc_count": 10115,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 10115
+                            }
+                        },
+                        {
+                            "key": "Pocket",
+                            "doc_count": 8123,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 8123
+                            }
+                        },
+                        {
+                            "key": "taz",
+                            "doc_count": 5470,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 5470
+                            }
+                        },
+                        {
+                            "key": "Google",
+                            "doc_count": 2703,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 2703
+                            }
+                        },
+                        {
+                            "key": "Facebook",
+                            "doc_count": 620,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 620
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 242,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 242
+                            }
+                        },
+                        {
+                            "key": "Twitter",
+                            "doc_count": 210,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 210
+                            }
+                        },
+                        {
+                            "key": "Flipboard",
+                            "doc_count": 138,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 138
+                            }
+                        },
+                        {
+                            "key": "Bing",
+                            "doc_count": 76,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 76
+                            }
+                        },
+                        {
+                            "key": "DuckDuckGo",
+                            "doc_count": 54,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "doc_count": 54
+                            }
+                        }
+                    ]
                 }
             },
             "status": 200

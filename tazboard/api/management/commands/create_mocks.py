@@ -15,6 +15,7 @@ from tazboard.api.queries.total import get_total_query
 from tazboard.api.queries.fireplace import get_fireplace_query, fetch_ressort_cxml
 from tazboard.api.tests.common import get_mock_filepath_for_query, get_mock_test_sample_path_for_query_function
 from tazboard.api.utils.tazdatetime import round_to_seconds
+from tazboard.api.utils.msearch_queries import prepare_msearch_query
 
 
 def get_argument_matrix(list_a, list_b):
@@ -29,8 +30,9 @@ FAKE_TIMEFRAMES = (
     (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=1)), MOCK_FAKE_NOW),
     (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=6)), MOCK_FAKE_NOW),
     (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
-    (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW),
-    (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW)
+    (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=7)), MOCK_FAKE_NOW)
+    # Commented out for now, since large timeframes cause elastic to crash
+    # (round_to_seconds(MOCK_FAKE_NOW - timedelta(days=30)), MOCK_FAKE_NOW)
 )
 
 
@@ -74,7 +76,8 @@ class Command(BaseCommand):
 
                 query_fn = config['get_query']
                 query = query_fn(*arguments)
-                response = es.search(body=query)
+                body = prepare_msearch_query(query)
+                response = es.msearch(index=settings.TAZBOARD_ELASTIC_INDEX, body=body)
                 with open(get_mock_filepath_for_query(query), 'w') as outfile:
                     outfile.write(json.dumps(response, indent=4))
                 # put aside one sample for e2e tests

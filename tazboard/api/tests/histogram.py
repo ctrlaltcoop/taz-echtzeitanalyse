@@ -18,10 +18,17 @@ TEST_PATH = os.path.dirname(os.path.abspath(__file__))
 class HistogramTestCase(LiveServerTestCase):
 
     def setUp(self):
-        self.patcher = patch('tazboard.api.elastic_client.es')
-        self.es_client = self.patcher.start()
+        self.patcher_elastic = patch('tazboard.api.elastic_client.es')
+        self.es_client = self.patcher_elastic.start()
         with open(get_mock_test_sample_path_for_query_function(get_histogram_query), 'r') as mock_response_file:
-            self.es_client.search = MagicMock(return_value=json.load(mock_response_file))
+            self.es_client.msearch = MagicMock(return_value=json.load(mock_response_file))
+        self.patcher_msearch_utils = patch('tazboard.api.elastic_client.prepare_msearch_query')
+        self.prepare_msearch_query = self.patcher_msearch_utils.start()
+        self.prepare_msearch_query = MagicMock(return_value='{bla}')
+
+    def tearDown(self):
+        self.patcher_elastic.stop()
+        self.patcher_msearch_utils.stop()
 
     def test_histogram_response(self):
         min_date = (timezone.now() - timedelta(days=1))
@@ -42,7 +49,7 @@ class HistogramTestCase(LiveServerTestCase):
             'min_date': min_date.isoformat(),
             'max_date': max_date.isoformat()
         })
-        self.es_client.search.assert_called_once()
+        self.es_client.msearch.assert_called_once()
         get_histogram_query_spy.assert_called_once()
         get_histogram_query_spy.assert_called_with(
             min_date, max_date, msid=None, subject=None, interval=INTERVAL_10MINUTES
@@ -58,7 +65,7 @@ class HistogramTestCase(LiveServerTestCase):
             'max_date': max_date.isoformat(),
             'msid': msid
         })
-        self.es_client.search.assert_called_once()
+        self.es_client.msearch.assert_called_once()
         get_histogram_query.assert_called_once()
         get_histogram_query.assert_called_with(
             min_date, max_date, msid=int(msid), subject=None, interval=INTERVAL_10MINUTES
@@ -75,7 +82,7 @@ class HistogramTestCase(LiveServerTestCase):
             'interval': interval
         })
         self.assertEquals(response.status_code, 200)
-        self.es_client.search.assert_called_once()
+        self.es_client.msearch.assert_called_once()
         get_histogram_query_spy.assert_called_once()
         get_histogram_query_spy.assert_called_with(
             min_date, max_date, msid=None, subject=None, interval=interval
@@ -92,14 +99,14 @@ class HistogramTestCase(LiveServerTestCase):
             'subject': subject
         })
         self.assertEquals(response.status_code, 200)
-        self.es_client.search.assert_called_once()
+        self.es_client.msearch.assert_called_once()
         get_histogram_query_spy.assert_called_once()
         get_histogram_query_spy.assert_called_with(
             min_date, max_date, msid=None, subject=subject, interval=INTERVAL_10MINUTES
         )
 
     def test_expect_503_if_elastic_is_unavailable(self):
-        self.es_client.search = Mock(side_effect=ConnectionError())
+        self.es_client.msearch = Mock(side_effect=ConnectionError())
         min_date = MOCK_FAKE_NOW - timedelta(days=1)
         response = self.client.get('/api/v1/histogram', {
             'min_date': min_date.isoformat()
@@ -107,7 +114,7 @@ class HistogramTestCase(LiveServerTestCase):
         self.assertEquals(response.status_code, 503)
 
     def test_expect_500_if_bad_elastic_query(self):
-        self.es_client.search = Mock(side_effect=RequestError('kaboom', 'error', {}))
+        self.es_client.msearch = Mock(side_effect=RequestError('kaboom', 'error', {}))
         min_date = MOCK_FAKE_NOW - timedelta(days=1)
         response = self.client.get('/api/v1/histogram', {
             'min_date': min_date.isoformat()
