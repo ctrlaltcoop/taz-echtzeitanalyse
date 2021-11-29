@@ -15,18 +15,18 @@ from .queries.constants import INTERVAL_10MINUTES
 from .queries.referrer import get_referrer_query
 from .queries.devices import get_devices_query
 from .queries.subjects import get_subjects_query
-from .queries.toplist import get_toplist_query
+from .queries.toplist import get_toplist_msids_query, get_toplist_query
 from .queries.total import get_total_query
 from .queries.fireplace import get_fireplace_query
 from .query_params import HistogramQuerySerializer, ReferrerQuerySerializer, ToplistQuerySerializer, \
     DevicesQuerySerializer, TotalQuerySerializer, SubjectQuerySerializer, FireplaceQuerySerializer
 from .schema import AutoSchemaWithQuery
-from .transformers import elastic_histogram_response_to_histogram_graph, \
-    elastic_toplist_response_to_toplist, elastic_referrer_response_to_referrer_data, \
+from .transformers import elastic_histogram_response_to_histogram_graph, elastic_toplist_response_to_toplist, \
+    elastic_toplist_msid_response_to_toplist, elastic_referrer_response_to_referrer_data, \
     elastic_devices_response_to_devices_graph, elastic_total_response_total, \
     elastic_fireplace_response_to_fireplace, elastic_subjects_response_to_subjects_data
 from .serializers import HistogramSerializer, ReferrerSerializer, ToplistSerializer, DevicesSerializer, \
-    TotalSerializer, SubjectSerializer, FireplaceSerializer
+    TotalSerializer, SubjectSerializer, FireplaceSerializer, ToplistMsidSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -106,23 +106,39 @@ class ReferrerView(APIView):
 class ToplistView(APIView):
     serializer_class = ToplistSerializer
     query_serializer = ToplistQuerySerializer
+    msid_serializer_class = ToplistMsidSerializer
 
     def get(self, request, *args, **kwargs):
         min_date = self.query_params.get('min_date', timezone.now() - timedelta(days=1))
         max_date = self.query_params.get('max_date', timezone.now())
+        min_date_previous_interval = min_date - (max_date - min_date)
         limit = self.query_params.get('limit', 10)
         subject = self.query_params.get('subject', None)
-        query = get_toplist_query(min_date, max_date, limit, subject)
-        response = search_or_raise_api_exception(query)
-        serializer = self.serializer_class(
-            data=elastic_toplist_response_to_toplist(response)
+
+        # Get msids for top X articles with their corresponding clicks (device fingerprint)
+        query_msids = get_toplist_msids_query(min_date, max_date, limit, subject)
+        response_msids = search_or_raise_api_exception(query_msids)
+        serializer_msids = self.msid_serializer_class(
+            data=elastic_toplist_msid_response_to_toplist(response_msids)
         )
-        if not serializer.is_valid():
-            logger.error('Unexpected response from elastic\n{}'.format(serializer.errors))
-            logger.error('Raw elastic response: {}'.format(response))
-            logger.error('Transformer data: {}'.format(elastic_toplist_response_to_toplist(response)))
+        if not serializer_msids.is_valid():
+            logger.error('Unexpected response from elastic\n{}'.format(serializer_msids.errors))
+            logger.error('Raw elastic response: {}'.format(response_msids))
+            logger.error('Transformer data: {}'.format(elastic_toplist_msid_response_to_toplist(response_msids)))
             raise BadElasticResponseException()
-        return Response(serializer.data)
+
+        # Get hits for previous time frame, devices and referrer for every msid in the topX list
+        query_toplist = get_toplist_query(serializer_msids.data, min_date_previous_interval, min_date, max_date)
+        response_toplist = search_or_raise_api_exception(query_toplist)
+        serializer_toplist = self.serializer_class(
+            data=elastic_toplist_response_to_toplist(response_toplist, serializer_msids.data)
+        )
+        if not serializer_toplist.is_valid():
+            logger.error('Unexpected response from elastic\n{}'.format(serializer_toplist.errors))
+            logger.error('Raw elastic response: {}'.format(response_toplist))
+            logger.error('Transformer data: {}'.format(elastic_toplist_response_to_toplist(response_toplist, serializer_msids.data)))
+            raise BadElasticResponseException()
+        return Response(serializer_toplist.data)
 
 
 class FireplaceView(APIView):
