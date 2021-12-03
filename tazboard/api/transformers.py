@@ -195,7 +195,10 @@ def _responses_to_article_data(es_response, msids_data):
             msid = get_dict_path_safe(
                 aggregation[KEY_TOPLIST_AGGREGATION], 'meta', KEY_METADATA_FIELD_MSID
             )
-            hits_previous = aggregation[KEY_TOPLIST_AGGREGATION]['buckets'][0][KEY_TREND_AGGREGATION]['value']
+            if len(aggregation[KEY_TOPLIST_AGGREGATION]['buckets']) != 0:
+                hits_previous = aggregation[KEY_TOPLIST_AGGREGATION]['buckets'][0][KEY_TREND_AGGREGATION]['value']
+            else:
+                hits_previous = 0
             article_data[msid]['hits_previous'] = hits_previous
 
         if KEY_REFERRER_AGGREGATION in aggregation:
