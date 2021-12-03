@@ -137,7 +137,8 @@ class ToplistView(APIView):
         if not serializer_toplist.is_valid():
             logger.error('Unexpected response from elastic\n{}'.format(serializer_toplist.errors))
             logger.error('Raw elastic response: {}'.format(response_toplist))
-            logger.error('Transformer data: {}'.format(elastic_toplist_response_to_toplist(response_toplist, serializer_msids.data)))
+            logger.error('Transformer data: {}'
+                         .format(elastic_toplist_response_to_toplist(response_toplist, serializer_msids.data)))
             raise BadElasticResponseException()
         return Response(serializer_toplist.data)
 
@@ -160,7 +161,8 @@ class FireplaceView(APIView):
         if not serializer_msids.is_valid():
             logger.error('Unexpected response from elastic\n{}'.format(serializer_msids.errors))
             logger.error('Raw elastic response: {}'.format(response_msids_hits))
-            logger.error('Transformer data: {}'.format(elastic_fireplace_msid_hits_response_to_fireplace_msids_hits(response_msids_hits)))
+            logger.error('Transformer data: {}'
+                         .format(elastic_fireplace_msid_hits_response_to_fireplace_msids_hits(response_msids_hits)))
             raise BadElasticResponseException()
 
         # Get hits for previous time frame, devices and referrer for every msid in the fireplace
