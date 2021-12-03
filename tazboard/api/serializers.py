@@ -52,13 +52,9 @@ class ToplistSerializer(serializers.Serializer):
     data = ArticleDataSerializer(many=True)
 
 
-class ArticleDataSimpleSerializer(serializers.Serializer):
+class ToplistMsidSerializer(serializers.Serializer):
     msid = serializers.IntegerField()
     hits = serializers.IntegerField()
-
-
-class ToplistMsidSerializer(serializers.Serializer):
-    data = ArticleDataSimpleSerializer(many=True)
 
 
 class FireplaceSerializer(serializers.Serializer):

@@ -119,7 +119,7 @@ class ToplistView(APIView):
         query_msids = get_toplist_msids_query(min_date, max_date, limit, subject)
         response_msids = search_or_raise_api_exception(query_msids)
         serializer_msids = self.msid_serializer_class(
-            data=elastic_toplist_msid_response_to_toplist(response_msids)
+            data=elastic_toplist_msid_response_to_toplist(response_msids), many=True
         )
         if not serializer_msids.is_valid():
             logger.error('Unexpected response from elastic\n{}'.format(serializer_msids.errors))
