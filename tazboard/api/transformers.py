@@ -232,10 +232,17 @@ def _toplist_msid_response_to_msids(article_buckets):
 
 
 def elastic_toplist_msid_response_to_toplist(es_response):
-    toplist_msids = _toplist_msid_response_to_msids(es_response['aggregations'][KEY_TOPLIST_AGGREGATION]['buckets'])
-    return {
-        'data': toplist_msids
-    }
+    msids_data = []
+    buckets = es_response['aggregations'][KEY_TOPLIST_AGGREGATION]['buckets']
+    for bucket in buckets:
+        msid = get_dict_path_safe(bucket, 'key')
+        hits = bucket[KEY_TIMEFRAME_AGGREGATION]['value']
+        msid_hits = {
+            'msid': msid,
+            'hits': hits
+        }
+        msids_data.append(msid_hits)
+    return msids_data
 
 
 def elastic_fireplace_response_to_fireplace(es_response):
