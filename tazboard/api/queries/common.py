@@ -123,6 +123,42 @@ def get_referrer_aggregation(start, end):
     }
 
 
+def get_referrer_aggregation_new(msid):
+    return {
+        "terms": {
+            "field": "referrerlabel"
+        },
+        "aggs": {
+            KEY_TIMEFRAME_AGGREGATION: {
+                "cardinality": {
+                    "field": "fingerprint"
+                }
+            }
+        },
+        "meta": {
+            KEY_METADATA_FIELD_MSID: msid
+        }
+    }
+
+
+def get_devices_aggregation_new(msid):
+    return {
+        "terms": {
+            "field": "deviceclass"
+        },
+        "aggs": {
+            KEY_TIMEFRAME_AGGREGATION: {
+                "cardinality": {
+                    "field": "fingerprint"
+                }
+            }
+        },
+        "meta": {
+            KEY_METADATA_FIELD_MSID: msid
+        }
+    }
+
+
 def get_devices_aggregation(start, end):
     return {
         "terms": {
