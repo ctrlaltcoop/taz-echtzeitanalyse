@@ -103,27 +103,7 @@ def get_ranges(interval_start, interval_mid, interval_end):
     }
 
 
-def get_referrer_aggregation(start, end):
-    return {
-        "terms": {
-            "field": "referrerlabel"
-        },
-        "aggs": {
-            KEY_TIMEFRAME_AGGREGATION: {
-                "filter": {
-                    "range": {
-                        "@timestamp": {
-                            "gte": start.isoformat(),
-                            "lte": end.isoformat()
-                        },
-                    },
-                },
-            }
-        }
-    }
-
-
-def get_referrer_aggregation_new(msid):
+def get_referrer_aggregation(msid=None):
     return {
         "terms": {
             "field": "referrerlabel"
@@ -141,7 +121,7 @@ def get_referrer_aggregation_new(msid):
     }
 
 
-def get_devices_aggregation_new(msid):
+def get_devices_aggregation(msid=None):
     return {
         "terms": {
             "field": "deviceclass"
@@ -155,26 +135,6 @@ def get_devices_aggregation_new(msid):
         },
         "meta": {
             KEY_METADATA_FIELD_MSID: msid
-        }
-    }
-
-
-def get_devices_aggregation(start, end):
-    return {
-        "terms": {
-            "field": "deviceclass"
-        },
-        "aggs": {
-            KEY_TIMEFRAME_AGGREGATION: {
-                "filter": {
-                    "range": {
-                        "@timestamp": {
-                            "gte": start.isoformat(),
-                            "lte": end.isoformat()
-                        },
-                    },
-                }
-            }
         }
     }
 
@@ -254,7 +214,7 @@ def get_interval_filter_exclude_bots_with_msids(interval_start, interval_end, ms
     return base_query
 
 
-def get_subject_aggregation(start, end, limit=10):
+def get_subject_aggregation(limit=10):
     return {
         "terms": {
             "field": "schwerpunkte",
@@ -274,8 +234,8 @@ def get_subject_aggregation(start, end, limit=10):
                     "field": "msid",
                 }
             },
-            KEY_REFERRER_AGGREGATION: get_referrer_aggregation(start, end),
-            KEY_DEVICES_AGGREGATION: get_devices_aggregation(start, end)
+            KEY_REFERRER_AGGREGATION: get_referrer_aggregation(),
+            KEY_DEVICES_AGGREGATION: get_devices_aggregation()
         }
     }
 

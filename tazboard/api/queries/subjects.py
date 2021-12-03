@@ -7,7 +7,7 @@ from tazboard.api.queries.constants import KEY_SUBJECTS_AGGREGATION
 def get_subjects_query(min_date, max_date=timezone.now(), limit=10):
     query = {
         "aggs": {
-            KEY_SUBJECTS_AGGREGATION: get_subject_aggregation(min_date, max_date, limit)
+            KEY_SUBJECTS_AGGREGATION: get_subject_aggregation(limit)
         },
         "size": 0,
         "docvalue_fields": [
