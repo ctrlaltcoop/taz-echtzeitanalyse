@@ -33,7 +33,7 @@ def fetch_ressort_cxml(pid):
 def get_fireplace_articles_msids():
     xml_data = ElementTree.fromstring(fetch_ressort_cxml(settings.TAZBOARD_ID_FIREPLACE_CXML))
     articles = xml_data.findall("./directory/list/item/meta/id[@scope='cms-article']")
-    fireplace_article_msids = [article.text for article in articles[:settings.TAZBOARD_NUMBER_FIREPLACE_POSITIONS]]
+    fireplace_article_msids = [int(article.text) for article in articles[:settings.TAZBOARD_NUMBER_FIREPLACE_POSITIONS]]
     return fireplace_article_msids
 
 
