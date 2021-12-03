@@ -245,8 +245,8 @@ def elastic_toplist_msid_response_to_toplist(es_response):
     return msids_data
 
 
-def elastic_fireplace_response_to_fireplace(es_response):
-    data = _article_response_to_article_data(es_response['aggregations'][KEY_FIREPLACE_AGGREGATION]['buckets'])
+def elastic_fireplace_response_to_fireplace(es_response, msids_data):
+    data = _responses_to_article_data(es_response, msids_data)
     total = reduce(lambda acc, x: acc + x['hits'], data, 0)
     total_previous = reduce(lambda acc, x: acc + x['hits_previous'], data, 0)
     return {
@@ -254,6 +254,24 @@ def elastic_fireplace_response_to_fireplace(es_response):
         'total_previous': total_previous,
         'data': data
     }
+
+
+def elastic_fireplace_msid_hits_response_to_fireplace_msids_hits(response_msids_hits):
+    msids_data = []
+
+    for entry in response_msids_hits:
+        aggregation = entry['aggregations']
+        msid = get_dict_path_safe(
+            aggregation[KEY_TOPLIST_AGGREGATION], 'meta', KEY_METADATA_FIELD_MSID
+        )
+        hits = aggregation[KEY_TOPLIST_AGGREGATION]['buckets'][0][KEY_TREND_AGGREGATION]['value']
+        msid_hits = {
+            'msid': msid,
+            'hits': hits
+        }
+        msids_data.append(msid_hits)
+
+    return msids_data
 
 
 def elastic_total_response_total(es_response):

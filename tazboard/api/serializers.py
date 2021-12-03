@@ -61,6 +61,11 @@ class FireplaceSerializer(serializers.Serializer):
     data = ArticleDataSerializer(many=True)
 
 
+class FireplaceMsidSerializer(serializers.Serializer):
+    msid = serializers.IntegerField()
+    hits = serializers.IntegerField()
+
+
 class TotalSerializer(serializers.Serializer):
     total = serializers.IntegerField()
     total_previous = serializers.IntegerField()
