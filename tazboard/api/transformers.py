@@ -115,39 +115,6 @@ def elastic_histogram_response_to_histogram_graph(es_response, filter_last=False
     }
 
 
-def _article_response_to_article_data(article_buckets):
-    data = []
-    frontpage_msids = get_fireplace_articles_msids()
-    for toplist_bucket in article_buckets:
-        msid = get_dict_path_safe(
-            toplist_bucket, 'key'
-        )
-
-        headline, kicker, pubtime = parse_article_metadata(msid)
-        url = '{}!{}/'.format(settings.TAZBOARD_TAZ_WEB_URL, msid)
-        archive = False
-        frontpage_index = get_index_or_none(frontpage_msids, msid)
-        if headline is None:
-            headline = url
-            archive = True
-
-        toplist_data = {
-            'headline': headline,
-            'url': url,
-            'kicker': kicker,
-            'pubdate': pubtime,
-            'msid': msid,
-            'referrers': _transform_referrer_buckets(toplist_bucket[KEY_REFERRER_AGGREGATION]['buckets']),
-            'devices': _transform_device_buckets(toplist_bucket[KEY_DEVICES_AGGREGATION]['buckets']),
-            'frontpage': msid in frontpage_msids,
-            'archive': archive,
-            'frontpage_position': frontpage_index + 1 if frontpage_index is not None else None,
-            **_transform_ranges_with_fingerprint_aggregation(toplist_bucket)
-        }
-        data.append(toplist_data)
-    return data
-
-
 def elastic_toplist_response_to_toplist(es_response, msids_data):
     data = _responses_to_article_data(es_response, msids_data)
     total_previous = reduce(lambda acc, x: acc + x['hits_previous'], data, 0)
