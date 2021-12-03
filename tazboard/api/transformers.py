@@ -149,9 +149,9 @@ def _article_response_to_article_data(article_buckets):
 
 
 def elastic_toplist_response_to_toplist(es_response, msids_data):
-    data = _responses_to_article_data(es_response, msids_data['data'])
+    data = _responses_to_article_data(es_response, msids_data)
     total_previous = reduce(lambda acc, x: acc + x['hits_previous'], data, 0)
-    total = reduce(lambda acc, x: acc + x['hits'], msids_data['data'], 0)
+    total = reduce(lambda acc, x: acc + x['hits'], msids_data, 0)
     return {
         'total': total,
         'total_previous': total_previous,
