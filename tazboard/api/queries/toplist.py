@@ -1,10 +1,8 @@
 from django.utils import timezone
 
-from tazboard.api.queries.common import get_fingerprint_aggregation_with_ranges, \
-    get_interval_filter_exclude_bots, get_devices_aggregation, get_referrer_aggregation, maybe_add_subject_filter, \
+from tazboard.api.queries.common import get_interval_filter_exclude_bots, maybe_add_subject_filter, \
     get_hits_interval_msid
-from tazboard.api.queries.constants import KEY_TOPLIST_AGGREGATION, \
-    KEY_TIMEFRAME_AGGREGATION, KEY_TREND_AGGREGATION, KEY_METADATA_FIELD_MSID
+from tazboard.api.queries.constants import KEY_TOPLIST_AGGREGATION, KEY_TIMEFRAME_AGGREGATION
 from tazboard.api.queries.devices import get_devices_query
 from tazboard.api.queries.referrer import get_referrer_query
 

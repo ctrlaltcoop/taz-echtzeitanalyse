@@ -5,12 +5,7 @@ from cachetools import cached, TTLCache
 from random import randrange
 from django.utils import timezone
 from django.conf import settings
-from tazboard.api.queries.common import get_fingerprint_aggregation_with_ranges, \
-    get_interval_filter_exclude_bots_with_msids, get_devices_aggregation, get_referrer_aggregation, \
-    get_hits_interval_msid
-from tazboard.api.queries.constants import KEY_FIREPLACE_AGGREGATION, \
-    KEY_EXTRA_FIELDS_AGGREGATION, KEY_REFERRER_AGGREGATION, KEY_DEVICES_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
-    KEY_FINGERPRINT_AGGREGATION
+from tazboard.api.queries.common import get_hits_interval_msid
 from tazboard.api.queries.devices import get_devices_query
 from tazboard.api.queries.referrer import get_referrer_query
 
