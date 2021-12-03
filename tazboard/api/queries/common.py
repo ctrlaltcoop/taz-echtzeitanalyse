@@ -222,3 +222,28 @@ def get_subject_aggregation(start, end, limit=10):
             KEY_DEVICES_AGGREGATION: get_devices_aggregation(start, end)
         }
     }
+
+
+def get_hits_interval_msid(min_date, max_date, msid):
+    query = {
+        "aggs": {
+            KEY_TOPLIST_AGGREGATION: {
+                "terms": {
+                    "field": "msid",
+                },
+                "aggs": {
+                    KEY_TREND_AGGREGATION: {
+                        "cardinality": {
+                            "field": "fingerprint"
+                        }
+                    }
+                },
+                "meta": {
+                    KEY_METADATA_FIELD_MSID: msid
+                }
+            }
+        },
+        "size": '0',
+        "query": get_interval_filter_exclude_bots(min_date, max_date, msid=msid)
+    }
+    return query
