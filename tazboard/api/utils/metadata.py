@@ -22,7 +22,7 @@ def fetch_article_cxml(msid):
 
 
 @cached(cache=TTLCache(ttl=randrange(90, 120), maxsize=float('inf')))
-def parse_article_metadata(msid):
+def get_article_metadata(msid):
     try:
         xml_data = ElementTree.fromstring(fetch_article_cxml(msid))
         article_xml = xml_data.find('item')

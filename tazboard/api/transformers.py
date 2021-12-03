@@ -9,7 +9,7 @@ from tazboard.api.queries.constants import KEY_TIMESTAMP_AGGREGATION, KEY_FINGER
     KEY_ARTICLE_COUNT_AGGREGATION, KEY_METADATA_FIELD_MSID
 from tazboard.api.queries.fireplace import get_fireplace_articles_msids
 from tazboard.api.utils.list import get_index_or_none
-from tazboard.api.utils.metadata import parse_article_metadata
+from tazboard.api.utils.metadata import get_article_metadata
 
 
 def _transform_ranges(buckets):
@@ -134,7 +134,7 @@ def _responses_to_article_data(es_response, msids_data):
         msid = entry['msid']
         hits = entry['hits']
 
-        headline, kicker, pubtime = parse_article_metadata(msid)
+        headline, kicker, pubtime = get_article_metadata(msid)
         url = '{}!{}/'.format(settings.TAZBOARD_TAZ_WEB_URL, msid)
         archive = False
         frontpage_index = get_index_or_none(frontpage_msids, msid)
