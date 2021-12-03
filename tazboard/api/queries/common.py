@@ -140,11 +140,6 @@ def get_devices_aggregation(msid=None):
 
 
 def get_interval_filter_exclude_bots(interval_start, interval_end, exists_msid=False, msid=None):
-    must_msid = [{
-        "exists": {
-            "field": "msid"
-        }
-    }] if exists_msid else []
     query = {
         "bool": {
             "filter": [
@@ -180,7 +175,7 @@ def get_interval_filter_exclude_bots(interval_start, interval_end, exists_msid=F
                     }
                 }
             ],
-            "must": must_msid,
+            "must": [],
             "must_not": [
                 {
                     "match_phrase": {
@@ -199,6 +194,13 @@ def get_interval_filter_exclude_bots(interval_start, interval_end, exists_msid=F
             }
         }
         query['bool']['filter'].append(msid_filter)
+    if exists_msid:
+        exists_msid = {
+                "exists": {
+                    "field": "msid"
+                }
+        }
+        query['bool']['must'].append(exists_msid)
     return query
 
 
