@@ -1,6 +1,6 @@
 from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
     KEY_TREND_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION, KEY_REFERRER_AGGREGATION, \
-    KEY_DEVICES_AGGREGATION
+    KEY_DEVICES_AGGREGATION, KEY_METADATA_FIELD_MSID, KEY_TOPLIST_AGGREGATION
 
 
 def maybe_add_msid_filter(msid, query):
@@ -179,8 +179,13 @@ def get_devices_aggregation(start, end):
     }
 
 
-def get_interval_filter_exclude_bots(interval_start, interval_end):
-    return {
+def get_interval_filter_exclude_bots(interval_start, interval_end, exists_msid=False, msid=None):
+    must_msid = [{
+        "exists": {
+            "field": "msid"
+        }
+    }] if exists_msid else []
+    query = {
         "bool": {
             "filter": [
                 {
@@ -190,26 +195,33 @@ def get_interval_filter_exclude_bots(interval_start, interval_end):
                             "lte": interval_end.isoformat()
                         }
                     }
-                }
-            ],
-            "must": [
+                },
                 {
-                    "exists": {
-                        "field": "msid"
+                    "match_phrase": {
+                        "reloaded": "false"
+                    }
+                },
+                {
+                    "match_phrase": {
+                        "tazlocal": "false"
                     }
                 }
             ],
+            "minimum_should_match": 1,
+            "should": [
+                {
+                    "match_phrase": {
+                        "DoNotTrack": "\"0\""
+                    }
+                },
+                {
+                    "match_phrase": {
+                        "DoNotTrack": "\"-\""
+                    }
+                }
+            ],
+            "must": must_msid,
             "must_not": [
-                {
-                    "match_phrase": {
-                        "reloaded": "true"
-                    }
-                },
-                {
-                    "match_phrase": {
-                        "tazlocal": "true"
-                    }
-                },
                 {
                     "match_phrase": {
                         "device": {
@@ -220,6 +232,14 @@ def get_interval_filter_exclude_bots(interval_start, interval_end):
             ]
         }
     }
+    if msid:
+        msid_filter = {
+            "match_phrase": {
+                "msid": msid
+            }
+        }
+        query['bool']['filter'].append(msid_filter)
+    return query
 
 
 def get_interval_filter_exclude_bots_with_msids(interval_start, interval_end, msids):
