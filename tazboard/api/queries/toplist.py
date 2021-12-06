@@ -29,7 +29,7 @@ def get_toplist_msids_query(min_date, max_date=timezone.now(), limit=10, subject
             }
         },
         "size": '0',
-        "query": get_interval_filter_exclude_bots(min_date_previous_interval, max_date, exists_msid=True)
+        "query": get_interval_filter_exclude_bots(min_date, max_date, exists_msid=True)
     }
     maybe_add_subject_filter(subject, query)
     return query
