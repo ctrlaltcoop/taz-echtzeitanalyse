@@ -112,7 +112,6 @@ class ToplistView(APIView):
     def get(self, request, *args, **kwargs):
         min_date = self.query_params.get('min_date', timezone.now() - timedelta(days=1))
         max_date = self.query_params.get('max_date', timezone.now())
-        min_date_previous_interval = min_date - (max_date - min_date)
         limit = self.query_params.get('limit', 10)
         subject = self.query_params.get('subject', None)
 
@@ -129,7 +128,7 @@ class ToplistView(APIView):
             raise BadElasticResponseException()
 
         # Get hits for previous time frame, devices and referrer for every msid in the topX list
-        query_toplist = get_toplist_query(serializer_msids.data, min_date_previous_interval, min_date, max_date)
+        query_toplist = get_toplist_query(serializer_msids.data, min_date, max_date)
         response_toplist = search_or_raise_api_exception(query_toplist)
         serializer_toplist = self.serializer_class(
             data=elastic_toplist_response_to_toplist(response_toplist, serializer_msids.data)
