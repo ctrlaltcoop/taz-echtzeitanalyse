@@ -56,7 +56,7 @@ class HistogramTestCase(LiveServerTestCase):
         )
 
     @patch('tazboard.api.views.get_histogram_query')
-    def test_unfiltered_histogram_query_specify_msid(self, get_histogram_query):
+    def test_unfiltered_histogram_query_specify_msid(self, get_histogram_query_spy):
         msid = '5555'
         min_date = MOCK_FAKE_NOW - timedelta(days=1)
         max_date = MOCK_FAKE_NOW
@@ -66,8 +66,8 @@ class HistogramTestCase(LiveServerTestCase):
             'msid': msid
         })
         self.es_client.msearch.assert_called_once()
-        get_histogram_query.assert_called_once()
-        get_histogram_query.assert_called_with(
+        get_histogram_query_spy.assert_called_once()
+        get_histogram_query_spy.assert_called_with(
             min_date, max_date, msid=int(msid), subject=None, interval=INTERVAL_10MINUTES
         )
 
