@@ -1,0 +1,2636 @@
+{
+    "took": 187,
+    "responses": [
+        {
+            "took": 187,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 10000,
+                    "relation": "gte"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_SUBJECTS_AGGREGATION": {
+                    "doc_count_error_upper_bound": 47,
+                    "sum_other_doc_count": 3283,
+                    "buckets": [
+                        {
+                            "key": "GNS",
+                            "doc_count": 18725,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 14875,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 13249
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 3386,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2773
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 464,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 177
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 16276
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 461
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 51,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 10195,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 9638
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 4531,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3454
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 2204,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1686
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 1081,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 887
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 280,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 260
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 187,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 173
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 100,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 89
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 59,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 48
+                                        }
+                                    },
+                                    {
+                                        "key": "Instagram",
+                                        "doc_count": 22,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 21
+                                        }
+                                    },
+                                    {
+                                        "key": "Newstral",
+                                        "doc_count": 15,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 13
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Coronavirus",
+                            "doc_count": 15497,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 12269,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 10971
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 2894,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2386
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 334,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 137
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 13496
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 413
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 49,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 8320,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7944
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 3398,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2733
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 2069,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1587
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 950,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 837
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 252,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 234
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 177,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 164
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 112,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 105
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 102,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 97
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 47,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 45
+                                        }
+                                    },
+                                    {
+                                        "key": "Instagram",
+                                        "doc_count": 21,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 20
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "\ue000IG",
+                            "doc_count": 11323,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 10358,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 9761
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 943,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 800
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 22,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 12
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 10585
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 176
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 4,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 8308,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7934
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 2226,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2004
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 373,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 340
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 231,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 210
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 94,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 86
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 50,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 47
+                                        }
+                                    },
+                                    {
+                                        "key": "Wikipedia",
+                                        "doc_count": 17,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 16
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 13,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 13
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Bio-Landwirtschaft",
+                            "doc_count": 3769,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 3557,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3422
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 208,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 187
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 3623
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 12
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 2716,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2665
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 836,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 798
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 154,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 124
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 33,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 31
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 20,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 16
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Telegram",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Yahoo",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Klimawandel",
+                            "doc_count": 835,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 530,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 334
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 216,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 178
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 89,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 56
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 568
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 170
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 1,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 456,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 281
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 157,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 116
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 125,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 87
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 30,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 27
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 29,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 27
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 24,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 23
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Verschw\u00f6rungstheorien und Corona",
+                            "doc_count": 827,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 392,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 292
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 375,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 338
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 60,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 34
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 664
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 74
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 2,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 340,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 224
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 190,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 173
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 172,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 156
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 43,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 41
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 29,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 29
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 18,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 15
+                                        }
+                                    },
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 17,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 16
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 12,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 12
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Lesest\u00fcck Recherche und Reportage",
+                            "doc_count": 697,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 354,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 287
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 302,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 267
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 41,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 17
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 571
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 144
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 247,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 175
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 200,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 170
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 173,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 160
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 35,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 33
+                                        }
+                                    },
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 12,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 11
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 9,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 8
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 9,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 9
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 7,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 6
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Yahoo",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Bundestagswahl 2021",
+                            "doc_count": 572,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 319,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 220
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 192,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 171
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 61,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 38
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 429
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 118
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 3,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 265,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 159
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 130,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 109
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 99,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 89
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 50,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 47
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 8,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 6,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 6
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Myanmar",
+                            "doc_count": 524,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 286,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 201
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 123,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 104
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 115,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 100
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 405
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 8
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 343,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 247
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 136,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 124
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 33,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 24
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 5,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 5
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "Newstral",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Upday",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Kolumne Frau ohne Menstruationshintergrund",
+                            "doc_count": 344,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 238,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 213
+                                        }
+                                    },
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 103,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 88
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 304
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 5
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 138,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 119
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 105,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 98
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 43,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 39
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 31,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 27
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 27,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 25
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Olympische Winterspiele",
+                            "doc_count": 300,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 166,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 116
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 85,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 50
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 49,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 42
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 208
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 4
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 215,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 125
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 65,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 64
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 15,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 14
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Islamistischer Terror",
+                            "doc_count": 281,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 138,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 100
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 97,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 89
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 46,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 42
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 231
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 14
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 136,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 129
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 107,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 77
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 28,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 16
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Kolumne Fernsicht",
+                            "doc_count": 280,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 145,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 117
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 128,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 124
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 7,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 248
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 4
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 157,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 152
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 77,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 58
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 26,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 25
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 15,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 8
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Antisemitismus",
+                            "doc_count": 276,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 227,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 196
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 39,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 36
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 10,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 9
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 241
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 54
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 138,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 132
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 78,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 58
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 45,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 38
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 6,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 6
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Pressefreiheit",
+                            "doc_count": 272,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 162,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 151
+                                        }
+                                    },
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 103,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 73
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 7,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 6
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 230
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 35
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 97,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 90
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 91,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 66
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 41,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 38
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 37,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 33
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Angela Merkel",
+                            "doc_count": 247,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 132,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 111
+                                        }
+                                    },
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 105,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 91
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 10,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 209
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 55
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 111,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 91
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 81,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 65
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 30,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 29
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 11,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 11
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 7,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Web.de",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Wikipedia",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Afghanistan",
+                            "doc_count": 204,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 115,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 71
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 68,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 61
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 21,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 14
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 146
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 36
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 105,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 61
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 38,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 34
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 36,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 29
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 13,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 13
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 9,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7
+                                        }
+                                    },
+                                    {
+                                        "key": "T-Online",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Yahoo",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Rechter Terror",
+                            "doc_count": 202,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 187,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 88
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 13,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 11
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 101
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 111
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 186,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 87
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 7,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 3,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Wikipedia",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Kolumne Kinderspiel",
+                            "doc_count": 198,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 128,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 119
+                                        }
+                                    },
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 63,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 37
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 7,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 163
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 6
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 94,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 92
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 52,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 41
+                                        }
+                                    },
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 43,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 28
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 8,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "key": "Instagram",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt AfD",
+                            "doc_count": 190,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 163,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 128
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 23,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 23
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 155
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 57
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 102,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 67
+                                        }
+                                    },
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 58,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 58
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 17,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 17
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Schwerpunkt Neonazis",
+                            "doc_count": 172,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 145,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 75
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 27,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 22
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 97
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 85
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 135,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 66
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 26,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 23
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 10,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 7
+                                        }
+                                    },
+                                    {
+                                        "key": "Wikipedia",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "taz Plan",
+                            "doc_count": 147,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 66,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 50
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 63,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 61
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 18,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 12
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 123
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 12
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 72,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 55
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 51,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 44
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 10,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 10
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 6,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 6
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 5,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 5
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Stadtland",
+                            "doc_count": 144,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 110,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 64
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 18,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 17
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 16,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 11
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 92
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 24
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 99,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 55
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 20,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 15
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 19,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 17
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Kolumne Bewegung",
+                            "doc_count": 121,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 56,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 54
+                                        }
+                                    },
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 50,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 39
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 15,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 11
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 104
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 2
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 57,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 45
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 48,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 43
+                                        }
+                                    },
+                                    {
+                                        "key": "Flipboard",
+                                        "doc_count": 10,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 10
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Ecosia",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "key": "Podcast \u201eVorgelesen\u201c",
+                            "doc_count": 120,
+                            "KEY_DEVICES_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Desktop",
+                                        "doc_count": 81,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 68
+                                        }
+                                    },
+                                    {
+                                        "key": "Mobil",
+                                        "doc_count": 38,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 34
+                                        }
+                                    },
+                                    {
+                                        "key": "Unklar",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            },
+                            "KEY_FINGERPRINT_AGGREGATION": {
+                                "value": 103
+                            },
+                            "KEY_ARTICLE_COUNT_AGGREGATION": {
+                                "value": 51
+                            },
+                            "KEY_REFERRER_AGGREGATION": {
+                                "meta": {
+                                    "KEY_METADATA_FIELD_MSID": null
+                                },
+                                "doc_count_error_upper_bound": 0,
+                                "sum_other_doc_count": 0,
+                                "buckets": [
+                                    {
+                                        "key": "Unbekannt",
+                                        "doc_count": 60,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 47
+                                        }
+                                    },
+                                    {
+                                        "key": "Google",
+                                        "doc_count": 31,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 30
+                                        }
+                                    },
+                                    {
+                                        "key": "taz",
+                                        "doc_count": 18,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 17
+                                        }
+                                    },
+                                    {
+                                        "key": "Andere kleine Referrer",
+                                        "doc_count": 4,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "key": "Bing",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Twitter",
+                                        "doc_count": 2,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "DuckDuckGo",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Facebook",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "key": "Pocket",
+                                        "doc_count": 1,
+                                        "KEY_TIMEFRAME_AGGREGATION": {
+                                            "value": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        }
+    ]
+}

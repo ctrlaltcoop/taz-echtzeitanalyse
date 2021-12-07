@@ -1,8 +1,8 @@
 {
-    "took": 100,
+    "took": 145,
     "responses": [
         {
-            "took": 74,
+            "took": 51,
             "timed_out": false,
             "_shards": {
                 "total": 120,
@@ -12,7 +12,543 @@
             },
             "hits": {
                 "total": {
-                    "value": 244,
+                    "value": 10000,
+                    "relation": "gte"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_TOPLIST_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5821349
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "5821349",
+                            "doc_count": 11337,
+                            "KEY_TREND_AGGREGATION": {
+                                "value": 10792
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 56,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 10000,
+                    "relation": "gte"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_REFERRER_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5821349
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Unbekannt",
+                            "doc_count": 11617,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 11012
+                            }
+                        },
+                        {
+                            "key": "taz",
+                            "doc_count": 193,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 176
+                            }
+                        },
+                        {
+                            "key": "Google",
+                            "doc_count": 32,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 16
+                            }
+                        },
+                        {
+                            "key": "Flipboard",
+                            "doc_count": 4,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 4
+                            }
+                        },
+                        {
+                            "key": "Twitter",
+                            "doc_count": 2,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 2
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 1,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        },
+                        {
+                            "key": "Upday",
+                            "doc_count": 1,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 55,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 10000,
+                    "relation": "gte"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_DEVICES_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5821349
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Mobil",
+                            "doc_count": 11076,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 10503
+                            }
+                        },
+                        {
+                            "key": "Desktop",
+                            "doc_count": 719,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 603
+                            }
+                        },
+                        {
+                            "key": "Unklar",
+                            "doc_count": 55,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 52
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 42,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 9593,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_TOPLIST_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816151
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "5816151",
+                            "doc_count": 9593,
+                            "KEY_TREND_AGGREGATION": {
+                                "value": 9234
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 60,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 9639,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_REFERRER_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816151
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 1,
+                    "buckets": [
+                        {
+                            "key": "Pocket",
+                            "doc_count": 7410,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 7096
+                            }
+                        },
+                        {
+                            "key": "Unbekannt",
+                            "doc_count": 1808,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1675
+                            }
+                        },
+                        {
+                            "key": "taz",
+                            "doc_count": 294,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 278
+                            }
+                        },
+                        {
+                            "key": "Facebook",
+                            "doc_count": 44,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 40
+                            }
+                        },
+                        {
+                            "key": "Twitter",
+                            "doc_count": 40,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 37
+                            }
+                        },
+                        {
+                            "key": "Google",
+                            "doc_count": 32,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 26
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 6,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 6
+                            }
+                        },
+                        {
+                            "key": "DuckDuckGo",
+                            "doc_count": 2,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 2
+                            }
+                        },
+                        {
+                            "key": "Ecosia",
+                            "doc_count": 1,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        },
+                        {
+                            "key": "Instagram",
+                            "doc_count": 1,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 63,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 9639,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_DEVICES_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816151
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Desktop",
+                            "doc_count": 8972,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 8553
+                            }
+                        },
+                        {
+                            "key": "Mobil",
+                            "doc_count": 658,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 552
+                            }
+                        },
+                        {
+                            "key": "Unklar",
+                            "doc_count": 9,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 8
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 31,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 3912,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_TOPLIST_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816173
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "5816173",
+                            "doc_count": 3912,
+                            "KEY_TREND_AGGREGATION": {
+                                "value": 3719
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 49,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 3735,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_REFERRER_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816173
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Pocket",
+                            "doc_count": 2716,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 2665
+                            }
+                        },
+                        {
+                            "key": "Unbekannt",
+                            "doc_count": 834,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 796
+                            }
+                        },
+                        {
+                            "key": "taz",
+                            "doc_count": 124,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 108
+                            }
+                        },
+                        {
+                            "key": "Facebook",
+                            "doc_count": 33,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 31
+                            }
+                        },
+                        {
+                            "key": "Google",
+                            "doc_count": 19,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 15
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 4,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 4
+                            }
+                        },
+                        {
+                            "key": "Ecosia",
+                            "doc_count": 2,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 2
+                            }
+                        },
+                        {
+                            "key": "Telegram",
+                            "doc_count": 2,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 2
+                            }
+                        },
+                        {
+                            "key": "Yahoo",
+                            "doc_count": 1,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 34,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 3735,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_DEVICES_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816173
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Desktop",
+                            "doc_count": 3526,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 3416
+                            }
+                        },
+                        {
+                            "key": "Mobil",
+                            "doc_count": 205,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 184
+                            }
+                        },
+                        {
+                            "key": "Unklar",
+                            "doc_count": 4,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 4
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 22,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 0,
                     "relation": "eq"
                 },
                 "max_score": null,
@@ -25,21 +561,13 @@
                     },
                     "doc_count_error_upper_bound": 0,
                     "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "5809664",
-                            "doc_count": 244,
-                            "KEY_TREND_AGGREGATION": {
-                                "value": 226
-                            }
-                        }
-                    ]
+                    "buckets": []
                 }
             },
             "status": 200
         },
         {
-            "took": 19,
+            "took": 27,
             "timed_out": false,
             "_shards": {
                 "total": 120,
@@ -49,7 +577,7 @@
             },
             "hits": {
                 "total": {
-                    "value": 282,
+                    "value": 1108,
                     "relation": "eq"
                 },
                 "max_score": null,
@@ -65,58 +593,58 @@
                     "buckets": [
                         {
                             "key": "taz",
-                            "doc_count": 149,
+                            "doc_count": 516,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 139
+                                "value": 473
                             }
                         },
                         {
                             "key": "Unbekannt",
-                            "doc_count": 80,
+                            "doc_count": 457,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 68
+                                "value": 355
                             }
                         },
                         {
                             "key": "Google",
-                            "doc_count": 19,
+                            "doc_count": 60,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 16
+                                "value": 43
                             }
                         },
                         {
                             "key": "Twitter",
-                            "doc_count": 15,
+                            "doc_count": 34,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 14
+                                "value": 31
                             }
                         },
                         {
                             "key": "Flipboard",
-                            "doc_count": 11,
+                            "doc_count": 21,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 10
+                                "value": 18
                             }
                         },
                         {
                             "key": "Newstral",
-                            "doc_count": 4,
+                            "doc_count": 10,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 3
-                            }
-                        },
-                        {
-                            "key": "Andere kleine Referrer",
-                            "doc_count": 2,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 2
+                                "value": 8
                             }
                         },
                         {
                             "key": "Upday",
-                            "doc_count": 2,
+                            "doc_count": 6,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 2
+                                "value": 5
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 4,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 4
                             }
                         }
                     ]
@@ -125,7 +653,7 @@
             "status": 200
         },
         {
-            "took": 18,
+            "took": 14,
             "timed_out": false,
             "_shards": {
                 "total": 120,
@@ -135,7 +663,7 @@
             },
             "hits": {
                 "total": {
-                    "value": 282,
+                    "value": 1108,
                     "relation": "eq"
                 },
                 "max_score": null,
@@ -150,24 +678,712 @@
                     "sum_other_doc_count": 0,
                     "buckets": [
                         {
-                            "key": "Mobil",
-                            "doc_count": 138,
+                            "key": "Desktop",
+                            "doc_count": 520,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 128
+                                "value": 416
                             }
                         },
                         {
-                            "key": "Desktop",
-                            "doc_count": 115,
+                            "key": "Mobil",
+                            "doc_count": 422,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 96
+                                "value": 370
                             }
                         },
                         {
                             "key": "Unklar",
-                            "doc_count": 29,
+                            "doc_count": 166,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 29
+                                "value": 145
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 24,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 0,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_TOPLIST_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5809668
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": []
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 23,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 929,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_REFERRER_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5809668
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 1,
+                    "buckets": [
+                        {
+                            "key": "taz",
+                            "doc_count": 473,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 444
+                            }
+                        },
+                        {
+                            "key": "Unbekannt",
+                            "doc_count": 381,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 295
+                            }
+                        },
+                        {
+                            "key": "Google",
+                            "doc_count": 27,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 16
+                            }
+                        },
+                        {
+                            "key": "Twitter",
+                            "doc_count": 22,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 17
+                            }
+                        },
+                        {
+                            "key": "Upday",
+                            "doc_count": 10,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 9
+                            }
+                        },
+                        {
+                            "key": "Newstral",
+                            "doc_count": 6,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 5
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 4,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 4
+                            }
+                        },
+                        {
+                            "key": "Bing",
+                            "doc_count": 2,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 2
+                            }
+                        },
+                        {
+                            "key": "Flipboard",
+                            "doc_count": 2,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        },
+                        {
+                            "key": "DuckDuckGo",
+                            "doc_count": 1,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 35,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 929,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_DEVICES_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5809668
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Desktop",
+                            "doc_count": 482,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 401
+                            }
+                        },
+                        {
+                            "key": "Mobil",
+                            "doc_count": 330,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 287
+                            }
+                        },
+                        {
+                            "key": "Unklar",
+                            "doc_count": 117,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 104
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 54,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 542,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_TOPLIST_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5809698
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "5809698",
+                            "doc_count": 542,
+                            "KEY_TREND_AGGREGATION": {
+                                "value": 477
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 17,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 1139,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_REFERRER_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5809698
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "taz",
+                            "doc_count": 666,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 613
+                            }
+                        },
+                        {
+                            "key": "Unbekannt",
+                            "doc_count": 319,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 270
+                            }
+                        },
+                        {
+                            "key": "Twitter",
+                            "doc_count": 89,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 83
+                            }
+                        },
+                        {
+                            "key": "Google",
+                            "doc_count": 31,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 18
+                            }
+                        },
+                        {
+                            "key": "Flipboard",
+                            "doc_count": 20,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 20
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 5,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 5
+                            }
+                        },
+                        {
+                            "key": "Upday",
+                            "doc_count": 4,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 4
+                            }
+                        },
+                        {
+                            "key": "Bing",
+                            "doc_count": 3,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 3
+                            }
+                        },
+                        {
+                            "key": "DuckDuckGo",
+                            "doc_count": 1,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        },
+                        {
+                            "key": "Yahoo",
+                            "doc_count": 1,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 14,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 1139,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_DEVICES_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5809698
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Desktop",
+                            "doc_count": 576,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 507
+                            }
+                        },
+                        {
+                            "key": "Mobil",
+                            "doc_count": 461,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 409
+                            }
+                        },
+                        {
+                            "key": "Unklar",
+                            "doc_count": 102,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 93
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 47,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 1327,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_TOPLIST_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816051
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "5816051",
+                            "doc_count": 1327,
+                            "KEY_TREND_AGGREGATION": {
+                                "value": 1287
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 14,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 1145,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_REFERRER_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816051
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Pocket",
+                            "doc_count": 891,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 859
+                            }
+                        },
+                        {
+                            "key": "Unbekannt",
+                            "doc_count": 234,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 232
+                            }
+                        },
+                        {
+                            "key": "Facebook",
+                            "doc_count": 7,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 7
+                            }
+                        },
+                        {
+                            "key": "Google",
+                            "doc_count": 6,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 6
+                            }
+                        },
+                        {
+                            "key": "taz",
+                            "doc_count": 4,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 3
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 2,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 2
+                            }
+                        },
+                        {
+                            "key": "Twitter",
+                            "doc_count": 1,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 29,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 1145,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_DEVICES_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816051
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Desktop",
+                            "doc_count": 1111,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 1073
+                            }
+                        },
+                        {
+                            "key": "Mobil",
+                            "doc_count": 32,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 30
+                            }
+                        },
+                        {
+                            "key": "Unklar",
+                            "doc_count": 2,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 2
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 37,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 820,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_TOPLIST_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816090
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "5816090",
+                            "doc_count": 820,
+                            "KEY_TREND_AGGREGATION": {
+                                "value": 806
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 35,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 819,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_REFERRER_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816090
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Pocket",
+                            "doc_count": 645,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 623
+                            }
+                        },
+                        {
+                            "key": "Unbekannt",
+                            "doc_count": 142,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 137
+                            }
+                        },
+                        {
+                            "key": "Google",
+                            "doc_count": 18,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 18
+                            }
+                        },
+                        {
+                            "key": "Facebook",
+                            "doc_count": 9,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 9
+                            }
+                        },
+                        {
+                            "key": "taz",
+                            "doc_count": 5,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 5
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        },
+        {
+            "took": 20,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 819,
+                    "relation": "eq"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_DEVICES_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": 5816090
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Desktop",
+                            "doc_count": 785,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 757
+                            }
+                        },
+                        {
+                            "key": "Mobil",
+                            "doc_count": 32,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 31
+                            }
+                        },
+                        {
+                            "key": "Unklar",
+                            "doc_count": 2,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 2
                             }
                         }
                     ]
@@ -205,7 +1421,7 @@
             "status": 200
         },
         {
-            "took": 24,
+            "took": 18,
             "timed_out": false,
             "_shards": {
                 "total": 120,
@@ -270,7 +1486,7 @@
             "status": 200
         },
         {
-            "took": 24,
+            "took": 17,
             "timed_out": false,
             "_shards": {
                 "total": 120,
@@ -321,7 +1537,7 @@
             "status": 200
         },
         {
-            "took": 52,
+            "took": 54,
             "timed_out": false,
             "_shards": {
                 "total": 120,
@@ -331,7 +1547,7 @@
             },
             "hits": {
                 "total": {
-                    "value": 178,
+                    "value": 661,
                     "relation": "eq"
                 },
                 "max_score": null,
@@ -340,605 +1556,16 @@
             "aggregations": {
                 "KEY_TOPLIST_AGGREGATION": {
                     "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809680
+                        "KEY_METADATA_FIELD_MSID": 5817159
                     },
                     "doc_count_error_upper_bound": 0,
                     "sum_other_doc_count": 0,
                     "buckets": [
                         {
-                            "key": "5809680",
-                            "doc_count": 178,
+                            "key": "5817159",
+                            "doc_count": 661,
                             "KEY_TREND_AGGREGATION": {
-                                "value": 149
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 22,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 151,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_REFERRER_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809680
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Unbekannt",
-                            "doc_count": 76,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 63
-                            }
-                        },
-                        {
-                            "key": "taz",
-                            "doc_count": 58,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 54
-                            }
-                        },
-                        {
-                            "key": "Google",
-                            "doc_count": 14,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 12
-                            }
-                        },
-                        {
-                            "key": "Newstral",
-                            "doc_count": 2,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 2
-                            }
-                        },
-                        {
-                            "key": "Upday",
-                            "doc_count": 1,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 1
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 24,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 151,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_DEVICES_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809680
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Desktop",
-                            "doc_count": 74,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 59
-                            }
-                        },
-                        {
-                            "key": "Mobil",
-                            "doc_count": 49,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 45
-                            }
-                        },
-                        {
-                            "key": "Unklar",
-                            "doc_count": 28,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 28
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 49,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 342,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_TOPLIST_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809668
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "5809668",
-                            "doc_count": 342,
-                            "KEY_TREND_AGGREGATION": {
-                                "value": 311
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 21,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 282,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_REFERRER_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809668
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "taz",
-                            "doc_count": 161,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 155
-                            }
-                        },
-                        {
-                            "key": "Unbekannt",
-                            "doc_count": 93,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 70
-                            }
-                        },
-                        {
-                            "key": "Google",
-                            "doc_count": 9,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 6
-                            }
-                        },
-                        {
-                            "key": "Twitter",
-                            "doc_count": 6,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 5
-                            }
-                        },
-                        {
-                            "key": "Upday",
-                            "doc_count": 6,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 5
-                            }
-                        },
-                        {
-                            "key": "Andere kleine Referrer",
-                            "doc_count": 2,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 2
-                            }
-                        },
-                        {
-                            "key": "Bing",
-                            "doc_count": 2,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 2
-                            }
-                        },
-                        {
-                            "key": "DuckDuckGo",
-                            "doc_count": 1,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 1
-                            }
-                        },
-                        {
-                            "key": "Ecosia",
-                            "doc_count": 1,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 1
-                            }
-                        },
-                        {
-                            "key": "Newstral",
-                            "doc_count": 1,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 1
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 20,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 282,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_DEVICES_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809668
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Desktop",
-                            "doc_count": 145,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 119
-                            }
-                        },
-                        {
-                            "key": "Mobil",
-                            "doc_count": 117,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 108
-                            }
-                        },
-                        {
-                            "key": "Unklar",
-                            "doc_count": 20,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 20
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 42,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 3033,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_TOPLIST_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5821349
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "5821349",
-                            "doc_count": 3033,
-                            "KEY_TREND_AGGREGATION": {
-                                "value": 2915
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 56,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 2835,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_REFERRER_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5821349
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Unbekannt",
-                            "doc_count": 2783,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 2698
-                            }
-                        },
-                        {
-                            "key": "taz",
-                            "doc_count": 45,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 44
-                            }
-                        },
-                        {
-                            "key": "Google",
-                            "doc_count": 7,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 5
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 55,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 2835,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_DEVICES_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5821349
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Mobil",
-                            "doc_count": 2644,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 2568
-                            }
-                        },
-                        {
-                            "key": "Desktop",
-                            "doc_count": 181,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 155
-                            }
-                        },
-                        {
-                            "key": "Unklar",
-                            "doc_count": 10,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 10
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 38,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 96,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_TOPLIST_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5821382
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "5821382",
-                            "doc_count": 96,
-                            "KEY_TREND_AGGREGATION": {
-                                "value": 87
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 40,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 67,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_REFERRER_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5821382
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Unbekannt",
-                            "doc_count": 35,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 23
-                            }
-                        },
-                        {
-                            "key": "taz",
-                            "doc_count": 21,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 19
-                            }
-                        },
-                        {
-                            "key": "Google",
-                            "doc_count": 10,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 9
-                            }
-                        },
-                        {
-                            "key": "Flipboard",
-                            "doc_count": 1,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 1
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 25,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 67,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_DEVICES_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5821382
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Desktop",
-                            "doc_count": 33,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 22
-                            }
-                        },
-                        {
-                            "key": "Mobil",
-                            "doc_count": 22,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 18
-                            }
-                        },
-                        {
-                            "key": "Unklar",
-                            "doc_count": 12,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 12
+                                "value": 543
                             }
                         }
                     ]
@@ -957,44 +1584,7 @@
             },
             "hits": {
                 "total": {
-                    "value": 273,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_TOPLIST_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809698
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "5809698",
-                            "doc_count": 273,
-                            "KEY_TREND_AGGREGATION": {
-                                "value": 250
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 27,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 248,
+                    "value": 668,
                     "relation": "eq"
                 },
                 "max_score": null,
@@ -1003,30 +1593,51 @@
             "aggregations": {
                 "KEY_REFERRER_AGGREGATION": {
                     "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809698
+                        "KEY_METADATA_FIELD_MSID": 5817159
                     },
                     "doc_count_error_upper_bound": 0,
                     "sum_other_doc_count": 0,
                     "buckets": [
                         {
-                            "key": "taz",
-                            "doc_count": 159,
+                            "key": "Unbekannt",
+                            "doc_count": 284,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 153
+                                "value": 226
                             }
                         },
                         {
-                            "key": "Unbekannt",
+                            "key": "taz",
+                            "doc_count": 137,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 121
+                            }
+                        },
+                        {
+                            "key": "Facebook",
+                            "doc_count": 117,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 108
+                            }
+                        },
+                        {
+                            "key": "Google",
                             "doc_count": 65,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 52
+                                "value": 62
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 35,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 31
                             }
                         },
                         {
                             "key": "Flipboard",
-                            "doc_count": 9,
+                            "doc_count": 22,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 9
+                                "value": 15
                             }
                         },
                         {
@@ -1034,20 +1645,6 @@
                             "doc_count": 7,
                             "KEY_TIMEFRAME_AGGREGATION": {
                                 "value": 7
-                            }
-                        },
-                        {
-                            "key": "Google",
-                            "doc_count": 6,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 5
-                            }
-                        },
-                        {
-                            "key": "Bing",
-                            "doc_count": 1,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 1
                             }
                         },
                         {
@@ -1063,7 +1660,7 @@
             "status": 200
         },
         {
-            "took": 15,
+            "took": 18,
             "timed_out": false,
             "_shards": {
                 "total": 120,
@@ -1073,7 +1670,7 @@
             },
             "hits": {
                 "total": {
-                    "value": 248,
+                    "value": 668,
                     "relation": "eq"
                 },
                 "max_score": null,
@@ -1082,489 +1679,30 @@
             "aggregations": {
                 "KEY_DEVICES_AGGREGATION": {
                     "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809698
+                        "KEY_METADATA_FIELD_MSID": 5817159
                     },
                     "doc_count_error_upper_bound": 0,
                     "sum_other_doc_count": 0,
                     "buckets": [
                         {
-                            "key": "Desktop",
-                            "doc_count": 123,
+                            "key": "Mobil",
+                            "doc_count": 497,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 109
+                                "value": 446
                             }
                         },
                         {
-                            "key": "Mobil",
-                            "doc_count": 111,
+                            "key": "Desktop",
+                            "doc_count": 131,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 103
+                                "value": 104
                             }
                         },
                         {
                             "key": "Unklar",
-                            "doc_count": 14,
+                            "doc_count": 40,
                             "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 14
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 30,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 140,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_TOPLIST_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809658
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "5809658",
-                            "doc_count": 140,
-                            "KEY_TREND_AGGREGATION": {
-                                "value": 126
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 25,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 78,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_REFERRER_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809658
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Unbekannt",
-                            "doc_count": 46,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 33
-                            }
-                        },
-                        {
-                            "key": "taz",
-                            "doc_count": 19,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 18
-                            }
-                        },
-                        {
-                            "key": "Google",
-                            "doc_count": 8,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 6
-                            }
-                        },
-                        {
-                            "key": "Flipboard",
-                            "doc_count": 4,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 3
-                            }
-                        },
-                        {
-                            "key": "Twitter",
-                            "doc_count": 1,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 1
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 13,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 78,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_DEVICES_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809658
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Desktop",
-                            "doc_count": 44,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 29
-                            }
-                        },
-                        {
-                            "key": "Mobil",
-                            "doc_count": 20,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 19
-                            }
-                        },
-                        {
-                            "key": "Unklar",
-                            "doc_count": 14,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 13
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 16,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 186,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_TOPLIST_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809654
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "5809654",
-                            "doc_count": 186,
-                            "KEY_TREND_AGGREGATION": {
-                                "value": 164
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 17,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 92,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_REFERRER_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809654
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Unbekannt",
-                            "doc_count": 43,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 31
-                            }
-                        },
-                        {
-                            "key": "taz",
-                            "doc_count": 32,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 30
-                            }
-                        },
-                        {
-                            "key": "Google",
-                            "doc_count": 8,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 6
-                            }
-                        },
-                        {
-                            "key": "Twitter",
-                            "doc_count": 7,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 6
-                            }
-                        },
-                        {
-                            "key": "Flipboard",
-                            "doc_count": 2,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 2
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 21,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 92,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_DEVICES_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5809654
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Desktop",
-                            "doc_count": 39,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 27
-                            }
-                        },
-                        {
-                            "key": "Mobil",
-                            "doc_count": 38,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 34
-                            }
-                        },
-                        {
-                            "key": "Unklar",
-                            "doc_count": 15,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 14
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 12,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 35,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_TOPLIST_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5819658
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "5819658",
-                            "doc_count": 35,
-                            "KEY_TREND_AGGREGATION": {
-                                "value": 30
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 13,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 31,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_REFERRER_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5819658
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Unbekannt",
-                            "doc_count": 17,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 7
-                            }
-                        },
-                        {
-                            "key": "taz",
-                            "doc_count": 6,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 6
-                            }
-                        },
-                        {
-                            "key": "Google",
-                            "doc_count": 4,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 4
-                            }
-                        },
-                        {
-                            "key": "DuckDuckGo",
-                            "doc_count": 3,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 2
-                            }
-                        },
-                        {
-                            "key": "Twitter",
-                            "doc_count": 1,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 1
-                            }
-                        }
-                    ]
-                }
-            },
-            "status": 200
-        },
-        {
-            "took": 9,
-            "timed_out": false,
-            "_shards": {
-                "total": 120,
-                "successful": 120,
-                "skipped": 0,
-                "failed": 0
-            },
-            "hits": {
-                "total": {
-                    "value": 31,
-                    "relation": "eq"
-                },
-                "max_score": null,
-                "hits": []
-            },
-            "aggregations": {
-                "KEY_DEVICES_AGGREGATION": {
-                    "meta": {
-                        "KEY_METADATA_FIELD_MSID": 5819658
-                    },
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 0,
-                    "buckets": [
-                        {
-                            "key": "Desktop",
-                            "doc_count": 18,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 8
-                            }
-                        },
-                        {
-                            "key": "Mobil",
-                            "doc_count": 8,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 7
-                            }
-                        },
-                        {
-                            "key": "Unklar",
-                            "doc_count": 5,
-                            "KEY_TIMEFRAME_AGGREGATION": {
-                                "value": 5
+                                "value": 20
                             }
                         }
                     ]
