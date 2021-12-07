@@ -25,7 +25,7 @@ class ToplistTestCase(LiveServerTestCase):
         self.prepare_msearch_query = self.patcher_msearch_utils.start()
         self.prepare_msearch_query = MagicMock(return_value='{bla}')
 
-        self.cxml_patcher = patch('tazboard.api.transformers.parse_article_metadata')
+        self.cxml_patcher = patch('tazboard.api.transformers.get_article_metadata')
         self.cxml_parse_metadata = self.cxml_patcher.start()
         self.cxml_parse_metadata.return_value = ['Some Headline', 'Some Kicker', MOCK_FAKE_NOW]
 
