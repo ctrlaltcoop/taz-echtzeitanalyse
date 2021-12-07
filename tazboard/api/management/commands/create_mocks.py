@@ -5,7 +5,7 @@ from datetime import timedelta
 from django.conf import settings
 from django.core.management import BaseCommand
 
-from tazboard.api.elastic_client import search_or_raise_api_exception
+from tazboard.api.elastic_client import es, search_or_raise_api_exception
 from tazboard.api.queries.constants import MOCK_FAKE_NOW, MOCK_CXML_PATH
 from tazboard.api.errors import BadElasticResponseException
 from tazboard.api.queries.devices import get_devices_query
@@ -20,6 +20,7 @@ from tazboard.api.transformers import elastic_toplist_msid_response_to_toplist, 
     elastic_fireplace_msid_hits_response_to_fireplace_msids_hits
 from tazboard.api.tests.common import get_mock_filepath_for_query, get_mock_test_sample_path_for_query_function
 from tazboard.api.utils.tazdatetime import round_to_seconds
+from tazboard.api.utils.msearch_queries import prepare_msearch_query
 
 
 logger = logging.getLogger(__name__)
@@ -52,14 +53,6 @@ def handle_fireplace_cxml():
 class Command(BaseCommand):
     query_configs = [
         {
-            'get_query': get_toplist_msids_query,
-            'arguments': get_argument_matrix(FAKE_TIMEFRAMES, ((10,), (100,)))
-        },
-        {
-            'get_query': get_fireplace_query_msids_hits,
-            'arguments': FAKE_TIMEFRAMES
-        },
-        {
             'get_query': get_histogram_query,
             'arguments': [
                 (round_to_seconds(MOCK_FAKE_NOW - timedelta(hours=24)), MOCK_FAKE_NOW),
@@ -83,6 +76,17 @@ class Command(BaseCommand):
         }
     ]
 
+    query_1step_configs = [
+        {
+            'get_query': get_toplist_msids_query,
+            'arguments': get_argument_matrix(FAKE_TIMEFRAMES, ((10,), (100,)))
+        },
+        {
+            'get_query': get_fireplace_query_msids_hits,
+            'arguments': FAKE_TIMEFRAMES
+        },
+    ]
+
     query_2step_configs = [
         {
             'get_query': get_toplist_query,
@@ -96,12 +100,28 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.handle_queries()
+        self.handle_1st_step_queries()
         self.handle_2nd_step_queries()
         handle_fireplace_cxml()
 
-    # handle 1st step of toplist/fireplace and rest of queries
+    # handle all queries except for toplist and fireplace
     def handle_queries(self):
         for config in self.query_configs:
+            for index, arguments in enumerate(config['arguments']):
+                query_fn = config['get_query']
+                query = query_fn(*arguments)
+                body = prepare_msearch_query(query)
+                response = es.msearch(index=settings.TAZBOARD_ELASTIC_INDEX, body=body)
+                with open(get_mock_filepath_for_query(query), 'w') as outfile:
+                    outfile.write(json.dumps(response, indent=4))
+                # put aside one sample for e2e tests
+                if index == 0:
+                    with open(get_mock_test_sample_path_for_query_function(query_fn), 'w') as outfile:
+                        outfile.write(json.dumps(response, indent=4))
+
+    # handle 1st step of toplist/fireplace
+    def handle_1st_step_queries(self):
+        for config in self.query_1step_configs:
             for index, arguments in enumerate(config['arguments']):
                 query_fn = config['get_query']
                 query = query_fn(*arguments)
@@ -155,7 +175,8 @@ class Command(BaseCommand):
                 arguments = list(arguments)
                 arguments.insert(0, msids_hits)
                 query = query_fn(*arguments)
-                response = search_or_raise_api_exception(query)
+                body = prepare_msearch_query(query)
+                response = es.msearch(index=settings.TAZBOARD_ELASTIC_INDEX, body=body)
                 with open(get_mock_filepath_for_query(query), 'w') as outfile:
                     outfile.write(json.dumps(response, indent=4))
                 # put aside one sample for e2e tests
