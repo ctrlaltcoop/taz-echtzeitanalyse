@@ -54,7 +54,7 @@ class TotalTestCase(LiveServerTestCase):
         self.assertEquals(response.status_code, 200)
         self.es_client.msearch.assert_called_once()
         get_total_query_spy.assert_called_once()
-        get_total_query_spy.assert_called_with(min_date, max_date)
+        get_total_query_spy.assert_called_with(min_date, max_date, msid=None)
 
     def test_expect_503_if_elastic_is_unavailable(self):
         min_date = MOCK_FAKE_NOW - timedelta(days=1)
