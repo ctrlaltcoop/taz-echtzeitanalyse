@@ -56,6 +56,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'tazboard.core.wsgi.application'
 DATABASES = {}
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+}
+
 REST_FRAMEWORK = {
     'UNAUTHENTICATED_USER': None,
     'DEFAULT_PERMISSION_CLASSES': [],
