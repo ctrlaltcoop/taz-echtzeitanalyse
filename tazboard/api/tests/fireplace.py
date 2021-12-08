@@ -37,34 +37,9 @@ class FireplaceTestCase(LiveServerTestCase):
         self.patcher_elastic.stop()
         self.patcher_msearch_utils.stop()
 
-    def test_fireplace_response(self):
-        min_date = MOCK_FAKE_NOW - timedelta(minutes=10)
-        max_date = MOCK_FAKE_NOW
-        response = self.client.get('/api/v1/fireplace', {
-            'min_date': min_date.isoformat(),
-            'max_date': max_date.isoformat(),
-        })
-        data = response.json()
-        self.assertIn('data', data)
-        self.assertGreater(len(data['data']), 0)
-        self.assertEqual(response.status_code, 200)
-
     def test_fireplace_400_without_timeframe(self):
         response = self.client.get('/api/v1/fireplace')
         self.assertEqual(response.status_code, 400)
-
-    @patch('tazboard.api.views.get_fireplace_query')
-    def test_fireplace_with_limit(self, get_fireplace_query_spy):
-        min_date = MOCK_FAKE_NOW - timedelta(hours=24)
-        max_date = MOCK_FAKE_NOW
-        response = self.client.get('/api/v1/fireplace', {
-            'min_date': min_date.isoformat(),
-            'max_date': max_date.isoformat()
-        })
-        self.assertEquals(response.status_code, 200)
-        self.es_client.msearch.assert_called_once()
-        get_fireplace_query_spy.assert_called_once()
-        get_fireplace_query_spy.assert_called_with(min_date, max_date)
 
     def test_expect_503_if_elastic_is_unavailable(self):
         min_date = MOCK_FAKE_NOW - timedelta(days=1)

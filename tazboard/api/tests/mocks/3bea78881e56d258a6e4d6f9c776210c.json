@@ -1,0 +1,105 @@
+{
+    "took": 1420,
+    "responses": [
+        {
+            "took": 1420,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 10000,
+                    "relation": "gte"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_REFERRER_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": null
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 27279,
+                    "buckets": [
+                        {
+                            "key": "Unbekannt",
+                            "doc_count": 4682768,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 865024
+                            }
+                        },
+                        {
+                            "key": "taz",
+                            "doc_count": 1025446,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 353111
+                            }
+                        },
+                        {
+                            "key": "Google",
+                            "doc_count": 921725,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 714157
+                            }
+                        },
+                        {
+                            "key": "Pocket",
+                            "doc_count": 648900,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 507720
+                            }
+                        },
+                        {
+                            "key": "Facebook",
+                            "doc_count": 126018,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 104260
+                            }
+                        },
+                        {
+                            "key": "Twitter",
+                            "doc_count": 61952,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 46554
+                            }
+                        },
+                        {
+                            "key": "Andere kleine Referrer",
+                            "doc_count": 50887,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 34840
+                            }
+                        },
+                        {
+                            "key": "Flipboard",
+                            "doc_count": 31602,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 24335
+                            }
+                        },
+                        {
+                            "key": "Bing",
+                            "doc_count": 16455,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 14422
+                            }
+                        },
+                        {
+                            "key": "DuckDuckGo",
+                            "doc_count": 11352,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 9117
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        }
+    ]
+}

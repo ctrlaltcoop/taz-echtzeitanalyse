@@ -1,6 +1,6 @@
 from tazboard.api.queries.constants import KEY_FINGERPRINT_AGGREGATION, KEY_TIMEFRAME_AGGREGATION, \
     KEY_TREND_AGGREGATION, KEY_ARTICLE_COUNT_AGGREGATION, KEY_REFERRER_AGGREGATION, \
-    KEY_DEVICES_AGGREGATION
+    KEY_DEVICES_AGGREGATION, KEY_METADATA_FIELD_MSID, KEY_TOPLIST_AGGREGATION
 
 
 def maybe_add_msid_filter(msid, query):
@@ -103,48 +103,44 @@ def get_ranges(interval_start, interval_mid, interval_end):
     }
 
 
-def get_referrer_aggregation(start, end):
+def get_referrer_aggregation(msid=None):
     return {
         "terms": {
             "field": "referrerlabel"
         },
         "aggs": {
             KEY_TIMEFRAME_AGGREGATION: {
-                "filter": {
-                    "range": {
-                        "@timestamp": {
-                            "gte": start.isoformat(),
-                            "lte": end.isoformat()
-                        },
-                    },
-                },
+                "cardinality": {
+                    "field": "fingerprint"
+                }
             }
+        },
+        "meta": {
+            KEY_METADATA_FIELD_MSID: msid
         }
     }
 
 
-def get_devices_aggregation(start, end):
+def get_devices_aggregation(msid=None):
     return {
         "terms": {
             "field": "deviceclass"
         },
         "aggs": {
             KEY_TIMEFRAME_AGGREGATION: {
-                "filter": {
-                    "range": {
-                        "@timestamp": {
-                            "gte": start.isoformat(),
-                            "lte": end.isoformat()
-                        },
-                    },
+                "cardinality": {
+                    "field": "fingerprint"
                 }
             }
+        },
+        "meta": {
+            KEY_METADATA_FIELD_MSID: msid
         }
     }
 
 
-def get_interval_filter_exclude_bots(interval_start, interval_end):
-    return {
+def get_interval_filter_exclude_bots(interval_start, interval_end, exists_msid=False, msid=None):
+    query = {
         "bool": {
             "filter": [
                 {
@@ -154,26 +150,33 @@ def get_interval_filter_exclude_bots(interval_start, interval_end):
                             "lte": interval_end.isoformat()
                         }
                     }
-                }
-            ],
-            "must": [
+                },
                 {
-                    "exists": {
-                        "field": "msid"
+                    "match_phrase": {
+                        "reloaded": "false"
+                    }
+                },
+                {
+                    "match_phrase": {
+                        "tazlocal": "false"
                     }
                 }
             ],
+            "minimum_should_match": 1,
+            "should": [
+                {
+                    "match_phrase": {
+                        "DoNotTrack": "\"0\""
+                    }
+                },
+                {
+                    "match_phrase": {
+                        "DoNotTrack": "\"-\""
+                    }
+                }
+            ],
+            "must": [],
             "must_not": [
-                {
-                    "match_phrase": {
-                        "reloaded": "true"
-                    }
-                },
-                {
-                    "match_phrase": {
-                        "tazlocal": "true"
-                    }
-                },
                 {
                     "match_phrase": {
                         "device": {
@@ -184,6 +187,21 @@ def get_interval_filter_exclude_bots(interval_start, interval_end):
             ]
         }
     }
+    if msid:
+        msid_filter = {
+            "match_phrase": {
+                "msid": msid
+            }
+        }
+        query['bool']['filter'].append(msid_filter)
+    if exists_msid:
+        exists_msid = {
+                "exists": {
+                    "field": "msid"
+                }
+        }
+        query['bool']['must'].append(exists_msid)
+    return query
 
 
 def get_interval_filter_exclude_bots_with_msids(interval_start, interval_end, msids):
@@ -198,7 +216,7 @@ def get_interval_filter_exclude_bots_with_msids(interval_start, interval_end, ms
     return base_query
 
 
-def get_subject_aggregation(start, end, limit=10):
+def get_subject_aggregation(limit=10):
     return {
         "terms": {
             "field": "schwerpunkte",
@@ -218,7 +236,32 @@ def get_subject_aggregation(start, end, limit=10):
                     "field": "msid",
                 }
             },
-            KEY_REFERRER_AGGREGATION: get_referrer_aggregation(start, end),
-            KEY_DEVICES_AGGREGATION: get_devices_aggregation(start, end)
+            KEY_REFERRER_AGGREGATION: get_referrer_aggregation(),
+            KEY_DEVICES_AGGREGATION: get_devices_aggregation()
         }
     }
+
+
+def get_hits_interval_msid(min_date, max_date, msid):
+    query = {
+        "aggs": {
+            KEY_TOPLIST_AGGREGATION: {
+                "terms": {
+                    "field": "msid",
+                },
+                "aggs": {
+                    KEY_TREND_AGGREGATION: {
+                        "cardinality": {
+                            "field": "fingerprint"
+                        }
+                    }
+                },
+                "meta": {
+                    KEY_METADATA_FIELD_MSID: msid
+                }
+            }
+        },
+        "size": '0',
+        "query": get_interval_filter_exclude_bots(min_date, max_date, msid=msid)
+    }
+    return query

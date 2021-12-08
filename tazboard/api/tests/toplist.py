@@ -25,7 +25,7 @@ class ToplistTestCase(LiveServerTestCase):
         self.prepare_msearch_query = self.patcher_msearch_utils.start()
         self.prepare_msearch_query = MagicMock(return_value='{bla}')
 
-        self.cxml_patcher = patch('tazboard.api.transformers.parse_article_metadata')
+        self.cxml_patcher = patch('tazboard.api.transformers.get_article_metadata')
         self.cxml_parse_metadata = self.cxml_patcher.start()
         self.cxml_parse_metadata.return_value = ['Some Headline', 'Some Kicker', MOCK_FAKE_NOW]
 
@@ -34,49 +34,9 @@ class ToplistTestCase(LiveServerTestCase):
         self.cxml_patcher.stop()
         self.patcher_msearch_utils.stop()
 
-    def test_toplist_response(self):
-        min_date = MOCK_FAKE_NOW - timedelta(minutes=10)
-        max_date = MOCK_FAKE_NOW
-        response = self.client.get('/api/v1/toplist', {
-            'min_date': min_date.isoformat(),
-            'max_date': max_date.isoformat(),
-        })
-        data = response.json()
-        self.assertIn('data', data)
-        self.assertGreater(len(data['data']), 0)
-        self.assertEqual(response.status_code, 200)
-
     def test_toplist_400_without_timeframe(self):
         response = self.client.get('/api/v1/toplist')
         self.assertEqual(response.status_code, 400)
-
-    @patch('tazboard.api.views.get_toplist_query')
-    def test_toplist_with_limit(self, get_toplist_query_spy):
-        min_date = MOCK_FAKE_NOW - timedelta(hours=24)
-        max_date = MOCK_FAKE_NOW
-        response = self.client.get('/api/v1/toplist', {
-            'min_date': min_date.isoformat(),
-            'max_date': max_date.isoformat(),
-            'limit': 25
-        })
-        self.assertEquals(response.status_code, 200)
-        self.es_client.msearch.assert_called_once()
-        get_toplist_query_spy.assert_called_once()
-        get_toplist_query_spy.assert_called_with(min_date, max_date, 25, None)
-
-    @patch('tazboard.api.views.get_toplist_query')
-    def test_toplist_with_subject(self, get_toplist_query_spy):
-        min_date = MOCK_FAKE_NOW - timedelta(hours=24)
-        max_date = MOCK_FAKE_NOW
-        response = self.client.get('/api/v1/toplist', {
-            'min_date': min_date.isoformat(),
-            'max_date': max_date.isoformat(),
-            'subject': 'Foosubject'
-        })
-        self.assertEquals(response.status_code, 200)
-        self.es_client.msearch.assert_called_once()
-        get_toplist_query_spy.assert_called_once()
-        get_toplist_query_spy.assert_called_with(min_date, max_date, 10, 'Foosubject')
 
     def test_expect_503_if_elastic_is_unavailable(self):
         min_date = MOCK_FAKE_NOW - timedelta(days=1)
@@ -97,14 +57,3 @@ class ToplistTestCase(LiveServerTestCase):
             'max_date': max_date.isoformat()
         })
         self.assertEquals(response.status_code, 500)
-
-    def test_on_successful_query_returns_article_metadata(self):
-        min_date = MOCK_FAKE_NOW - timedelta(minutes=10)
-        max_date = MOCK_FAKE_NOW
-        response = self.client.get('/api/v1/toplist', {
-            'min_date': min_date.isoformat(),
-            'max_date': max_date.isoformat(),
-        })
-        data = response.json()
-        self.assertEqual(response.status_code, 200)
-        self.assertEquals('Some Headline', data['data'][0]['headline'])

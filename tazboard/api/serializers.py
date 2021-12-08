@@ -52,8 +52,18 @@ class ToplistSerializer(serializers.Serializer):
     data = ArticleDataSerializer(many=True)
 
 
+class ToplistMsidSerializer(serializers.Serializer):
+    msid = serializers.IntegerField()
+    hits = serializers.IntegerField()
+
+
 class FireplaceSerializer(serializers.Serializer):
     data = ArticleDataSerializer(many=True)
+
+
+class FireplaceMsidSerializer(serializers.Serializer):
+    msid = serializers.IntegerField()
+    hits = serializers.IntegerField()
 
 
 class TotalSerializer(serializers.Serializer):

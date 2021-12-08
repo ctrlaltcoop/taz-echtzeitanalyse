@@ -24,7 +24,7 @@
 import Vue from 'vue'
 
 import { ApiClient } from '@/client/ApiClient'
-import { getTimeframeById, TimeframeMixin } from '@/common/timeframe'
+import { TimeframeMixin } from '@/common/timeframe'
 import { SubjectsData } from '@/dto/SubjectsDto'
 import { LoadingState } from '@/common/LoadingState'
 import ReferrerBar from '@/components/graphs/charts/ReferrerBar.vue'

@@ -1,0 +1,56 @@
+{
+    "took": 25,
+    "responses": [
+        {
+            "took": 25,
+            "timed_out": false,
+            "_shards": {
+                "total": 120,
+                "successful": 120,
+                "skipped": 0,
+                "failed": 0
+            },
+            "hits": {
+                "total": {
+                    "value": 10000,
+                    "relation": "gte"
+                },
+                "max_score": null,
+                "hits": []
+            },
+            "aggregations": {
+                "KEY_DEVICES_AGGREGATION": {
+                    "meta": {
+                        "KEY_METADATA_FIELD_MSID": null
+                    },
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 0,
+                    "buckets": [
+                        {
+                            "key": "Desktop",
+                            "doc_count": 18020,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 9377
+                            }
+                        },
+                        {
+                            "key": "Mobil",
+                            "doc_count": 11049,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 9301
+                            }
+                        },
+                        {
+                            "key": "Unklar",
+                            "doc_count": 1173,
+                            "KEY_TIMEFRAME_AGGREGATION": {
+                                "value": 172
+                            }
+                        }
+                    ]
+                }
+            },
+            "status": 200
+        }
+    ]
+}
