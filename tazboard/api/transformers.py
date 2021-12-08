@@ -185,19 +185,6 @@ def _responses_to_article_data(es_response, msids_data):
     return list(article_data.values())
 
 
-def _toplist_msid_response_to_msids(article_buckets):
-    msids_data = []
-    for bucket in article_buckets:
-        msid = get_dict_path_safe(bucket, 'key')
-        hits = bucket[KEY_TIMEFRAME_AGGREGATION]['value']
-        msid_hits = {
-            'msid': msid,
-            'hits': hits
-        }
-        msids_data.append(msid_hits)
-    return msids_data
-
-
 def elastic_toplist_msid_response_to_toplist(es_response):
     msids_data = []
     buckets = es_response['aggregations'][KEY_TOPLIST_AGGREGATION]['buckets']
