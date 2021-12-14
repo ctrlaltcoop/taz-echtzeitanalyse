@@ -12,24 +12,10 @@ from tazboard.api.utils.list import get_index_or_none
 from tazboard.api.utils.metadata import get_article_metadata
 
 
-def _transform_ranges(buckets):
-    return {
-        'hits': buckets[KEY_TIMEFRAME_AGGREGATION]['doc_count'],
-        'hits_previous': buckets[KEY_TREND_AGGREGATION]['doc_count']
-    }
-
-
 def _transform_ranges_with_fingerprint_aggregation(buckets):
     return {
         'hits': buckets[KEY_TIMEFRAME_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value'],
         'hits_previous': buckets[KEY_TREND_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value']
-    }
-
-
-def _transform_ranges_for_total(buckets):
-    return {
-        'hits': buckets[KEY_TIMEFRAME_AGGREGATION]['doc_count'],
-        'hits_previous': buckets[KEY_TREND_AGGREGATION]['doc_count']
     }
 
 
@@ -229,7 +215,7 @@ def elastic_fireplace_msid_hits_response_to_fireplace_msids_hits(response_msids_
 
 
 def elastic_total_response_total(es_response):
-    data = _transform_ranges(es_response['aggregations'])
+    data = _transform_ranges_with_fingerprint_aggregation(es_response['aggregations'])
     return {
         'total': data['hits'],
         'total_previous': data['hits_previous'],
