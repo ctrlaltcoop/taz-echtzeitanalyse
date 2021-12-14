@@ -221,7 +221,7 @@ def get_subject_aggregation(limit=10):
         "terms": {
             "field": "schwerpunkte",
             "order": {
-                "_count": "desc"
+                KEY_FINGERPRINT_AGGREGATION: "desc"
             },
             "size": str(limit)
         },
