@@ -12,24 +12,10 @@ from tazboard.api.utils.list import get_index_or_none
 from tazboard.api.utils.metadata import get_article_metadata
 
 
-def _transform_ranges(buckets):
-    return {
-        'hits': buckets[KEY_TIMEFRAME_AGGREGATION]['doc_count'],
-        'hits_previous': buckets[KEY_TREND_AGGREGATION]['doc_count']
-    }
-
-
 def _transform_ranges_with_fingerprint_aggregation(buckets):
     return {
         'hits': buckets[KEY_TIMEFRAME_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value'],
         'hits_previous': buckets[KEY_TREND_AGGREGATION][KEY_FINGERPRINT_AGGREGATION]['value']
-    }
-
-
-def _transform_ranges_for_total(buckets):
-    return {
-        'hits': buckets[KEY_TIMEFRAME_AGGREGATION]['doc_count'],
-        'hits_previous': buckets[KEY_TREND_AGGREGATION]['doc_count']
     }
 
 

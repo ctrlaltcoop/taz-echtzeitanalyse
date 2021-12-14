@@ -78,31 +78,6 @@ def get_fingerprint_aggregation_with_ranges(interval_start, interval_mid, interv
     }
 
 
-def get_ranges(interval_start, interval_mid, interval_end):
-    return {
-        KEY_TIMEFRAME_AGGREGATION: {
-            "filter": {
-                "range": {
-                    "@timestamp": {
-                        "gte": interval_mid.isoformat(),
-                        "lte": interval_end.isoformat()
-                    },
-                },
-            },
-        },
-        KEY_TREND_AGGREGATION: {
-            "filter": {
-                "range": {
-                    "@timestamp": {
-                        "gte": interval_start.isoformat(),
-                        "lte": interval_mid.isoformat()
-                    },
-                },
-            },
-        }
-    }
-
-
 def get_referrer_aggregation(msid=None):
     return {
         "terms": {
